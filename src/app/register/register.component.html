@@ -1,0 +1,59 @@
+<form (ngSubmit)="onSignin(f)" #f="ngForm">
+    <div class="form-row">
+      <div class="form-group col-md-6 col-xs-12">
+        <label for="email">Email</label>
+        <input type="email" 
+        class="form-control" 
+        id="email" 
+        placeholder="Email"
+        name="Email" 
+        ngModel
+        required
+        #email="ngModel">
+        <span class="help-block" *ngIf="!email.valid && email.touched">Please Enter a valid Email!</span>
+      </div>
+      <div class="form-group col-md-6  col-xs-12">
+        <label for="password">Password</label>
+        <input type="password" 
+        class="form-control" 
+        id="password" 
+        placeholder="Password"
+        name="Password" 
+        ngModel
+        required
+        minlength="6"
+        #password="ngModel">
+        <span class="help-block" *ngIf="!password.valid && password.touched">Please Enter valid Password!</span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="address">Phone Number</label>
+      <input type="text" 
+      class="form-control" 
+      id="address" 
+      placeholder="Mobile Number"
+      name="Number" 
+      ngModel
+      required
+      pattern="^[0-9]*$"
+      maxlength="10"
+      minlength="10"
+      #number="ngModel">
+      <span class="help-block" *ngIf="!number.valid && number.touched">Please Enter 10 Digit Mobile number!</span>
+    </div>
+      <div class="form-group">
+        <label for="type">Login Type</label>
+        <select 
+        id="type" 
+        class="form-control" 
+        name="control" 
+        ngModel
+        required #type="ngModel">
+        <option selected>Visitors</option>
+        <option>Customer</option>
+        <option>Boat Drivers</option>
+        </select>
+        <span class="help-block" *ngIf="!type.valid && type.touched">Please Select Type of Login!</span>
+      </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!f.valid">Register</button>
+  </form>

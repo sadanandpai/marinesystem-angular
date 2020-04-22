@@ -1,0 +1,28 @@
+<form (ngSubmit)="onLogin(f)" #f="ngForm">
+    <div class="form-group">
+        <label for="email">Email address</label>
+        <input type="email"
+        class="form-control" 
+        id="email" 
+        name="email" 
+        placeholder="Enter email" 
+        ngModel
+        required>
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" 
+        class="form-control" 
+        id="password" 
+        name="password" 
+        placeholder="Password" 
+        ngModel
+        required>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-warning" [disabled]="!f.valid">LOGIN</button>
+    </div>
+    <div class="form-group">
+        <button type="button" class="btn btn-sm btn-primary" (click)="onRegister()">Register Now</button>
+    </div>
+</form>
