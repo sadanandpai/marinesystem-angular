@@ -1,3 +1,19 @@
 {
-    
+    "Home": "Home",
+    "LOGIN": "LOGIN",
+    "Start Your Fishing Now!": "Start Your Fishing Now!",
+    "Email address": "Email address",
+    "Password": "Password",
+    "Register Now": "Register Now",
+    "Email": "Email",
+    "Please Enter a valid Email!": "Please Enter a valid Email!",
+    "Please Enter valid Password!": "Please Enter valid Password!",
+    "Phone Number": "Phone Number",
+    "Please Enter 10 Digit Mobile number!": "Please Enter 10 Digit Mobile number!",
+    "Login Type": "Login Type",
+    "Visitors": "Visitors",
+    "Customer": "Customer",
+    "Please Select Type of Login!": "Please Select Type of Login!",
+    "Register": "Register"
+
 }

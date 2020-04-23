@@ -1,7 +1,7 @@
 <form (ngSubmit)="onSignin(f)" #f="ngForm">
     <div class="form-row">
       <div class="form-group col-md-6 col-xs-12">
-        <label for="email">Email</label>
+        <label for="email">{{ "Email" | translate }}</label>
         <input type="email" 
         class="form-control" 
         id="email" 
@@ -10,10 +10,10 @@
         ngModel
         required
         #email="ngModel">
-        <span class="help-block" *ngIf="!email.valid && email.touched">Please Enter a valid Email!</span>
+        <span class="help-block" *ngIf="!email.valid && email.touched">{{ "Please Enter a valid Email!" | translate }}</span>
       </div>
       <div class="form-group col-md-6  col-xs-12">
-        <label for="password">Password</label>
+        <label for="password">{{ "Password" | translate }}</label>
         <input type="password" 
         class="form-control" 
         id="password" 
@@ -23,14 +23,14 @@
         required
         minlength="6"
         #password="ngModel">
-        <span class="help-block" *ngIf="!password.valid && password.touched">Please Enter valid Password!</span>
+        <span class="help-block" *ngIf="!password.valid && password.touched">{{ "Please Enter valid Password!" | translate }}</span>
       </div>
     </div>
     <div class="form-group">
-      <label for="address">Phone Number</label>
+      <label for="number">{{ "Phone Number" | translate }}</label>
       <input type="text" 
       class="form-control" 
-      id="address" 
+      id="number" 
       placeholder="Mobile Number"
       name="Number" 
       ngModel
@@ -39,21 +39,21 @@
       maxlength="10"
       minlength="10"
       #number="ngModel">
-      <span class="help-block" *ngIf="!number.valid && number.touched">Please Enter 10 Digit Mobile number!</span>
+      <span class="help-block" *ngIf="!number.valid && number.touched">{{ "Please Enter 10 Digit Mobile number!" | translate }}</span>
     </div>
       <div class="form-group">
-        <label for="type">Login Type</label>
+        <label for="type">{{ "Login Type" | translate }}</label>
         <select 
         id="type" 
         class="form-control" 
         name="control" 
         ngModel
         required #type="ngModel">
-        <option selected>Visitors</option>
-        <option>Customer</option>
-        <option>Boat Drivers</option>
+        <option selected>{{ "Visitors" | translate }}</option>
+        <option>{{ "Customer" | translate }}</option>
+        <option>{{ "Boat Drivers" | translate }}</option>
         </select>
-        <span class="help-block" *ngIf="!type.valid && type.touched">Please Select Type of Login!</span>
+        <span class="help-block" *ngIf="!type.valid && type.touched">{{ "Please Select Type of Login!" | translate }}</span>
       </div>
-    <button type="submit" class="btn btn-primary" [disabled]="!f.valid">Register</button>
+    <button type="submit" class="btn btn-primary" [disabled]="!f.valid">{{ "Register" | translate }}</button>
   </form>
