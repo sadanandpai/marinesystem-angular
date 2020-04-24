@@ -1,0 +1,69 @@
+<form (ngSubmit)="onSignup(f)" #f="ngForm">
+  <div class="form-group col-xs-12">
+    <label for="email">{{ "Email" | translate }}</label>
+    <input type="email" 
+    class="form-control" 
+    id="email" 
+    placeholder="Email"
+    name="email" 
+    ngModel
+    required
+    #email="ngModel">
+    <span class="help-block" *ngIf="!email.valid && email.touched">{{ "Please Enter a valid Email!" | translate }}</span>
+  </div>
+  <div class="form-group col-xs-12">
+    <label for="username">{{ "Username" | translate }}</label>
+    <input type="username" 
+    class="form-control" 
+    id="username" 
+    placeholder="Username"
+    name="username" 
+    ngModel
+    required
+    #username="ngModel">
+    <span class="help-block" *ngIf="!username.valid && username.touched">{{ "Please Enter a valid Username!" | translate }}</span>
+  </div>
+  <!-- <div class="form-group col-xs-12">
+    <label for="password">{{ "Password" | translate }}</label>
+    <input type="password" 
+    class="form-control" 
+    id="password" 
+    placeholder="Password"
+    name="password" 
+    ngModel
+    required
+    minlength="6"
+    #password="ngModel">
+    <span class="help-block" *ngIf="!password.valid && password.touched">{{ "Please Enter valid Password!" | translate }}</span>
+  </div> 
+  <div class="form-group">
+    <label for="number">{{ "Phone Number" | translate }}</label>
+    <input type="text" 
+    class="form-control" 
+    id="number" 
+    placeholder="Mobile Number"
+    name="number" 
+    ngModel
+    required
+    pattern="^[0-9]*$"
+    maxlength="10"
+    minlength="10"
+    #number="ngModel">
+    <span class="help-block" *ngIf="!number.valid && number.touched">{{ "Please Enter 10 Digit Mobile number!" | translate }}</span>
+  </div>
+    <div class="form-group">
+      <label for="type">{{ "Login Type" | translate }}</label>
+      <select 
+      id="type" 
+      class="form-control" 
+      name="control" 
+      ngModel
+      required #type="ngModel">
+      <option selected>{{ "Visitors" | translate }}</option>
+      <option>{{ "Customer" | translate }}</option>
+      <option>{{ "Boat Drivers" | translate }}</option>
+      </select>
+      <span class="help-block" *ngIf="!type.valid && type.touched">{{ "Please Select Type of Login!" | translate }}</span>
+    </div> -->
+  <button type="submit" class="btn btn-primary" [disabled]="!f.valid">{{ "Register" | translate }}</button>
+</form>
