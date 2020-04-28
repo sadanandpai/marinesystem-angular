@@ -1,10 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
-
-import { LoggingService } from '../logging.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from '../../shared/user.model';
-import { DataStorageService } from '../../shared/data-storage.service';
+
 
 @Component({
   selector: 'app-register',
@@ -13,24 +11,30 @@ import { DataStorageService } from '../../shared/data-storage.service';
 })
 export class RegisterComponent implements OnInit {
 @ViewChild('f') userForm: NgForm;
-  constructor(private http: HttpClient,
-              private loggingService: LoggingService,
-              private dataStorageService: DataStorageService) { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
   }
 
   onSignup(form: NgForm){
     const value = form.value;
-    const newUser = new User(value.username, value.email);
-    this.loggingService.addUser(newUser);
-    this.dataStorageService.storeUserData();
-    //add to database
-    // this.http.post('http://localhost:8000/users/', form).subscribe(
-    //   responseData => {
-    //     console.log(responseData);
-    //   });
-    //reset page
+    const newUser = new User(value.email, value.username, value.password);
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+  });
+    this.http.post('http://localhost:8000/users/', newUser, { headers: headers })
+    .subscribe(responseData => {
+      alert("User Added Successfully!!!");
+        console.log(responseData);
+    }, responseData => {
+      alert("Invalid Email/ Username already exists!!!");
+  });
 
+  this.http.get('http://localhost:8000/users/')
+    .subscribe(responseData => {
+        console.log(responseData);
+    }, responseData => {
+      console.log("failed....!");
+  });
   }
 }

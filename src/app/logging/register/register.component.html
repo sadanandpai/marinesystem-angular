@@ -23,7 +23,7 @@
     #username="ngModel">
     <span class="help-block" *ngIf="!username.valid && username.touched">{{ "Please Enter a valid Username!" | translate }}</span>
   </div>
-  <!-- <div class="form-group col-xs-12">
+  <div class="form-group col-xs-12">
     <label for="password">{{ "Password" | translate }}</label>
     <input type="password" 
     class="form-control" 
@@ -34,8 +34,9 @@
     required
     minlength="6"
     #password="ngModel">
-    <span class="help-block" *ngIf="!password.valid && password.touched">{{ "Please Enter valid Password!" | translate }}</span>
+    <span class="help-block" *ngIf="!password.valid && password.touched">{{ "Please Enter minimum 6 letters length Password!" | translate }}</span>
   </div> 
+  <!-- 
   <div class="form-group">
     <label for="number">{{ "Phone Number" | translate }}</label>
     <input type="text" 
