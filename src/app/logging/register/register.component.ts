@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+
 import { User } from '../../shared/user.model';
 
 
@@ -25,16 +26,9 @@ export class RegisterComponent implements OnInit {
     this.http.post('http://localhost:8000/users/', newUser, { headers: headers })
     .subscribe(responseData => {
       alert("User Added Successfully!!!");
-        console.log(responseData);
     }, responseData => {
-      alert("Invalid Email/ Username already exists!!!");
+      alert("Invalid Email / Username already exists!!!");
   });
 
-  this.http.get('http://localhost:8000/users/')
-    .subscribe(responseData => {
-        console.log(responseData);
-    }, responseData => {
-      console.log("failed....!");
-  });
   }
 }
