@@ -25,10 +25,17 @@ export class RegisterComponent implements OnInit {
   });
     this.http.post('http://localhost:8000/users/', newUser, { headers: headers })
     .subscribe(responseData => {
-      alert("User Added Successfully!!!");
-    }, responseData => {
-      alert("Invalid Email / Username already exists!!!");
+      // alert("User Added Successfully!!!");
+        console.log(responseData);
+    }, error => {
+      console.log(error);
+      // alert("Invalid Email/ Username already exists!!!");
   });
 
+  // this.http.get('http://localhost:8000/users/')
+  //   .subscribe(responseData => {
+  //     // alert("User Added Successfully!!!");
+  //       console.log(responseData);
+  //   });
   }
 }

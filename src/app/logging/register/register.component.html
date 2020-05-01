@@ -13,7 +13,7 @@
   </div>
   <div class="form-group col-xs-12">
     <label for="username">{{ "Username" | translate }}</label>
-    <input type="username" 
+    <input type="text" 
     class="form-control" 
     id="username" 
     placeholder="Username"
@@ -32,9 +32,9 @@
     name="password" 
     ngModel
     required
-    minlength="6"
+    minlength="8"
     #password="ngModel">
-    <span class="help-block" *ngIf="!password.valid && password.touched">{{ "Please Enter minimum 6 letters length Password!" | translate }}</span>
+    <span class="help-block" *ngIf="!password.valid && password.touched">{{ "Password should be minimum 8letters length!" | translate }}</span>
   </div> 
   <!-- 
   <div class="form-group">

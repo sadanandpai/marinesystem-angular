@@ -13,6 +13,8 @@ import { HeaderComponent } from './header/header.component';
 import { LoginComponent } from './logging/login/login.component';
 import { RegisterComponent } from './logging/register/register.component';
 import { HomeComponent } from './home/home.component';
+import { FishdetailsComponent } from './fishdetails/fishdetails.component';
+
 
 
 
@@ -27,7 +29,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     LoginComponent, 
     HeaderComponent, 
     RegisterComponent, 
-    HomeComponent
+    HomeComponent, FishdetailsComponent
   ],
   imports: [
     BrowserModule,
