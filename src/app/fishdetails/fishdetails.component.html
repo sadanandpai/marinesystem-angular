@@ -13,43 +13,55 @@
   </div> -->
   <div class="form-group col-xs-12">
     <label for="fishid">{{ "Fish ID" | translate }}</label>
-    <input type="text" 
-    class="form-control" 
-    id="fishid" 
-    placeholder="Fish ID"
-    name="fishid" 
-    ngModel
-    required
-    #name="ngModel">
-    <span class="help-block" *ngIf="!name.valid && name.touched">{{ "Please Enter a valid Fish ID!" | translate }}</span>
-  </div>
-    <div class="form-group col-xs-12">
-      <label for="size">{{ "Fish size" | translate }}</label>
-      <input type="text" 
-      class="form-control" 
-      id="size" 
-      placeholder="Fish weight"
-      pattern="^[0-9]*$"
-      name="size" 
+    <input
+      type="text"
+      class="form-control"
+      id="fishid"
+      placeholder="Fish ID"
+      name="fishid"
       ngModel
       required
-      #size="ngModel">
-      <span class="help-block" *ngIf="!size.valid && size.touched">{{ "Please Enter a valid Weight of Fish!" | translate }}</span>
-    </div>
-    <div class="form-group col-xs-12">
-        <label for="price">{{ "Fish Price" | translate }}</label>
-        <input type="text" 
-        class="form-control" 
-        id="price" 
-        placeholder="Fish Price"
-        pattern="^[0-9]*$"
-        name="price" 
-        ngModel
-        required
-        #price="ngModel">
-        <span class="help-block" *ngIf="!price.valid && price.touched">{{ "Please Enter a valid Price of Fish!" | translate }}</span>
-    </div>
-    <!-- <div class="form-group">
+      #name="ngModel"
+    />
+    <span class="help-block" *ngIf="!name.valid && name.touched">{{
+      "Please Enter a valid Fish ID!" | translate
+    }}</span>
+  </div>
+  <div class="form-group col-xs-12">
+    <label for="size">{{ "Fish size" | translate }}</label>
+    <input
+      type="text"
+      class="form-control"
+      id="size"
+      placeholder="Fish weight"
+      pattern="^[0-9]*$"
+      name="size"
+      ngModel
+      required
+      #size="ngModel"
+    />
+    <span class="help-block" *ngIf="!size.valid && size.touched">{{
+      "Please Enter a valid Weight of Fish!" | translate
+    }}</span>
+  </div>
+  <div class="form-group col-xs-12">
+    <label for="price">{{ "Fish Price" | translate }}</label>
+    <input
+      type="text"
+      class="form-control"
+      id="price"
+      placeholder="Fish Price"
+      pattern="^[0-9]*$"
+      name="price"
+      ngModel
+      required
+      #price="ngModel"
+    />
+    <span class="help-block" *ngIf="!price.valid && price.touched">{{
+      "Please Enter a valid Price of Fish!" | translate
+    }}</span>
+  </div>
+  <!-- <div class="form-group">
         <label for="type">{{ "Status" | translate }}</label><br>
         <input 
         type="radio"
@@ -69,5 +81,7 @@
         ngModel>
         <label for="type">{{ "Inactive" | translate }}</label>
     </div> -->
-    <button type="submit" class="btn btn-primary" [disabled]="!f.valid">{{ "Submit" | translate }}</button>
-  </form>
+  <button type="submit" class="btn btn-primary" [disabled]="!f.valid">
+    {{ "Submit" | translate }}
+  </button>
+</form>

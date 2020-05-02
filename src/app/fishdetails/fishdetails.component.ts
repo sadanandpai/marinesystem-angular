@@ -3,16 +3,15 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { NgForm } from '@angular/forms';
 import { Fish } from './fish.model';
 
-
 @Component({
   selector: 'app-fishdetails',
   templateUrl: './fishdetails.component.html',
-  styleUrls: ['./fishdetails.component.css']
+  styleUrls: ['./fishdetails.component.css'],
 })
 export class FishdetailsComponent implements OnInit {
   @ViewChild('f') fishForm: NgForm;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
     // this.fishForm.setValue({
@@ -20,19 +19,30 @@ export class FishdetailsComponent implements OnInit {
     // })
   }
 
-  fishDetails(form: NgForm){
+  fishDetails(form: NgForm) {
     const value = form.value;
-    const newFish = new Fish(1, value.fishid, value.size, value.minprice, 'Active');
+
+    const data = {
+      fish_id: value.fishid,
+      fish_size: value.size,
+      fish_price: value.price,
+      status: true,
+    };
     let headers = new HttpHeaders({
       'Content-Type': 'application/json',
-  });
-    this.http.post('http://localhost:8000/portal/fish/', newFish, { headers: headers })
-    .subscribe(responseData => {
-        console.log(responseData);
-    }, error => {
-      console.log(error);
-  });
-
+      'Authorization': 'Token ' + localStorage.getItem('token')
+    });
+    this.http
+      .post('http://localhost:8000/portal/fish_list/', data, {
+        headers: headers,
+      })
+      .subscribe(
+        (responseData) => {
+          console.log(responseData);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
   }
-
 }
