@@ -10,6 +10,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class LoginComponent implements OnInit {
   @ViewChild('f') loginForm: NgForm;
+  msg: Boolean;
 
   constructor(
     private router: Router,
@@ -34,6 +35,7 @@ export class LoginComponent implements OnInit {
         },
         (error) => {
           console.log('error', error);
+          this.msg = true;
         }
       );
     form.reset();

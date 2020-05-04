@@ -15,6 +15,17 @@
     "Visitors": "Visitors",
     "Customer": "Customer",
     "Please Select Type of Login!": "Please Select Type of Login!",
-    "Register": "Register"
+    "Register": "Register",
+    "Fish ID": "Fish ID",
+    "Please Enter a valid Fish ID!": "Please Enter a valid Fish ID!",
+    "Fish size": "Fish size",
+    "Please Enter a valid Weight of Fish!": "Please Enter a valid Weight of Fish!",
+    "Fish Price": "Fish Price",
+    "Please Enter a valid Price of Fish!": "Please Enter a valid Price of Fish!",
+    "Status": "Status",
+    "Submit": "Submit",
+    "Username Already Exists / Invalid Email": "Username Already Exists / Invalid Email",
+    "Failed to add Try again!":"Failed to add Try again!"
+    
 
 }

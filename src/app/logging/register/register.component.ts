@@ -12,6 +12,7 @@ import { User } from '../../shared/user.model';
 })
 export class RegisterComponent implements OnInit {
   @ViewChild('f') userForm: NgForm;
+  msg: Boolean;
   constructor(
     private http: HttpClient,
     private router: Router,
@@ -30,12 +31,17 @@ export class RegisterComponent implements OnInit {
       .post('http://localhost:8000/users/', newUser, { headers: headers })
       .subscribe(
         (responseData) => {
-          this.router.navigate(['register']), { relativeTo: this.route };
+          this.router.navigate(['login']), { relativeTo: this.route };
           console.log(responseData);
         },
         (error) => {
           console.log(error);
+          this.msg = true;
         }
       );
+  }
+
+  onClear(form: NgForm){
+    form.reset();
   }
 }

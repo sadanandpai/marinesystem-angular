@@ -1,26 +1,8 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { Inject } from '@angular/core';
+export interface Fish{
+fish_id: number,
+fish_price: number,
+fish_size: number,
+status: true,
+id?: string
 
-
-@NgModule({
-  declarations: [],
-  imports: [
-    CommonModule
-  ]
-})
-export class Fish {
-  
-  constructor(@Inject(Number)
-    public Userid: number,
-    @Inject(String)
-    public fishid: string,
-    @Inject(Number)
-    public size: number,
-    @Inject(Number)
-    public minprice: number,
-    @Inject(String)
-    public status: string
-  ){ }
-
- }
+}

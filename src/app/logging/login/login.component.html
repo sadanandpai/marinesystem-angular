@@ -1,5 +1,10 @@
 <form (ngSubmit)="onLogin(f)" #f="ngForm">
-    <!-- {% csrf_token %} -->
+    <span class="help-block errmsg" *ngIf="msg == true">{{
+        "Invalid Username / Password " | translate
+      }}</span><br>
+      <span class="help-block errmsg" *ngIf="msg == true">{{
+        "*Username & Password are case-sensitive." | translate
+      }}</span>
     <div class="form-group">
         <label for="username">{{ "Username" | translate }}</label>
         <input type="username"

@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { NgForm } from '@angular/forms';
-import { Fish } from './fish.model';
 
 @Component({
   selector: 'app-fishdetails',
@@ -10,6 +9,7 @@ import { Fish } from './fish.model';
 })
 export class FishdetailsComponent implements OnInit {
   @ViewChild('f') fishForm: NgForm;
+  msg: Boolean;
 
   constructor(private http: HttpClient) {}
 
@@ -39,9 +39,11 @@ export class FishdetailsComponent implements OnInit {
       .subscribe(
         (responseData) => {
           console.log(responseData);
+          
         },
         (error) => {
           console.log(error);
+          this.msg = true;
         }
       );
   }

@@ -1,4 +1,6 @@
 <form (ngSubmit)="onSignup(f)" #f="ngForm">
+  <span class="help-block errmsg" *ngIf="msg == true">{{ "Username Already Exists / Invalid Email" | translate }}</span>
+
   <div class="form-group col-xs-12">
     <label for="email">{{ "Email" | translate }}</label>
     <input type="email" 
@@ -66,5 +68,6 @@
       </select>
       <span class="help-block" *ngIf="!type.valid && type.touched">{{ "Please Select Type of Login!" | translate }}</span>
     </div> -->
-  <button type="submit" class="btn btn-primary" [disabled]="!f.valid">{{ "Register" | translate }}</button>
+    <button type="submit" class="btn btn-primary" [disabled]="!f.valid">{{ "Register" | translate }}</button><br><br>
+    <button type="button" class="btn btn-primary" (click)="onClear(f)">{{ "Clear" | translate }}</button>
 </form>

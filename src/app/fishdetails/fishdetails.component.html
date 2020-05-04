@@ -1,16 +1,5 @@
 <form (ngSubmit)="fishDetails(f)" #f="ngForm">
-  <!-- <div class="form-group col-xs-12">
-    <label for="userid">{{ "User ID" | translate }}</label>
-    <input type="text" 
-    class="form-control" 
-    id="userid" 
-    placeholder="User ID"
-    name="userid" 
-    ngModel
-    required
-    #userid="ngModel">
-     <span class="help-block" *ngIf="!userid.valid && userid.touched">{{ "Please Enter a valid User ID!" | translate }}</span> 
-  </div> -->
+  <span class="help-block errmsg" *ngIf="msg == true">{{ "Failed to add Try again!" | translate }}</span>
   <div class="form-group col-xs-12">
     <label for="fishid">{{ "Fish ID" | translate }}</label>
     <input
@@ -61,26 +50,6 @@
       "Please Enter a valid Price of Fish!" | translate
     }}</span>
   </div>
-  <!-- <div class="form-group">
-        <label for="type">{{ "Status" | translate }}</label><br>
-        <input 
-        type="radio"
-        id="radio1"
-        class="radio"
-        name="status"
-        value="Active"
-        ngModel
-        Selected>
-        <label for="type">{{ "Active" | translate }}</label>
-        <input
-        type="radio"
-        id="radio2" 
-        class="radio" 
-        name="status" 
-        value="Inactive" 
-        ngModel>
-        <label for="type">{{ "Inactive" | translate }}</label>
-    </div> -->
   <button type="submit" class="btn btn-primary" [disabled]="!f.valid">
     {{ "Submit" | translate }}
   </button>
