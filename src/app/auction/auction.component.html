@@ -15,16 +15,9 @@
 
 <hr>
 <div class="col-xs-12">
-    <ul class="list-group" *ngIf="amount.pristine">
-        <li class="list-group-item" *ngFor="let fish of loadedfishes">
-            <h1>{{ fish.fish_price }}</h1>
-        </li>
-    </ul>
-
-    <ul class="list-group" *ngIf="amount.valid && amount.touched">
+    <ul class="list-group">
         <li class="list-group-item">
-           
-            <h1>{{ bid }}</h1>
+            <h1>{{ bid }} </h1>
         </li>
     </ul>
 
@@ -36,26 +29,24 @@
 
 <form (ngSubmit)="Quote(q)" #q="ngForm">
     <div class="form-group col-xs-12">
-      <input
-        type="text"
-        class="form-control"
-        placeholder="Enter amount"
-        name="amount"
-        pattern="^[0-9]*$"
-        maxlength="8"
-        [(ngModel)]="bid"
-        required
-        #amount="ngModel"
-      />
-      
-      <span class="help-block" *ngIf="!amount.valid && amount.touched">{{
-        "Please Enter a valid Amount!" | translate
-      }}</span>
-      
+        <input
+            type="text"
+            class="form-control"
+            placeholder="Enter amount"
+            name="quoteAmount"
+            pattern="^[0-9]*$"
+            maxlength="8"
+            ngModel
+            required
+            #amount="ngModel"
+        />
+        <span class="help-block" *ngIf="!amount.valid && amount.touched">
+          {{ "Please Enter a valid Amount!" | translate }}
+        </span>
     </div>
 
     <button type="submit" class="btn btn-primary">
       {{ "Quote" | translate }}
     </button>
-  </form>
+</form>
   

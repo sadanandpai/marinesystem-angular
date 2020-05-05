@@ -15,8 +15,10 @@ export class AuctionComponent implements OnInit {
   @ViewChild('q') bidForm: NgForm;
   
   bid: number;
+  maxBid: number;
+  bidAmount: number;
   loadedfishes: Fish[] = [];
-  htmlToAdd: string;
+
 
   constructor(private http: HttpClient,
     private router: Router,
@@ -34,9 +36,16 @@ export class AuctionComponent implements OnInit {
   Quote(form: NgForm) {
    const value = form.value;
    const data = {
-    bidAmount: value.bidAmount
-  };
-  
+    Amount: value.quoteAmount
+   };
+   this.maxBid = this.bid;
+   this.bidAmount = Number(data.Amount)
+    if (this.bidAmount > this.bid){
+      this.bid = this.bidAmount;
+    }else{
+      this.bid = this.maxBid;
+    }
+
   }
 
   private fetchFish() {
@@ -53,6 +62,7 @@ export class AuctionComponent implements OnInit {
           console.log(responseData);
           let n = responseData.length - 1;
           this.loadedfishes[0] = responseData[n];
+          this.bid = this.loadedfishes[0].fish_price;
       })
   }
   
