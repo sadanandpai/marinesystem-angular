@@ -1,52 +1,18 @@
 <h1>Auction Platform</h1>
  <div class="row">
     <div class="col-xs-12 col-md-6 col-md-offset-3">
-        <p *ngIf="loadedfishes.length < 1">No fish Available</p>
-        <ul class="list-group" *ngIf="loadedfishes.length >= 1">
-            <li class="list-group-item" *ngFor="let fish of loadedfishes">
-                <img src="">
-                <h6>Fish ID {{ fish.fish_id }}</h6>
-                <p>Fish Quantity {{ fish.fish_size }}</p>
-                <p>Min Price {{ fish.fish_price }}</p>
-            </li>
-        </ul>
+        <p class="warningmsg" *ngIf="loadedfishes.length < 1">No fish Available</p>
+        <div *ngIf="loadedfishes.length >= 1">
+            <ul class="list-group" *ngFor="let fish of loadedfishes">
+                <li class="list-group-item" *ngIf="fish.status == true">
+                    <h6>Fish ID {{ fish.fish_id }}</h6>
+                    <p>Fish Quantity {{ fish.fish_size }}</p>
+                    <p>Min Price {{ fish.fish_price }}</p>
+                    <a (click)="onStartBid(fish.id, fish.fish_price, fish.fish_id, fish.fish_size)" class="btn btn-warning clearfix">Start Bidding</a>
+                </li>
+            </ul>
+        </div>
     </div>
 </div>
 
 <hr>
-<div class="col-xs-12">
-    <ul class="list-group">
-        <li class="list-group-item">
-            <h1>{{ bid }} </h1>
-        </li>
-    </ul>
-
-    <button type="submit" class="btn btn-success">
-        {{ "Done" | translate }}
-    </button>
-</div>
-<hr>
-
-<form (ngSubmit)="Quote(q)" #q="ngForm">
-    <div class="form-group col-xs-12">
-        <input
-            type="text"
-            class="form-control"
-            placeholder="Enter amount"
-            name="quoteAmount"
-            pattern="^[0-9]*$"
-            maxlength="8"
-            ngModel
-            required
-            #amount="ngModel"
-        />
-        <span class="help-block" *ngIf="!amount.valid && amount.touched">
-          {{ "Please Enter a valid Amount!" | translate }}
-        </span>
-    </div>
-
-    <button type="submit" class="btn btn-primary">
-      {{ "Quote" | translate }}
-    </button>
-</form>
-  

@@ -15,6 +15,7 @@ import { RegisterComponent } from './logging/register/register.component';
 import { HomeComponent } from './home/home.component';
 import { FishdetailsComponent } from './fishdetails/fishdetails.component';
 import { AuctionComponent } from './auction/auction.component';
+import { AuctionplatformComponent } from './auction/auctionplatform/auctionplatform.component';
 
 
 
@@ -30,7 +31,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     LoginComponent, 
     HeaderComponent, 
     RegisterComponent, 
-    HomeComponent, FishdetailsComponent, AuctionComponent
+    HomeComponent, FishdetailsComponent, AuctionComponent, AuctionplatformComponent
   ],
   imports: [
     BrowserModule,

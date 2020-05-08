@@ -1,6 +1,5 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { NgForm } from '@angular/forms';
 import { map } from 'rxjs/operators';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Fish } from '../fishdetails/fish.model';
@@ -11,41 +10,18 @@ import { Fish } from '../fishdetails/fish.model';
   styleUrls: ['./auction.component.css']
 })
 export class AuctionComponent implements OnInit {
-  @ViewChild('f') auctionForm: NgForm;
-  @ViewChild('q') bidForm: NgForm;
-  
-  bid: number;
-  maxBid: number;
-  bidAmount: number;
   loadedfishes: Fish[] = [];
-
 
   constructor(private http: HttpClient,
     private router: Router,
-    private route: ActivatedRoute,) { }
+    private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.fetchFish();
   }
 
-  Done() {
-   
-
-  }
-
-  Quote(form: NgForm) {
-   const value = form.value;
-   const data = {
-    Amount: value.quoteAmount
-   };
-   this.maxBid = this.bid;
-   this.bidAmount = Number(data.Amount)
-    if (this.bidAmount > this.bid){
-      this.bid = this.bidAmount;
-    }else{
-      this.bid = this.maxBid;
-    }
-
+  onStartBid(id: any, minprice: number, fish_id: number, fish_size: number){
+    this.router.navigate(['/auction', id, {params: id, minprice, fish_id, fish_size}])
   }
 
   private fetchFish() {
@@ -60,9 +36,17 @@ export class AuctionComponent implements OnInit {
         return fisharray;
       })).subscribe(responseData => {
           console.log(responseData);
-          let n = responseData.length - 1;
-          this.loadedfishes[0] = responseData[n];
-          this.bid = this.loadedfishes[0].fish_price;
+          this.loadedfishes = responseData;
+          // this.bid = this.loadedfishes[0].fish_price;
+          // for(const key in responseData){
+          //   if(responseData.hasOwnProperty(key)){
+          //     if(this.loadedfishes[key].status==true){
+          //       this.bid = this.loadedfishes[key].fish_price;
+          //       this.fishid = this.loadedfishes[key].fish_id;
+          //       this.size = this.loadedfishes[key].fish_size;    
+          //      }
+          //    }
+          //  }
       })
   }
   
