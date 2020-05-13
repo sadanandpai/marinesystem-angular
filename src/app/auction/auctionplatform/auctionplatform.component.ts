@@ -4,6 +4,7 @@ import { NgForm } from '@angular/forms';
 import { HttpClient, HttpHeaders, HttpRequest, HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { Auction } from '../auction.model';
 import { Fish } from 'src/app/fishdetails/fish.model';
+import { Observable, interval, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-auctionplatform',
@@ -28,24 +29,17 @@ export class AuctionplatformComponent implements OnInit {
   bidAmount: number;
   
   constructor(private http: HttpClient,
-              private route : ActivatedRoute) { }
+              private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(data=>{
       this.fid = Number(data.id) + 1;
     });
     this.fetchfish();
-      let id = this.fid;
-        this.http.get('http://localhost:8000/portal/auction_list/' + id + '/')
-        .subscribe(
-          (responseData) => {
-            this.bid = responseData.highestBid;
-            console.log(responseData);
-          },
-          (error) => {
-            console.log(error);
-          }
-        );
+    interval(1000).subscribe(
+      (val) => { 
+        this.getHighestBid()
+      });
   }
   
   Done(form: NgForm) {
@@ -102,10 +96,20 @@ export class AuctionplatformComponent implements OnInit {
             if(this.bid == undefined){
               this.bid = this.minprice;
             }
-        });
+        });       
+  }
 
-        
-         
+  private getHighestBid(){
+    let id = this.fid;
+      this.http.get('http://localhost:8000/portal/auction_list/' + id + '/')
+        .subscribe(
+          (responseData) => {
+            this.bid = responseData.highestBid;
+            console.log(responseData);
+          },
+          (error) => {
+            console.log(error);
+          });
   }
 
 }
