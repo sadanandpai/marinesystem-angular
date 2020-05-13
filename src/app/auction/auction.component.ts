@@ -20,12 +20,12 @@ export class AuctionComponent implements OnInit {
     this.fetchFish();
   }
 
-  onStartBid(id: any, minprice: number, fish_id: number, fish_size: number){
-    this.router.navigate(['/auction', id, {params: id, minprice, fish_id, fish_size}])
+  onStartBid(id: any){
+    this.router.navigate(['/auction', id])
   }
 
   private fetchFish() {
-    this.http.get<{ [id:string]: Fish }>('http://localhost:8000/fish/')
+    this.http.get<{ [id:string]: Fish }>('http://localhost:8000/portal/fish_list/')
       .pipe(map((responseData)=>{
         const fisharray: Fish[] = [];
         for(const key in responseData){
@@ -37,16 +37,7 @@ export class AuctionComponent implements OnInit {
       })).subscribe(responseData => {
           console.log(responseData);
           this.loadedfishes = responseData;
-          // this.bid = this.loadedfishes[0].fish_price;
-          // for(const key in responseData){
-          //   if(responseData.hasOwnProperty(key)){
-          //     if(this.loadedfishes[key].status==true){
-          //       this.bid = this.loadedfishes[key].fish_price;
-          //       this.fishid = this.loadedfishes[key].fish_id;
-          //       this.size = this.loadedfishes[key].fish_size;    
-          //      }
-          //    }
-          //  }
+
       })
   }
   

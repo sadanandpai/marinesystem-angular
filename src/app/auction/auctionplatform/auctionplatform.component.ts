@@ -1,9 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NgForm } from '@angular/forms';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpRequest, HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { Auction } from '../auction.model';
-import { map } from 'rxjs/internal/operators/map';
+import { Fish } from 'src/app/fishdetails/fish.model';
 
 @Component({
   selector: 'app-auctionplatform',
@@ -15,10 +15,13 @@ export class AuctionplatformComponent implements OnInit {
   @ViewChild('q') bidForm: NgForm;
 
   loadedAuctions: Auction[] = [];
+  loadedfishes: Fish[] = [];
+  id: number;
   fid: number;
-  size: number;
+  
   fishid: number;
   minprice: number;
+  size: number;
 
   bid: number;
   maxBid: number;
@@ -29,17 +32,24 @@ export class AuctionplatformComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe(data=>{
-      this.fid = Number(data.id);
-      this.fishid = Number(data.fish_id);
-      this.minprice = Number(data.minprice);
-      this.size = Number(data.fish_size);
-      this.bid = this.minprice;
-    })
+      this.fid = Number(data.id) + 1;
+    });
+    this.fetchfish();
+      let id = this.fid;
+        this.http.get('http://localhost:8000/portal/auction_list/' + id + '/')
+        .subscribe(
+          (responseData) => {
+            this.bid = responseData.highestBid;
+            console.log(responseData);
+          },
+          (error) => {
+            console.log(error);
+          }
+        );
   }
   
   Done(form: NgForm) {
-    const value = form.value;
-    console.log(value);
+    
   }
 
   Quote(form: NgForm) {
@@ -59,10 +69,11 @@ export class AuctionplatformComponent implements OnInit {
       const details = {
         fishid: this.fid,
         highestBid: this.bid,
-        users: 'http://localhost:8000/users/1/'
       }
-      console.log(details.users);
-      this.http.post<{ [id:string]: Auction }>('http://localhost:8000/auction/', details, {
+      console.log(this.fid);
+      this.id = this.fid;
+      console.log("bid: " + this.bid)
+      this.http.put<{ [id:string]: Auction }>('http://localhost:8000/portal/auction_list/' + this.id + '/', details, {
         headers: headers,
       }).subscribe(
         (responseData) => {
@@ -76,9 +87,25 @@ export class AuctionplatformComponent implements OnInit {
       this.bid = this.maxBid;
     }
 
-    
-    
+  }
 
+  private fetchfish() {
+    let id = this.fid;
+      this.http.get('http://localhost:8000/fish/'+ id +"/")
+        .subscribe(responseData => {
+            console.log("loadedfishes");
+            console.log(responseData);
+            let loadedfishes = responseData;
+            this.fishid = loadedfishes.fish_id;
+            this.minprice = loadedfishes.fish_price;
+            this.size = loadedfishes.fish_size;
+            if(this.bid == undefined){
+              this.bid = this.minprice;
+            }
+        });
+
+        
+         
   }
 
 }
