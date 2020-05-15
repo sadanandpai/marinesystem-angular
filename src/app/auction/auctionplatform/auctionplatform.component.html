@@ -22,10 +22,12 @@
             {{ "Done" | translate }}
         </button>
     </div>
+    <p>{{ winAmount }}</p>
+        <p>{{ winnerName }}</p>
 </form>
 <hr>
 
-<form (ngSubmit)="Quote(q)" #q="ngForm">
+<form (ngSubmit)="Quote(q)" #q="ngForm" *ngIf="visible == true">
     <div class="form-group col-xs-12">
         <input
             type="text"

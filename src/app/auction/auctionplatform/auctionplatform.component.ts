@@ -27,6 +27,10 @@ export class AuctionplatformComponent implements OnInit {
   bid: number;
   maxBid: number;
   bidAmount: number;
+
+  visible: boolean = true;
+  winAmount: number;
+  winnerName: string;
   
   constructor(private http: HttpClient,
               private route: ActivatedRoute) { }
@@ -39,11 +43,36 @@ export class AuctionplatformComponent implements OnInit {
     interval(1000).subscribe(
       (val) => { 
         this.getHighestBid()
-      });
+      }
+    );
+    
   }
   
   Done(form: NgForm) {
-    
+    // Hide textbox and Quote button
+    this.visible = false;
+    // Show winner details
+    console.log("Winner Details");
+    this.fetchWinner();
+    // patch status false
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Token ' + localStorage.getItem('token')
+     });
+    const data = {
+        status: false,
+    }
+    let id = this.fid;
+    this.http.patch<{ [id:string]: Fish }>('http://localhost:8000/fish/' + id + '/', data, {
+        headers: headers,
+      }).subscribe(
+        (responseData) => {
+          console.log(responseData);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
   }
 
   Quote(form: NgForm) {
@@ -85,7 +114,7 @@ export class AuctionplatformComponent implements OnInit {
 
   private fetchfish() {
     let id = this.fid;
-      this.http.get('http://localhost:8000/fish/'+ id +"/")
+      this.http.get('http://localhost:8000/fish/'+ id + '/')
         .subscribe(responseData => {
             console.log("loadedfishes");
             console.log(responseData);
@@ -105,6 +134,20 @@ export class AuctionplatformComponent implements OnInit {
         .subscribe(
           (responseData) => {
             this.bid = responseData.highestBid;
+            console.log(responseData);
+          },
+          (error) => {
+            console.log(error);
+          });
+  }
+
+  private fetchWinner(){
+    let id = this.fid;
+      this.http.get('http://localhost:8000/portal/auction_list/' + id + '/')
+        .subscribe(
+          (responseData) => {
+            this.winAmount = responseData.highestBid;
+            this.winnerName = responseData.users;
             console.log(responseData);
           },
           (error) => {
