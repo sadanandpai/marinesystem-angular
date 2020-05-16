@@ -115,10 +115,10 @@ export class AuctionplatformComponent implements OnInit {
   private fetchfish() {
     let id = this.fid;
       this.http.get('http://localhost:8000/fish/'+ id + '/')
-        .subscribe(responseData => {
+        .subscribe((responseData: any) => {
             console.log("loadedfishes");
             console.log(responseData);
-            let loadedfishes = responseData;
+            let loadedfishes: any = responseData;
             this.fishid = loadedfishes.fish_id;
             this.minprice = loadedfishes.fish_price;
             this.size = loadedfishes.fish_size;
@@ -132,7 +132,7 @@ export class AuctionplatformComponent implements OnInit {
     let id = this.fid;
       this.http.get('http://localhost:8000/portal/auction_list/' + id + '/')
         .subscribe(
-          (responseData) => {
+          (responseData: any) => {
             this.bid = responseData.highestBid;
             console.log(responseData);
           },
@@ -145,7 +145,7 @@ export class AuctionplatformComponent implements OnInit {
     let id = this.fid;
       this.http.get('http://localhost:8000/portal/auction_list/' + id + '/')
         .subscribe(
-          (responseData) => {
+          (responseData: any) => {
             this.winAmount = responseData.highestBid;
             this.winnerName = responseData.users;
             console.log(responseData);
