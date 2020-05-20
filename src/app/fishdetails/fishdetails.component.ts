@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { NgForm } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-fishdetails',
@@ -11,17 +12,20 @@ export class FishdetailsComponent implements OnInit {
   @ViewChild('f') fishForm: NgForm;
   msg: Boolean;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient,
+              private router: Router,
+              private route: ActivatedRoute,) {}
 
   ngOnInit(): void {
-    // this.fishForm.setValue({
-    //   userid: '1',
-    // })
+
+  }
+
+  onClick(){
+    this.router.navigate(['/auction']);
   }
 
   fishDetails(form: NgForm) {
     const value = form.value;
-
     const data = {
       fish_id: value.fishid,
       fish_size: value.size,
@@ -39,7 +43,7 @@ export class FishdetailsComponent implements OnInit {
       .subscribe(
         (responseData) => {
           console.log(responseData);
-          
+          this.router.navigate(['auction']), { relativeTo: this.route };
         },
         (error) => {
           console.log(error);

@@ -1,3 +1,5 @@
+<p style="text-align: left;"><a (click)="onClick()" class="btn btn-sm btn-outline-primary">Back</a></p>
+
 <form (ngSubmit)="fishDetails(f)" #f="ngForm">
   <span class="help-block errmsg" *ngIf="msg == true">{{ "Failed to add Try again!" | translate }}</span>
   <div class="form-group col-xs-12">

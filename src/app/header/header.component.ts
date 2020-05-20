@@ -12,4 +12,9 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onLogoutClick(){
+    window.localStorage.clear();
+    // localStorage.removeItem('token');
+  }
+
 }

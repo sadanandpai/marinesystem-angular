@@ -1,10 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { HttpClient, HttpHeaders, HttpRequest, HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { Auction } from '../auction.model';
 import { Fish } from 'src/app/fishdetails/fish.model';
-import { Observable, interval, Subscription } from 'rxjs';
+import { interval } from 'rxjs';
+import { User } from 'src/app/shared/user.model';
 
 @Component({
   selector: 'app-auctionplatform',
@@ -15,31 +16,42 @@ export class AuctionplatformComponent implements OnInit {
   @ViewChild('f') auctionForm: NgForm;
   @ViewChild('q') bidForm: NgForm;
 
-  loadedAuctions: Auction[] = [];
-  loadedfishes: Fish[] = [];
+  loadedAuctions: any;
+  loadedfishes: any;
   id: number;
   fid: number;
   
   fishid: number;
   minprice: number;
   size: number;
+  owner: any;
 
   bid: number;
   maxBid: number;
   bidAmount: number;
 
-  visible: boolean = true;
   winAmount: number;
   winnerName: string;
+  msg: boolean;
   
+  boatdriver: boolean = false;
+
   constructor(private http: HttpClient,
+              private router: Router,
               private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(data=>{
-      this.fid = Number(data.id) + 1;
+      this.fid = Number(data.id);
     });
+
     this.fetchfish();
+    var data = localStorage.getItem('group');
+    if(data == 'BoatDriver'){
+      this.boatdriver = true;
+    }
+    console.log(window.localStorage)
+    
     interval(1000).subscribe(
       (val) => { 
         this.getHighestBid()
@@ -47,10 +59,12 @@ export class AuctionplatformComponent implements OnInit {
     );
     
   }
+
+  onClick(){
+    this.router.navigate(['/auction']);
+  }
   
   Done(form: NgForm) {
-    // Hide textbox and Quote button
-    this.visible = false;
     // Show winner details
     console.log("Winner Details");
     this.fetchWinner();
@@ -96,16 +110,16 @@ export class AuctionplatformComponent implements OnInit {
       console.log(this.fid);
       this.id = this.fid;
       console.log("bid: " + this.bid)
-      this.http.put<{ [id:string]: Auction }>('http://localhost:8000/portal/auction_list/' + this.id + '/', details, {
-        headers: headers,
-      }).subscribe(
-        (responseData) => {
-          console.log(responseData);
-        },
-        (error) => {
-          console.log(error);
-        }
-      );
+      this.http.put<{ [id:string]: Auction }>('http://localhost:8000/portal/auction_list/' + this.id + '/', details, 
+        { headers: headers }).subscribe(
+          (responseData) => {
+            console.log(responseData);
+          },
+          (error) => {
+            console.log(error);
+            this.msg = true;
+          }
+        );
     }else{
       this.bid = this.maxBid;
     }
@@ -116,7 +130,6 @@ export class AuctionplatformComponent implements OnInit {
     let id = this.fid;
       this.http.get('http://localhost:8000/fish/'+ id + '/')
         .subscribe((responseData: any) => {
-            console.log("loadedfishes");
             console.log(responseData);
             let loadedfishes: any = responseData;
             this.fishid = loadedfishes.fish_id;
@@ -125,7 +138,7 @@ export class AuctionplatformComponent implements OnInit {
             if(this.bid == undefined){
               this.bid = this.minprice;
             }
-        });       
+        });
   }
 
   private getHighestBid(){

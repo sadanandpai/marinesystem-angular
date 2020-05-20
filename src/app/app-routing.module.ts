@@ -7,6 +7,8 @@ import { HomeComponent } from './home/home.component';
 import { FishdetailsComponent } from './fishdetails/fishdetails.component';
 import { AuctionComponent } from './auction/auction.component';
 import { AuctionplatformComponent } from './auction/auctionplatform/auctionplatform.component';
+import { HistoryComponent } from './history/history.component';
+import { HistoryDetailsComponent } from './history/history-details/history-details.component';
 
 
 const routes: Routes = [
@@ -16,6 +18,8 @@ const routes: Routes = [
   { path: 'fish', component: FishdetailsComponent },
   { path: 'auction', component: AuctionComponent },
   { path: 'auction/:id', component: AuctionplatformComponent },
+  { path: 'history', component: HistoryComponent },
+  { path: 'history/:id', component: HistoryDetailsComponent },
   
 ];
 

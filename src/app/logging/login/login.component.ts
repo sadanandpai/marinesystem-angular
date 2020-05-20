@@ -31,7 +31,12 @@ export class LoginComponent implements OnInit {
       .subscribe(
         (responseData:any) => {
           localStorage.setItem('token', responseData.token);
-          this.router.navigate(['fish']), { relativeTo: this.route };
+          localStorage.setItem('user', user.username);
+          localStorage.setItem('group', responseData.groups);
+          localStorage.setItem('id', responseData.user_id);
+          
+          this.router.navigate(['auction']), { relativeTo: this.route };
+          
         },
         (error) => {
           console.log('error', error);
