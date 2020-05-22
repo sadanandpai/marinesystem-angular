@@ -32,7 +32,7 @@ export class AuctionplatformComponent implements OnInit {
 
   winAmount: number;
   winnerName: string;
-  msg: boolean;
+  visible: boolean = false;
   
   boatdriver: boolean = false;
 
@@ -54,7 +54,7 @@ export class AuctionplatformComponent implements OnInit {
     
     interval(1000).subscribe(
       (val) => { 
-        this.getHighestBid()
+        this.getHighestBid();
       }
     );
     
@@ -117,7 +117,6 @@ export class AuctionplatformComponent implements OnInit {
           },
           (error) => {
             console.log(error);
-            this.msg = true;
           }
         );
     }else{
@@ -155,6 +154,7 @@ export class AuctionplatformComponent implements OnInit {
   }
 
   private fetchWinner(){
+    this.visible = true;
     let id = this.fid;
       this.http.get('http://localhost:8000/portal/auction_list/' + id + '/')
         .subscribe(

@@ -1,12 +1,12 @@
-<p style="text-align: left;"><a (click)="onClick()" class="btn btn-sm btn-outline-primary">Back</a></p>
+<p style="text-align: left;"><a (click)="onClick()" class="btn btn-sm btn-outline-primary">{{"Back" | translate}}</a></p>
 
 <div class="row">
     <div class="col-xs-12 col-md-6 col-md-offset-3">
         <ul class="list-group">
             <li class="list-group-item">
-                <h6>Fish ID {{ fishid }}</h6>
-                <p>Fish Quantity {{ size }}</p>
-                <p>Min Price {{ minprice }}</p>
+                <h6>{{"Fish Name" | translate}} {{ fishid }}</h6>
+                <p>{{"Fish Quantity" | translate}} {{ size }}</p>
+                <p>{{"Min Price" | translate}} {{ minprice }}</p>
             </li>
         </ul>
     </div>
@@ -23,7 +23,7 @@
             <button type="submit" class="btn btn-success" *ngIf="boatdriver == true">
                 {{ "Done" | translate }}
             </button>
-    <h1 *ngIf="boatdriver == true">{{ "Winner Details" | translate}}</h1>
+    <h1 *ngIf="boatdriver == true && visible == true">{{ "Winner Details" | translate}}</h1>
     <p *ngIf="boatdriver == true">{{ winAmount }}</p>
     <p *ngIf="boatdriver == true">{{ winnerName }}</p>
     </div>
@@ -45,9 +45,6 @@
         />
         <span class="help-block" *ngIf="!amount.valid && amount.touched">
           {{ "Please Enter a valid Amount!" | translate }}
-        </span>
-        <span class="help-block errmsg" *ngIf="msg == true">
-            {{ "Something went Wrong Try logging in again!" | translate }}
         </span>
     </div>
 

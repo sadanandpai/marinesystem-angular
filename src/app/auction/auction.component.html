@@ -1,17 +1,17 @@
-<p style="text-align: right;"  *ngIf="boatdriver == true"><a (click)="onClickHistory()" class="btn btn-sm btn-outline-primary">History</a> 
-    <a (click)="onAddFish()" class="btn btn-sm btn-outline-primary">+ Add Fish</a>
+<p style="text-align: right;"  *ngIf="boatdriver == true"><a (click)="onClickHistory()" class="btn btn-sm btn-outline-primary">{{ "History" | translate }}</a> 
+    <a (click)="onAddFish()" class="btn btn-sm btn-outline-primary">{{ "+ Add Fish" | translate }}</a>
 </p>
 
-<h1>Auction Platform</h1>
+<h1>{{"Auction Platform" | translate}}</h1>
  <div class="row">
     <div class="col-xs-12 col-md-6 col-md-offset-3">
-        <p class="warningmsg" *ngIf="loadedfishes == null">No fish Available</p>
+        <p class="warningmsg" *ngIf="loadedfishes == null">{{"No fish Available" | translate}}</p>
         <ul class="list-group" *ngFor="let fish of loadedfishes">
             <li class="list-group-item" *ngIf="fish.status == true">
-                <h6>Fish ID {{ fish.fish_id }}</h6>
-                <p>Fish Quantity {{ fish.fish_size }}</p>
-                <p>Min Price {{ fish.fish_price }}</p>
-                <a (click)="onStartBid(fish.id)" class="btn btn-warning clearfix">Start Bidding</a>
+                <h6>{{"Fish Name" | translate}} {{ fish.fish_id }}</h6>
+                <p>{{"Fish Quantity" | translate}} {{ fish.fish_size }}</p>
+                <p>{{"Min Price" | translate}} {{ fish.fish_price }}</p>
+                <a (click)="onStartBid(fish.id)" class="btn btn-warning clearfix">{{"Start Bidding" | translate}}</a>
             </li>
         </ul>
     </div>

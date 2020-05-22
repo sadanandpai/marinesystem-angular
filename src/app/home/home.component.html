@@ -1,2 +1,5 @@
 <h1>FISHERY</h1>
 <p>{{ "Start Your Fishing Now!" | translate }}</p>
+
+<button class="btn btn-lg btn-warning" style="font-size: larger;" (click)="onStart()">Start -></button>
+<p *ngIf="msg == true">Please Login To Start Bidding!</p>

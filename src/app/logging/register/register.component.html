@@ -36,7 +36,7 @@
     required
     minlength="8"
     #password="ngModel">
-    <span class="help-block" *ngIf="!password.valid && password.touched">{{ "Password should be minimum 8letters length!" | translate }}</span>
+    <span class="help-block" *ngIf="!password.valid && password.touched">{{ "Password should be minimum 8 letters length!" | translate }}</span>
   </div> 
   <!-- 
   <div class="form-group">
@@ -53,21 +53,7 @@
     minlength="10"
     #number="ngModel">
     <span class="help-block" *ngIf="!number.valid && number.touched">{{ "Please Enter 10 Digit Mobile number!" | translate }}</span>
-  </div>
-    <div class="form-group">
-      <label for="type">{{ "Login Type" | translate }}</label>
-      <select 
-      id="type" 
-      class="form-control" 
-      name="control" 
-      ngModel
-      required #type="ngModel">
-      <option selected>{{ "Visitors" | translate }}</option>
-      <option>{{ "Customer" | translate }}</option>
-      <option>{{ "Boat Drivers" | translate }}</option>
-      </select>
-      <span class="help-block" *ngIf="!type.valid && type.touched">{{ "Please Select Type of Login!" | translate }}</span>
-    </div> -->
+  </div> -->
     <button type="submit" class="btn btn-primary" [disabled]="!f.valid">{{ "Register" | translate }}</button><br><br>
     <button type="button" class="btn btn-primary" (click)="onClear(f)">{{ "Clear" | translate }}</button>
 </form>

@@ -43,7 +43,7 @@ export class HistoryDetailsComponent implements OnInit {
             this.minprice = loadedfishes.fish_price;
             this.size = loadedfishes.fish_size;
             this.owner = loadedfishes.owner;
-        });       
+        });
   }
 
   private fetchWinner(){

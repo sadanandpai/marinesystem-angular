@@ -32,7 +32,6 @@ export class HistoryComponent implements OnInit {
       let id = localStorage.getItem('id')
       this.http.get('http://localhost:8000/portal/bdfish_list/' + id + '/')
       .subscribe((responseData: any) => {
-          debugger
           console.log(responseData);
           this.loadedfishes = responseData;
       });

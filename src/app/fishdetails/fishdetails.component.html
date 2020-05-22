@@ -1,14 +1,14 @@
-<p style="text-align: left;"><a (click)="onClick()" class="btn btn-sm btn-outline-primary">Back</a></p>
+<p style="text-align: left;"><a (click)="onClick()" class="btn btn-sm btn-outline-primary">{{"Back" | translate}}</a></p>
 
 <form (ngSubmit)="fishDetails(f)" #f="ngForm">
   <span class="help-block errmsg" *ngIf="msg == true">{{ "Failed to add Try again!" | translate }}</span>
   <div class="form-group col-xs-12">
-    <label for="fishid">{{ "Fish ID" | translate }}</label>
+    <label for="fishid">{{ "Fish Name" | translate }}</label>
     <input
       type="text"
       class="form-control"
       id="fishid"
-      placeholder="Fish ID"
+      placeholder="Fish Name"
       name="fishid"
       ngModel
       required
@@ -36,12 +36,12 @@
     }}</span>
   </div>
   <div class="form-group col-xs-12">
-    <label for="price">{{ "Fish Price" | translate }}</label>
+    <label for="price">{{ "Fish Min Price" | translate }}</label>
     <input
       type="text"
       class="form-control"
       id="price"
-      placeholder="Fish Price"
+      placeholder="Fish Min Price"
       pattern="^[0-9]*$"
       name="price"
       ngModel
