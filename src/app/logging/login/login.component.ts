@@ -20,6 +20,11 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {}
 
+
+  onClick(){
+    this.router.navigate(['/']);
+  }
+
   onLogin(form: NgForm) {
     const value = form.value;
     const user = { username: value.username, password: value.password };
@@ -36,7 +41,6 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('id', responseData.user_id);
           
           this.router.navigate(['auction']), { relativeTo: this.route };
-          
         },
         (error) => {
           console.log('error', error);

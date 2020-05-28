@@ -13,6 +13,7 @@ import { User } from '../shared/user.model';
 export class AuctionComponent implements OnInit {
   boatdriver: boolean = false;
   loadedfishes: any;
+  loadedauctions: Object;
 
   constructor(private http: HttpClient,
     private router: Router,
@@ -48,19 +49,10 @@ export class AuctionComponent implements OnInit {
         this.loadedfishes = responseData;
     });
 
-    // this.http.get<{ [id:string]: Fish }>('http://localhost:8000/portal/fish_list/')
-    // .pipe(map((responseData)=>{
-    //   const fisharray: Fish[] = [];
-    //   for(const key in responseData){
-    //     if(responseData.hasOwnProperty(key)){
-    //       // debugger
-    //       fisharray.push({ ...responseData[key], id: key });
-    //     }
-    //   }
-    //   return fisharray;
-    // })).subscribe(responseData => {
+    // this.http.get('http://localhost:8000/portal/auction_list/')
+    // .subscribe((responseData: any) => {
     //     console.log(responseData);
-    //     this.loadedfishes = responseData;
+    //     this.loadedauctions = responseData;
     // });
 
   }

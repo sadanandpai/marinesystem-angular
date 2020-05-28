@@ -1,20 +1,19 @@
+<body>
+  <a (click)="onClick()" class="btn backbtn"></a>
+    <h1 class="header">REGISTER</h1>
 <form (ngSubmit)="onSignup(f)" #f="ngForm">
-  <span class="help-block errmsg" *ngIf="msg == true">{{ "Username Already Exists / Invalid Email" | translate }}</span>
-
   <div class="form-group col-xs-12">
-    <label for="email">{{ "Email" | translate }}</label>
     <input type="email" 
-    class="form-control" 
+    class="form-control email" 
     id="email" 
     placeholder="Email"
     name="email" 
     ngModel
     required
     #email="ngModel">
-    <span class="help-block" *ngIf="!email.valid && email.touched">{{ "Please Enter a valid Email!" | translate }}</span>
+    <span class="help-block errmsg" *ngIf="!email.valid && email.touched">{{ "Please Enter a valid Email!" | translate }}</span>
   </div>
   <div class="form-group col-xs-12">
-    <label for="username">{{ "Username" | translate }}</label>
     <input type="text" 
     class="form-control" 
     id="username" 
@@ -23,10 +22,9 @@
     ngModel
     required
     #username="ngModel">
-    <span class="help-block" *ngIf="!username.valid && username.touched">{{ "Please Enter a valid Username!" | translate }}</span>
+    <span class="help-block errmsg" *ngIf="!username.valid && username.touched">{{ "Please Enter a valid Username!" | translate }}</span>
   </div>
   <div class="form-group col-xs-12">
-    <label for="password">{{ "Password" | translate }}</label>
     <input type="password" 
     class="form-control" 
     id="password" 
@@ -36,11 +34,10 @@
     required
     minlength="8"
     #password="ngModel">
-    <span class="help-block" *ngIf="!password.valid && password.touched">{{ "Password should be minimum 8 letters length!" | translate }}</span>
+    <span class="help-block errmsg" *ngIf="!password.valid && password.touched">{{ "Password should be minimum 8 letters length!" | translate }}</span>
   </div> 
   <!-- 
   <div class="form-group">
-    <label for="number">{{ "Phone Number" | translate }}</label>
     <input type="text" 
     class="form-control" 
     id="number" 
@@ -52,8 +49,20 @@
     maxlength="10"
     minlength="10"
     #number="ngModel">
-    <span class="help-block" *ngIf="!number.valid && number.touched">{{ "Please Enter 10 Digit Mobile number!" | translate }}</span>
+    <span class="help-block err" *ngIf="!number.valid && number.touched">{{ "Please Enter 10 Digit Mobile number!" | translate }}</span>
   </div> -->
-    <button type="submit" class="btn btn-primary" [disabled]="!f.valid">{{ "Register" | translate }}</button><br><br>
-    <button type="button" class="btn btn-primary" (click)="onClear(f)">{{ "Clear" | translate }}</button>
+
+  <div class="form-group">
+    <button type="submit" class="btn btn-sm" [disabled]="!f.valid">{{ "Register" | translate }}</button>
+    <button type="button" class="btn btn-sm" (click)="onClear(f)">{{ "Clear" | translate }}</button>
+    <span class="help-block errmsg" *ngIf="msg == true">{{ "Username Already Exists / Invalid Email" | translate }}</span>
+  
+  </div>
+  <div class="form-group">
+    <p class="text">{{ "Already have an account?" | translate }}</p>
+    <button type="button" class="btn btn-sm continue" (click)="onContinue()">{{ "Continue" | translate }}</button>
+  </div>
+
 </form>
+
+</body>

@@ -1,1 +1,4 @@
-<p>winnerdetails works!</p>
+<p style="text-align: left;"><a (click)="onClick()" class="btn btn-sm btn-outline-primary">{{"Back" | translate}}</a></p>
+<h1 *ngIf="boatdriver == true && visible == true">{{ "Winner Details" | translate}}</h1>
+<h3 *ngIf="boatdriver == true">{{ winAmount }}</h3>
+<h3 *ngIf="boatdriver == true">{{ winnerName }}</h3>

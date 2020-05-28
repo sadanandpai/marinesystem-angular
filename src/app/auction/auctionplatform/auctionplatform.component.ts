@@ -77,16 +77,16 @@ export class AuctionplatformComponent implements OnInit {
         status: false,
     }
     let id = this.fid;
-    this.http.patch<{ [id:string]: Fish }>('http://localhost:8000/fish/' + id + '/', data, {
-        headers: headers,
-      }).subscribe(
+    this.http.patch('http://localhost:8000/fish/' + id + '/', data, { headers: headers })
+      .subscribe(
         (responseData) => {
           console.log(responseData);
         },
         (error) => {
           console.log(error);
         }
-      );
+      ); 
+    
   }
 
   Quote(form: NgForm) {
@@ -107,10 +107,9 @@ export class AuctionplatformComponent implements OnInit {
         fishid: this.fid,
         highestBid: this.bid,
       }
-      console.log(this.fid);
       this.id = this.fid;
       console.log("bid: " + this.bid)
-      this.http.put<{ [id:string]: Auction }>('http://localhost:8000/portal/auction_list/' + this.id + '/', details, 
+      this.http.put('http://localhost:8000/portal/auction_list/' + this.id + '/', details, 
         { headers: headers }).subscribe(
           (responseData) => {
             console.log(responseData);
@@ -134,10 +133,11 @@ export class AuctionplatformComponent implements OnInit {
             this.fishid = loadedfishes.fish_id;
             this.minprice = loadedfishes.fish_price;
             this.size = loadedfishes.fish_size;
-            if(this.bid == undefined){
+            if(this.bid == null){
               this.bid = this.minprice;
             }
         });
+
   }
 
   private getHighestBid(){
@@ -166,6 +166,8 @@ export class AuctionplatformComponent implements OnInit {
           (error) => {
             console.log(error);
           });
+    this.router.navigate(['winnerdetails', id]);
+
   }
 
 }

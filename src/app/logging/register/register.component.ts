@@ -21,6 +21,14 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  onClick(){
+    this.router.navigate(['']), { relativeTo: this.route };
+  }
+
+  onContinue(){
+    this.router.navigate(['login']), { relativeTo: this.route };
+  }
+
   onSignup(form: NgForm) {
     const value = form.value;
     const newUser = new User(value.email, value.username, value.password);
@@ -42,6 +50,7 @@ export class RegisterComponent implements OnInit {
   }
 
   onClear(form: NgForm){
+    this.msg = false;
     form.reset();
   }
 }

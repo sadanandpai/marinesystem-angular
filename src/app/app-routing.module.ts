@@ -9,6 +9,7 @@ import { AuctionComponent } from './auction/auction.component';
 import { AuctionplatformComponent } from './auction/auctionplatform/auctionplatform.component';
 import { HistoryComponent } from './history/history.component';
 import { HistoryDetailsComponent } from './history/history-details/history-details.component';
+import { WinnerdetailsComponent } from './auction/winnerdetails/winnerdetails.component';
 
 
 const routes: Routes = [
@@ -20,6 +21,8 @@ const routes: Routes = [
   { path: 'auction/:id', component: AuctionplatformComponent },
   { path: 'history', component: HistoryComponent },
   { path: 'history/:id', component: HistoryDetailsComponent },
+  { path: 'winnerdetails/:id', component: WinnerdetailsComponent },
+  
   
 ];
 

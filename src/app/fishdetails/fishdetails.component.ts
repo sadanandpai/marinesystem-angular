@@ -11,6 +11,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class FishdetailsComponent implements OnInit {
   @ViewChild('f') fishForm: NgForm;
   msg: Boolean;
+  minprice: any;
+  fid: any;
 
   constructor(private http: HttpClient,
               private router: Router,
@@ -36,19 +38,42 @@ export class FishdetailsComponent implements OnInit {
       'Content-Type': 'application/json',
       'Authorization': 'Token ' + localStorage.getItem('token')
     });
-    this.http
+      this.http
       .post('http://localhost:8000/portal/fish_list/', data, {
         headers: headers,
       })
       .subscribe(
-        (responseData) => {
+        (responseData: any) => {
           console.log(responseData);
-          this.router.navigate(['auction']), { relativeTo: this.route };
+          debugger
+          localStorage.setItem('fishid', responseData.id);
+          console.log(localStorage.getItem('fishid'))
         },
         (error) => {
           console.log(error);
           this.msg = true;
         }
       );
+      console.log(window.localStorage)
+      const details = {
+        fishid: localStorage.getItem('fishid'),
+        highestBid: null,
+      }
+      debugger
+      setTimeout(() => {
+      debugger
+        var id = localStorage.getItem('fishid');
+        console.log(id);
+        this.http.put('http://localhost:8000/portal/auction_list/' + id + '/', data, { headers: headers })
+        .subscribe(
+          (responseData) => {
+            console.log(responseData);
+            this.router.navigate(['auction']), { relativeTo: this.route };
+          },
+          (error) => {
+            console.log(error);
+          }
+        );
+      }, 10000);
   }
 }

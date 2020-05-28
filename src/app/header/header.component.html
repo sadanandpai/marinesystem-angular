@@ -1,20 +1,22 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" routerLink="/">fishery</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<body *ngIf = "loggedIn == true">
+<nav class="navbar navbar-expand-lg">
+
+  <a class="navbar-brand logo" routerLink="/"></a>
+  <a  class="nav-link logout" (click)="onClick()" routerLink="login"></a>
+
+
+    <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
-    </button>
-  
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    </button> -->
+    <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item" routerLinkActive="active"  [routerLinkActiveOptions]="{ exact: true }">
           <a class="nav-link" routerLink="/">{{ "HOME" | translate }}</a>
         </li>
-        <!-- <li class="nav-item" routerLinkActive="active" *ngIf="visible == true">
-          <a class="nav-link" routerLink="login">{{ "LOGIN" | translate }}</a>
-        </li> -->
         <li class="nav-item" routerLinkActive="active">
-          <a  class="nav-link" (click)="onClick()" routerLink="login">{{ loggedIn ? 'LOGOUT' : 'LOGIN' }}</a>
+          <a  class="nav-link" (click)="onClick()" routerLink="login">{{ 'LOGOUT' | translate }}</a>
         </li>
       </ul>
-    </div>
+    </div> -->
   </nav>
+</body>

@@ -1,20 +1,36 @@
-<p style="text-align: right;"  *ngIf="boatdriver == true"><a (click)="onClickHistory()" class="btn btn-sm btn-outline-primary">{{ "History" | translate }}</a> 
-    <a (click)="onAddFish()" class="btn btn-sm btn-outline-primary">{{ "+ Add Fish" | translate }}</a>
-</p>
+<body>
+    <a (click)="onClick()" class="btn backbtn"></a>
+    <h3 class="header">{{"Auction Platform" | translate}}</h3>
 
-<h1>{{"Auction Platform" | translate}}</h1>
- <div class="row">
-    <div class="col-xs-12 col-md-6 col-md-offset-3">
-        <p class="warningmsg" *ngIf="loadedfishes == null">{{"No fish Available" | translate}}</p>
+<div class="row bdbuttons" *ngIf="boatdriver == true">
+    <a (click)="onAddFish()" class="btn btn-sm btn-addfish">
+        <!-- <img src="../Images/addfish_03.png" /> -->
+    </a>
+    <a (click)="onClickHistory()" class="btn btn-sm btn-history">
+        <!-- <img src="../Images/History_03.png" /> -->
+    </a> 
+    
+</div>
+<div class="row">
+    <div class="col-xs-12 col-md-12 col-lg-12 col-md-offset-3">
+        <p class="errmsg" *ngIf="loadedfishes == null">{{"No fish Available" | translate}}</p>
         <ul class="list-group" *ngFor="let fish of loadedfishes">
             <li class="list-group-item" *ngIf="fish.status == true">
-                <h6>{{"Fish Name" | translate}} {{ fish.fish_id }}</h6>
-                <p>{{"Fish Quantity" | translate}} {{ fish.fish_size }}</p>
-                <p>{{"Min Price" | translate}} {{ fish.fish_price }}</p>
-                <a (click)="onStartBid(fish.id)" class="btn btn-warning clearfix">{{"Start Bidding" | translate}}</a>
+               <div class="row">
+                <h6 class="fishname">{{"Fish Name" | translate}}  {{ fish.fish_id }}</h6>
+                    <div class="left">
+                        <img src="../Images/fish.png" width="95%" height="95%">
+                    </div>
+                    <div class="right">
+                        <p>{{"Fish Quantity" | translate}}   {{ fish.fish_size }}</p>
+                        <p>{{"Min Price" | translate}}   {{ fish.fish_price }}</p>
+                        <button (click)="onStartBid(fish.id)" class="btn btn-sm clearfix">{{"Start Bidding" | translate}}</button>
+                    </div>
+                </div>
             </li>
         </ul>
     </div>
 </div>
 
 <hr>
+</body>

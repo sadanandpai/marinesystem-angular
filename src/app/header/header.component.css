@@ -1,0 +1,27 @@
+body{
+    background-image: url("../Images/headerBackground.png"); 
+    background-size: 100%;
+    background-repeat: no-repeat;
+    font-family: 'century Gothic';
+    font-weight: bold;
+    position: relative;
+}
+
+.logo{
+    background-image: url("../Images/Logo-01.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    padding: 20%;
+    padding-bottom: 4%;
+    width: 38%;
+
+}
+
+.logout{
+    background-image: url("../Images/logout_butn.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    padding-top: 12%;
+    padding-right: 6%;
+    margin-right: 2%;
+}

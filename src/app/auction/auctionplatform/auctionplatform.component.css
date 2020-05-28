@@ -1,3 +1,58 @@
 .errmsg{
-    color: red; 
+    color: orange;
+    font-family: 'century Gothic';
+    font-weight: 500;
+    font-size: 1em;
+    display: inline-block;
+    text-align: center;
+    width:100%
 }
+
+body{
+    background-image: url("../../Images/AddFishBG-01.jpg");
+    background-size: 100%;
+    background-repeat: repeat-y;
+    font-family: 'century Gothic';
+    font-weight: bold;
+    position: relative;
+    min-height: 50%;
+}
+
+.backbtn{
+    background-image: url("../../Images/Back-Button_03.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    padding: 3%;
+    margin: 2%;
+    margin-left: 10%;
+}
+
+.header{
+    font-family: 'century Gothic';
+    font-weight: 600;
+    font-size: 1.5em;
+    color: white;
+    display: inline-block;
+    width: 60%;
+    padding: 3%;
+    margin: 2%;
+    text-align: center;
+}
+
+button {
+    background-image: url("../../Images/buttonstartbidding_03.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    color: White;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: bold;
+    width: 70%;
+    padding: 5% 10%;
+    margin-left: 25%;
+    margin-right: 5%;
+  }
+

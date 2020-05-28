@@ -1,58 +1,62 @@
-<p style="text-align: left;"><a (click)="onClick()" class="btn btn-sm btn-outline-primary">{{"Back" | translate}}</a></p>
+<body>
+  <a (click)="onClick()" class="btn backbtn"></a>
+    <h3 class="header">ADD FISH</h3>
 
 <form (ngSubmit)="fishDetails(f)" #f="ngForm">
-  <span class="help-block errmsg" *ngIf="msg == true">{{ "Failed to add Try again!" | translate }}</span>
   <div class="form-group col-xs-12">
-    <label for="fishid">{{ "Fish Name" | translate }}</label>
+    <label for="fishid">{{ "FISH NAME" | translate }}</label>
     <input
       type="text"
       class="form-control"
       id="fishid"
-      placeholder="Fish Name"
+      placeholder="FISH NAME"
       name="fishid"
       ngModel
       required
       #name="ngModel"
     />
-    <span class="help-block" *ngIf="!name.valid && name.touched">{{
-      "Please Enter a valid Fish ID!" | translate
+    <span class="help-block errmsg" *ngIf="!name.valid && name.touched">{{
+      "Please Select a valid Fish name!" | translate
     }}</span>
   </div>
   <div class="form-group col-xs-12">
-    <label for="size">{{ "Fish size" | translate }}</label>
+    <label for="size">{{ "FISH SIZE" | translate }}</label>
     <input
       type="text"
       class="form-control"
       id="size"
-      placeholder="Fish weight"
+      placeholder="FISH WEIGHT"
       pattern="^[0-9]*$"
       name="size"
       ngModel
       required
       #size="ngModel"
     />
-    <span class="help-block" *ngIf="!size.valid && size.touched">{{
+    <span class="help-block errmsg" *ngIf="!size.valid && size.touched">{{
       "Please Enter a valid Weight of Fish!" | translate
     }}</span>
   </div>
   <div class="form-group col-xs-12">
-    <label for="price">{{ "Fish Min Price" | translate }}</label>
+    <label for="price">{{ "FISH MIN PRICE" | translate }}</label>
     <input
       type="text"
       class="form-control"
       id="price"
-      placeholder="Fish Min Price"
+      placeholder="FISH MIN PRICE"
       pattern="^[0-9]*$"
       name="price"
       ngModel
       required
       #price="ngModel"
     />
-    <span class="help-block" *ngIf="!price.valid && price.touched">{{
+    <span class="help-block errmsg" *ngIf="!price.valid && price.touched">{{
       "Please Enter a valid Price of Fish!" | translate
     }}</span>
   </div>
-  <button type="submit" class="btn btn-primary" [disabled]="!f.valid">
+  <button type="submit" class="btn btn-sm" [disabled]="!f.valid">
     {{ "Submit" | translate }}
   </button>
+  <span class="help-block errmsg" *ngIf="msg == true">{{ "Failed to add Try again!" | translate }}</span>
+  
 </form>
+</body>

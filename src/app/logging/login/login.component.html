@@ -1,22 +1,20 @@
-<form (ngSubmit)="onLogin(f)" #f="ngForm">
-    <span class="help-block errmsg" *ngIf="msg == true">{{
-        "Invalid Username / Password " | translate
-      }}</span><br>
-      <span class="help-block errmsg" *ngIf="msg == true">{{
-        "*Username & Password are case-sensitive." | translate
-      }}</span>
+<body>
+    <a (click)="onClick()" class="btn backbtn"></a>
+    <h1 class="header">LOGIN</h1>
+    <form (ngSubmit)="onLogin(f)" #f="ngForm">
+    
     <div class="form-group">
-        <label for="username">{{ "Username" | translate }}</label>
+        <!-- <label for="username">{{ "Username" | translate }}</label> -->
         <input type="username"
-        class="form-control" 
+        class="form-control username" 
         id="username"
         name="username" 
-        placeholder="Enter username" 
+        placeholder="Username" 
         ngModel
         required>
     </div>
     <div class="form-group">
-        <label for="password">{{ "Password" | translate }}</label>
+        <!-- <label for="password">{{ "Password" | translate }}</label> -->
         <input type="password" 
         class="form-control" 
         id="password" 
@@ -26,9 +24,17 @@
         required>
     </div>
     <div class="form-group">
-        <button type="submit" class="btn btn-warning" [disabled]="!f.valid">{{ "LOGIN" | translate }}</button>
+        <button type="submit" class="btn btn-sm" [disabled]="!f.valid">{{ "Login" | translate }}</button>
     </div>
+    <span class="help-block errmsg" *ngIf="msg == true">{{
+      "Invalid Username / Password " | translate
+    }}</span>
+    <span class="help-block errmsg" *ngIf="msg == true">{{
+      "*Username & Password are case-sensitive." | translate
+    }}</span>
     <div class="form-group">
-        <button type="button" class="btn btn-sm btn-primary" (click)="onRegister()">{{ "Register Now" | translate }}</button>
+        <p class="text">{{ "You Don't have an account?" | translate }}</p>
+        <button type="button" class="btn btn-sm reg" (click)="onRegister()">{{ "Register Now" | translate }}</button>
     </div>
 </form>
+</body>

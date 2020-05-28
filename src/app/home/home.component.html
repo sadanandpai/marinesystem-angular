@@ -1,5 +1,8 @@
-<h1>FISHERY</h1>
-<p>{{ "Start Your Fishing Now!" | translate }}</p>
-
-<button class="btn btn-lg btn-warning" style="font-size: larger;" (click)="onStart()">Start -></button>
-<p *ngIf="msg == true">Please Login To Start Bidding!</p>
+<body>
+    <!-- <h1>FISHERY</h1>
+<p>{{ "Start Your Fishing Now!" | translate }}</p> -->
+    <button *ngIf="loggedIn == true" class="btn btn-sm login" routerLink="login">Login</button>
+    <button *ngIf="loggedIn == true" class="btn btn-sm register" routerLink="register">Register</button>
+    <button *ngIf="loggedIn == false" class="btn btn-sm start" (click)="onStart()">Start -></button>
+    <p *ngIf="msg == true">Please Login Before Start!</p>
+</body>
