@@ -34,6 +34,10 @@ export class AuctionComponent implements OnInit {
     this.router.navigate(['/auction', id]);
   }
 
+  onClick(){
+    this.router.navigate(['/']);
+  }
+
   onAddFish(){
     this.router.navigate(['/fish']);
   }

@@ -1,0 +1,102 @@
+.errmsg{
+    color: orange;
+    font-family: 'century Gothic';
+    font-weight: 500;
+    font-size: 1em;
+    display: inline-block;
+    text-align: center;
+    width:100%
+}
+
+body{
+    background-color: rgba(0,0,0,0.8);;
+    font-family: 'century Gothic';
+    position: relative;
+    padding-top: 20%;
+    height: auto;
+    padding-bottom: 100%;
+}
+
+.header{
+    font-family: 'century Gothic';
+    font-size: 1rem;
+    color: darkslateblue;
+    display: inline-block;
+    width: 100%;
+    padding: 3%;
+    margin: 2%;
+    text-align: center;
+}
+
+.contents{
+    height: auto;
+    background-image: url("../../Images/WinneramonutBg-01.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    color: darkblue;
+    border: none;
+    border-radius: 15px;
+    text-align: right;
+    text-decoration: none;
+    display: block;
+    font-weight: bold;
+    font-size: 1em;
+    width: 100%;
+    padding: 3% 5%;
+    margin: 0% 10%;
+    float: right;
+}
+
+.left{
+    float: left;
+    color: black;
+    font-weight: 500;
+}
+
+p{
+    margin: 0%;
+}
+
+.winamount{
+    color: rgb(17, 155, 155);
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+    min-height: 100px;
+    padding-top: 30%;
+}
+
+.details{
+    margin: 10% 0%;
+}
+
+button {
+    background-image: url("../../Images/finish_03.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    color: black;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 1em;
+    font-weight: bold;
+    border-radius: 20px;
+    width: 80%;
+    padding: 5% 0%;
+    margin: 0% 10%;
+}
+
+.btn-close{
+    background-image: url("../../Images/close_03.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 10%;
+    padding-bottom: 8%;
+    display: block;
+    float: right;
+    margin-top: -6%;
+    margin-right: -10%;
+}
+
+

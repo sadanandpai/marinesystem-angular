@@ -9,13 +9,14 @@
 }
 
 body{
-    background-image: url("../../Images/AddFishBG-01.jpg");
+    background-image: url("../../Images/LoginBg-01.jpg");
     background-size: 100%;
     background-repeat: repeat-y;
     font-family: 'century Gothic';
     font-weight: bold;
     position: relative;
-    min-height: 50%;
+    /* padding-bottom: 10%;  */
+    height: auto;
 }
 
 .backbtn{
@@ -39,6 +40,42 @@ body{
     text-align: center;
 }
 
+.contents{
+    height: auto;
+    background-color: white;
+    color: black;
+    border: none;
+    border-radius: 12px;
+    text-align: right;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1em;
+    font-weight: bold;
+    width: 100%;
+    padding: 3% 5%;
+    margin: 0% 10%;
+}
+
+.left{
+    float: left;
+}
+
+
+p{
+    display: inline-block;
+    margin: 0%;
+}
+
+.image{
+    margin-bottom: 10%;
+}
+
+.fishname{
+    text-align: center;
+    font-size: 1em;
+    font-weight: bold;
+}
+
 button {
     background-image: url("../../Images/buttonstartbidding_03.png");
     background-size: 100%;
@@ -47,12 +84,38 @@ button {
     border: none;
     text-align: center;
     text-decoration: none;
+    display: block;
+    font-size: 1em;
+    font-weight: bold;
+    width: 30%;
+    padding: 0% 3%;
+    float: right;
+}
+.btn-done{
+    float: left;
+}
+
+input{
+    background-image: url("../../Images/name-icon_06.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    color: black;
+    border: none;
+    text-align: left;
+    text-decoration: none;
     display: inline-block;
     font-size: 12px;
+    border-radius: 20px;
+    padding: 2% 15%;
     font-weight: bold;
-    width: 70%;
-    padding: 5% 10%;
-    margin-left: 25%;
-    margin-right: 5%;
-  }
+    width: 100%;
+}
+
+.footer{
+    background-image: url("../../Images/wave_02.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 100%;
+    padding: 10%;
+}
 

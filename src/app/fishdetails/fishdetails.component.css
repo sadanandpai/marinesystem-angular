@@ -17,6 +17,7 @@ body{
     /* font-family: 'century Gothic'; */
     font-weight: bold;
     position: relative;
+    height: auto;
 }
 
 .backbtn{
@@ -87,7 +88,13 @@ form div:first-child{
     margin-top: 20%;
 }
 
-
+.footer{
+    background-image: url("../Images/wave_02.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 100%;
+    padding: 10%;
+}
 
 
 

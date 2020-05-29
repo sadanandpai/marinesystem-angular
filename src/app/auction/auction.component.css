@@ -9,13 +9,13 @@
 }
 
 body{
-    background-image: url("../Images/AddFishBG-01.jpg");
+    background-image: url("../Images/LoginBg-01.jpg");
     background-size: 100%;
     background-repeat: repeat-y;
     font-family: 'century Gothic';
     font-weight: bold;
     position: relative;
-    min-height: 50%;
+    height: auto;
 }
 
 .backbtn{
@@ -111,4 +111,11 @@ div .right{
     font-weight: bold;
 }
 
+.footer{
+    background-image: url("../Images/wave_02.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 100%;
+    padding: 10%;
+}
 

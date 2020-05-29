@@ -1,20 +1,25 @@
 <body>
-    <h1>{{ "History Details" | translate }}</h1>
+<a (click)="onClick()" class="btn backbtn"></a>
+<h3 class="header">{{"History Details" | translate}}</h3>
 <div class="row">
-    <div class="col-xs-12 col-md-6 col-md-offset-3">
-        <br>
-        <a (click)="onclick()" class="btn btn-primary">{{ "Back" | translate}}</a><br><br>
-        <ul class="list-group">
-            <li class="list-group-item">
-                <h6>{{ "Fish Name" | translate }} {{ fishid }}</h6>
-                <p>{{ "Fish Quantity" | translate }} - <b>{{ size }}</b></p>
-                <p>{{ "Min Price" | translate }} - <b>{{ minprice }}</b></p>
-                <p>{{ "Boat Driver" | translate }} - <b>{{ owner }}</b></p>
-                <p>{{ "Win Amount" | translate }} - <b>{{ winAmount }}</b></p>
-                <p>{{ "Winner Name" | translate }} - <b>{{ winnerName }}</b></p>
-            </li>
-        </ul>
+    <div class="contents">
+        <div class="col-xs-12 col-md-12 col-lg-12 col-md-offset-3">
+
+            <h6 class="fishname">{{ "Fish Name" | translate }} {{ fishid }}</h6>
+            <img class="image" src="../../Images/fish.png" width="100%" height="100%"/>
+            <p class="left">{{ "Fish Quantity" | translate }}</p> <p>{{ size }}</p>
+            <hr>
+            <p class="left">{{ "Min Price" | translate }}</p> <p>{{ minprice }}</p>
+            <hr>
+            <p class="left">{{ "Boat Driver" | translate }}</p> <p>{{ owner }}</p>
+            <hr>
+            <p class="left">{{ "Win Amount" | translate }}</p> <p>{{ winAmount }}</p>
+            <hr>
+            <p class="left">{{ "Winner Name" | translate }}</p> <p>{{ winnerName }}</p>
+
+        </div>
     </div>
 </div>
+<div class="footer"></div>
     
 </body>

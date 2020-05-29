@@ -4,6 +4,7 @@ body{
     background-repeat: no-repeat;
     font-family: 'century Gothic';
     font-weight: bold;
+    height: auto;
     position: relative;
 }
 
@@ -11,17 +12,18 @@ body{
     background-image: url("../Images/Logo-01.png");
     background-size: 100%;
     background-repeat: no-repeat;
-    padding: 20%;
-    padding-bottom: 4%;
+    /* padding: 20%; */
+    padding-bottom: 14%;
     width: 38%;
-
+    float: left;
 }
 
 .logout{
     background-image: url("../Images/logout_butn.png");
     background-size: 100%;
     background-repeat: no-repeat;
-    padding-top: 12%;
+    height: auto;
+    padding-bottom: 12%;
     padding-right: 6%;
-    margin-right: 2%;
+    float: right;
 }

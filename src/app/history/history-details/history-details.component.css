@@ -1,0 +1,84 @@
+.errmsg{
+    color: orange;
+    font-family: 'century Gothic';
+    font-weight: 500;
+    font-size: 1em;
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+}
+
+body{
+    background-image: url("../../Images/LoginBg-01.jpg");
+    background-size: 100%;
+    background-repeat: repeat-y;
+    font-family: 'century Gothic';
+    font-weight: bold;
+    position: relative;
+    /* padding-bottom: 10%;  */
+    height: auto;
+}
+
+.backbtn{
+    background-image: url("../../Images/Back-Button_03.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    padding: 3%;
+    margin: 2%;
+    margin-left: 10%;
+}
+
+.header{
+    font-family: 'century Gothic';
+    font-weight: 600;
+    font-size: 1.5em;
+    color: white;
+    display: inline-block;
+    width: 60%;
+    padding: 3%;
+    margin: 2%;
+    text-align: center;
+}
+
+.contents{
+    height: auto;
+    background-color: white;
+    color: black;
+    border: none;
+    border-radius: 12px;
+    text-align: right;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1em;
+    font-weight: bold;
+    width: 100%;
+    padding: 3% 5%;
+    margin: 0% 10%;
+}
+
+.left{
+    float: left;
+}
+
+p{
+    display: inline-block;
+    margin: 0%;
+}
+
+.image{
+    margin-bottom: 10%;
+}
+
+.fishname{
+    text-align: center;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.footer{
+    background-image: url("../../Images/wave_02.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 100%;
+    padding: 10%;
+}

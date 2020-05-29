@@ -29,7 +29,7 @@ export class HistoryDetailsComponent implements OnInit {
     this.fetchWinner();
   }
 
-  onclick(){
+  onClick(){
     this.router.navigate(['/history']);
   }
 

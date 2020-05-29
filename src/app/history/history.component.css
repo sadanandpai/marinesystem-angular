@@ -9,13 +9,13 @@
 }
 
 body{
-    background-image: url("../Images/AddFishBG-01.jpg");
+    background-image: url("../Images/LoginBg-01.jpg");
     background-size: 100%;
     background-repeat: repeat-y;
     font-family: 'century Gothic';
     font-weight: bold;
     position: relative;
-    min-height: 50%;
+    height: auto;
 }
 
 .backbtn{
@@ -47,13 +47,12 @@ button {
     border: none;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
+    display: block;
     font-size: 12px;
     font-weight: bold;
     width: 70%;
     padding: 5% 10%;
-    margin-left: 25%;
-    margin-right: 5%;
+    float: right;
   }
 
 
@@ -84,4 +83,11 @@ div .right{
     width: 45%;
 }
 
+.footer{
+    background-image: url("../Images/wave_02.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 100%;
+    padding: 10%;
+}
 

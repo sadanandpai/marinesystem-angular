@@ -1,4 +1,16 @@
-<p style="text-align: left;"><a (click)="onClick()" class="btn btn-sm btn-outline-primary">{{"Back" | translate}}</a></p>
-<h1 *ngIf="boatdriver == true && visible == true">{{ "Winner Details" | translate}}</h1>
-<h3 *ngIf="boatdriver == true">{{ winAmount }}</h3>
-<h3 *ngIf="boatdriver == true">{{ winnerName }}</h3>
+<body>
+    <div class="row">
+        <div class="contents">
+            <div class="col-xs-12 col-md-12 col-lg-12">
+                <a routerLink="/auction" tooltip="close" class="btn btn-sm btn-close"></a>
+                <p class="header" *ngIf="boatdriver == true && visible == true">{{ "Winner Details" | translate}}</p>
+                <p class="winamount" *ngIf="boatdriver == true">{{ winAmount }}</p>
+                <div class="details">
+                    <p class="left">{{"Winner Username :" | translate}}</p><p *ngIf="boatdriver == true">{{ winnerName }}</p>
+                    <hr>
+                </div>
+            <button (onclick)="onClick()">{{"Finish" | translate}}</button>
+            </div>
+        </div>
+    </div>
+</body>
