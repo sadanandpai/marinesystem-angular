@@ -2,8 +2,8 @@
     color: red;
 }
 
-body{
-    background-image: url("../Images/FisheryBackground.jpg");
+.body{
+    background-image: url("../../assets/Images/FisheryBackground.jpg");
     background-size: 100%;
     background-repeat: no-repeat;
     margin-bottom: 10px;

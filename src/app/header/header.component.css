@@ -1,5 +1,5 @@
-body{
-    background-image: url("../Images/headerBackground.png"); 
+.body{
+    background-image: url("../../assets/Images/headerBackground.png"); 
     background-size: 100%;
     background-repeat: no-repeat;
     font-family: 'century Gothic';
@@ -9,7 +9,7 @@ body{
 }
 
 .logo{
-    background-image: url("../Images/Logo-01.png");
+    background-image: url("../../assets/Images/Logo-01.png");
     background-size: 100%;
     background-repeat: no-repeat;
     /* padding: 20%; */
@@ -19,7 +19,7 @@ body{
 }
 
 .logout{
-    background-image: url("../Images/logout_butn.png");
+    background-image: url("../../assets/Images/logout_butn.png");
     background-size: 100%;
     background-repeat: no-repeat;
     height: auto;

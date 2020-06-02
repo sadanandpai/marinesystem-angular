@@ -13,6 +13,8 @@ export class FishdetailsComponent implements OnInit {
   msg: Boolean;
   minprice: any;
   fid: any;
+  fishDetailsSubscriber: any;
+  auctionDetailsSubscriber: any;
 
   constructor(private http: HttpClient,
               private router: Router,
@@ -38,14 +40,12 @@ export class FishdetailsComponent implements OnInit {
       'Content-Type': 'application/json',
       'Authorization': 'Token ' + localStorage.getItem('token')
     });
-      this.http
-      .post('http://localhost:8000/portal/fish_list/', data, {
-        headers: headers,
-      })
+    this.fishDetailsSubscriber = this.http
+      .post('http://localhost:8000/portal/fish_list/', data, { headers: headers })
       .subscribe(
         (responseData: any) => {
           console.log(responseData);
-          debugger
+          // debugger
           localStorage.setItem('fishid', responseData.id);
           console.log(localStorage.getItem('fishid'))
         },
@@ -59,12 +59,12 @@ export class FishdetailsComponent implements OnInit {
         fishid: localStorage.getItem('fishid'),
         highestBid: null,
       }
-      debugger
+      // debugger
       setTimeout(() => {
-      debugger
+      // debugger
         var id = localStorage.getItem('fishid');
         console.log(id);
-        this.http.put('http://localhost:8000/portal/auction_list/' + id + '/', data, { headers: headers })
+        this.auctionDetailsSubscriber = this.http.put('http://localhost:8000/portal/auction_list/' + id + '/', data, { headers: headers })
         .subscribe(
           (responseData) => {
             console.log(responseData);
@@ -76,4 +76,6 @@ export class FishdetailsComponent implements OnInit {
         );
       }, 10000);
   }
+  
+
 }

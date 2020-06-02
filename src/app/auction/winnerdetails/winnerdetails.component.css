@@ -8,7 +8,7 @@
     width:100%
 }
 
-body{
+.body{
     background-color: rgba(0,0,0,0.8);;
     font-family: 'century Gothic';
     position: relative;
@@ -30,7 +30,7 @@ body{
 
 .contents{
     height: auto;
-    background-image: url("../../Images/WinneramonutBg-01.png");
+    background-image: url("../../../assets/Images/WinneramonutBg-01.png");
     background-size: 100%;
     background-repeat: no-repeat;
     color: darkblue;
@@ -71,7 +71,7 @@ p{
 }
 
 button {
-    background-image: url("../../Images/finish_03.png");
+    background-image: url("../../../assets/Images/finish_03.png");
     background-size: 100%;
     background-repeat: no-repeat;
     color: black;
@@ -88,7 +88,7 @@ button {
 }
 
 .btn-close{
-    background-image: url("../../Images/close_03.png");
+    background-image: url("../../../assets/Images/close_03.png");
     background-size: 100%;
     background-repeat: no-repeat;
     width: 10%;

@@ -11,6 +11,7 @@ import { map } from 'rxjs/internal/operators/map';
 })
 export class HistoryComponent implements OnInit {
   loadedfishes: any;
+  fetchFishSubscriber: any;
 
   constructor(private http: HttpClient,
     private router: Router,
@@ -30,11 +31,14 @@ export class HistoryComponent implements OnInit {
   
     private fetchFish() {
       let id = localStorage.getItem('id')
-      this.http.get('http://localhost:8000/portal/bdfish_list/' + id + '/')
+      this.fetchFishSubscriber = this.http.get('http://localhost:8000/portal/bdfish_list/' + id + '/')
       .subscribe((responseData: any) => {
           console.log(responseData);
           this.loadedfishes = responseData;
       });
     }
+
+
+
   }
 

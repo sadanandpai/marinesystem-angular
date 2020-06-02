@@ -13,13 +13,15 @@ export class WinnerdetailsComponent implements OnInit {
   winAmount: any;
   winnerName: any;
   boatdriver: boolean;
+  initialSubscriber: any;
+  auctionDetailsSubscriber: any;
 
   constructor(private http: HttpClient,
     private router: Router,
     private route: ActivatedRoute,) { }
 
   ngOnInit(): void {
-    this.route.params.subscribe(data=>{
+    this.initialSubscriber = this.route.params.subscribe(data=>{
       this.fid = Number(data.id);
     });
     
@@ -30,7 +32,7 @@ export class WinnerdetailsComponent implements OnInit {
 
     this.visible = true;
     let id = this.fid;
-      this.http.get('http://localhost:8000/portal/auction_list/' + id + '/')
+    this.auctionDetailsSubscriber = this.http.get('http://localhost:8000/portal/auction_list/' + id + '/')
         .subscribe(
           (responseData: any) => {
             this.winAmount = responseData.highestBid;
@@ -44,7 +46,7 @@ export class WinnerdetailsComponent implements OnInit {
   }
 
   onClick(){
-    this.router.navigate(['/auction']);
+    this.router.navigate(['auction']);
   }
 
 }

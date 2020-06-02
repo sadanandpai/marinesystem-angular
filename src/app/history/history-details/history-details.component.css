@@ -8,8 +8,8 @@
     width: 100%;
 }
 
-body{
-    background-image: url("../../Images/LoginBg-01.jpg");
+.body{
+    background-image: url("../../../assets/Images/LoginBg-01.jpg");
     background-size: 100%;
     background-repeat: repeat-y;
     font-family: 'century Gothic';
@@ -20,7 +20,7 @@ body{
 }
 
 .backbtn{
-    background-image: url("../../Images/Back-Button_03.png");
+    background-image: url("../../../assets/Images/Back-Button_03.png");
     background-size: 100%;
     background-repeat: no-repeat;
     padding: 3%;
@@ -76,7 +76,7 @@ p{
 }
 
 .footer{
-    background-image: url("../../Images/wave_02.png");
+    background-image: url("../../../assets/Images/wave_02.png");
     background-size: 100%;
     background-repeat: no-repeat;
     width: 100%;

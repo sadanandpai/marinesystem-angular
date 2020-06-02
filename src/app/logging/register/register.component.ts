@@ -13,6 +13,7 @@ import { User } from '../../shared/user.model';
 export class RegisterComponent implements OnInit {
   @ViewChild('f') userForm: NgForm;
   msg: Boolean;
+  registerSubscriber: any;
   constructor(
     private http: HttpClient,
     private router: Router,
@@ -35,7 +36,7 @@ export class RegisterComponent implements OnInit {
     let headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
-    this.http
+    this.registerSubscriber = this.http
       .post('http://localhost:8000/users/', newUser, { headers: headers })
       .subscribe(
         (responseData) => {
@@ -53,4 +54,5 @@ export class RegisterComponent implements OnInit {
     this.msg = false;
     form.reset();
   }
+
 }

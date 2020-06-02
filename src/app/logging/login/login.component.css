@@ -8,8 +8,8 @@
     width: 100%;
 }
 
-body{
-    background-image: url("../../Images/LoginBackground-01.jpg");
+.body{
+    background-image: url("../../../assets/Images/LoginBackground-01.jpg");
     background-size: 100%;
     background-repeat: no-repeat;
     margin-bottom: 10px;
@@ -20,7 +20,7 @@ body{
 }
 
 .backbtn{
-    background-image: url("../../Images/Back-Button_03.png");
+    background-image: url("../../../assets/Images/Back-Button_03.png");
     background-size: 100%;
     background-repeat: no-repeat;
     padding: 3%;
@@ -55,7 +55,7 @@ button {
   }
 
 input{
-    background-image: url("../../Images/name-icon_06.png");
+    background-image: url("../../../assets/Images/name-icon_06.png");
     background-size: 100%;
     background-repeat: no-repeat;
     color: black;

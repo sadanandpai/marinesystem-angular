@@ -69,20 +69,6 @@ export class AuctionComponent implements OnInit {
         this.loadedfishes = responseData;
     });
 
-    // this.http.get<{ [id:string]: Fish }>('http://localhost:8000/portal/bdfish_list/' + id + '/')
-    // .pipe(map((responseData)=>{
-    //   const fisharray: Fish[] = [];
-    //   for(const key in responseData){
-    //     if(responseData.hasOwnProperty(key)){
-    //       fisharray.push({ ...responseData[key], id: key });
-    //     }
-    //   }
-    //   return fisharray;
-    // })).subscribe(responseData => {
-    //     console.log(responseData);
-    //     this.loadedfishes = responseData;
-    // });
-
   }
   
 }

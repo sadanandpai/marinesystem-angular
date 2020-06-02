@@ -8,8 +8,8 @@
     width:100%
 }
 
-body{
-    background-image: url("../Images/AddFishBG-01.jpg");
+.body{
+    background-image: url("../../assets/Images/AddFishBG-01.jpg");
     background-size: 100%;
     background-repeat: no-repeat;
     margin-bottom: 10px;
@@ -21,7 +21,7 @@ body{
 }
 
 .backbtn{
-    background-image: url("../Images/Back-Button_03.png");
+    background-image: url("../../assets/Images/Back-Button_03.png");
     background-size: 100%;
     background-repeat: no-repeat;
     padding: 3%;
@@ -56,7 +56,7 @@ button {
   }
 
 input{
-    background-image: url("../Images/name_03.png");
+    background-image: url("../../assets/Images/name_03.png");
     background-size: 100%;
     background-repeat: no-repeat;
     color: black;
@@ -89,7 +89,7 @@ form div:first-child{
 }
 
 .footer{
-    background-image: url("../Images/wave_02.png");
+    background-image: url("../../assets/Images/wave_02.png");
     background-size: 100%;
     background-repeat: no-repeat;
     width: 100%;

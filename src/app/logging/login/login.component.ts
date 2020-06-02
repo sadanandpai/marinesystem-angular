@@ -11,6 +11,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class LoginComponent implements OnInit {
   @ViewChild('f') loginForm: NgForm;
   msg: Boolean;
+  loginSubscriber: any;
 
   constructor(
     private router: Router,
@@ -31,7 +32,7 @@ export class LoginComponent implements OnInit {
     let headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
-    this.http
+    this.loginSubscriber = this.http
       .post('http://localhost:8000/api-token-auth/', user, { headers: headers })
       .subscribe(
         (responseData:any) => {
@@ -53,4 +54,5 @@ export class LoginComponent implements OnInit {
   onRegister() {
     this.router.navigate(['register']), { relativeTo: this.route };
   }
+
 }

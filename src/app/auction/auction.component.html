@@ -1,13 +1,13 @@
-<body>
+<div class="body">
     <a (click)="onClick()" class="btn backbtn"></a>
     <h3 class="header">{{"Auction Platform" | translate}}</h3>
 
 <div class="row bdbuttons" *ngIf="boatdriver == true">
     <a (click)="onAddFish()" class="btn btn-sm btn-addfish">
-        <!-- <img src="../Images/addfish_03.png" /> -->
+        <img src="../../assets/Images/addfish_03.png" style="width: 85px;"/>
     </a>
     <a (click)="onClickHistory()" class="btn btn-sm btn-history">
-        <!-- <img src="../Images/History_03.png" /> -->
+        <img src="../../assets/Images/History_03.png" style="width: 85px;"/>
     </a> 
     
 </div>
@@ -19,7 +19,7 @@
                <div class="row">
                 <h6 class="fishname">{{"Fish Name" | translate}}  {{ fish.fish_id }}</h6>
                     <div class="left">
-                        <img src="../Images/fish.png" width="95%" height="95%">
+                        <img src="../../assets/Images/fish.png" width="95%" height="95%">
                     </div>
                     <div class="right">
                         <p>{{"Fish Quantity" | translate}}   {{ fish.fish_size }}</p>
@@ -33,4 +33,4 @@
 </div>
 
 <div class="footer"></div>
-</body>
+</div>

@@ -1,4 +1,4 @@
-<body>
+<div class="body">
     <a (click)="onClick()" class="btn backbtn"></a>
     <h3 class="header">{{"History" | translate}}</h3>
  <div class="row">
@@ -8,11 +8,11 @@
             <li class="list-group-item" *ngIf="fish.status == false">
                <div class="row">
                     <div class="left">
-                        <img src="../Images/fish.png" width="95%" height="80%">
+                        <img src="../../assets/Images/fish.png" width="95%" height="80%">
                         <p>{{ "Fish Name" | translate }} {{ fish.fish_id }}</p>
                     </div>
                     <div class="middle">
-                        <!-- <img src="../Images/line.png"> -->
+                        <!-- <img src="../../assets/Images/line.png"> -->
                     </div>
                     <div class="right">
                         <p>{{ "Fish Owner" | translate }} {{ fish.owner }}</p>
@@ -26,4 +26,4 @@
 </div>
 <div class="footer"></div>
 
-</body>
+</div>

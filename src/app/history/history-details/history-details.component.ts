@@ -16,13 +16,16 @@ export class HistoryDetailsComponent implements OnInit {
   winnerName: any;
   owner: any;
   date: any;
+  fetchFishSubscriber: any;
+  fetchWinnerSubscriber: any;
+  initialSubscriber: any;
 
   constructor(private http: HttpClient,
     private router: Router,
     private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.route.params.subscribe(data=>{
+    this.initialSubscriber = this.route.params.subscribe(data=>{
       this.fid = Number(data.id);
     });
     this.fetchfish();
@@ -35,7 +38,7 @@ export class HistoryDetailsComponent implements OnInit {
 
   private fetchfish() {
     let id = this.fid;
-      this.http.get('http://localhost:8000/fish/'+ id + '/')
+      this.fetchFishSubscriber = this.http.get('http://localhost:8000/fish/'+ id + '/')
         .subscribe((responseData: any) => {
             console.log(responseData);
             let loadedfishes: any = responseData;
@@ -48,7 +51,7 @@ export class HistoryDetailsComponent implements OnInit {
 
   private fetchWinner(){
     let id = this.fid;
-      this.http.get('http://localhost:8000/portal/auction_list/' + id + '/')
+      this.fetchWinnerSubscriber = this.http.get('http://localhost:8000/portal/auction_list/' + id + '/')
         .subscribe(
           (responseData: any) => {
             this.winAmount = responseData.highestBid;
@@ -59,4 +62,5 @@ export class HistoryDetailsComponent implements OnInit {
             console.log(error);
           });
   }
+
 }

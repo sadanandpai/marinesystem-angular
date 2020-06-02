@@ -35,13 +35,20 @@ export class AuctionplatformComponent implements OnInit {
   visible: boolean = false;
   
   boatdriver: boolean = false;
+  initialSubscriber: any;
+  fetchFishSubscriber: any;
+  fetchWinnerSubscriber: any;
+  addAuctionDetailsSubscriber: any;
+  fishServiceSubscriber: any;
+  getHighestBidSubscriber: any;
+  fishStatusSubscriber: any;
 
   constructor(private http: HttpClient,
               private router: Router,
               private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.route.params.subscribe(data=>{
+    this.initialSubscriber = this.route.params.subscribe(data=>{
       this.fid = Number(data.id);
     });
 
@@ -50,17 +57,19 @@ export class AuctionplatformComponent implements OnInit {
     if(data == 'BoatDriver'){
       this.boatdriver = true;
     }
-    console.log(window.localStorage)
+    console.log(window.localStorage);
     
-    interval(1000).subscribe(
+    this.fishServiceSubscriber = interval(1000).subscribe(
       (val) => { 
         this.getHighestBid();
       }
     );
-    
+    console.log("interval");
+    console.log(this.fishServiceSubscriber);
   }
 
   onClick(){
+    this.fishServiceSubscriber.unsubscribe();
     this.router.navigate(['/auction']);
   }
   
@@ -77,7 +86,7 @@ export class AuctionplatformComponent implements OnInit {
         status: false,
     }
     let id = this.fid;
-    this.http.patch('http://localhost:8000/fish/' + id + '/', data, { headers: headers })
+    this.fishStatusSubscriber = this.http.patch('http://localhost:8000/fish/' + id + '/', data, { headers: headers })
       .subscribe(
         (responseData) => {
           console.log(responseData);
@@ -109,7 +118,7 @@ export class AuctionplatformComponent implements OnInit {
       }
       this.id = this.fid;
       console.log("bid: " + this.bid)
-      this.http.put('http://localhost:8000/portal/auction_list/' + this.id + '/', details, 
+      this.addAuctionDetailsSubscriber = this.http.put('http://localhost:8000/portal/auction_list/' + this.id + '/', details, 
         { headers: headers }).subscribe(
           (responseData) => {
             console.log(responseData);
@@ -126,7 +135,7 @@ export class AuctionplatformComponent implements OnInit {
 
   private fetchfish() {
     let id = this.fid;
-      this.http.get('http://localhost:8000/fish/'+ id + '/')
+    this.fetchFishSubscriber = this.http.get('http://localhost:8000/fish/'+ id + '/')
         .subscribe((responseData: any) => {
             console.log(responseData);
             let loadedfishes: any = responseData;
@@ -142,7 +151,7 @@ export class AuctionplatformComponent implements OnInit {
 
   private getHighestBid(){
     let id = this.fid;
-      this.http.get('http://localhost:8000/portal/auction_list/' + id + '/')
+    this.getHighestBidSubscriber = this.http.get('http://localhost:8000/portal/auction_list/' + id + '/')
         .subscribe(
           (responseData: any) => {
             this.bid = responseData.highestBid;
@@ -156,7 +165,7 @@ export class AuctionplatformComponent implements OnInit {
   private fetchWinner(){
     this.visible = true;
     let id = this.fid;
-      this.http.get('http://localhost:8000/portal/auction_list/' + id + '/')
+    this.fetchWinnerSubscriber = this.http.get('http://localhost:8000/portal/auction_list/' + id + '/')
         .subscribe(
           (responseData: any) => {
             this.winAmount = responseData.highestBid;
@@ -167,7 +176,6 @@ export class AuctionplatformComponent implements OnInit {
             console.log(error);
           });
     this.router.navigate(['winnerdetails', id]);
-
   }
 
 }

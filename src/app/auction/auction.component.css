@@ -8,8 +8,8 @@
     width:100%
 }
 
-body{
-    background-image: url("../Images/LoginBg-01.jpg");
+.body{
+    background-image: url("../../assets/Images/LoginBg-01.jpg");
     background-size: 100%;
     background-repeat: repeat-y;
     font-family: 'century Gothic';
@@ -19,7 +19,7 @@ body{
 }
 
 .backbtn{
-    background-image: url("../Images/Back-Button_03.png");
+    background-image: url("../../assets/Images/Back-Button_03.png");
     background-size: 100%;
     background-repeat: no-repeat;
     padding: 3%;
@@ -40,7 +40,7 @@ body{
 }
 
 button {
-    background-image: url("../Images/buttonstartbidding_03.png");
+    background-image: url("../../assets/Images/buttonstartbidding_03.png");
     background-size: 100%;
     background-repeat: no-repeat;
     color: White;
@@ -60,26 +60,18 @@ button {
     border: none;
     display: inline-block;
     width: 100%;
-    margin-left: 2%;
+    margin: 0% 2%;
 }
+
 .btn-addfish{
-    background-image: url("../Images/addfish_03.png");
-    background-size: 100%;
-    background-repeat: no-repeat;
-    margin-right: 10%;
-    width: 10%;
-    padding: 10% 10%;
+    float: left;
 }
 
 .btn-history{
-    background-image: url("../Images/History_03.png");
-    background-size: 100%;
-    background-repeat: no-repeat;
-    margin-left: 40%;
-    width: 10%;
-    padding: 10% 10%;
-}
+    float: right;
 
+}
+  
 .fishname{
     color: darkblue;
     width: 80%;
@@ -112,7 +104,7 @@ div .right{
 }
 
 .footer{
-    background-image: url("../Images/wave_02.png");
+    background-image: url("../../assets/Images/wave_02.png");
     background-size: 100%;
     background-repeat: no-repeat;
     width: 100%;
