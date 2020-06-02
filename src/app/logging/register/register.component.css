@@ -1,9 +1,11 @@
 input.ng-invalid.ng-touched{
-    border: 1px solid red; 
+    background-color: white;
+    box-shadow: 0px 0px 5px red; 
 }
 
 select.ng-invalid.ng-touched{
-    border: 1px solid red; 
+    background-color: white;
+    box-shadow: 0px 0px 5px red; 
 }
 
 
@@ -17,9 +19,8 @@ select.ng-invalid.ng-touched{
     color: red;
 }
 
-
 .body{
-    background-image: url("../../../assets/Images/RegisterBackground.jpg");
+    background-image: url("../../../assets/Images/BG_full-01.jpg");
     background-size: 100%;
     background-repeat: no-repeat;
     margin-bottom: 10px;
@@ -30,15 +31,33 @@ select.ng-invalid.ng-touched{
 }
 
 .backbtn{
-    background-image: url("../../../assets/Images/Back-Button_03.png");
-    background-size: 100%;
-    background-repeat: no-repeat;
-    padding: 3%;
     margin: 2%;
     margin-left: 10%;
 }
+.arrow {
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+.line {
+  border: solid white;
+  border-width: 0 0px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  padding-left: 15px;
+  margin-bottom: 3px;
+  margin-left: -10px;
+}
 
 .header{
+    background-color: #333399;
+    display: block;
+    width: 100%;
+}
+.heading{
     font-family: 'century Gothic';
     font-weight: 700;
     font-size: 2rem;
@@ -51,8 +70,8 @@ select.ng-invalid.ng-touched{
 }
 
 button {
-    background-color: #3e56af;
-    color: White;
+    background-color: #333399;
+    color: white;
     border: none;
     text-align: center;
     text-decoration: none;
@@ -65,9 +84,8 @@ button {
   }
 
 input{
-    background-image: url("../../../assets/Images/name-icon_06.png");
-    background-size: 100%;
-    background-repeat: no-repeat;
+    background-color: white;
+    box-shadow: 0px 0px 5px grey;
     color: black;
     border: none;
     text-align: left;

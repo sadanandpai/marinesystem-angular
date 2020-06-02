@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, Input, EventEmitter } from '@angular/core';
+import { Component, OnInit, ViewChild, Input, EventEmitter, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -10,10 +10,12 @@ import { User } from '../shared/user.model';
   templateUrl: './auction.component.html',
   styleUrls: ['./auction.component.css']
 })
-export class AuctionComponent implements OnInit {
+export class AuctionComponent implements OnInit, OnDestroy {
   boatdriver: boolean = false;
   loadedfishes: any;
   loadedauctions: Object;
+  fetchFishSubscriber: any;
+  fetchBDFishSubscriber: any;
 
   constructor(private http: HttpClient,
     private router: Router,
@@ -23,7 +25,7 @@ export class AuctionComponent implements OnInit {
     var data = localStorage.getItem('group');
     if(data == 'BoatDriver'){
       this.boatdriver = true;
-      this.fetchonlyBDFish();
+      this.fetchOnlyBDFish();
     } else {
       this.fetchFish();
     }
@@ -47,7 +49,7 @@ export class AuctionComponent implements OnInit {
   }
 
   private fetchFish() {
-    this.http.get('http://localhost:8000/portal/fish_list/')
+    this.fetchFishSubscriber = this.http.get('http://localhost:8000/portal/fish_list/')
     .subscribe((responseData: any) => {
         console.log(responseData);
         this.loadedfishes = responseData;
@@ -61,9 +63,9 @@ export class AuctionComponent implements OnInit {
 
   }
     
-  private fetchonlyBDFish() {
+  private fetchOnlyBDFish() {
     let id = localStorage.getItem('id')
-    this.http.get<{ [id:string]: Fish }>('http://localhost:8000/portal/bdfish_list/' + id + '/')
+    this.fetchBDFishSubscriber = this.http.get<{ [id:string]: Fish }>('http://localhost:8000/portal/bdfish_list/' + id + '/')
     .subscribe((responseData: any) => {
         console.log(responseData);
         this.loadedfishes = responseData;
@@ -71,4 +73,12 @@ export class AuctionComponent implements OnInit {
 
   }
   
+  ngOnDestroy() {
+    if(this.fetchFishSubscriber){
+      this.fetchFishSubscriber.unsubscribe();
+    }
+    if(this.fetchBDFishSubscriber){
+      this.fetchBDFishSubscriber.unsubscribe();
+    }
+  }
 }

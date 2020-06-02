@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { HttpClient, HttpHeaders, HttpRequest, HttpResponse, HttpErrorResponse } from '@angular/common/http';
@@ -12,7 +12,7 @@ import { User } from 'src/app/shared/user.model';
   templateUrl: './auctionplatform.component.html',
   styleUrls: ['./auctionplatform.component.css']
 })
-export class AuctionplatformComponent implements OnInit {
+export class AuctionplatformComponent implements OnInit, OnDestroy {
   @ViewChild('f') auctionForm: NgForm;
   @ViewChild('q') bidForm: NgForm;
 
@@ -58,7 +58,7 @@ export class AuctionplatformComponent implements OnInit {
       this.boatdriver = true;
     }
     console.log(window.localStorage);
-    
+
     this.fishServiceSubscriber = interval(1000).subscribe(
       (val) => { 
         this.getHighestBid();
@@ -69,7 +69,6 @@ export class AuctionplatformComponent implements OnInit {
   }
 
   onClick(){
-    this.fishServiceSubscriber.unsubscribe();
     this.router.navigate(['/auction']);
   }
   
@@ -142,11 +141,7 @@ export class AuctionplatformComponent implements OnInit {
             this.fishid = loadedfishes.fish_id;
             this.minprice = loadedfishes.fish_price;
             this.size = loadedfishes.fish_size;
-            if(this.bid == null){
-              this.bid = this.minprice;
-            }
         });
-
   }
 
   private getHighestBid(){
@@ -154,7 +149,11 @@ export class AuctionplatformComponent implements OnInit {
     this.getHighestBidSubscriber = this.http.get('http://localhost:8000/portal/auction_list/' + id + '/')
         .subscribe(
           (responseData: any) => {
-            this.bid = responseData.highestBid;
+            if(responseData.highestBid == null){
+              this.bid = this.minprice;
+            } else {
+              this.bid = responseData.highestBid;
+            }
             console.log(responseData);
           },
           (error) => {
@@ -178,4 +177,27 @@ export class AuctionplatformComponent implements OnInit {
     this.router.navigate(['winnerdetails', id]);
   }
 
+  ngOnDestroy(): void{
+    if(this.fishServiceSubscriber){
+      this.fishServiceSubscriber.unsubscribe();
+    }
+    if(this.initialSubscriber){
+      this.initialSubscriber.unsubscribe();
+    }
+    if(this.addAuctionDetailsSubscriber){
+      this.addAuctionDetailsSubscriber.unsubscribe();
+    }
+    if(this.fetchFishSubscriber){
+      this.fetchFishSubscriber.unsubscribe();
+    }
+    if(this.getHighestBidSubscriber){
+      this.getHighestBidSubscriber.unsubscribe();
+    }
+    if(this.fetchWinnerSubscriber){
+      this.fetchWinnerSubscriber.unsubscribe();
+    }
+    if(this.fishStatusSubscriber){
+      this.fishStatusSubscriber.unsubscribe();
+    }
+  }
 }

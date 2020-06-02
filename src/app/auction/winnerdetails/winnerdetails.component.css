@@ -71,10 +71,8 @@ p{
 }
 
 button {
-    background-image: url("../../../assets/Images/finish_03.png");
-    background-size: 100%;
-    background-repeat: no-repeat;
-    color: black;
+    background-color: #333399;
+    color: white;
     border: none;
     text-align: center;
     text-decoration: none;

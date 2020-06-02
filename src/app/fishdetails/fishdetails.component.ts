@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { NgForm } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -8,7 +8,7 @@ import { Router, ActivatedRoute } from '@angular/router';
   templateUrl: './fishdetails.component.html',
   styleUrls: ['./fishdetails.component.css'],
 })
-export class FishdetailsComponent implements OnInit {
+export class FishdetailsComponent implements OnInit, OnDestroy {
   @ViewChild('f') fishForm: NgForm;
   msg: Boolean;
   minprice: any;
@@ -45,7 +45,6 @@ export class FishdetailsComponent implements OnInit {
       .subscribe(
         (responseData: any) => {
           console.log(responseData);
-          // debugger
           localStorage.setItem('fishid', responseData.id);
           console.log(localStorage.getItem('fishid'))
         },
@@ -59,9 +58,7 @@ export class FishdetailsComponent implements OnInit {
         fishid: localStorage.getItem('fishid'),
         highestBid: null,
       }
-      // debugger
       setTimeout(() => {
-      // debugger
         var id = localStorage.getItem('fishid');
         console.log(id);
         this.auctionDetailsSubscriber = this.http.put('http://localhost:8000/portal/auction_list/' + id + '/', data, { headers: headers })
@@ -77,5 +74,12 @@ export class FishdetailsComponent implements OnInit {
       }, 10000);
   }
   
-
+  ngOnDestroy() {
+    if(this.fishDetailsSubscriber){
+      this.fishDetailsSubscriber.unsubscribe();
+    }
+    if(this.auctionDetailsSubscriber){
+      this.auctionDetailsSubscriber.unsubscribe();
+    }
+  }
 }

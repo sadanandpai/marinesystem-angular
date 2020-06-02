@@ -1,7 +1,5 @@
 .body{
-    background-image: url("../../assets/Images/headerBackground.png"); 
-    background-size: 100%;
-    background-repeat: no-repeat;
+    background-color: #333399;
     font-family: 'century Gothic';
     font-weight: bold;
     height: auto;

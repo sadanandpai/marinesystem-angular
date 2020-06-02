@@ -1,6 +1,9 @@
 <div class="body">
-  <a (click)="onClick()" class="btn backbtn"></a>
-    <h1 class="header">REGISTER</h1>
+<div class="header">
+<a (click)="onClick()" class="btn backbtn"><i class="arrow"></i><i class="line"></i></a>
+    <h1 class="heading">REGISTER</h1>
+    </div>
+
 <form (ngSubmit)="onSignup(f)" #f="ngForm">
   <div class="form-group col-xs-12">
     <input type="email" 

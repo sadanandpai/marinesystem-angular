@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -10,7 +10,7 @@ import { User } from '../../shared/user.model';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css'],
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent implements OnInit, OnDestroy {
   @ViewChild('f') userForm: NgForm;
   msg: Boolean;
   registerSubscriber: any;
@@ -55,4 +55,9 @@ export class RegisterComponent implements OnInit {
     form.reset();
   }
 
+  ngOnDestroy() {
+    if(this.registerSubscriber){
+    this.registerSubscriber.unsubscribe();
+    }
+  }
 }

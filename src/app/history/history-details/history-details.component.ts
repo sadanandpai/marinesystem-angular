@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './history-details.component.html',
   styleUrls: ['./history-details.component.css']
 })
-export class HistoryDetailsComponent implements OnInit {
+export class HistoryDetailsComponent implements OnInit, OnDestroy {
   fid: number;
   fishid: any;
   minprice: any;
@@ -63,4 +63,15 @@ export class HistoryDetailsComponent implements OnInit {
           });
   }
 
+  ngOnDestroy() {
+    if(this.fetchFishSubscriber){
+      this.fetchFishSubscriber.unsubscribe();
+    }
+    if(this.fetchWinnerSubscriber){
+      this.fetchWinnerSubscriber.unsubscribe();
+    }
+    if(this.initialSubscriber){
+      this.initialSubscriber.unsubscribe();
+    }
+  }
 }

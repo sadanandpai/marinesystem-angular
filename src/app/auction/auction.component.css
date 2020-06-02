@@ -19,12 +19,25 @@
 }
 
 .backbtn{
-    background-image: url("../../assets/Images/Back-Button_03.png");
-    background-size: 100%;
-    background-repeat: no-repeat;
-    padding: 3%;
     margin: 2%;
     margin-left: 10%;
+}
+.arrow {
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+.line {
+  border: solid white;
+  border-width: 0 0px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  padding-left: 15px;
+  margin-bottom: 3px;
+  margin-left: -10px;
 }
 
 .header{
@@ -40,11 +53,10 @@
 }
 
 button {
-    background-image: url("../../assets/Images/buttonstartbidding_03.png");
-    background-size: 100%;
-    background-repeat: no-repeat;
-    color: White;
+    background-color: #333399;
+    color: white;
     border: none;
+    border-radius: 20px;
     text-align: center;
     text-decoration: none;
     display: inline-block;

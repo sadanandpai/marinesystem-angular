@@ -49,4 +49,12 @@ export class WinnerdetailsComponent implements OnInit {
     this.router.navigate(['auction']);
   }
 
+  ngOnDestroy() {
+    if(this.initialSubscriber){
+      this.initialSubscriber.unsubscribe();
+    }
+    if(this.auctionDetailsSubscriber){
+      this.auctionDetailsSubscriber.unsubscribe();
+    }
+  }
 }

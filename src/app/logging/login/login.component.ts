@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -8,7 +8,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, OnDestroy {
   @ViewChild('f') loginForm: NgForm;
   msg: Boolean;
   loginSubscriber: any;
@@ -55,4 +55,9 @@ export class LoginComponent implements OnInit {
     this.router.navigate(['register']), { relativeTo: this.route };
   }
 
+  ngOnDestroy() {
+    if(this.loginSubscriber){
+      this.loginSubscriber.unsubscribe();
+    }
+  }
 }

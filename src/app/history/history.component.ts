@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Fish } from '../fishdetails/fish.model';
@@ -9,7 +9,7 @@ import { map } from 'rxjs/internal/operators/map';
   templateUrl: './history.component.html',
   styleUrls: ['./history.component.css']
 })
-export class HistoryComponent implements OnInit {
+export class HistoryComponent implements OnInit, OnDestroy {
   loadedfishes: any;
   fetchFishSubscriber: any;
 
@@ -38,7 +38,11 @@ export class HistoryComponent implements OnInit {
       });
     }
 
-
+    ngOnDestroy() {
+      if(this.fetchFishSubscriber){
+        this.fetchFishSubscriber.unsubscribe();
+      }
+    }
 
   }
 
