@@ -64,8 +64,6 @@ export class AuctionplatformComponent implements OnInit, OnDestroy {
         this.getHighestBid();
       }
     );
-    console.log("interval");
-    console.log(this.fishServiceSubscriber);
   }
 
   onClick(){

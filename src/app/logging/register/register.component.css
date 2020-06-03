@@ -53,11 +53,6 @@ select.ng-invalid.ng-touched{
 }
 
 .header{
-    background-color: #333399;
-    display: block;
-    width: 100%;
-}
-.heading{
     font-family: 'century Gothic';
     font-weight: 700;
     font-size: 2rem;
@@ -100,7 +95,7 @@ input{
 }
 
 .email{
-    margin-top: 25%;
+    margin-top: 10%;
 }
 
 .text{

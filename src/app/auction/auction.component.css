@@ -16,6 +16,7 @@
     font-weight: bold;
     position: relative;
     height: auto;
+    min-height: 100%;
 }
 
 .backbtn{

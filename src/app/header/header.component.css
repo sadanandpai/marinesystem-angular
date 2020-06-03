@@ -5,23 +5,21 @@
     height: auto;
     position: relative;
 }
-
+.navbar{
+    border: none;
+    display: inline-block;
+    width: 100%;
+    margin: 0%;
+    padding: 0%;
+}
 .logo{
-    background-image: url("../../assets/Images/Logo-01.png");
-    background-size: 100%;
-    background-repeat: no-repeat;
-    /* padding: 20%; */
-    padding-bottom: 14%;
-    width: 38%;
     float: left;
+    width: 200px;
 }
 
 .logout{
-    background-image: url("../../assets/Images/logout_butn.png");
-    background-size: 100%;
-    background-repeat: no-repeat;
-    height: auto;
-    padding-bottom: 12%;
-    padding-right: 6%;
     float: right;
+    width: 10%;
+    margin-top: 5%;
+    margin-right: 3%;
 }
