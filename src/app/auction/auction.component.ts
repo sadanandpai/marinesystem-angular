@@ -30,6 +30,7 @@ export class AuctionComponent implements OnInit, OnDestroy {
       this.fetchFish();
     }
     console.log(window.localStorage);
+
   }
 
   onStartBid(id: any){

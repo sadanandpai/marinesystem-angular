@@ -5,16 +5,15 @@
     font-size: 1em;
     display: inline-block;
     text-align: center;
-    width:100%
+    width: 100%;
 }
 
 .body{
     background-image: url("../../assets/Images/AddFishBG-01.jpg");
     background-size: 100%;
     background-repeat: no-repeat;
-    margin-bottom: 10px;
-    padding-bottom: 100px;
-    /* font-family: 'century Gothic'; */
+    min-height: 100%;
+    font-family: 'century Gothic';
     font-weight: bold;
     position: relative;
     height: auto;
@@ -68,7 +67,8 @@ button {
     width: 80%;
   }
 
-input{
+
+input, select, option, optgroup{
     background-color: white;
     box-shadow: 0px 0px 5px grey;
     color: black;
@@ -76,12 +76,46 @@ input{
     text-align: left;
     text-decoration: none;
     display: inline-block;
-    font-size: 12px;
+    font-size: 16px;
     margin: 0% 10%;
     border-radius: 20px;
     padding: 2px 25px;
     font-weight: bold;
     width: 80%;
+}
+input#size {
+    margin-right: 0%;
+}
+.extras-right {
+    box-shadow: 0px 0px 5px grey;
+    border: none;
+    margin-right: 10%;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+input#price {
+    margin-left: 0%;
+    margin-right: 0%;
+}
+.extras-left {
+    box-shadow: 0px 0px 5px grey;
+    border: none;
+    margin-left: 10%;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+input#damaged{
+    background-color: white;
+    box-shadow: 0px 0px 5px grey;
+    color: black;
+    border: none;
+    display: inline-block;
+    margin-left: 10%;
+    margin-right: 3%;
+    border-radius: 20px;
+    width: 25px;
+    height: 25px;
 }
 
 label{
@@ -96,16 +130,22 @@ label{
     width: 80%;
 }
 
+label.damaged{
+    color: #140c68;
+    margin: 0px;
+    width: 71%;
+    color: black;
+    font-size: 16px;
+    vertical-align: super;
+}
+
 form div:first-child{
     margin-top: 10%;
 }
 
 .footer{
-    background-image: url("../../assets/Images/wave_02.png");
-    background-size: 100%;
-    background-repeat: no-repeat;
+    
     width: 100%;
-    padding: 10%;
 }
 
 

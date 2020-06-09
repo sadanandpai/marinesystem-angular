@@ -5,41 +5,199 @@
 <form (ngSubmit)="fishDetails(f)" #f="ngForm">
   <div class="form-group col-xs-12">
     <label for="fishid">{{ "FISH NAME" | translate }}</label>
-    <input
-      type="text"
-      class="form-control"
-      id="fishid"
-      placeholder="FISH NAME"
-      name="fishid"
+    <select class="form-control" id="fishid" placeholder="FISH NAME"  name="fishid"
       ngModel
       required
-      #name="ngModel"
-    />
+      #name="ngModel">
+      <optgroup label="Anjal">
+        <option value="1">Anjal 1</option>
+        <option value="2">Anjal 2</option>
+        <option value="3">Anjal 3</option>
+      </optgroup>
+      <optgroup label="Arane">
+        <option value="4">Arane 1</option>
+        <option value="5">Arane 2</option>
+        <option value="6">Arane 3</option>
+      </optgroup>
+      <optgroup label="Arol">
+        <option value="7">Arol 1</option>
+        <option value="8">Arol 2</option>
+        <option value="9">Arol 3</option>
+      </optgroup>
+      <optgroup label="Bat">
+        <option value="10">Bat 1</option>
+        <option value="11">Bat 2</option>
+      </optgroup>
+      <optgroup label="Bondus">
+        <option value="12">Squared Bondus 1</option>
+        <option value="13">Squared Bondus 2</option>
+        <option value="14">Squared Bondus 3</option>
+        <option value="15">Nipple Bondus 1</option>
+        <option value="16">Nipple Bondus 2</option>
+        <option value="17">Needle Bondus 1</option>
+        <option value="18">Needle Bondus 2</option>
+        <option value="19">Bondus Cutter Big</option>
+        <option value="20">Bondus Cutter 1</option>
+        <option value="21">Bondus Cutter 2</option>
+        <option value="22">Bondus Cutter 3</option>
+        <option value="23">Bondus Cutter 4</option>
+        <option value="24">Bondus Andi</option>
+      </optgroup>
+      <optgroup label="CD">
+        <option value="25">CD 1</option>
+        <option value="26">CD 2</option>
+      </optgroup>
+      <optgroup label="Chamman">
+        <option value="27">Chamman 1</option>
+        <option value="28">Chamman 2</option>
+        <option value="29">Chamman 3</option>
+      </optgroup>
+      <optgroup label="Disco">
+        <option value="30">Disco 1</option>
+        <option value="31">Disco 2</option>
+        <option value="32">Disco Cutting</option>
+      </optgroup>
+      <optgroup label="Kadvai">
+        <option value="33">Kadvai 1</option>
+        <option value="34">Kadvai 2</option>
+        <option value="35">Kadvai 3</option>
+      </optgroup>
+      <optgroup label="Kandai">
+        <option value="36">Kandai 1</option>
+        <option value="37">Kandai 2</option>
+        <option value="38">Kandai 3</option>
+      </optgroup>
+      <optgroup label="Karkadi">
+        <option value="39">Karkadi 1</option>
+        <option value="40">Karkadi 2</option>
+      </optgroup>
+      <optgroup label="Klath(Kargil)">
+        <option value="41">Klath(Kargil) Cutting</option>
+        <option value="42">Klath(Kargil) Puche</option>
+      </optgroup>
+      <optgroup label="Kodande">
+        <option value="43">Kodande 1</option>
+        <option value="44">Kodande 2</option>
+      </optgroup>
+      <optgroup label="Kolathar">
+        <option value="45">White Kolathar</option>
+        <option value="46">Normal Kolathar</option>
+      </optgroup>
+      <optgroup label="Mackrel">
+        <option value="47">Mackrel Bangude 1</option>
+        <option value="48">Mackrel Bangude 2</option>
+        <option value="49">Mackrel Bangude 3</option>
+      </optgroup>
+      <optgroup label="Melgh">
+        <option value="50">Melgh 1</option>
+        <option value="51">Melgh 2</option>
+      </optgroup>
+      <optgroup label="Muru">
+        <option value="52">Muru 1</option>
+        <option value="53">Muru 2</option>
+        <option value="54">Muru 3</option>
+        <option value="55">Muru 4</option>
+      </optgroup>
+      <optgroup label="Octopus">
+        <option value="56">Octopus 1</option>
+        <option value="57">Octopus 2</option>
+      </optgroup>
+      <optgroup label="Pomfret(Blue)">
+        <option value="58">Pomfret(Blue) 1</option>
+        <option value="59">Pomfret(Blue) 2</option>
+        <option value="60">Pomfret(Blue) 3</option>
+      </optgroup>
+      <optgroup label="Pomfret(White)">
+        <option value="61">Pomfret(White) 1</option>
+        <option value="62">Pomfret(White) 2</option>
+        <option value="63">Pomfret(White) 3</option>
+      </optgroup>
+      <optgroup label="Puche">
+        <option value="64">Mix Puche</option>
+        <option value="65">Arane Puche</option>
+        <option value="66">Kare Puche</option>
+        <option value="67">Deep Puche</option>
+      </optgroup>
+      <optgroup label="Rani">
+        <option value="68">Rani 1</option>
+        <option value="69">Rani 2</option>
+        <option value="70">Rani 3</option>
+        <option value="71">Rani Cutting</option>
+        <option value="72">Rani Glass 1</option>
+        <option value="73">Rani Glass 2</option>
+        <option value="74">Yellow Rani 1</option>
+        <option value="75">Yellow Rani 2</option>
+        <option value="76">Yellow Rani 3</option>
+      </optgroup>
+      <optgroup label="Ribbon Fish">
+        <option value="77">Ribbon Fish 1</option>
+        <option value="78">Ribbon Fish 2</option>
+        <option value="79">Ribbon Fish 3</option>
+        <option value="80">Ribbon Fish 4</option>
+      </optgroup>
+      <optgroup label="Shark Thaate">
+        <option value="81">Shark Thaate 1</option>
+        <option value="82">Shark Thaate 2</option>
+        <option value="83">Shark Thaate 3</option>
+      </optgroup>
+      <optgroup label="Thonde">
+        <option value="84">Thonde 1</option>
+        <option value="85">Thonde 2</option>
+      </optgroup>
+      <optgroup label="Yetti"></optgroup>
+        <optgroup label="Brown Yetti">
+          <option value="86">Yetti Brown 1</option>
+          <option value="87">Yetti Brown 2</option>
+          <option value="88">Yetti Brown 3</option>
+        </optgroup>
+        <optgroup label="White Yetti">
+          <option value="89">Yetti White 1</option>
+          <option value="90">Yetti White 2</option>
+          <option value="91">Yetti White 3</option>
+          <option value="92">Udha Yetti (BSP)</option>
+        </optgroup>
+        <optgroup label="Tiger Yetti">
+          <option value="93">Yetti Tiger 1</option>
+          <option value="94">Yetti Tiger 2</option>
+          <option value="95">Yetti Tiger 3</option>
+        </optgroup>
+    </select>  
     <span class="help-block errmsg" *ngIf="!name.valid && name.touched">{{
       "Please Select a valid Fish name!" | translate
     }}</span>
+    </div>
+  <div class="form-group col-xs-12">
+    <input type="checkbox" class="form-control" id="damaged" name="damaged" value="true" ngModel>
+    <label for="damaged" class="damaged">{{ "Damaged Fish" | translate }}</label>
   </div>
   <div class="form-group col-xs-12">
     <label for="size">{{ "FISH SIZE" | translate }}</label>
-    <input
-      type="text"
-      class="form-control"
-      id="size"
-      placeholder="FISH WEIGHT"
-      pattern="^[0-9]*$"
-      name="size"
-      ngModel
-      required
+    <div class="input-group mb-3">
+      <input 
+      type="text" 
+      class="form-control" 
+      id="size" 
+      placeholder="FISH WEIGHT" 
+      pattern="^[0-9]*$" 
+      name="size" 
+      aria-label="Amount (to the nearest weight)" 
+      ngModel 
+      required 
       #size="ngModel"
-    />
+      />
+        <span class="input-group-text extras-right">KG</span>
+    </div>
+    
     <span class="help-block errmsg" *ngIf="!size.valid && size.touched">{{
       "Please Enter a valid Weight of Fish!" | translate
     }}</span>
   </div>
   <div class="form-group col-xs-12">
     <label for="price">{{ "FISH MIN PRICE" | translate }}</label>
-    <input
-      type="text"
+    <div class="input-group mb-3">
+    <span class="input-group-text extras-left">Rs.</span>
+      <input
+      type="number"
       class="form-control"
       id="price"
       placeholder="FISH MIN PRICE"
@@ -49,6 +207,9 @@
       required
       #price="ngModel"
     />
+    <span class="input-group-text extras-right">.00</span>
+    </div>
+
     <span class="help-block errmsg" *ngIf="!price.valid && price.touched">{{
       "Please Enter a valid Price of Fish!" | translate
     }}</span>
@@ -59,5 +220,5 @@
   <span class="help-block errmsg" *ngIf="msg == true">{{ "Failed to add Try again!" | translate }}</span>
   
 </form>
-<div class="footer"></div>
+<div><img class="footer" src="../../assets/Images/wave_02.png"></div>
 </div>

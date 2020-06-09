@@ -6,9 +6,11 @@
     background-image: url("../../assets/Images/FisheryBackground.jpg");
     background-size: 100%;
     background-repeat: no-repeat;
+    min-height: 100%;
     margin-bottom: 10px;
     padding-bottom: 100px;
     position: relative;
+    height: auto;
 }
 
 button {

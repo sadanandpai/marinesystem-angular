@@ -15,13 +15,13 @@ export class FishdetailsComponent implements OnInit, OnDestroy {
   fid: any;
   fishDetailsSubscriber: any;
   auctionDetailsSubscriber: any;
+  damaged: Boolean;
 
   constructor(private http: HttpClient,
               private router: Router,
               private route: ActivatedRoute,) {}
 
   ngOnInit(): void {
-
   }
 
   onClick(){
@@ -36,6 +36,9 @@ export class FishdetailsComponent implements OnInit, OnDestroy {
       fish_price: value.price,
       status: true,
     };
+    this.damaged = value.damaged;
+    console.log("Damaged :" + this.damaged);
+    // debugger
     let headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': 'Token ' + localStorage.getItem('token')
@@ -46,32 +49,35 @@ export class FishdetailsComponent implements OnInit, OnDestroy {
         (responseData: any) => {
           console.log(responseData);
           localStorage.setItem('fishid', responseData.id);
-          console.log(localStorage.getItem('fishid'))
+          console.log(localStorage.getItem('fishid'));
         },
         (error) => {
           console.log(error);
           this.msg = true;
         }
       );
-      console.log(window.localStorage)
+      console.log(window.localStorage);
       const details = {
         fishid: localStorage.getItem('fishid'),
         highestBid: null,
       }
+      // debugger
       setTimeout(() => {
+        // debugger
         var id = localStorage.getItem('fishid');
         console.log(id);
         this.auctionDetailsSubscriber = this.http.put('http://localhost:8000/portal/auction_list/' + id + '/', data, { headers: headers })
         .subscribe(
           (responseData) => {
             console.log(responseData);
-            this.router.navigate(['auction']), { relativeTo: this.route };
+            form.reset();
           },
           (error) => {
             console.log(error);
           }
         );
-      }, 10000);
+        // debugger
+      }, 2000);
   }
   
   ngOnDestroy() {

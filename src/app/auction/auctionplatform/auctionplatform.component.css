@@ -5,17 +5,17 @@
     font-size: 1em;
     display: inline-block;
     text-align: center;
-    width:100%
+    width: 100%;
 }
 
 .body{
     background-image: url("../../../assets/Images/LoginBg-01.jpg");
     background-size: 100%;
     background-repeat: repeat-y;
+    min-height: 100%;
     font-family: 'century Gothic';
     font-weight: bold;
     position: relative;
-    /* padding-bottom: 10%;  */
     height: auto;
 }
 
@@ -115,18 +115,34 @@ input{
     text-align: left;
     text-decoration: none;
     display: inline-block;
-    font-size: 12px;
+    font-size: 16px;
     border-radius: 20px;
-    padding: 2% 15%;
+    padding: 0% 5%;
     font-weight: bold;
     width: 100%;
 }
 
+input#price {
+    margin-left: 0%;
+    margin-right: 0%;
+}
+.extras-left {
+    box-shadow: 0px 0px 5px grey;
+    border: none;
+    margin-left: 10%;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+.extras-right {
+    box-shadow: 0px 0px 5px grey;
+    border: none;
+    margin-right: 10%;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
 .footer{
-    background-image: url("../../../assets/Images/wave_02.png");
-    background-size: 100%;
-    background-repeat: no-repeat;
+    
     width: 100%;
-    padding: 10%;
 }
 

@@ -15,7 +15,7 @@
         <form (ngSubmit)="Done(f)" #f="ngForm">
             <div class="form-group col-xs-12">
                 <h1>{{ bid }}</h1>
-                <button type="submit" class="btn btn-sm btn-done" *ngIf="boatdriver == true">
+                <button type="submit" class="btn btn-sm btn-done" *ngIf="boatdriver == true" [disabled]="minprice==bid">
                         {{ "Done" | translate }}
                 </button>
             </div>
@@ -23,17 +23,22 @@
 
         <form (ngSubmit)="Quote(q)" #q="ngForm" *ngIf="boatdriver != true">
             <div class="form-group col-xs-12">
-                <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Enter amount"
-                    name="quoteAmount"
-                    pattern="^[0-9]*$"
-                    maxlength="15"
-                    ngModel
-                    required
-                    #amount="ngModel"
-                />
+                <div class="input-group mb-3">
+                    <span class="input-group-text extras-left">Rs.</span>
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="price"
+                        placeholder="Enter amount"
+                        name="quoteAmount"
+                        pattern="^[0-9]*$"
+                        maxlength="15"
+                        ngModel
+                        required
+                        #amount="ngModel"
+                    />
+                    <span class="input-group-text extras-right">.00</span>
+                    </div>
                 <span class="help-block errmsg" *ngIf="!amount.valid && amount.touched">
                 {{ "Please Enter a valid Amount!" | translate }}
                 </span>
@@ -46,5 +51,5 @@
     </div>
     </div>
     </div>
-    <div class="footer"></div>
+    <div><img class="footer" src="../../../assets/Images/wave_02.png"></div>
 </div>

@@ -12,10 +12,10 @@
     background-image: url("../../../assets/Images/LoginBg-01.jpg");
     background-size: 100%;
     background-repeat: repeat-y;
+    min-height: 100%;
     font-family: 'century Gothic';
     font-weight: bold;
     position: relative;
-    /* padding-bottom: 10%;  */
     height: auto;
 }
 
@@ -89,9 +89,6 @@ p{
 }
 
 .footer{
-    background-image: url("../../../assets/Images/wave_02.png");
-    background-size: 100%;
-    background-repeat: no-repeat;
+    
     width: 100%;
-    padding: 10%;
 }

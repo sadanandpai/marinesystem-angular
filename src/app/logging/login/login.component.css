@@ -12,11 +12,13 @@
     background-image: url("../../../assets/Images/LoginBg-01.jpg");
     background-size: 100%;
     background-repeat: no-repeat;
+    min-height: 100%;
     margin-bottom: 10px;
     padding-bottom: 100px;
-    /* font-family: 'century Gothic'; */
+    font-family: 'century Gothic';
     font-weight: bold;
     position: relative;
+    height: auto;
 }
 
 .backbtn{

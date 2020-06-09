@@ -23,11 +23,13 @@ select.ng-invalid.ng-touched{
     background-image: url("../../../assets/Images/BG_full-01.jpg");
     background-size: 100%;
     background-repeat: no-repeat;
+    min-height: 100%;
     margin-bottom: 10px;
-    /* font-family: 'century Gothic'; */
+    font-family: 'century Gothic';
     font-weight: bold;
     padding-bottom: 3%;
     position: relative;
+    height: auto;
 }
 
 .backbtn{

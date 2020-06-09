@@ -1,36 +1,41 @@
 <div class="body">
+ <div id="fixed">
     <a (click)="onClick()" class="btn backbtn"><i class="arrow"></i><i class="line"></i></a>
     <h3 class="header">{{"Auction Platform" | translate}}</h3>
 
-<div class="row bdbuttons" *ngIf="boatdriver == true">
-    <a (click)="onAddFish()" class="btn btn-sm btn-addfish">
-        <img src="../../assets/Images/addfish_03.png" width="80px;"/>
-    </a>
-    <a (click)="onClickHistory()" class="btn btn-sm btn-history">
-        <img src="../../assets/Images/History_03.png" width="80px;"/>
-    </a> 
-    
+<div class="row" *ngIf="boatdriver == true">
+    <div class="bdbuttons">
+        <a (click)="onAddFish()" class="btn btn-sm btn-addfish">
+            <img src="../../assets/Images/addfish_03.png" width="80px;"/>
+        </a>
+        <a (click)="onClickHistory()" class="btn btn-sm btn-history">
+            <img src="../../assets/Images/History_03.png" width="80px;"/>
+        </a>
+    </div>
 </div>
-<div class="row">
-    <div class="col-xs-12 col-md-12 col-lg-12 col-md-offset-3">
-        <p class="errmsg" *ngIf="loadedfishes == null">{{"No fish Available" | translate}}</p>
-        <ul class="list-group" *ngFor="let fish of loadedfishes">
-            <li class="list-group-item" *ngIf="fish.status == true">
-               <div class="row">
-                <h6 class="fishname">{{"Fish Name" | translate}}  {{ fish.fish_id }}</h6>
+ </div>
+<div class="scroll">
+    <div class="row">
+        <div class="col-xs-12 col-md-12 col-lg-12 col-md-offset-3 content">
+            <p class="errmsg" *ngIf="loadedfishes == null">{{"No fish Available" | translate}}</p>
+            <ul class="list-group" *ngFor="let fish of loadedfishes">
+                <li class="list-group-item" *ngIf="fish.status == true">
+                <div class="row">
+                    <h6 class="fishname">{{"Fish Name" | translate}}  {{ fish.fish_id }}</h6>
                     <div class="left">
                         <img src="../../assets/Images/fish.png" width="95%" height="95%">
                     </div>
                     <div class="right">
                         <p>{{"Fish Quantity" | translate}}   {{ fish.fish_size }}</p>
                         <p>{{"Min Price" | translate}}   {{ fish.fish_price }}</p>
-                        <button (click)="onStartBid(fish.id)" class="btn btn-sm clearfix">{{"Start Bidding" | translate}}</button>
+                        <button (click)="onStartBid(fish.id)" class="btn btn-sm clearfix">{{ boatdriver ? "View Bidding" : "Start Bidding" }}</button>
                     </div>
                 </div>
-            </li>
-        </ul>
+                </li>
+            </ul>
+        </div>
     </div>
 </div>
 
-<div class="footer"></div>
+<div><img class="footer" src="../../assets/Images/wave_02.png" width="100%"/></div>
 </div>
