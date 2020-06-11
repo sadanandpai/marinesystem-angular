@@ -6,6 +6,7 @@ import { Auction } from '../auction.model';
 import { Fish } from 'src/app/fishdetails/fish.model';
 import { interval } from 'rxjs';
 import { User } from 'src/app/shared/user.model';
+import * as json from '../../../assets/i18n/fishname.json';
 
 @Component({
   selector: 'app-auctionplatform',
@@ -42,12 +43,17 @@ export class AuctionplatformComponent implements OnInit, OnDestroy {
   fishServiceSubscriber: any;
   getHighestBidSubscriber: any;
   fishStatusSubscriber: any;
+  damaged: any;
+
+  fishname: any;
 
   constructor(private http: HttpClient,
               private router: Router,
               private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.fishname = json;
+    this.fishname = this.fishname.default;
     this.initialSubscriber = this.route.params.subscribe(data=>{
       this.fid = Number(data.id);
     });
@@ -139,6 +145,7 @@ export class AuctionplatformComponent implements OnInit, OnDestroy {
             this.fishid = loadedfishes.fish_id;
             this.minprice = loadedfishes.fish_price;
             this.size = loadedfishes.fish_size;
+            this.damaged = loadedfishes.damaged;
         });
   }
 

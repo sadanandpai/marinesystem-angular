@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import * as json from '../../../assets/i18n/fishname.json';
 
 @Component({
   selector: 'app-history-details',
@@ -20,11 +21,16 @@ export class HistoryDetailsComponent implements OnInit, OnDestroy {
   fetchWinnerSubscriber: any;
   initialSubscriber: any;
 
+  fishname: any;
+  damaged: any;
+
   constructor(private http: HttpClient,
     private router: Router,
     private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.fishname = json;
+    this.fishname = this.fishname.default;
     this.initialSubscriber = this.route.params.subscribe(data=>{
       this.fid = Number(data.id);
     });
@@ -46,6 +52,7 @@ export class HistoryDetailsComponent implements OnInit, OnDestroy {
             this.minprice = loadedfishes.fish_price;
             this.size = loadedfishes.fish_size;
             this.owner = loadedfishes.owner;
+            this.damaged = loadedfishes.damaged;
         });
   }
 

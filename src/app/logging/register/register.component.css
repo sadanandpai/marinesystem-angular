@@ -57,10 +57,10 @@ select.ng-invalid.ng-touched{
 .header{
     font-family: 'century Gothic';
     font-weight: 700;
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: white;
     display: inline-block;
-    width: 60%;
+    width: 66%;
     padding: 3%;
     margin: 2%;
     text-align: center;

@@ -20,7 +20,10 @@ export class RegisterComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    localStorage.setItem('startPage', 'yes');
+    console.log(window.localStorage.getItem('startPage'));
+  }
 
   onClick(){
     this.router.navigate(['']), { relativeTo: this.route };
@@ -59,5 +62,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
     if(this.registerSubscriber){
     this.registerSubscriber.unsubscribe();
     }
+    localStorage.removeItem('startPage');
+      console.log(window.localStorage.getItem('startPage'));
   }
 }

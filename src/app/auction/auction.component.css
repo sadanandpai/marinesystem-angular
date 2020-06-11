@@ -9,6 +9,7 @@
 }
 
 .body{
+    
     background-image: url("../../assets/Images/LoginBg-01.jpg");
     background-size: 100%;
     background-repeat: repeat-y;
@@ -22,6 +23,7 @@
 .backbtn{
     margin: 2%;
     margin-left: 10%;
+    vertical-align: middle;
 }
 .arrow {
   border: solid white;
@@ -47,7 +49,7 @@
     font-size: 1.5em;
     color: white;
     display: inline-block;
-    width: 60%;
+    width: 66%;
     padding: 3%;
     margin: 2%;
     text-align: center;
@@ -67,8 +69,7 @@ button {
     padding: 5% 10%;
     margin-left: 25%;
     margin-right: 5%;
-  }
-
+}
 
 .content{
     overflow-y: auto;
@@ -95,6 +96,7 @@ button {
     width: 80%;
     margin: 1% 10%;
     text-align: center;
+    font-size: 1em;
     font-weight: bold;
 }
 
@@ -105,7 +107,7 @@ button {
 }
 
 .row{
-    padding: 2%;
+    padding: 1%;
 }
 
 div .left{
@@ -117,14 +119,21 @@ div .left{
 div .right{
     float: left;
     width: 45%;
-    font-size: 14px;
+    font-size: 1em;
     font-weight: bold;
 }
 
 .scroll{
     width: 100%; 
     max-height: 400px; 
-    overflow: scroll; 
+    overflow: scroll;
+    overflow-x: hidden;
+}
+p.damagedFish{
+    float: right;
+    color: #330000;
+    margin-right: 7px;
+    margin-bottom: 2px;
 }
 .footer{
     

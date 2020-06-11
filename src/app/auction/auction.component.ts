@@ -4,6 +4,8 @@ import { map } from 'rxjs/operators';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Fish } from '../fishdetails/fish.model';
 import { User } from '../shared/user.model';
+import * as json from '../../assets/i18n/fishname.json';
+
 
 @Component({
   selector: 'app-auction',
@@ -16,12 +18,15 @@ export class AuctionComponent implements OnInit, OnDestroy {
   loadedauctions: Object;
   fetchFishSubscriber: any;
   fetchBDFishSubscriber: any;
-
+  fishname: any;
+  
   constructor(private http: HttpClient,
     private router: Router,
     private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.fishname = json;
+    this.fishname = this.fishname.default;
     var data = localStorage.getItem('group');
     if(data == 'BoatDriver'){
       this.boatdriver = true;
@@ -30,7 +35,6 @@ export class AuctionComponent implements OnInit, OnDestroy {
       this.fetchFish();
     }
     console.log(window.localStorage);
-
   }
 
   onStartBid(id: any){

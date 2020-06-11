@@ -11,12 +11,13 @@
                    <div class="row">
                         <div class="left">
                             <img src="../../assets/Images/fish.png" width="95%" height="80%">
-                            <p>{{ "Fish Name" | translate }} {{ fish.fish_id | translate }}</p>
+                            <h6 class="fishname">{{ fishname[fish.fish_id] }} </h6>
                         </div>
                         <div class="middle"></div>
                         <div class="right">
                             <p>{{ "Fish Owner" | translate }} {{ fish.owner }}</p>
                             <p>{{ "Min Price" | translate }} - {{ fish.fish_price }}</p>
+                            <p class="damagedFish" *ngIf="fish.damaged == true">{{ "(Damaged Fish)" | translate }}</p>
                             <button (click)="onViewMore(fish.id)" class="btn btn-sm">{{ "View More" | translate }}</button>
                         </div>
                    </div>

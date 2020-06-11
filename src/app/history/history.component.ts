@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Fish } from '../fishdetails/fish.model';
 import { map } from 'rxjs/internal/operators/map';
+import * as json from '../../assets/i18n/fishname.json';
 
 @Component({
   selector: 'app-history',
@@ -12,12 +13,15 @@ import { map } from 'rxjs/internal/operators/map';
 export class HistoryComponent implements OnInit, OnDestroy {
   loadedfishes: any;
   fetchFishSubscriber: any;
+  fishname: any;
 
   constructor(private http: HttpClient,
     private router: Router,
     private route: ActivatedRoute) { }
 
     ngOnInit(): void {
+      this.fishname = json;
+      this.fishname = this.fishname.default;
       this.fetchFish();
     }
 

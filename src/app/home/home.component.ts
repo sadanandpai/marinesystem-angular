@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy{
   msg : boolean;
   loggedIn: boolean;
 
@@ -16,6 +16,8 @@ export class HomeComponent implements OnInit {
     private http: HttpClient) { }
 
   ngOnInit(): void {
+    localStorage.setItem('startPage', 'yes');
+    console.log(window.localStorage.getItem('startPage'));
     var user = localStorage.getItem('user');
     console.log(user);
     if(user != null){
@@ -34,6 +36,12 @@ export class HomeComponent implements OnInit {
       this.msg = true;
     }
 
+  }
+
+  ngOnDestroy(){
+    localStorage.removeItem('startPage');
+    console.log(window.localStorage.getItem('startPage'));
+    
   }
 
 }

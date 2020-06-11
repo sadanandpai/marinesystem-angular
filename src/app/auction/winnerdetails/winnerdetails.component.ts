@@ -45,10 +45,6 @@ export class WinnerdetailsComponent implements OnInit {
 
   }
 
-  onClick(){
-    this.router.navigate(['auction']);
-  }
-
   ngOnDestroy() {
     if(this.initialSubscriber){
       this.initialSubscriber.unsubscribe();

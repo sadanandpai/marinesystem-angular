@@ -30,15 +30,18 @@ export class FishdetailsComponent implements OnInit, OnDestroy {
 
   fishDetails(form: NgForm) {
     const value = form.value;
+    if (value.damaged != true){
+      value.damaged = false;
+    }
     const data = {
       fish_id: value.fishid,
       fish_size: value.size,
       fish_price: value.price,
+      damaged: value.damaged,
       status: true,
     };
     this.damaged = value.damaged;
     console.log("Damaged :" + this.damaged);
-    // debugger
     let headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': 'Token ' + localStorage.getItem('token')

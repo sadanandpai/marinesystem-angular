@@ -8,6 +8,7 @@ import { interval } from 'rxjs';
 })
 export class HeaderComponent implements OnInit, OnDestroy {
   loggedIn: boolean = false;
+  startPages: boolean = false;
   loggingServiceSubscriber: any;
 
   constructor() { }
@@ -20,8 +21,16 @@ export class HeaderComponent implements OnInit, OnDestroy {
         } else {
           this.loggedIn = true;
         }
+
+        if(localStorage.getItem('startPage') != null){
+          this.startPages = true;
+        } else {
+          this.startPages = false;
+        }
+
       }
     );
+
   }
 
   onClick(){

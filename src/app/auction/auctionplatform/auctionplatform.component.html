@@ -4,13 +4,14 @@
     <div class="row">
     <div class="contents">
             <div class="col-xs-12 col-md-12 col-lg-12 col-md-offset-3">
-                <h6 class="fishname">{{"Fish Name" | translate}} {{ fishid }}</h6>
+                <h6 class="fishname">{{ fishname[fishid] }}</h6>
                 <img class="image" src="../../../assets/Images/fish.png" width="100%" height="100%"/>
+                <span *ngIf="damaged == true">{{ "(Damaged Fish)" | translate }}</span>
+                <hr>
                 <p class="left">{{"Fish Quantity" | translate}}</p><p> {{ size }}</p>
                 <hr>
                 <p class="left">{{"Min Price" | translate}}</p><p> {{ minprice }}</p> 
                 <hr>
-        
 
         <form (ngSubmit)="Done(f)" #f="ngForm">
             <div class="form-group col-xs-12">
