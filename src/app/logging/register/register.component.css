@@ -23,7 +23,7 @@ select.ng-invalid.ng-touched{
     background-image: url("../../../assets/Images/BG_full-01.jpg");
     background-size: 100%;
     background-repeat: no-repeat;
-    min-height: 100%;
+    min-height: 100vh;
     margin-bottom: 10px;
     font-family: 'century Gothic';
     font-weight: bold;

@@ -46,6 +46,7 @@ export class AuctionplatformComponent implements OnInit, OnDestroy {
   damaged: any;
 
   fishname: any;
+  quoteUser: string;
 
   constructor(private http: HttpClient,
               private router: Router,
@@ -156,8 +157,10 @@ export class AuctionplatformComponent implements OnInit, OnDestroy {
           (responseData: any) => {
             if(responseData.highestBid == null){
               this.bid = this.minprice;
+              this.quoteUser = "Quote Didn't started yet!";
             } else {
               this.bid = responseData.highestBid;
+              this.quoteUser = responseData.users;
             }
             console.log(responseData);
           },

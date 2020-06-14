@@ -12,7 +12,7 @@
     background-image: url("../../../assets/Images/LoginBg-01.jpg");
     background-size: 100%;
     background-repeat: repeat-y;
-    min-height: 100%;
+    min-height: 100vh;
     font-family: 'century Gothic';
     font-weight: bold;
     position: relative;
@@ -71,6 +71,7 @@
 
 .left{
     float: left;
+    text-align: left;
 }
 
 
@@ -144,7 +145,7 @@ input#price {
 
 
 .footer{
-    
+    bottom: 0em;
     width: 100%;
 }
 

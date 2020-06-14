@@ -15,6 +15,7 @@
 
         <form (ngSubmit)="Done(f)" #f="ngForm">
             <div class="form-group col-xs-12">
+                <h3 class="left">{{ quoteUser }}</h3>
                 <h1>{{ bid }}</h1>
                 <button type="submit" class="btn btn-sm btn-done" *ngIf="boatdriver == true" [disabled]="minprice==bid">
                         {{ "Done" | translate }}

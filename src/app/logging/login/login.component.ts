@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit, OnDestroy {
           localStorage.setItem('group', responseData.groups);
           localStorage.setItem('id', responseData.user_id);
           
-          this.router.navigate(['auction']), { relativeTo: this.route };
+          this.router.navigate(['/']);
         },
         (error) => {
           console.log('error', error);

@@ -13,7 +13,7 @@
     background-image: url("../../assets/Images/LoginBg-01.jpg");
     background-size: 100%;
     background-repeat: repeat-y;
-    min-height: 100%;
+    min-height: 100vh;
     font-family: 'century Gothic';
     font-weight: bold;
     position: relative;
@@ -125,7 +125,7 @@ div .right{
 
 .scroll{
     width: 100%; 
-    max-height: 400px; 
+    max-height: 500px; 
     overflow: scroll;
     overflow-x: hidden;
 }
@@ -136,7 +136,7 @@ p.damagedFish{
     margin-bottom: 2px;
 }
 .footer{
-    
+    bottom: 0em;
     width: 100%;
 }
 

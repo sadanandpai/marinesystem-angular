@@ -6,11 +6,18 @@
     background-image: url("../../assets/Images/FisheryBackground.jpg");
     background-size: 100%;
     background-repeat: no-repeat;
-    min-height: 100%;
+    min-height: 100vh;
     margin-bottom: 10px;
     padding-bottom: 100px;
     position: relative;
     height: auto;
+}
+p.username{
+    top: 0px;
+    float: right;
+    padding-right: 2%;
+    font-size: 1.5em;
+    color: whitesmoke
 }
 
 button {

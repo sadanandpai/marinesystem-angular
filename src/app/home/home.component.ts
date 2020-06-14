@@ -10,6 +10,7 @@ import { HttpClient } from '@angular/common/http';
 export class HomeComponent implements OnInit, OnDestroy{
   msg : boolean;
   loggedIn: boolean;
+  user: any;
 
   constructor(private router: Router,
     private route: ActivatedRoute,
@@ -18,12 +19,12 @@ export class HomeComponent implements OnInit, OnDestroy{
   ngOnInit(): void {
     localStorage.setItem('startPage', 'yes');
     console.log(window.localStorage.getItem('startPage'));
-    var user = localStorage.getItem('user');
-    console.log(user);
-    if(user != null){
-      this.loggedIn = false;
-    } else {
+    this.user = localStorage.getItem('user');
+    console.log(this.user);
+    if(this.user != null){
       this.loggedIn = true;
+    } else {
+      this.loggedIn = false;
     }
   }
 
@@ -40,7 +41,6 @@ export class HomeComponent implements OnInit, OnDestroy{
 
   ngOnDestroy(){
     localStorage.removeItem('startPage');
-    console.log(window.localStorage.getItem('startPage'));
     
   }
 
