@@ -19,6 +19,7 @@ import { AuctionplatformComponent } from './auction/auctionplatform/auctionplatf
 import { HistoryComponent } from './history/history.component';
 import { HistoryDetailsComponent } from './history/history-details/history-details.component';
 import { WinnerdetailsComponent } from './auction/winnerdetails/winnerdetails.component';
+import { TransactionComponent } from './auction/auctionplatform/transaction/transaction.component';
 
 
 
@@ -34,7 +35,14 @@ export function HttpLoaderFactory(http: HttpClient) {
     LoginComponent, 
     HeaderComponent, 
     RegisterComponent, 
-    HomeComponent, FishdetailsComponent, AuctionComponent, AuctionplatformComponent, HistoryComponent, HistoryDetailsComponent, WinnerdetailsComponent
+    HomeComponent, 
+    FishdetailsComponent, 
+    AuctionComponent, 
+    AuctionplatformComponent, 
+    HistoryComponent, 
+    HistoryDetailsComponent, 
+    WinnerdetailsComponent, 
+    TransactionComponent
   ],
   imports: [
     BrowserModule,

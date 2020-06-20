@@ -20,6 +20,9 @@
                 <button type="submit" class="btn btn-sm btn-done" *ngIf="boatdriver == true" [disabled]="minprice==bid">
                         {{ "Done" | translate }}
                 </button>
+                <button type="button" (click)="onTransaction()" class="btn btn-sm btn-view" *ngIf="boatdriver == true" [disabled]="minprice==bid">
+                    {{ "View More" | translate }}
+            </button>
             </div>
         </form>
 

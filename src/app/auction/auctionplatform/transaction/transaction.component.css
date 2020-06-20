@@ -1,0 +1,125 @@
+.errmsg{
+    color: orange;
+    font-family: 'century Gothic';
+    font-weight: 500;
+    font-size: 1em;
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+}
+
+.body{
+    background-image: url("../../../../assets/Images/LoginBg-01.jpg");
+    background-size: 100%;
+    background-repeat: repeat-y;
+    min-height: 100vh;
+    font-family: 'century Gothic';
+    font-weight: bold;
+    position: relative;
+    height: auto;
+}
+
+.backbtn{
+    margin: 2%;
+    margin-left: 10%;
+}
+.arrow {
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+.line {
+  border: solid white;
+  border-width: 0 0px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  padding-left: 15px;
+  margin-bottom: 3px;
+  margin-left: -10px;
+}
+
+.header{
+    font-family: 'century Gothic';
+    font-weight: 600;
+    font-size: 1.5em;
+    color: white;
+    display: inline-block;
+    width: 66%;
+    padding: 3%;
+    margin: 2%;
+    text-align: center;
+}
+
+.contents{
+    height: auto;
+    background-color: white;
+    color: black;
+    border: none;
+    border-radius: 12px;
+    text-align: right;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1em;
+    font-weight: bold;
+    width: 100%;
+    padding: 3% 5%;
+    margin: 0% 10%;
+}
+
+.left{
+    float: left;
+}
+
+.scroll{
+    width: 100%; 
+    max-height: 400px; 
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+button.btn-done {
+    background-color: #333399;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 1em;
+    font-weight: bold;
+    width: 100%;
+}
+
+p{
+    display: inline-block;
+    margin: 0%;
+}
+p.right{
+    float: right;
+}
+.winner{
+    float: right;
+    margin: 2%;
+}
+.quotes{
+    min-height: 24px;
+}
+
+.image{
+    margin-bottom: 10%;
+}
+
+.fishname{
+    text-align: center;
+    font-size: 1em;
+    color: darkblue;
+    font-weight: bold;
+}
+
+.footer{
+    bottom: 0em;
+    width: 100%;
+}

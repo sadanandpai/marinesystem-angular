@@ -10,6 +10,7 @@ import { AuctionplatformComponent } from './auction/auctionplatform/auctionplatf
 import { HistoryComponent } from './history/history.component';
 import { HistoryDetailsComponent } from './history/history-details/history-details.component';
 import { WinnerdetailsComponent } from './auction/winnerdetails/winnerdetails.component';
+import { TransactionComponent } from './auction/auctionplatform/transaction/transaction.component';
 
 
 const routes: Routes = [
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'history', component: HistoryComponent },
   { path: 'history/:id', component: HistoryDetailsComponent },
   { path: 'winnerdetails/:id', component: WinnerdetailsComponent },
+  { path: 'transaction/:id', component: TransactionComponent },
   
   
 ];

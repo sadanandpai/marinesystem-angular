@@ -47,6 +47,7 @@ export class AuctionplatformComponent implements OnInit, OnDestroy {
 
   fishname: any;
   quoteUser: string;
+  addQuoteDetailsSubscriber: any;
 
   constructor(private http: HttpClient,
               private router: Router,
@@ -81,7 +82,7 @@ export class AuctionplatformComponent implements OnInit, OnDestroy {
     // Show winner details
     console.log("Winner Details");
     this.fetchWinner();
-    // patch status false
+    // fish status false
     let headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': 'Token ' + localStorage.getItem('token')
@@ -119,6 +120,7 @@ export class AuctionplatformComponent implements OnInit, OnDestroy {
       const details = {
         fishid: this.fid,
         highestBid: this.bid,
+        users: localStorage.getItem('user'),
       }
       this.id = this.fid;
       console.log("bid: " + this.bid)
@@ -131,6 +133,19 @@ export class AuctionplatformComponent implements OnInit, OnDestroy {
             console.log(error);
           }
         );
+        const Quotedetails = {
+          fishid: this.fid,
+          quoteAmount: this.bid,
+        }
+      this.addQuoteDetailsSubscriber = this.http.post('http://localhost:8000/portal/quote_list/' + this.id + '/', Quotedetails, 
+      { headers: headers }).subscribe(
+        (responseData) => {
+          console.log(responseData);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
     }else{
       this.bid = this.maxBid;
     }
@@ -185,6 +200,11 @@ export class AuctionplatformComponent implements OnInit, OnDestroy {
     this.router.navigate(['winnerdetails', id]);
   }
 
+  onTransaction(){
+    let id = this.fid;
+    this.router.navigate(['transaction', id]);
+  }
+
   ngOnDestroy(): void{
     if(this.fishServiceSubscriber){
       this.fishServiceSubscriber.unsubscribe();
@@ -207,5 +227,9 @@ export class AuctionplatformComponent implements OnInit, OnDestroy {
     if(this.fishStatusSubscriber){
       this.fishStatusSubscriber.unsubscribe();
     }
+    if(this.addQuoteDetailsSubscriber){
+      this.addQuoteDetailsSubscriber.unsubscribe();
+    }
+    
   }
 }
