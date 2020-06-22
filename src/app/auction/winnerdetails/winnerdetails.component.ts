@@ -15,6 +15,7 @@ export class WinnerdetailsComponent implements OnInit {
   boatdriver: boolean;
   initialSubscriber: any;
   auctionDetailsSubscriber: any;
+  finishSubscriber: any;
 
   constructor(private http: HttpClient,
     private router: Router,
@@ -23,6 +24,7 @@ export class WinnerdetailsComponent implements OnInit {
   ngOnInit(): void {
     this.initialSubscriber = this.route.params.subscribe(data=>{
       this.fid = Number(data.id);
+      console.log(this.fid);
     });
     
     var data = localStorage.getItem('group');
@@ -45,12 +47,32 @@ export class WinnerdetailsComponent implements OnInit {
 
   }
 
+  onClose(){
+    this.onFinish()
+  }
+
+  onFinish(){
+    let id= this.fid;
+    this.finishSubscriber = this.http.delete('http://localhost:8000/portal/quotefish_list/' + id + '/')
+      .subscribe(
+      (responseData: any) => {
+        console.log(responseData);
+        this.router.navigate(['/auction']);
+      },
+      (error) => {
+        console.log(error);
+      });
+  }
+
   ngOnDestroy() {
     if(this.initialSubscriber){
       this.initialSubscriber.unsubscribe();
     }
     if(this.auctionDetailsSubscriber){
       this.auctionDetailsSubscriber.unsubscribe();
+    }
+    if(this.finishSubscriber){
+      this.finishSubscriber.unsubscribe();
     }
   }
 }

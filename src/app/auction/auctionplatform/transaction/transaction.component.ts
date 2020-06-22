@@ -84,6 +84,7 @@ export class TransactionComponent implements OnInit {
               (responseData) => {
                 debugger
                 console.log(responseData);
+                this.router.navigate(['winnerdetails', this.fid]);
               },
               (error) => {
                 console.log(error);

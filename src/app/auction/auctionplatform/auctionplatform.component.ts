@@ -133,20 +133,21 @@ export class AuctionplatformComponent implements OnInit, OnDestroy {
             console.log(error);
           }
         );
+
         const Quotedetails = {
           fishid: this.fid,
           quoteAmount: this.bid,
         }
-      this.addQuoteDetailsSubscriber = this.http.post('http://localhost:8000/portal/quote_list/' + this.id + '/', Quotedetails, 
-      { headers: headers }).subscribe(
-        (responseData) => {
-          console.log(responseData);
-        },
-        (error) => {
-          console.log(error);
-        }
-      );
-    }else{
+        this.addQuoteDetailsSubscriber = this.http.post('http://localhost:8000/portal/quote_list/' + this.id + '/', Quotedetails, 
+        { headers: headers }).subscribe(
+          (responseData) => {
+            console.log(responseData);
+          },
+          (error) => {
+            console.log(error);
+          }
+        );
+    } else {
       this.bid = this.maxBid;
     }
 
@@ -171,7 +172,6 @@ export class AuctionplatformComponent implements OnInit, OnDestroy {
         .subscribe(
           (responseData: any) => {
             if(responseData.highestBid == null){
-              this.bid = this.minprice;
               this.quoteUser = "Quote Didn't started yet!";
             } else {
               this.bid = responseData.highestBid;
@@ -197,12 +197,11 @@ export class AuctionplatformComponent implements OnInit, OnDestroy {
           (error) => {
             console.log(error);
           });
-    this.router.navigate(['winnerdetails', id]);
+    this.router.navigate(['winnerdetails', this.fid]);
   }
 
   onTransaction(){
-    let id = this.fid;
-    this.router.navigate(['transaction', id]);
+    this.router.navigate(['transaction', this.fid]);
   }
 
   ngOnDestroy(): void{

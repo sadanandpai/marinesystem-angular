@@ -2,12 +2,13 @@
     <div class="row">
         <div class="contents">
             <div class="col-xs-12 col-md-12 col-lg-12">
-                <a routerLink="/auction" tooltip="close" class="btn btn-sm btn-close"></a>
+                <a (click)="onClose()" tooltip="close" class="btn btn-sm btn-close"></a>
                 <p class="header" *ngIf="boatdriver == true && visible == true">{{ "Winner Details" | translate}}</p>
                 <p class="winamount" *ngIf="boatdriver == true">{{ winAmount }}</p>
                 <div class="details">
                     <p class="left">{{"Winner Username :" | translate}}</p><p *ngIf="boatdriver == true">{{ winnerName }}</p>
                     <hr>
+                    <button (click)="onFinish()">Finish</button>
                 </div>
             </div>
         </div>
