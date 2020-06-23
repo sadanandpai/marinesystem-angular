@@ -155,7 +155,7 @@ export class AuctionplatformComponent implements OnInit, OnDestroy {
 
   private fetchfish() {
     let id = this.fid;
-    this.fetchFishSubscriber = this.http.get('http://localhost:8000/fish/'+ id + '/')
+    this.fetchFishSubscriber = this.http.get('http://localhost:8000/portal/fish_list/'+ id + '/')
         .subscribe((responseData: any) => {
             console.log(responseData);
             let loadedfishes: any = responseData;
@@ -172,6 +172,7 @@ export class AuctionplatformComponent implements OnInit, OnDestroy {
         .subscribe(
           (responseData: any) => {
             if(responseData.highestBid == null){
+              this.bid = this.minprice;
               this.quoteUser = "Quote Didn't started yet!";
             } else {
               this.bid = responseData.highestBid;

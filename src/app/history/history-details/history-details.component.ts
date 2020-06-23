@@ -44,7 +44,7 @@ export class HistoryDetailsComponent implements OnInit, OnDestroy {
 
   private fetchfish() {
     let id = this.fid;
-      this.fetchFishSubscriber = this.http.get('http://localhost:8000/fish/'+ id + '/')
+      this.fetchFishSubscriber = this.http.get('http://localhost:8000/portal/fish_list/'+ id + '/')
         .subscribe((responseData: any) => {
             console.log(responseData);
             let loadedfishes: any = responseData;

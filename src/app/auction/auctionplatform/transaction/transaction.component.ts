@@ -97,7 +97,7 @@ export class TransactionComponent implements OnInit {
     const data = {
       status: false,
     }
-    this.fishStatusSubscriber = this.http.patch('http://localhost:8000/fish/' + this.fid + '/', data, { headers: headers })
+    this.fishStatusSubscriber = this.http.patch('http://localhost:8000/portal/fish_list/' + this.fid + '/', data, { headers: headers })
       .subscribe(
         (responseData) => {
           console.log(responseData);
@@ -110,7 +110,7 @@ export class TransactionComponent implements OnInit {
 
   private fetchfish() {
     let id = this.fid;
-      this.fetchFishSubscriber = this.http.get('http://localhost:8000/fish/'+ id + '/')
+      this.fetchFishSubscriber = this.http.get('http://localhost:8000/portal/fish_list/'+ id + '/')
         .subscribe((responseData: any) => {
             console.log(responseData);
             let loadedfishes: any = responseData;

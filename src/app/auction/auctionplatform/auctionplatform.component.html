@@ -8,9 +8,9 @@
                 <img class="image" src="../../../assets/Images/fish.png" width="100%" height="100%"/>
                 <span *ngIf="damaged == true">{{ "(Damaged Fish)" | translate }}</span>
                 <hr>
-                <p class="left">{{"Fish Quantity" | translate}}</p><p> {{ size }}</p>
+                <p class="left">{{"Fish Quantity" | translate}} (in KG)</p><p> {{ size }}</p>
                 <hr>
-                <p class="left">{{"Min Price" | translate}}</p><p> {{ minprice }}</p> 
+                <p class="left">{{"Min Price" | translate}} (in Rs.)</p><p> {{ minprice }}</p> 
                 <hr>
 
         <form (ngSubmit)="Done(f)" #f="ngForm">

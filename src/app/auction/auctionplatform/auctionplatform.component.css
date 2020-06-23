@@ -108,6 +108,10 @@ button {
 .btn-done{
     float: left;
 }
+.btn-view{
+    float:right;
+    width:40%;
+}
 
 input{
     background-color: white;

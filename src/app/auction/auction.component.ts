@@ -54,7 +54,7 @@ export class AuctionComponent implements OnInit, OnDestroy {
   }
 
   private fetchFish() {
-    this.fetchFishSubscriber = this.http.get('http://localhost:8000/portal/fish_list/')
+    this.fetchFishSubscriber = this.http.get('http://localhost:8000/portal/fish_list_true/')
     .subscribe((responseData: any) => {
         console.log(responseData);
         this.loadedfishes = responseData;
@@ -70,7 +70,7 @@ export class AuctionComponent implements OnInit, OnDestroy {
     
   private fetchOnlyBDFish() {
     let id = localStorage.getItem('id')
-    this.fetchBDFishSubscriber = this.http.get<{ [id:string]: Fish }>('http://localhost:8000/portal/bdfish_list/' + id + '/')
+    this.fetchBDFishSubscriber = this.http.get<{ [id:string]: Fish }>('http://localhost:8000/portal/bdfish_list_true/' + id + '/')
     .subscribe((responseData: any) => {
         console.log(responseData);
         this.loadedfishes = responseData;

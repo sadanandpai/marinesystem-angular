@@ -35,7 +35,7 @@ export class HistoryComponent implements OnInit, OnDestroy {
   
     private fetchFish() {
       let id = localStorage.getItem('id')
-      this.fetchFishSubscriber = this.http.get('http://localhost:8000/portal/bdfish_list/' + id + '/')
+      this.fetchFishSubscriber = this.http.get('http://localhost:8000/portal/bdfish_list_false/' + id + '/')
       .subscribe((responseData: any) => {
           console.log(responseData);
           this.loadedfishes = responseData;

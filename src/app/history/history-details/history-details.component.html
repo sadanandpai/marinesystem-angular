@@ -7,17 +7,17 @@
 
             <h6 class="fishname">{{ fishname[fishid] }}</h6>
             <img class="image" src="../../../assets/Images/fish.png" width="100%" height="100%"/>
-            <span *ngIf="damaged == true">{{ "(Damaged Fish)" | translate }}</span>
+            <span *ngIf="damaged == true">{{ "(Damaged)" | translate }}</span>
             <hr>
-            <p class="left">{{ "Fish Quantity" | translate }}</p> <p>{{ size }}</p>
+            <p class="left">{{ "Fish Quantity" | translate }} (in KG)</p> <p>{{ size }}</p>
             <hr>
-            <p class="left">{{ "Min Price" | translate }}</p> <p>{{ minprice }}</p>
+            <p class="left">{{ "Min Price" | translate }} (in Rs.)</p> <p>{{ minprice }}</p>
             <hr>
             <p class="left">{{ "Boat Driver" | translate }}</p> <p>{{ owner }}</p>
             <hr>
-            <p class="left">{{ "Win Amount" | translate }}</p> <p>{{ winAmount }}</p>
+            <p class="left">{{ "Win Amount" | translate }} (in Rs.)</p> <p>{{ winAmount }}</p>
             <hr>
-            <p class="left">{{ "Winner Name" | translate }}</p> <p>{{ winnerName }}</p>
+            <p class="left">{{ "Winner Username" | translate }}</p> <p>{{ winnerName }}</p>
 
         </div>
     </div>
