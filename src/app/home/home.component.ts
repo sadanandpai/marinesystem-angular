@@ -17,8 +17,6 @@ export class HomeComponent implements OnInit, OnDestroy{
     private http: HttpClient) { }
 
   ngOnInit(): void {
-    localStorage.setItem('startPage', 'yes');
-    console.log(window.localStorage.getItem('startPage'));
     this.user = localStorage.getItem('user');
     console.log(this.user);
     if(this.user != null){
@@ -40,7 +38,6 @@ export class HomeComponent implements OnInit, OnDestroy{
   }
 
   ngOnDestroy(){
-    localStorage.removeItem('startPage');
     
   }
 

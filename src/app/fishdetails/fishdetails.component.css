@@ -7,6 +7,14 @@
     text-align: center;
     width: 100%;
 }
+.msg{
+    color: greenyellow;
+    font-weight: 500;
+    font-size: 1em;
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+}
 
 .body{
     background-image: url("../../assets/Images/AddFishBG-01.jpg");
@@ -104,7 +112,6 @@ input#price {
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
 }
-
 input#damaged{
     background-color: white;
     box-shadow: 0px 0px 5px grey;
@@ -118,6 +125,9 @@ input#damaged{
     height: 25px;
 }
 
+select{
+    text-overflow: ellipsis;
+}
 label{
     color: #140c68;
     border: none;
@@ -142,7 +152,9 @@ label.damaged{
 form div:first-child{
     margin-top: 10%;
 }
-
+form{
+    margin-bottom: 4%;
+}
 .footer{
     bottom: 0em;
     width: 100%;

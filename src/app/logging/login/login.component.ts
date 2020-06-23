@@ -20,8 +20,6 @@ export class LoginComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    localStorage.setItem('startPage', 'yes');
-    console.log(window.localStorage.getItem('startPage'));
   }
 
 
@@ -62,9 +60,5 @@ export class LoginComponent implements OnInit, OnDestroy {
     if(this.loginSubscriber){
       this.loginSubscriber.unsubscribe();
     }
-    
-    localStorage.removeItem('startPage');
-    console.log(window.localStorage.getItem('startPage'));
-
   }
 }

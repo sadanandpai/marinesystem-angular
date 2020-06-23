@@ -4,7 +4,7 @@
             <div class="col-xs-12 col-md-12 col-lg-12">
                 <a (click)="onClose()" tooltip="close" class="btn btn-sm btn-close"></a>
                 <p class="header" *ngIf="boatdriver == true && visible == true">{{ "Winner Details" | translate}}</p>
-                <p class="winamount" *ngIf="boatdriver == true">Rs. {{ winAmount }}.00</p>
+                <p class="winamount" *ngIf="boatdriver == true">Rs. {{ winAmount }}</p>
                 <div class="details">
                     <p class="left">{{"Winner Username :" | translate}}</p><p *ngIf="boatdriver == true">{{ winnerName }}</p>
                     <hr>

@@ -8,29 +8,19 @@ import { interval } from 'rxjs';
 })
 export class HeaderComponent implements OnInit, OnDestroy {
   loggedIn: boolean = false;
-  startPages: boolean = false;
   loggingServiceSubscriber: any;
 
   constructor() { }
 
   ngOnInit(): void {
-    this.loggingServiceSubscriber = interval(1000).subscribe(
-      (val) => { 
-        if(localStorage.getItem('token') == null){
-          this.loggedIn = false;
-        } else {
-          this.loggedIn = true;
-        }
-
-        if(localStorage.getItem('startPage') != null){
-          this.startPages = true;
-        } else {
-          this.startPages = false;
-        }
-
+    this.loggingServiceSubscriber = interval(1000)
+    .subscribe((val) => { 
+      if(localStorage.getItem('token') == null){
+        this.loggedIn = false;
+      } else {
+        this.loggedIn = true;
       }
-    );
-
+    });
   }
 
   onClick(){

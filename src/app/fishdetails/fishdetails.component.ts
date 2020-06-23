@@ -10,12 +10,13 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class FishdetailsComponent implements OnInit, OnDestroy {
   @ViewChild('f') fishForm: NgForm;
-  msg: Boolean;
+  msg: boolean;
   minprice: any;
   fid: any;
   fishDetailsSubscriber: any;
   auctionDetailsSubscriber: any;
-  damaged: Boolean;
+  damaged: boolean;
+  success: boolean;
 
   constructor(private http: HttpClient,
               private router: Router,
@@ -74,6 +75,7 @@ export class FishdetailsComponent implements OnInit, OnDestroy {
           (responseData) => {
             console.log(responseData);
             form.reset();
+            this.success= true;
           },
           (error) => {
             console.log(error);

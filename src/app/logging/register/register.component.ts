@@ -21,8 +21,6 @@ export class RegisterComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    localStorage.setItem('startPage', 'yes');
-    console.log(window.localStorage.getItem('startPage'));
   }
 
   onClick(){
@@ -62,7 +60,5 @@ export class RegisterComponent implements OnInit, OnDestroy {
     if(this.registerSubscriber){
     this.registerSubscriber.unsubscribe();
     }
-    localStorage.removeItem('startPage');
-      console.log(window.localStorage.getItem('startPage'));
   }
 }
