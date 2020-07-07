@@ -1,0 +1,110 @@
+<div class="body">
+    <a (click)="onClick()" class="btn backbtn"><i class="arrow"></i><i class="line"></i></a>
+      <h3 class="header">{{ "ADD EXPENSES" | translate}}</h3>
+  
+  <form (ngSubmit)="expenses(f)" #f="ngForm">
+    <span class="help-block msg" *ngIf="success == true">{{ "Added Successfully!!" | translate }}</span>
+
+  <div class="form-group col-xs-12">
+    <label for="trip">{{ "Select Trip" | translate }}</label>
+    <div class="input-group mb-3">
+      <input 
+      type="text" 
+      class="form-control" 
+      id="trip"
+      placeholder="Select Trip" 
+      name="trip"
+      ngModel 
+      required 
+      #diesel="ngModel"
+      />
+    </div>
+    <span class="help-block errmsg" *ngIf="!diesel.valid && diesel.touched">{{
+      "Please Enter a valid number!" | translate
+    }}</span>
+  </div>
+
+  <div class="form-group col-xs-12">
+    <label for="diesel">{{ "Diesel" | translate }}</label>
+    <div class="input-group mb-3">
+      <input 
+      type="text" 
+      class="form-control" 
+      id="diesel" 
+      placeholder="Diesel Cost" 
+      pattern="^[0-9]*$" 
+      name="diesel"
+      ngModel 
+      required 
+      #diesel="ngModel"
+      />
+    </div>
+    <span class="help-block errmsg" *ngIf="!diesel.valid && diesel.touched">{{
+      "Please Enter a valid number!" | translate
+    }}</span>
+  </div>
+
+  <div class="form-group col-xs-12">
+    <label for="ice">{{ "Ice" | translate }} (in Blocks)</label>
+    <div class="input-group mb-3">
+      <input 
+      type="text" 
+      class="form-control" 
+      id="ice" 
+      placeholder="Ice Cost" 
+      pattern="^[0-9]*$" 
+      name="ice"
+      ngModel 
+      required 
+      #ice="ngModel"
+      />
+    </div>
+    <span class="help-block errmsg" *ngIf="!ice.valid && ice.touched">{{
+      "Please Enter a valid number!" | translate
+    }}</span>
+  </div>
+
+  <div class="form-group col-xs-12">
+    <label for="maintainance">{{ "Maintainance" | translate }}</label>
+    <div class="input-group mb-3">
+      <input 
+      type="text" 
+      class="form-control" 
+      id="maintainance" 
+      placeholder="Maintainance Cost" 
+      pattern="^[0-9]*$" 
+      name="maintainance"
+      ngModel
+      #maintainance="ngModel"
+      />
+    </div>
+    <span class="help-block errmsg" *ngIf="!maintainance.valid && maintainance.touched">{{
+      "Please Enter a valid number!" | translate
+    }}</span>
+  </div>
+  
+  <button type="button" class="btn btn-primary btn-sm extraCostBtn" (click)="addCost()">Add Cost</button>
+       
+  <section *ngFor="let cost of costs; let i = index;">
+  <button type="button" class="btn btn-danger btn-sm extraCostBtn remove" (click)="removeCost(i)">X</button>
+    <div class="row">
+        <div class="form-group extrainput name">
+            <label>Name</label>
+            <input type="text" class="form-control" name="name_{{cost.id}}" placeholder="Name" [(ngModel)]="cost.name"/>
+        </div>
+        <div class="form-group extrainput cost">
+            <label>Cost</label>
+            <input type="number" class="form-control" name="cost_{{cost.id}}" placeholder="Cost" [(ngModel)]="cost.cost" pattern="^[0-9]*$"/>
+        </div>
+    </div>
+
+  </section>
+
+  <button type="submit" class="btn btn-sm" [disabled]="!f.valid">
+    {{ "Submit" | translate }}
+  </button>
+  <span class="help-block errmsg" *ngIf="msg == true">{{ "Failed to add Try again!" | translate }}</span>
+  
+</form>
+
+</div>

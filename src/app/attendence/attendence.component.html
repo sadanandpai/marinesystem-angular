@@ -1,0 +1,29 @@
+<div class="body">
+    <a (click)="onClick()" class="btn backbtn"><i class="arrow"></i><i class="line"></i></a>
+    <h3 class="header">{{"ATTENDENCE" | translate}}</h3>
+    <div class="row">
+        <button (click)="onAddCrew()" class="btn btn-lg crew-btn">{{ "Add Crew" | translate }}</button>
+
+        <div class="contents">
+            <div class="col-xs-12 col-md-12 col-lg-12 col-md-offset-3">
+                <form (ngSubmit)="addAttendence(f)" #f="ngForm">
+                    <div class="scroll">
+                        <div class="form-group col-xs-12">
+                            <ul class="list-group">
+                            <li *ngFor="let attend of loadedMembers">
+                                <div class="attendee col-xs-12">
+                                    <input type="checkbox" id="{{ attend.id }}" class="present" name="present" value="{{ attend.id }}" ngModel>
+                                    <p class="left">{{ attend.name }}</p> <input type="text" class="right" value="{{ attend.salary }}">
+                                </div>
+                                <hr>
+                            </li>
+                            </ul>
+                        </div>
+                    </div>  
+                    <button type="submit" class="btn btn-sm btn-done">{{ "Done" | translate }}</button>
+                </form> 
+            </div>
+        </div>
+    </div>
+</div>
+    

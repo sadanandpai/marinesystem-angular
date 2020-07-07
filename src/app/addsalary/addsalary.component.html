@@ -1,0 +1,72 @@
+<div class="body">
+    <a (click)="onClick()" class="btn backbtn"><i class="arrow"></i><i class="line"></i></a>
+      <h3 class="header">{{ "ADD SALARY" | translate}}</h3>
+  
+  <form (ngSubmit)="addSalary(f)" #f="ngForm">
+    <span class="help-block msg" *ngIf="success == true">{{ "Added Successfully!!" | translate }}</span>
+    <span class="help-block errmsg" *ngIf="msg == true">{{ "Failed to add Try again!" | translate }}</span>
+
+  <div class="form-group col-xs-12">
+    <label for="driver">{{ "Driver" | translate }}</label>
+    <div class="input-group mb-3">
+      <input 
+      type="number" 
+      class="form-control" 
+      id="driver" 
+      placeholder="Driver Salary" 
+      name="driver"
+      ngModel 
+      required 
+      #driver="ngModel"
+      />
+    </div>
+    <span class="help-block errmsg" *ngIf="!driver.valid && driver.touched">{{
+      "Please Enter a valid Number!" | translate
+    }}</span>
+  </div>
+
+  <div class="form-group col-xs-12">
+    <label for="writer">{{ "Writer" | translate }}</label>
+    <div class="input-group mb-3">
+      <input 
+      type="number" 
+      class="form-control" 
+      id="writer" 
+      placeholder="Writer Salary" 
+      name="writer"
+      ngModel 
+      required 
+      #writer="ngModel"
+      />
+    </div>
+    <span class="help-block errmsg" *ngIf="!writer.valid && writer.touched">{{
+      "Please Enter a valid Number!" | translate
+    }}</span>
+  </div>
+
+  <div class="form-group col-xs-12">
+    <label for="loadUnload">{{ "Load/Unload Crew" | translate }}</label>
+    <div class="input-group mb-3">
+      <input 
+      type="number" 
+      class="form-control" 
+      id="loadUnload" 
+      placeholder="Crew Salary"
+      name="loadUnload"
+      ngModel 
+      required 
+      #loadUnload="ngModel"
+      />
+    </div>
+    <span class="help-block errmsg" *ngIf="!loadUnload.valid && loadUnload.touched">{{
+      "Please Enter a valid Number!" | translate
+    }}</span>
+  </div>
+
+  <button type="submit" class="btn btn-sm" [disabled]="!f.valid">
+    {{ "Save" | translate }}
+  </button>
+  
+</form>
+
+</div>

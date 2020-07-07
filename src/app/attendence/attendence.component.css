@@ -9,7 +9,7 @@
 }
 
 .body{
-    background-image: url("../../../assets/Images/LoginBg-01.jpg");
+    background-image: url("../../assets/Images/LoginBg-01.jpg");
     background-size: 100%;
     background-repeat: repeat-y;
     min-height: 100vh;
@@ -71,27 +71,16 @@
 
 .left{
     float: left;
-    text-align: left;
 }
 
-
-p{
-    display: inline-block;
-    margin: 0%;
+.scroll{
+    width: 100%; 
+    max-height: 400px; 
+    overflow: scroll;
+    overflow-x: hidden;
 }
 
-.image{
-    margin-bottom: 10%;
-}
-
-.fishname{
-    text-align: center;
-    font-size: 1em;
-    color: darkblue;
-    font-weight: bold;
-}
-
-button {
+button.btn-done {
     background-color: #333399;
     color: white;
     border: none;
@@ -101,52 +90,30 @@ button {
     display: block;
     font-size: 1em;
     font-weight: bold;
-    width: 30%;
-    padding: 0% 3%;
-    float: right;
-}
-.btn-done{
-    float: left;
-}
-.btn-view{
-    float:right;
-    width:40%;
-}
-
-input{
-    background-color: white;
-    box-shadow: 0px 0px 5px grey;
-    color: black;
-    border: none;
-    text-align: left;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    border-radius: 20px;
-    padding: 0% 5%;
-    font-weight: bold;
     width: 100%;
 }
 
-input#price {
-    margin-left: 0%;
-    margin-right: 0%;
+p{
+    display: inline-block;
+    margin: 0%;
 }
-.extras-left {
-    box-shadow: 0px 0px 5px grey;
-    border: none;
-    margin-left: 10%;
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
+input.right{
+    /* display: inline-block; */
+    float: right;
 }
-.extras-right {
-    box-shadow: 0px 0px 5px grey;
-    border: none;
-    margin-right: 10%;
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
+.present{
+    float: right;
+    margin: 2%;
+}
+.attendee{
+    min-height: 24px;
 }
 
+.image{
+    margin-bottom: 10%;
+}
 
-
-
+.crew-btn{
+    width: 30%;
+    float: right;
+}

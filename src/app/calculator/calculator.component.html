@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <div class="base">
+        <div class="maindisplay">
+          <div class="subdisplay">{{ subText }}</div>
+          {{ mainText }}
+        </div>
+        <div class="keypad">
+          <table style="width: 100%;">
+            <tr>
+              <td class="keys ackey" colspan="3" (click)="allClear()">AC</td>
+              <td class="keys opkey" colspan="1" (click)="pressKey('/')">/</td>
+            </tr>
+            <tr>
+              <td class="keys numkey" (click)="pressKey('7')">7</td>  
+              <td class="keys numkey" (click)="pressKey('8')">8</td>
+              <td class="keys numkey" (click)="pressKey('9')">9</td>  
+              <td class="keys opkey" (click)="pressKey('x')">x</td>
+            </tr>
+            <tr>
+              <td class="keys numkey" (click)="pressKey('4')">4</td>  
+              <td class="keys numkey" (click)="pressKey('5')">5</td>
+              <td class="keys numkey" (click)="pressKey('6')">6</td>  
+              <td class="keys opkey" (click)="pressKey('-')">-</td>
+            </tr>
+            <tr>
+              <td class="keys numkey" (click)="pressKey('3')">3</td>  
+              <td class="keys numkey" (click)="pressKey('2')">2</td>
+              <td class="keys numkey" (click)="pressKey('1')">1</td>  
+              <td class="keys opkey" (click)="pressKey('+')">+</td>
+            </tr>
+            <tr>
+              <td colspan="2" class="keys numkey" (click)="pressKey('0')">0</td>
+              <td class="keys numkey" (click)="pressKey('.')">.</td>  
+              <td class="keys equalkey" (click)="getAnswer()">=</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+</div>

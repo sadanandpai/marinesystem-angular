@@ -1,0 +1,41 @@
+<div class="body">
+    <a (click)="onClick()" class="btn backbtn"><i class="arrow"></i><i class="line"></i></a>
+    <h3 class="header">{{"My Boat" | translate}}</h3>
+    
+    <form (ngSubmit)="onStartTrip(f)" #f="ngForm">
+        <div class="form-group col-xs-12">   
+                <label for="boatNum" class="btn-trip">{{"Select Boat" | translate}}</label>
+                <select id="boatNum" class="form-control" >
+                    <div *ngFor="let boat of loadedBoats">
+                        <option value="{{boat.boatNum}">{{boat.boatNum}}</option>
+                    </div>
+                </select>
+        </div>
+        <button type="submit" class="btn btn-sm btn-trip">
+            {{ "Start New Trip" | translate }}
+    </button>
+    </form>
+    <div class="group-btn">
+        <button (click)="onMyBoat()" class="btn btn-lg">{{ "My Boat" | translate }}</button>
+        <button (click)="onAddCrew()" class="btn btn-lg">{{ "Add Crew" | translate }}</button>
+        <button (click)="onAddExpense()" class="btn btn-lg">{{ "Add Expenses" | translate }}</button>
+        <button (click)="onAttendence()" class="btn btn-lg">{{ "Attendence" | translate }}</button>
+        <button (click)="onAuction()" class="btn btn-lg">{{ "Auction Platform" | translate }}</button>
+        <!-- <a (click)="onMyBoat()" class="btn btn-lg">
+            <img src="../../assets/Images/addfish_03.png"/>
+        </a>
+        <a (click)="onAddExpense()" class="btn btn-lg">
+            <img src="../../assets/Images/addfish_03.png"/>
+        </a>
+        <a (click)="onAttendence()" class="btn btn-lg">
+            <img src="../../assets/Images/History_03.png"/>
+        </a>
+        <a (click)="onAuction()" class="btn btn-lg">
+            <img src="../../assets/Images/History_03.png"/>
+        </a> 
+        <a (click)="onAddCrew()" class="btn btn-lg">
+            <img src="../../assets/Images/History_03.png"/>
+        </a> -->
+    </div>
+</div>
+    

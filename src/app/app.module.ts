@@ -20,6 +20,18 @@ import { HistoryComponent } from './history/history.component';
 import { HistoryDetailsComponent } from './history/history-details/history-details.component';
 import { WinnerdetailsComponent } from './auction/winnerdetails/winnerdetails.component';
 import { TransactionComponent } from './auction/auctionplatform/transaction/transaction.component';
+import { MyboatsComponent } from './myboats/myboats.component';
+import { AddexpensesComponent } from './addexpenses/addexpenses.component';
+import { CalculatorComponent } from './calculator/calculator.component';
+import { MapComponent } from './map/map.component';
+import { AddmemberComponent } from './addmember/addmember.component';
+import { OwnerexpenseComponent } from './addexpenses/ownerexpense/ownerexpense.component';
+import { BdexpenseComponent } from './addexpenses/bdexpense/bdexpense.component';
+import { AddboatComponent } from './addboat/addboat.component';
+import { MyboatownerComponent } from './myboats/myboatowner/myboatowner.component';
+import { MyboatdriverComponent } from './myboats/myboatdriver/myboatdriver.component';
+import { AttendenceComponent } from './attendence/attendence.component';
+import { AddsalaryComponent } from './addsalary/addsalary.component';
 
 
 
@@ -42,7 +54,19 @@ export function HttpLoaderFactory(http: HttpClient) {
     HistoryComponent, 
     HistoryDetailsComponent, 
     WinnerdetailsComponent, 
-    TransactionComponent
+    TransactionComponent, 
+    MyboatsComponent, 
+    AddexpensesComponent, 
+    CalculatorComponent, 
+    MapComponent, 
+    AddmemberComponent, 
+    BdexpenseComponent,
+    OwnerexpenseComponent,
+    AddboatComponent,
+    MyboatownerComponent,
+    MyboatdriverComponent,
+    AttendenceComponent,
+    AddsalaryComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,91 @@
+<div class="body">
+  <a (click)="onClick()" class="btn backbtn"><i class="arrow"></i><i class="line"></i></a>
+    <h3 class="header">{{ "ADD EXPENSES" | translate}}</h3>
+
+<form (ngSubmit)="expenses(f)" #f="ngForm">
+  <span class="help-block msg" *ngIf="success == true">{{ "Added Successfully!!" | translate }}</span>
+  <span class="help-block errmsg" *ngIf="msg == true">{{ "Failed to add Try again!" | translate }}</span>
+
+<div class="form-group col-xs-12">
+  <label for="water">{{ "Water" | translate }} (in Ltr)</label>
+  <div class="input-group mb-3">
+    <input 
+    type="text" 
+    class="form-control" 
+    id="water" 
+    placeholder="Water Cost" 
+    pattern="^[0-9]*$" 
+    name="water"
+    ngModel 
+    required 
+    #water="ngModel"
+    />
+  </div>
+  <span class="help-block errmsg" *ngIf="!water.valid && water.touched">{{
+    "Please Enter a valid number!" | translate
+  }}</span>
+</div>
+
+<div class="form-group col-xs-12">
+  <label for="lpg">{{ "LPG" | translate }} (in Cylinder)</label>
+  <div class="input-group mb-3">
+    <input 
+    type="text" 
+    class="form-control" 
+    id="lpg" 
+    placeholder="LPG Cost" 
+    pattern="^[0-9]*$" 
+    name="lpg"
+    ngModel 
+    required 
+    #lpg="ngModel"
+    />
+  </div>
+  <span class="help-block errmsg" *ngIf="!lpg.valid && lpg.touched">{{
+    "Please Enter a valid number!" | translate
+  }}</span>
+</div>
+
+<div class="form-group col-xs-12">
+  <label for="ration">{{ "Ration" | translate }}(in Days)</label>
+  <div class="input-group mb-3">
+    <input 
+    type="text" 
+    class="form-control" 
+    id="ration" 
+    placeholder="Ration Cost" 
+    pattern="^[0-9]*$" 
+    name="ration"
+    ngModel
+    #ration="ngModel"
+    />
+  </div>
+  <span class="help-block errmsg" *ngIf="!ration.valid && ration.touched">{{
+    "Please Enter a valid number!" | translate
+  }}</span>
+</div>
+
+<button type="button" class="btn btn-primary btn-sm extraCostBtn" (click)="addCost()">Add Cost</button>
+     
+<section *ngFor="let cost of costs; let i = index;">
+<button type="button" class="btn btn-danger btn-sm extraCostBtn remove" (click)="removeCost(i)">X</button>
+  <div class="row">
+      <div class="form-group extrainput name">
+          <label>Name</label>
+          <input type="text" class="form-control" name="name_{{cost.id}}" placeholder="Name" [(ngModel)]="cost.name"/>
+      </div>
+      <div class="form-group extrainput cost">
+          <label>Cost</label>
+          <input type="number" class="form-control" name="cost_{{cost.id}}" placeholder="Cost" [(ngModel)]="cost.cost" pattern="^[0-9]*$"/>
+      </div>
+  </div>
+
+</section>
+
+<button type="submit" class="btn btn-sm" [disabled]="!f.valid">
+  {{ "Submit" | translate }}
+</button>
+
+</form>
+
+</div>

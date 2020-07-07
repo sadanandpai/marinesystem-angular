@@ -9,7 +9,7 @@
 }
 
 .body{
-    background-image: url("../../../../assets/Images/LoginBg-01.jpg");
+    background-image: url("../../../assets/Images/LoginBg-01.jpg");
     background-size: 100%;
     background-repeat: repeat-y;
     min-height: 100vh;
@@ -22,6 +22,7 @@
 .backbtn{
     margin: 2%;
     margin-left: 10%;
+    vertical-align: middle;
 }
 .arrow {
   border: solid white;
@@ -53,69 +54,35 @@
     text-align: center;
 }
 
-.contents{
-    height: auto;
-    background-color: white;
-    color: black;
-    border: none;
-    border-radius: 12px;
-    text-align: right;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 1em;
-    font-weight: bold;
-    width: 100%;
-    padding: 3% 5%;
-    margin: 0% 10%;
+select{
+    width: 40%;
+    margin: 0% 26%;
 }
 
-.left{
-    float: left;
-}
-
-.scroll{
-    width: 100%; 
-    max-height: 400px; 
-    overflow: scroll;
-    overflow-x: hidden;
-}
-
-button.btn-done {
+button {
     background-color: #333399;
     color: white;
     border: none;
     border-radius: 20px;
     text-align: center;
     text-decoration: none;
-    display: block;
-    font-size: 1em;
-    font-weight: bold;
-    width: 100%;
-}
-
-p{
     display: inline-block;
-    margin: 0%;
-}
-p.right{
-    float: right;
-}
-.winner{
-    float: right;
-    margin: 2%;
-}
-.quotes{
-    min-height: 24px;
-}
-
-.image{
-    margin-bottom: 10%;
-}
-
-.fishname{
-    text-align: center;
     font-size: 1em;
-    color: darkblue;
     font-weight: bold;
+    width: 40%;
+}
+.btn-trip{
+    margin-left: 25%;
+    margin-right: 5%;
+    color: white;
 }
 
+.group-btn{
+    margin-top: 20px;
+}
+.btn-lg {
+    margin-left: 5%;
+    width: 40%;
+    margin-right: 5%;
+    margin-top: 5%;
+}

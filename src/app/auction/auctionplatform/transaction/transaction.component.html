@@ -8,32 +8,28 @@
                 <span *ngIf="damaged == true">{{ "(Damaged)" | translate }}</span>
                 <hr>
                 <h3 class="left">{{ winnerName }}</h3> <h3>{{ winAmount }}</h3>
-               
                 <hr>
-                
-                    <form (ngSubmit)="quoteDetails(f)" #f="ngForm">
-                        <div class="scroll">
-                    <div class="form-group col-xs-12">
-                        <ul class="list-group">
-                        <li *ngFor="let quote of loadedQuotes">
-                            <div class="quotes col-xs-12">
-                                <input type="radio" id="{{ quote.id }}" class="winner" name="winner" value="{{ quote.id }}" ngModel>
-                                <p class="left">{{ quote.quoteUser }}</p> <p class="right">{{ quote.quoteAmount }}</p>
-                            </div>
-                            <hr>
-                        </li>
-                        </ul>
-                    </div>
-                </div>  
+                <form (ngSubmit)="quoteDetails(f)" #f="ngForm">
+                    <div class="scroll">
+                        <div class="form-group col-xs-12">
+                            <ul class="list-group">
+                            <li *ngFor="let quote of loadedQuotes">
+                                <div class="quotes col-xs-12">
+                                    <input type="radio" id="{{ quote.id }}" class="winner" name="winner" value="{{ quote.id }}" ngModel>
+                                    <p class="left">{{ quote.quoteUser }}</p> <p class="right">{{ quote.quoteAmount }}</p>
+                                </div>
+                                <hr>
+                            </li>
+                            </ul>
+                        </div>
+                    </div>  
                     <button type="submit" class="btn btn-sm btn-done">
                         {{ "Done" | translate }}
                     </button>
-                    </form>
+                </form>
                   
             </div>
         </div>
     </div>
-    <div><img class="footer" src="../../../../assets/Images/wave_02.png"></div>
-        
-    </div>
+</div>
     

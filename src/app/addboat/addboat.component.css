@@ -1,6 +1,14 @@
 .errmsg{
-    color: orange;
+    color: red;
     font-family: 'century Gothic';
+    font-weight: 500;
+    font-size: 1em;
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+}
+.msg{
+    color: greenyellow;
     font-weight: 500;
     font-size: 1em;
     display: inline-block;
@@ -9,7 +17,7 @@
 }
 
 .body{
-    background-image: url("../../../assets/Images/LoginBg-01.jpg");
+    background-image: url("../../assets/Images/AddFishBG-01.jpg");
     background-size: 100%;
     background-repeat: repeat-y;
     min-height: 100vh;
@@ -43,7 +51,7 @@
 
 .header{
     font-family: 'century Gothic';
-    font-weight: 600;
+    font-weight: 700;
     font-size: 1.5em;
     color: white;
     display: inline-block;
@@ -53,65 +61,20 @@
     text-align: center;
 }
 
-.contents{
-    height: auto;
-    background-color: white;
-    color: black;
-    border: none;
-    border-radius: 12px;
-    text-align: right;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 1em;
-    font-weight: bold;
-    width: 100%;
-    padding: 3% 5%;
-    margin: 0% 10%;
-}
-
-.left{
-    float: left;
-    text-align: left;
-}
-
-
-p{
-    display: inline-block;
-    margin: 0%;
-}
-
-.image{
-    margin-bottom: 10%;
-}
-
-.fishname{
-    text-align: center;
-    font-size: 1em;
-    color: darkblue;
-    font-weight: bold;
-}
-
 button {
     background-color: #333399;
     color: white;
     border: none;
-    border-radius: 20px;
     text-align: center;
     text-decoration: none;
-    display: block;
-    font-size: 1em;
-    font-weight: bold;
-    width: 30%;
-    padding: 0% 3%;
-    float: right;
-}
-.btn-done{
-    float: left;
-}
-.btn-view{
-    float:right;
-    width:40%;
-}
+    display: inline-block;
+    font-size: 18px;
+    margin: 2% 10%;
+    border-radius: 20px;
+    padding: 2px 25px;
+    width: 80%;
+  }
+
 
 input{
     background-color: white;
@@ -122,15 +85,19 @@ input{
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+    margin: 0% 10%;
     border-radius: 20px;
-    padding: 0% 5%;
+    padding: 2px 25px;
     font-weight: bold;
-    width: 100%;
+    width: 80%;
 }
 
-input#price {
-    margin-left: 0%;
-    margin-right: 0%;
+.extras-right {
+    box-shadow: 0px 0px 5px grey;
+    border: none;
+    margin-right: 10%;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
 }
 .extras-left {
     box-shadow: 0px 0px 5px grey;
@@ -139,14 +106,20 @@ input#price {
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
 }
-.extras-right {
-    box-shadow: 0px 0px 5px grey;
+
+label{
+    color: #140c68;
     border: none;
-    margin-right: 10%;
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
+    text-align: left;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 2% 10%;
+    font-weight: bold;
+    width: 80%;
 }
 
-
-
+form{
+    margin-bottom: 4%;
+}
 

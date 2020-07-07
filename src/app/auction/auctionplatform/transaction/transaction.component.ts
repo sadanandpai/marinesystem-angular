@@ -66,11 +66,11 @@ export class TransactionComponent implements OnInit {
      });
     // fetch selected Radio button's details
       let id = value.winner;
-      debugger
+      // debugger
       this.quoteSubscriber = this.http.get('http://localhost:8000/portal/quote_list/'+ id + '/')
         .subscribe((responseData: any) => {
           console.log(responseData);
-          debugger
+          // debugger
           this.quoteAmount = responseData.quoteAmount;
           this.quoteUser = responseData.quoteUser;
           // Update auction table
@@ -82,7 +82,7 @@ export class TransactionComponent implements OnInit {
           this.updateAuctionDetailsSubscriber = this.http.put('http://localhost:8000/portal/auction_update/' + this.fid + '/', details, 
             { headers: headers }).subscribe(
               (responseData) => {
-                debugger
+                // debugger
                 console.log(responseData);
                 this.router.navigate(['winnerdetails', this.fid]);
               },
