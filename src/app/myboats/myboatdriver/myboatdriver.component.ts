@@ -36,25 +36,29 @@ export class MyboatdriverComponent implements OnInit {
   }
 
   onClick(){
-    this.router.navigate(['/auction']);
+    this.router.navigate(['/']);
   }
 
   onStartTrip(form: NgForm){
     const value = form.value;
     const data = {
-      boatNum: value.boatNum,
+      boat: value.boatid,
     };
-
+    // debugger
+    console.log(value);
     let headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': 'Token ' + localStorage.getItem('token')
     });
+    // debugger
     this.addTripSubscriber = this.http
       .post('http://localhost:8000/portal/trip_list/', data, { headers: headers })
       .subscribe(
         (responseData: any) => {
           this.tripId = responseData.id;
           console.log(responseData);
+          localStorage.setItem('tripID', this.tripId);
+          console.log(window.localStorage);
         },
         (error) => {
           console.log(error);

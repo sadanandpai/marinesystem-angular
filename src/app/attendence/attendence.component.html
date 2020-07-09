@@ -12,8 +12,8 @@
                             <ul class="list-group">
                             <li *ngFor="let attend of loadedMembers">
                                 <div class="attendee col-xs-12">
-                                    <input type="checkbox" id="{{ attend.id }}" class="present" name="present" value="{{ attend.id }}" ngModel>
-                                    <p class="left">{{ attend.name }}</p> <input type="text" class="right" value="{{ attend.salary }}">
+                                    <input type="checkbox" id="{{ attend.id }}" class="present" name="member_{{ attend.id }}" value="{{ attend.id }}" ngModel>
+                                    <p class="left">{{ attend.name }}</p> <input type="text" class="right" name="salary_{{ attend.id }}" placeholder="{{ attend.salary }}" ngModel>
                                 </div>
                                 <hr>
                             </li>

@@ -4,16 +4,14 @@
     
     <form (ngSubmit)="onStartTrip(f)" #f="ngForm">
         <div class="form-group col-xs-12">   
-                <label for="boatNum" class="btn-trip">{{"Select Boat" | translate}}</label>
-                <select id="boatNum" class="form-control" >
-                    <div *ngFor="let boat of loadedBoats">
-                        <option value="{{boat.boatNum}">{{boat.boatNum}}</option>
-                    </div>
-                </select>
+            <label for="boat" class="btn-trip">{{"Select Boat" | translate}}</label>
+            <select id="boat" class="form-control" name="boatid" ngModel required>
+                <option *ngFor="let boat of loadedBoats" value="{{boat.id}}">{{boat.boatNumber}}</option>
+            </select>
         </div>
         <button type="submit" class="btn btn-sm btn-trip">
             {{ "Start New Trip" | translate }}
-    </button>
+        </button>
     </form>
     <div class="group-btn">
         <button (click)="onMyBoat()" class="btn btn-lg">{{ "My Boat" | translate }}</button>

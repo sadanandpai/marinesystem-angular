@@ -23,6 +23,7 @@ export class MyboatsComponent implements OnInit {
       this.boatDriver = false;
       this.boatOwner = false;
     }
+    console.log(window.localStorage);
   }
 
 }

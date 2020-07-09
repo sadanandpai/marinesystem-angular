@@ -20,7 +20,7 @@ export class MyboatownerComponent implements OnInit {
   }
 
   onClick(){
-    this.router.navigate(['/auction']);
+    this.router.navigate(['/']);
   }
 
   onMyBoat(){
@@ -44,9 +44,6 @@ export class MyboatownerComponent implements OnInit {
   }
 
   ngOnDestroy() {
-    // if(this.addTripSubscriber){
-    //   this.addTripSubscriber.unsubscribe();
-    // }
     
   }  
 }

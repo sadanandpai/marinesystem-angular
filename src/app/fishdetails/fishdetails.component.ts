@@ -17,18 +17,21 @@ export class FishdetailsComponent implements OnInit, OnDestroy {
   auctionDetailsSubscriber: any;
   damaged: boolean;
   success: boolean;
+  tripID: any;
 
   constructor(private http: HttpClient,
               private router: Router,
               private route: ActivatedRoute,) {}
 
   ngOnInit(): void {
+    this.tripID = localStorage.getItem('tripID');
   }
 
   onClick(){
     this.router.navigate(['/auction']);
   }
 
+  // ADD fish and auction
   fishDetails(form: NgForm) {
     const value = form.value;
     if (value.damaged != true){
@@ -63,14 +66,15 @@ export class FishdetailsComponent implements OnInit, OnDestroy {
       console.log(window.localStorage);
       const details = {
         fishid: localStorage.getItem('fishid'),
+        trips: this.tripID,
         highestBid: null,
       }
-      // debugger
+      // wait 2sec to add fish details
       setTimeout(() => {
         // debugger
         var id = localStorage.getItem('fishid');
         console.log(id);
-        this.auctionDetailsSubscriber = this.http.put('http://localhost:8000/portal/auction_list/' + id + '/', data, { headers: headers })
+        this.auctionDetailsSubscriber = this.http.put('http://localhost:8000/portal/auction_list/' + id + '/', details, { headers: headers })
         .subscribe(
           (responseData) => {
             console.log(responseData);

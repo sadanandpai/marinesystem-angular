@@ -69,8 +69,11 @@
     margin: 0% 10%;
 }
 
-.left{
+p.left{
+    text-align: left;
     float: left;
+    height: auto;
+    width: 50%;
 }
 
 .scroll{
@@ -80,7 +83,7 @@
     overflow-x: hidden;
 }
 
-button.btn-done {
+button {
     background-color: #333399;
     color: white;
     border: none;
@@ -90,6 +93,16 @@ button.btn-done {
     display: block;
     font-size: 1em;
     font-weight: bold;
+
+}
+.btn-lg {
+    margin-left: 5%;
+    width: 40%;
+    margin-right: 5%;
+    margin-top: 5%;
+}
+
+.btn-done{
     width: 100%;
 }
 
@@ -98,7 +111,7 @@ p{
     margin: 0%;
 }
 input.right{
-    /* display: inline-block; */
+    width: 30%;
     float: right;
 }
 .present{
@@ -116,4 +129,5 @@ input.right{
 .crew-btn{
     width: 30%;
     float: right;
+    margin: 5%;
 }

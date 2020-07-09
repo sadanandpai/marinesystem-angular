@@ -45,7 +45,7 @@ export class OwnerexpenseComponent implements OnInit {
   }
 
   onClick(){
-    this.router.navigate(['/auction']);
+    this.router.navigate(['/myboats']);
   }
 
   expenses(form: NgForm) {

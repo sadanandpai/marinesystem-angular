@@ -16,12 +16,19 @@ export class AttendenceComponent implements OnInit {
   boatDriver: boolean;
   loadedMembers: any;
   fetchMemberSubscriber: any;
+  updateCrewSubscriber: any;
+  tripID: any;
+  memberCount: any;
 
   constructor(private http: HttpClient,
     private router: Router,
     private route: ActivatedRoute,) {}
 
   ngOnInit(): void {
+    this.tripID = localStorage.getItem('tripID');
+    console.log(this.tripID);
+    console.log(window.localStorage);
+
     var data = localStorage.getItem('group');
     if(data == 'BoatDriver'){
     this.boatDriver = true;
@@ -32,7 +39,7 @@ export class AttendenceComponent implements OnInit {
   }
   
   onClick(){
-    this.router.navigate(['/auction']);
+    this.router.navigate(['/myboats']);
   }
 
   onAddCrew(){
@@ -41,27 +48,44 @@ export class AttendenceComponent implements OnInit {
 
   addAttendence(form: NgForm) {
     const value = form.value;
-    const data = {
-      name: value.name,
-      salary: value.salary,  
-    };
-
     let headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': 'Token ' + localStorage.getItem('token')
     });
-    this.addAttendenceSubscriber = this.http
-      .post('http://localhost:8000/portal//', data, { headers: headers })
-      .subscribe(
-        (responseData: any) => {
-          this.success= true;
-          console.log(responseData);
-        },
-        (error) => {
-          console.log(error);
-          this.msg = true;
-        }
-      );
+
+    for(let i=1;i<this.memberCount;i++){
+      const data = {
+        tripid: this.tripID,
+        member: value.member_[i],
+        salary: value.salary_[i],  
+      };
+      console.log(data);
+    }
+    // this.addAttendenceSubscriber = this.http
+    //   .post('http://localhost:8000/portal/attendence_list/', data, { headers: headers })
+    //   .subscribe(
+    //     (responseData: any) => {
+    //       this.success= true;
+    //       console.log(responseData);
+    //     },
+    //     (error) => {
+    //       console.log(error);
+    //       this.msg = true;
+    //     }
+    //   );
+    //   var id=value.member;
+    //   this.updateCrewSubscriber = this.http
+    //   .post('http://localhost:8000/portal/crew_detail/' + id + '/', data, { headers: headers })
+    //   .subscribe(
+    //     (responseData: any) => {
+    //       this.success= true;
+    //       console.log(responseData);
+    //     },
+    //     (error) => {
+    //       console.log(error);
+    //       this.msg = true;
+    //     }
+    //   );
   }
 
   private fetchMembers() {
@@ -73,6 +97,7 @@ export class AttendenceComponent implements OnInit {
           this.success= true;
           console.log(responseData);
           this.loadedMembers=responseData
+          this.memberCount = responseData.length;
         },
         (error) => {
           console.log(error);

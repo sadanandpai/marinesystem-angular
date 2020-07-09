@@ -29,7 +29,7 @@ export class AddmemberComponent implements OnInit {
   }
 
   onClick(){
-    this.router.navigate(['/auction']);
+    this.router.navigate(['/myboats']);
   }
 
   addCrew(form: NgForm) {
@@ -50,6 +50,7 @@ export class AddmemberComponent implements OnInit {
       .subscribe(
         (responseData: any) => {
           this.success= true;
+          form.reset();
           console.log(responseData);
         },
         (error) => {

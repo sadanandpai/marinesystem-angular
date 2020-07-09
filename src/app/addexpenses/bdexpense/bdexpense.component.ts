@@ -18,7 +18,7 @@ export class BdexpenseComponent implements OnInit {
     id: 1,
     name: '',
     cost: '',
-    type: 'BoatDriver',
+    types: 'BoatDriver',
   }];
 
   sum: any;
@@ -30,6 +30,7 @@ export class BdexpenseComponent implements OnInit {
               private route: ActivatedRoute,) {}
 
   ngOnInit(): void {
+    this.tripID = localStorage.getItem('tripID');
   }
 
   addCost() {
@@ -37,7 +38,7 @@ export class BdexpenseComponent implements OnInit {
       id: this.costs.length + 1,
       name: '',
       cost: '',
-      type: 'BoatDriver',
+      types: 'BoatDriver',
     });
   }
 
@@ -46,9 +47,10 @@ export class BdexpenseComponent implements OnInit {
   }
 
   onClick(){
-    this.router.navigate(['/auction']);
+    this.router.navigate(['/myboats']);
   }
 
+  
   expenses(form: NgForm) {
     console.log(this.costs);
     this.sum = 0;
@@ -64,9 +66,9 @@ export class BdexpenseComponent implements OnInit {
     value.grandTotal = Number(value.water) + Number(value.lpg) + Number(value.ration) + this.sum;
     const data = {
       water: value.water,
-      lpg: value.lpg,
+      LPG: value.lpg,
       ration: value.ration,
-      grandTotal: value.grandTotal,
+      totalBd: value.grandTotal,
     };
 
     console.log("Form value");
@@ -90,9 +92,10 @@ export class BdexpenseComponent implements OnInit {
 
     for(let i=0; i<this.costs.length; i++){    
       const extraData = {
+        trip: this.tripID,
         name: this.costs[i].name,
         cost: this.costs[i].cost,
-        type: 'BoatDriver',
+        types: 'BoatDriver',
       };
       this.extraExpensesSubscriber = this.http
         .post('http://localhost:8000/portal/extraCost_list/', extraData, { headers: headers })

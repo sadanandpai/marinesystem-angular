@@ -29,14 +29,14 @@ export class AddboatComponent implements OnInit {
   }
 
   onClick(){
-    this.router.navigate(['/auction']);
+    this.router.navigate(['/myboats']);
   }
 
   addBoat(form: NgForm) {
     const value = form.value;
     const data = {
-      name: value.name,
-      number: value.number,
+      boatName: value.name,
+      boatNumber: value.number,
       driver: value.driver,
       description: value.description,  
     };
@@ -50,6 +50,7 @@ export class AddboatComponent implements OnInit {
       .subscribe(
         (responseData: any) => {
           this.success= true;
+          form.reset();
           console.log(responseData);
         },
         (error) => {

@@ -30,7 +30,7 @@ export class AddsalaryComponent implements OnInit {
   }
 
   onClick(){
-    this.router.navigate(['/auction']);
+    this.router.navigate(['/myboats']);
   }
 
   addSalary(form: NgForm) {

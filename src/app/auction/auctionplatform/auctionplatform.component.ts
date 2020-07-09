@@ -48,6 +48,7 @@ export class AuctionplatformComponent implements OnInit, OnDestroy {
   fishname: any;
   quoteUser: string;
   addQuoteDetailsSubscriber: any;
+  tripID: string;
 
   constructor(private http: HttpClient,
               private router: Router,
@@ -112,7 +113,6 @@ export class AuctionplatformComponent implements OnInit, OnDestroy {
     'Content-Type': 'application/json',
     'Authorization': 'Token ' + localStorage.getItem('token')
    });
-
    this.maxBid = this.bid;
    this.bidAmount = Number(data.Amount)
     if (this.bidAmount > this.bid){
@@ -122,9 +122,10 @@ export class AuctionplatformComponent implements OnInit, OnDestroy {
         highestBid: this.bid,
         users: localStorage.getItem('user'),
       }
+      // debugger
       this.id = this.fid;
       console.log("bid: " + this.bid)
-      this.addAuctionDetailsSubscriber = this.http.put('http://localhost:8000/portal/auction_list/' + this.id + '/', details, 
+      this.addAuctionDetailsSubscriber = this.http.patch('http://localhost:8000/portal/auction_list/' + this.id + '/', details, 
         { headers: headers }).subscribe(
           (responseData) => {
             console.log(responseData);

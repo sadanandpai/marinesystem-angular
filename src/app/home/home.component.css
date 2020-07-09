@@ -1,5 +1,5 @@
-.msg{
-    color: red;
+.errmsg{
+    color: orangered;
 }
 
 .body{
@@ -23,34 +23,22 @@ button {
     background-color: #333399;
     color: white;
     border: none;
+    border-radius: 20px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
-    margin-top: 125%;
-    border-radius: 20px;
-    padding: 2px 25px;
-    font-weight: 500;
-  }
-
-.start{
-    margin-top: 140%;
-    margin-left: 25%;
-    width: 50%;
-  }
-
-.login{
-    margin-top: 140%;
-    margin-left: 17%;
-    margin-right: 6%;
-    width: 25%;
+    font-size: 1em;
+    font-weight: bold;
+    width: 40%;
 }
 
-.register{
-    margin-top: 140%;
-    margin-right: 22%;
-    width: 30%;
-    
+.group-btn{
+    padding-top: 130%;
 }
-
+.btn-lg {
+    margin-left: 5%;
+    width: 40%;
+    margin-right: 5%;
+    margin-top: 5%;
+}
 

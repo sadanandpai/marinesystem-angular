@@ -1,10 +1,11 @@
 <div class="body">
     <p *ngIf="loggedIn == true" class="username">{{ user }}</p>
 
-    <!-- <h1>FISHERY</h1>
-<p>{{ "Start Your Fishing Now!" | translate }}</p> -->
-    <button *ngIf="loggedIn == false" class="btn btn-sm login" routerLink="login">{{ "Login" | translate }}</button>
-    <button *ngIf="loggedIn == false" class="btn btn-sm register" routerLink="register">{{ "Register" | translate }}</button>
-    <button *ngIf="loggedIn == true" class="btn btn-sm start" (click)="onStart()">{{ "Auction" | translate }}</button>
-    <p *ngIf="msg == true">{{ "Please Login Before Start Auction!" | translate }}</p>
+    <div class="group-btn">
+        <button *ngIf="loggedIn == false" class="btn btn-lg login" routerLink="login">{{ "Login" | translate }}</button>
+        <button *ngIf="loggedIn == false" class="btn btn-lg register" routerLink="register">{{ "Register" | translate }}</button>
+        <button class="btn btn-lg" routerLink="myboats">{{ "My Boat" | translate }}</button>
+        <button *ngIf="loggedIn == true" class="btn btn-lg start" (click)="onStart()">{{ "Auction" | translate }}</button>
+    </div>
+    <p class="errmsg" *ngIf="msg == true">{{ "Please Login Before Start!" | translate }}</p>
 </div>

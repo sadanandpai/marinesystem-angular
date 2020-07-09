@@ -69,6 +69,7 @@ button {
     padding: 5% 10%;
     margin-left: 25%;
     margin-right: 5%;
+    margin-top: 10%;
 }
 
 .content{
@@ -94,7 +95,6 @@ button {
 .fishname{
     color: darkblue;
     width: 80%;
-    margin: 1% 10%;
     text-align: center;
     font-size: 1em;
     font-weight: bold;
@@ -136,4 +136,14 @@ p.damagedFish{
     margin-bottom: 2px;
 }
 
-
+p.bdName{
+    font-size: 13px;
+    font-weight: normal;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    width: 20%;
+}
+p {
+    margin-top: 2%;
+    margin-bottom: 0px;
+}

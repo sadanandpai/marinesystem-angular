@@ -11,6 +11,8 @@ export class HomeComponent implements OnInit, OnDestroy{
   msg : boolean;
   loggedIn: boolean;
   user: any;
+  boatOwner: boolean;
+  boatDriver: boolean;
 
   constructor(private router: Router,
     private route: ActivatedRoute,
@@ -18,11 +20,18 @@ export class HomeComponent implements OnInit, OnDestroy{
 
   ngOnInit(): void {
     this.user = localStorage.getItem('user');
+    var group = localStorage.getItem('group');
     console.log(this.user);
     if(this.user != null){
       this.loggedIn = true;
     } else {
       this.loggedIn = false;
+    }
+    var data = localStorage.getItem('group');
+    if(data == 'BoatOwner'){
+      this.boatOwner = true;
+    } else if(data == 'BoatDriver'){
+      this.boatDriver = true;
     }
   }
 

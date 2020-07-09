@@ -31,6 +31,7 @@ export class TransactionComponent implements OnInit {
   quoteSubscriber: any;
   updateAuctionDetailsSubscriber: any;
   fishStatusSubscriber: any;
+  tripID: string;
   
 
   constructor(private http: HttpClient,
@@ -38,6 +39,7 @@ export class TransactionComponent implements OnInit {
     private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.tripID = localStorage.getItem('tripID');
     this.fishname = json;
     this.fishname = this.fishname.default;
     this.initialSubscriber = this.route.params.subscribe(data=>{
@@ -75,6 +77,7 @@ export class TransactionComponent implements OnInit {
           this.quoteUser = responseData.quoteUser;
           // Update auction table
           const details = {
+            trips: this.tripID,
             fishid: this.fid,
             highestBid: this.quoteAmount,
             users: this.quoteUser,
