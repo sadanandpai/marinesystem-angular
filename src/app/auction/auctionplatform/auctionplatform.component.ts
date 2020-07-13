@@ -48,13 +48,18 @@ export class AuctionplatformComponent implements OnInit, OnDestroy {
   fishname: any;
   quoteUser: string;
   addQuoteDetailsSubscriber: any;
-  tripID: string;
+  tripID: any;
+  sum: number;
+  addAuctionAmountSubscriber: any;
+  fetchAuctionAmountSubscriber: any;
 
   constructor(private http: HttpClient,
               private router: Router,
               private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.tripID = localStorage.getItem('tripID');
+    this.fetchAuctionAmount();
     this.fishname = json;
     this.fishname = this.fishname.default;
     this.initialSubscriber = this.route.params.subscribe(data=>{
@@ -100,7 +105,8 @@ export class AuctionplatformComponent implements OnInit, OnDestroy {
         (error) => {
           console.log(error);
         }
-      ); 
+      );
+      this.addAuctionAmount();
     
   }
 
@@ -195,6 +201,7 @@ export class AuctionplatformComponent implements OnInit, OnDestroy {
             this.winAmount = responseData.highestBid;
             this.winnerName = responseData.users;
             console.log(responseData);
+
           },
           (error) => {
             console.log(error);
@@ -205,6 +212,48 @@ export class AuctionplatformComponent implements OnInit, OnDestroy {
   onTransaction(){
     this.router.navigate(['transaction', this.fid]);
   }
+
+    // add auction amount to trip table
+    addAuctionAmount() {
+      this.sum += this.winAmount;
+      let headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Token ' + localStorage.getItem('token')
+       });
+       const data = {
+        auctionTotal: this.sum,
+      }
+      this.addAuctionAmountSubscriber = this.http.patch('http://localhost:8000/portal/trip_detail/' + this.tripID + '/', data, { headers: headers })
+        .subscribe(
+          (responseData) => {
+            console.log(responseData);
+            this.router.navigate(['winnerdetails', this.fid]);
+          },
+          (error) => {
+            console.log(error);
+          }
+        );
+      
+    }
+  
+    // fetch auction amount from trip table 
+    private  fetchAuctionAmount() {
+      this.fetchAuctionAmountSubscriber = this.http.get('http://localhost:8000/portal/trip_detail/' + this.tripID + '/')
+      .subscribe(
+        (responseData: any) => {
+          console.log(responseData);
+            // if auction already updated then sum initialized to that number
+          this.sum = responseData.auctionTotal;
+          if(this.sum==null){
+            // if auction was not updated then sum initialized to zero
+            this.sum = 0;
+          }
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+    }
 
   ngOnDestroy(): void{
     if(this.fishServiceSubscriber){
@@ -231,6 +280,11 @@ export class AuctionplatformComponent implements OnInit, OnDestroy {
     if(this.addQuoteDetailsSubscriber){
       this.addQuoteDetailsSubscriber.unsubscribe();
     }
-    
+    if(this.addAuctionAmountSubscriber){
+      this.addAuctionAmountSubscriber.unsubscribe();
+    }
+    if(this.fetchAuctionAmountSubscriber){
+      this.fetchAuctionAmountSubscriber.unsubscribe();
+    }
   }
 }

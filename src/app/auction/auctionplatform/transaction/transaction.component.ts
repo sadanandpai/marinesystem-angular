@@ -32,6 +32,9 @@ export class TransactionComponent implements OnInit {
   updateAuctionDetailsSubscriber: any;
   fishStatusSubscriber: any;
   tripID: string;
+  addAuctionAmountSubscriber: any;
+  sum: number;
+  fetchAuctionAmountSubscriber: any;
   
 
   constructor(private http: HttpClient,
@@ -39,9 +42,16 @@ export class TransactionComponent implements OnInit {
     private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    // fetch trip ID from localStorage
     this.tripID = localStorage.getItem('tripID');
+    // fetch auction total from trip table
+    this.fetchAuctionAmount();
+    
+    // JSON to display fishname
     this.fishname = json;
     this.fishname = this.fishname.default;
+
+    // get fish id from url
     this.initialSubscriber = this.route.params.subscribe(data=>{
       this.fid = Number(data.id);
     });
@@ -53,6 +63,7 @@ export class TransactionComponent implements OnInit {
       }
     );
     this.fetchQuote();
+
   }
 
   onClick(){
@@ -68,14 +79,13 @@ export class TransactionComponent implements OnInit {
      });
     // fetch selected Radio button's details
       let id = value.winner;
-      // debugger
       this.quoteSubscriber = this.http.get('http://localhost:8000/portal/quote_list/'+ id + '/')
         .subscribe((responseData: any) => {
           console.log(responseData);
-          // debugger
+          // new winner details
           this.quoteAmount = responseData.quoteAmount;
           this.quoteUser = responseData.quoteUser;
-          // Update auction table
+          // Update auction table with new winner
           const details = {
             trips: this.tripID,
             fishid: this.fid,
@@ -87,7 +97,8 @@ export class TransactionComponent implements OnInit {
               (responseData) => {
                 // debugger
                 console.log(responseData);
-                this.router.navigate(['winnerdetails', this.fid]);
+                this.addAuctionAmount();
+                // this.router.navigate(['winnerdetails', this.fid]);
               },
               (error) => {
                 console.log(error);
@@ -109,6 +120,48 @@ export class TransactionComponent implements OnInit {
           console.log(error);
         }
       ); 
+  }
+
+  // add auction amount to trip table
+  addAuctionAmount() {
+    this.sum += this.quoteAmount;
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Token ' + localStorage.getItem('token')
+     });
+     const data = {
+      auctionTotal: this.sum,
+    }
+    this.addAuctionAmountSubscriber = this.http.patch('http://localhost:8000/portal/trip_detail/' + this.tripID + '/', data, { headers: headers })
+      .subscribe(
+        (responseData) => {
+          console.log(responseData);
+          this.router.navigate(['winnerdetails', this.fid]);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+    
+  }
+
+  // fetch auction amount from trip table 
+  private  fetchAuctionAmount() {
+    this.fetchAuctionAmountSubscriber = this.http.get('http://localhost:8000/portal/trip_detail/' + this.tripID + '/')
+    .subscribe(
+      (responseData: any) => {
+        console.log(responseData);
+          // if auction already updated then sum initialized to that number
+        this.sum = responseData.auctionTotal;
+        if(this.sum==null){
+          // if auction was not updated then sum initialized to zero
+          this.sum = 0;
+        }
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 
   private fetchfish() {
@@ -173,6 +226,12 @@ export class TransactionComponent implements OnInit {
     }
     if(this.fishStatusSubscriber){
       this.fishStatusSubscriber.unsubscribe();
+    }
+    if(this.addAuctionAmountSubscriber){
+      this.addAuctionAmountSubscriber.unsubscribe();
+    }
+    if(this.fetchAuctionAmountSubscriber){
+      this.fetchAuctionAmountSubscriber.unsubscribe();
     }
   }
 }
