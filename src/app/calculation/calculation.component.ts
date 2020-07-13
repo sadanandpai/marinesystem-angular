@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-addexpenses',
-  templateUrl: './addexpenses.component.html',
-  styleUrls: ['./addexpenses.component.css']
+  selector: 'app-calculation',
+  templateUrl: './calculation.component.html',
+  styleUrls: ['./calculation.component.css']
 })
-export class AddexpensesComponent implements OnInit {
-  boatDriver: boolean = false;
-  boatOwner: boolean = false;
+export class CalculationComponent implements OnInit {
+
+  boatDriver: boolean;
+  boatOwner: boolean;
 
   constructor() {}
 

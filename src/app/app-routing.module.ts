@@ -19,6 +19,11 @@ import { AddboatComponent } from './addboat/addboat.component';
 import { AddmemberComponent } from './addmember/addmember.component';
 import { AddsalaryComponent } from './addsalary/addsalary.component';
 import { AttendenceComponent } from './attendence/attendence.component';
+import { CalculationComponent } from './calculation/calculation.component';
+import { CalculationDetailsComponent } from './calculation/calculation-details/calculation-details.component';
+import { TripwiseCalculationComponent } from './calculation/ownercalculation/tripwise-calculation/tripwise-calculation.component';
+import { MycrewDetailsComponent } from './calculation/calculation-details/boatdrivercalculation-details/mycrew-details/mycrew-details.component';
+
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -39,6 +44,10 @@ const routes: Routes = [
   { path: 'addmembers', component: AddmemberComponent },
   { path: 'addsalary', component: AddsalaryComponent },
   { path: 'attendence', component: AttendenceComponent },
+  { path: 'calculation', component: CalculationComponent },
+  { path: 'calculation/:id', component: CalculationDetailsComponent },
+  { path: 'trips/:id', component: TripwiseCalculationComponent },
+  { path: 'mycrew/:id', component: MycrewDetailsComponent },
   
 ];
 

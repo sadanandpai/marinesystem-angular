@@ -2,12 +2,25 @@
     <a (click)="onClick()" class="btn backbtn"><i class="arrow"></i><i class="line"></i></a>
     <h3 class="header">{{"My Boat" | translate}}</h3>
 
+    <form (ngSubmit)="onSelectTrip(f)" #f="ngForm">
+        <div class="form-group col-xs-12">   
+            <label for="boat" class="btn-trip">{{"Select Trip" | translate}}</label>
+            <select id="boat" class="form-control" name="tripid" ngModel required>
+                <option *ngFor="let trip of loadedTrips" value="{{trip.id}}">{{trip.driver}}</option>
+            </select>
+        </div>
+        <span class="help-block" *ngIf="msg==true">{{ "No Trip to Select" | translate }}</span>
+        <button type="submit" class="btn btn-sm btn-trip">
+            {{ "Select Trip" | translate }}
+        </button>
+    </form>
+
     <div class="group-btn">
         <button (click)="onMyBoat()" class="btn btn-lg">{{ "My Boats" | translate }}</button>
         <button (click)="onAddBoat()" class="btn btn-lg">{{ "Add Boat" | translate }}</button>
-        <button (click)="onAddExpense()" class="btn btn-lg">{{ "Add Expenses" | translate }}</button>
-        <button (click)="onAddSalary()" class="btn btn-lg">{{ "Add Salary" | translate }}</button>
-        <button (click)="onAuction()" class="btn btn-lg">{{ "Auction Platform" | translate }}</button>
+        <button (click)="onAddExpense()" class="btn btn-lg" [disabled]="disable==true">{{ "Add Expenses" | translate }}</button>
+        <button (click)="onAddSalary()" class="btn btn-lg" [disabled]="disable==true">{{ "Add Salary" | translate }}</button>
+        <button (click)="onAuction()" class="btn btn-lg" [disabled]="disable==true">{{ "Auction Platform" | translate }}</button>
         <!-- <a (click)="onMyBoat()" class="btn btn-lg">
             <img src="../../assets/Images/addfish_03.png"/>
         </a>

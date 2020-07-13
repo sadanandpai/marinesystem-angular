@@ -85,27 +85,13 @@ input{
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    margin: 0% 10%;
+    margin: 0% 5%;
     border-radius: 20px;
     padding: 2px 25px;
     font-weight: bold;
-    width: 80%;
+    width: 40%;
 }
 
-.extras-right {
-    box-shadow: 0px 0px 5px grey;
-    border: none;
-    margin-right: 10%;
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
-}
-.extras-left {
-    box-shadow: 0px 0px 5px grey;
-    border: none;
-    margin-left: 10%;
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
-}
 
 label{
     color: #140c68;
@@ -114,9 +100,9 @@ label{
     text-decoration: none;
     display: inline-block;
     font-size: 14px;
-    margin: 2% 10%;
+    margin: 2% 5%;
     font-weight: bold;
-    width: 80%;
+    width: 40%;
 }
 
 .extraCostBtn{
@@ -131,19 +117,17 @@ label{
     width: 30px;
 }
 .extrainput{
-    width: 50%;
     margin-right: 0%;
 }
 .extrainput.name{
     margin-top: 0%; 
-    width: 50%;
 }
 .extrainput .cost{
     margin-right: 10%;
     float: right;
     padding: 0%;
-    width: 100%;
 }
+
 
 
 form{

@@ -15,6 +15,7 @@ export class MyboatdriverComponent implements OnInit {
   msg: boolean;
   boatSubscriber: any;
   loadedBoats: any;
+  disable: boolean;
 
   constructor(private http: HttpClient,
     private router: Router,
@@ -33,6 +34,14 @@ export class MyboatdriverComponent implements OnInit {
         this.msg = true;
       }
     );
+    var id = localStorage.getItem('tripID');
+    console.log(id);
+    if(id==null){
+      this.disable = true;
+    }
+    else{
+      this.disable = false;
+    }
   }
 
   onClick(){
@@ -59,6 +68,7 @@ export class MyboatdriverComponent implements OnInit {
           console.log(responseData);
           localStorage.setItem('tripID', this.tripId);
           console.log(window.localStorage);
+          this.disable = false;
         },
         (error) => {
           console.log(error);
@@ -68,7 +78,7 @@ export class MyboatdriverComponent implements OnInit {
 
   }
   onMyBoat(){
-    this.router.navigate(['/myBoats']);
+    this.router.navigate(['/calculation']);
   }
 
   onAddCrew(){
@@ -90,6 +100,9 @@ export class MyboatdriverComponent implements OnInit {
   ngOnDestroy() {
     if(this.addTripSubscriber){
       this.addTripSubscriber.unsubscribe();
+    }
+    if(this.boatSubscriber){
+      this.boatSubscriber.unsubscribe();
     }
     
   }

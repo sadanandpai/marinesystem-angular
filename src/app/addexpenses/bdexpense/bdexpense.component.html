@@ -8,18 +8,27 @@
 
 <div class="form-group col-xs-12">
   <label for="water">{{ "Water" | translate }} (in Ltr)</label>
-  <div class="input-group mb-3">
+  <div>
+    <input 
+    type="number" 
+    class="form-control Qty" 
+    id="waterQty" 
+    placeholder="Qty" 
+    name="waterQty"
+    ngModel 
+    />
     <input 
     type="text" 
     class="form-control" 
     id="water" 
-    placeholder="Water Cost" 
+    placeholder="Cost" 
     pattern="^[0-9]*$" 
     name="water"
     ngModel 
     required 
     #water="ngModel"
     />
+
   </div>
   <span class="help-block errmsg" *ngIf="!water.valid && water.touched">{{
     "Please Enter a valid number!" | translate
@@ -28,16 +37,24 @@
 
 <div class="form-group col-xs-12">
   <label for="lpg">{{ "LPG" | translate }} (in Cylinder)</label>
-  <div class="input-group mb-3">
+  <div>
+    <input 
+    type="number" 
+    class="form-control Qty" 
+    id="lpgQty" 
+    placeholder="Qty" 
+    name="lpgQty"
+    ngModel 
+    />
     <input 
     type="text" 
     class="form-control" 
     id="lpg" 
-    placeholder="LPG Cost" 
+    placeholder="Cost" 
     pattern="^[0-9]*$" 
     name="lpg"
-    ngModel 
     required 
+    ngModel 
     #lpg="ngModel"
     />
   </div>
@@ -48,12 +65,20 @@
 
 <div class="form-group col-xs-12">
   <label for="ration">{{ "Ration" | translate }}(in Days)</label>
-  <div class="input-group mb-3">
+  <div>
+    <input 
+    type="number" 
+    class="form-control Qty" 
+    id="rationQty" 
+    placeholder="Qty" 
+    name="rationQty"
+    ngModel
+    />
     <input 
     type="text" 
     class="form-control" 
     id="ration" 
-    placeholder="Ration Cost" 
+    placeholder="Cost" 
     pattern="^[0-9]*$" 
     name="ration"
     ngModel
@@ -65,21 +90,25 @@
   }}</span>
 </div>
 
-<button type="button" class="btn btn-primary btn-sm extraCostBtn" (click)="addCost()">Add Cost</button>
+<button type="button" class="btn btn-primary btn-sm extraCostBtn add" (click)="addCost()">Add Cost</button>
      
 <section *ngFor="let cost of costs; let i = index;">
 <button type="button" class="btn btn-danger btn-sm extraCostBtn remove" (click)="removeCost(i)">X</button>
   <div class="row">
-      <div class="form-group extrainput name">
-          <label>Name</label>
-          <input type="text" class="form-control" name="name_{{cost.id}}" placeholder="Name" [(ngModel)]="cost.name"/>
+      <div class="form-group extrainput">
+        <label class="name">Name</label>
+        <input type="text" class="form-control  name" name="name_{{cost.id}}" placeholder="Name" [(ngModel)]="cost.name"/>
       </div>
-      <div class="form-group extrainput cost">
-          <label>Cost</label>
-          <input type="number" class="form-control" name="cost_{{cost.id}}" placeholder="Cost" [(ngModel)]="cost.cost" pattern="^[0-9]*$"/>
+      <div class="form-group extrainput">
+        <label class="quantity">Qty</label>
+        <input type="number" class="form-control  quantity" name="qty_{{cost.id}}" placeholder="Qty" [(ngModel)]="cost.qty"/>
       </div>
-  </div>
-
+      <div class="form-group extrainput">
+        <label class="quantity">Cost</label>
+        <input type="number" class="form-control  quantity" name="cost_{{cost.id}}" placeholder="Cost" [(ngModel)]="cost.qty"/>
+      </div>
+    </div>
+    <hr>
 </section>
 
 <button type="submit" class="btn btn-sm" [disabled]="!f.valid">

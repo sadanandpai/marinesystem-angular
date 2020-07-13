@@ -1,13 +1,16 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-addexpenses',
-  templateUrl: './addexpenses.component.html',
-  styleUrls: ['./addexpenses.component.css']
+  selector: 'app-calculation-details',
+  templateUrl: './calculation-details.component.html',
+  styleUrls: ['./calculation-details.component.css']
 })
-export class AddexpensesComponent implements OnInit {
-  boatDriver: boolean = false;
-  boatOwner: boolean = false;
+export class CalculationDetailsComponent implements OnInit {
+
+  boatDriver: boolean;
+  boatOwner: boolean;
 
   constructor() {}
 

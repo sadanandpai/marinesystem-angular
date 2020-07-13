@@ -1,0 +1,80 @@
+<div class="body">
+    <a (click)="onClick()" class="btn backbtn"><i class="arrow"></i><i class="line"></i></a>
+    <h3 class="header">{{"Calculation Details" | translate}}</h3>
+    <div class="row">
+        <div class="contents">
+            <div class="col-xs-12 col-md-12 col-lg-12 col-md-offset-3">
+                
+                <p class="left">{{ "Trip ID" | translate }} </p> <p>{{ trip }}</p>
+                <hr>
+                <p class="left">{{ "Boat Number" | translate }} </p> <p>{{ boat }}</p>
+                <hr>
+                <p class="left">{{ "Boat Driver" | translate }}</p> <p>{{ driver }}</p>
+                <hr>
+                <p class="left">{{ "No. of crew" | translate }}</p> <p>{{ crewCount }}</p>
+                <hr>
+                <p class="left">{{ "Water" | translate }} </p> <br>
+                <p class="left">{{ "Quantity" | translate }} </p> <p>{{ "Cost" | translate }} </p> <br>
+                <p class="left">{{ waterQty }}</p> <p>{{ water }}</p>
+                <hr>
+                <p class="left">{{ "LPG" | translate }} </p> <br>
+                <p class="left">{{ "Quantity" | translate }} </p> <p>{{ "Cost" | translate }} </p> <br>
+                <p class="left">{{ LPGQty }}</p> <p>{{ LPG }}</p>
+                <hr>
+                <p class="left">{{ "Ration" | translate }} </p> <br>
+                <p class="left">{{ "Quantity" | translate }} </p> <p>{{ "Cost" | translate }} </p> <br>
+                <p class="left">{{ rationQty }}</p> <p>{{ ration }}</p>
+                <hr>
+                <div *ngFor="let extra of loadedExtracostBD">
+                    <p class="left">{{ extra.name }} </p> <br>
+                    <p class="left">{{ "Quantity" | translate }} </p> <p>{{ "Cost" | translate }} </p> <br>
+                    <p class="left">{{ extra.qty }}</p> <p>{{ extra.cost }}</p>
+                    <hr>
+                </div>
+                <p class="left">{{ "Total" | translate }}</p> <p>{{ totalBd }}</p>
+                <hr>
+                <p class="left">{{ "Diesel" | translate }} </p> <br>
+                <p class="left">{{ "Quantity" | translate }} </p> <p>{{ "Cost" | translate }} </p> <br>
+                <p class="left">{{ dieselQty }}</p> <p>{{ diesel }}</p>
+                <hr>
+                <p class="left">{{ "Ice" | translate }} </p> <br>
+                <p class="left">{{ "Quantity" | translate }} </p> <p>{{ "Cost" | translate }} </p> <br>
+                <p class="left">{{ iceQty }}</p> <p>{{ ice }}</p>
+                <hr>
+                <div *ngIf="maintainance!=null">
+                    <p class="left">{{ "Maintainance" | translate }}</p> <p>{{ maintainance }}</p>
+                    <hr>
+                </div>
+                <div *ngFor="let extra of loadedExtracostOwner">
+                    <p class="left">{{ extra.name }} </p> <br>
+                    <p class="left">{{ "Quantity" | translate }} </p> <p>{{ "Cost" | translate }} </p> <br>
+                    <p class="left">{{ extra.qty }}</p> <p>{{ extra.cost }}</p>
+                    <hr>
+                </div>
+                <p class="left">{{ "Total" | translate }}</p> <p>{{ totalOwner }}</p>
+                <hr>
+                <p class="left">{{ "Auction Amount" | translate }}</p> <p>{{ auctionTotal }}</p>
+                <hr>
+                <p class="left">{{ "Boat Driver" | translate }} </p> <br>
+                <p class="left">{{ "in %" | translate }} </p> <p>{{ "Salary" | translate }} </p> <br>
+                <p class="left">{{ iceQty }}</p> <p>{{ ice }}</p>
+                <hr>
+                <p class="left">{{ "Writer" | translate }} </p> <br>
+                <p class="left">{{ "in %" | translate }} </p> <p>{{ "Salary" | translate }} </p> <br>
+                <p class="left">{{ iceQty }}</p> <p>{{ ice }}</p>
+                <hr>
+                <p class="left">{{ "Load/Unload Crew" | translate }} </p> <br>
+                <p class="left">{{ "in %" | translate }} </p> <p>{{ "Salary" | translate }} </p> <br>
+                <p class="left">{{ iceQty }}</p> <p>{{ ice }}</p>
+                <hr>
+                <p class="left">{{ "Total Salary" | translate }}</p> <p>{{ totalSalary }}</p>
+                <hr>
+                <p class="left">{{ "Profit" | translate }}</p> <p>{{ Profit }}</p>
+                <hr>
+            </div>
+        </div>
+    </div>
+    
+        
+    </div>
+    

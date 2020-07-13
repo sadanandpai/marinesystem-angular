@@ -9,7 +9,7 @@
 }
 
 .body{
-    background-image: url("../../../assets/Images/LoginBg-01.jpg");
+    background-image: url("../../../../assets/Images/LoginBg-01.jpg");
     background-size: 100%;
     background-repeat: repeat-y;
     min-height: 100vh;
@@ -22,7 +22,6 @@
 .backbtn{
     margin: 2%;
     margin-left: 10%;
-    vertical-align: middle;
 }
 .arrow {
   border: solid white;
@@ -54,36 +53,28 @@
     text-align: center;
 }
 
-select{
-    width: 40%;
-    margin: 0% 26%;
-}
-
-button {
-    background-color: #333399;
-    color: white;
+.contents{
+    height: auto;
+    background-color: white;
+    color: black;
     border: none;
-    border-radius: 20px;
-    text-align: center;
+    border-radius: 12px;
+    text-align: right;
     text-decoration: none;
     display: inline-block;
     font-size: 1em;
     font-weight: bold;
-    width: 40%;
+    width: 100%;
+    padding: 3% 5%;
+    margin: 0% 10%;
 }
 
-.btn-trip{
-    margin-left: 25%;
-    margin-right: 5%;
-    color: white;
+.left{
+    float: left;
 }
 
-.group-btn{
-    margin-top: 20px;
+p{
+    display: inline-block;
+    margin: 0%;
 }
-.btn-lg {
-    margin-left: 5%;
-    width: 40%;
-    margin-right: 5%;
-    margin-top: 5%;
-}
+

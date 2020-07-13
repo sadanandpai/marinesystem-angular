@@ -1,0 +1,45 @@
+<div class="body">
+    <a (click)="onClick()" class="btn backbtn"><i class="arrow"></i><i class="line"></i></a>
+    <h3 class="header">{{"Calculation Details" | translate}}</h3>
+    <div class="row">
+        <button (click)="onMyCrew()">My Crew</button>  
+    </div>
+    <div class="row">
+        <div class="contents">
+            <div class="col-xs-12 col-md-12 col-lg-12 col-md-offset-3">
+                
+                <p class="left">{{ "Trip ID" | translate }} </p> <p>{{ id }}</p>
+                <hr>
+                <p class="left">{{ "Boat Number" | translate }} </p> <p>{{ boat }}</p>
+                <hr>
+                <p class="left">{{ "Boat Driver" | translate }}</p> <p>{{ driver }}</p>
+                <hr>
+                <p class="left">{{ "No. of crew" | translate }}</p> <p>{{ crewCount }}</p>
+                <hr>
+                <p class="left">{{ "Water" | translate }} </p> <br>
+                <p class="left">{{ "Quantity" | translate }} </p> <p>{{ "Cost" | translate }} </p> <br>
+                <p class="left">{{ waterQty }}</p> <p>{{ water }}</p>
+                <hr>
+                <p class="left">{{ "LPG" | translate }} </p> <br>
+                <p class="left">{{ "Quantity" | translate }} </p> <p>{{ "Cost" | translate }} </p> <br>
+                <p class="left">{{ LPGQty }}</p> <p>{{ LPG }}</p>
+                <hr>
+                <p class="left">{{ "Ration" | translate }} </p> <br>
+                <p class="left">{{ "Quantity" | translate }} </p> <p>{{ "Cost" | translate }} </p> <br>
+                <p class="left">{{ rationQty }}</p> <p>{{ ration }}</p>
+                <hr>
+                <div *ngFor="let extra of loadedExtracostBD">
+                    <p class="left">{{ extra.name }} </p> <br>
+                    <p class="left">{{ "Quantity" | translate }} </p> <p>{{ "Cost" | translate }} </p> <br>
+                    <p class="left">{{ extra.qty }}</p> <p>{{ extra.cost }}</p>
+                    <hr>
+                </div>
+                <p class="left">{{ "Total" | translate }}</p> <p>{{ totalBd }}</p><br>
+    
+            </div>
+        </div>
+    </div>
+    
+        
+    </div>
+    

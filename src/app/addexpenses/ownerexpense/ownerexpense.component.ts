@@ -18,17 +18,19 @@ export class OwnerexpenseComponent implements OnInit {
     id: 1,
     name: '',
     cost: '',
+    qty: '',
     type: 'BoatOwner',
   }];
   sum: any;
   extraExpensesSubscriber: any;
-  tripId: any;
+  tripID: any;
 
   constructor(private http: HttpClient,
               private router: Router,
               private route: ActivatedRoute,) {}
 
   ngOnInit(): void {
+    this.tripID = localStorage.getItem('tripID');
   }
 
   addCost() {
@@ -36,6 +38,7 @@ export class OwnerexpenseComponent implements OnInit {
       id: this.costs.length + 1,
       name: '',
       cost: '',
+      qty: '',
       type: 'BoatOwner',
     });
   }
@@ -64,8 +67,10 @@ export class OwnerexpenseComponent implements OnInit {
     const data = {
       diesel: value.diesel,
       ice: value.ice,
+      dieselQty: value.dieselQty,
+      iceQty: value.iceQty,
       maintainance: value.maintainance,
-      grandTotal: value.grandTotal,
+      totalOwner: value.grandTotal,
     };
 
     console.log("Form value");
@@ -74,13 +79,13 @@ export class OwnerexpenseComponent implements OnInit {
       'Content-Type': 'application/json',
       'Authorization': 'Token ' + localStorage.getItem('token')
     });
-    // this.tripId = value.tripId
 
     this.expensesSubscriber = this.http
-      .patch('http://localhost:8000/portal/trip_detail/' + this.tripId + '/', data, { headers: headers })
+      .patch('http://localhost:8000/portal/tripOwner_details/' + this.tripID + '/', data, { headers: headers })
       .subscribe(
         (responseData: any) => {
           console.log(responseData);
+
         },
         (error) => {
           console.log(error);
@@ -90,8 +95,10 @@ export class OwnerexpenseComponent implements OnInit {
 
     for(let i=0; i<this.costs.length; i++){    
       const extraData = {
+        trip: this.tripID,
         name: this.costs[i].name,
         cost: this.costs[i].cost,
+        qty: this.costs[i].qty,
         type: 'BoatOwner',
       };
       this.extraExpensesSubscriber = this.http
@@ -99,6 +106,11 @@ export class OwnerexpenseComponent implements OnInit {
         .subscribe(
           (responseData: any) => {
             console.log(responseData);
+            if(i==this.costs.length-1){
+              // last loop
+              this.success=true;
+              form.reset();
+            }
           },
           (error) => {
             console.log(error);

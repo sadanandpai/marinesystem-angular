@@ -85,11 +85,15 @@ input{
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    margin: 0% 10%;
+    margin: 0% 5%;
     border-radius: 20px;
     padding: 2px 25px;
     font-weight: bold;
-    width: 80%;
+    width: 40%;
+}
+
+.Qty{
+    width: 30%;
 }
 
 .extras-right {
@@ -114,9 +118,9 @@ label{
     text-decoration: none;
     display: inline-block;
     font-size: 14px;
-    margin: 2% 10%;
+    margin: 2% 5%;
     font-weight: bold;
-    width: 80%;
+    width: 40%;
 }
 
 .extraCostBtn{
@@ -131,18 +135,15 @@ label{
     width: 30px;
 }
 .extrainput{
-    width: 50%;
     margin-right: 0%;
 }
 .extrainput.name{
     margin-top: 0%; 
-    width: 50%;
 }
 .extrainput .cost{
     margin-right: 10%;
     float: right;
     padding: 0%;
-    width: 100%;
 }
 
 

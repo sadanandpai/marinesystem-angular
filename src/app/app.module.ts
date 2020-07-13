@@ -32,8 +32,14 @@ import { MyboatownerComponent } from './myboats/myboatowner/myboatowner.componen
 import { MyboatdriverComponent } from './myboats/myboatdriver/myboatdriver.component';
 import { AttendenceComponent } from './attendence/attendence.component';
 import { AddsalaryComponent } from './addsalary/addsalary.component';
-
-
+import { CalculationComponent } from './calculation/calculation.component';
+import { DrivercalculationComponent } from './calculation/drivercalculation/drivercalculation.component';
+import { OwnercalculationComponent } from './calculation/ownercalculation/ownercalculation.component';
+import { CalculationDetailsComponent } from './calculation/calculation-details/calculation-details.component';
+import { OwnercalculationDetailsComponent } from './calculation/calculation-details/ownercalculation-details/ownercalculation-details.component';
+import { BoatdrivercalculationDetailsComponent } from './calculation/calculation-details/boatdrivercalculation-details/boatdrivercalculation-details.component';
+import { TripwiseCalculationComponent } from './calculation/ownercalculation/tripwise-calculation/tripwise-calculation.component';
+import { MycrewDetailsComponent } from './calculation/calculation-details/boatdrivercalculation-details/mycrew-details/mycrew-details.component';
 
 
 // AoT requires an exported function for factories
@@ -67,6 +73,14 @@ export function HttpLoaderFactory(http: HttpClient) {
     MyboatdriverComponent,
     AttendenceComponent,
     AddsalaryComponent,
+    CalculationComponent,
+    DrivercalculationComponent,
+    OwnercalculationComponent,
+    CalculationDetailsComponent,
+    OwnercalculationDetailsComponent,
+    BoatdrivercalculationDetailsComponent,
+    TripwiseCalculationComponent,
+    MycrewDetailsComponent,
   ],
   imports: [
     BrowserModule,

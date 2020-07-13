@@ -14,7 +14,7 @@ export class AddsalaryComponent implements OnInit {
   success : any;
   addSalarySubscriber: any;
   boatOwner: boolean;
-  tripId: string;
+  tripID: any;
 
   constructor(private http: HttpClient,
               private router: Router,
@@ -27,6 +27,7 @@ export class AddsalaryComponent implements OnInit {
     } else {
       this.boatOwner = false;
     }
+    this.tripID = localStorage.getItem('tripID');
   }
 
   onClick(){
@@ -36,9 +37,9 @@ export class AddsalaryComponent implements OnInit {
   addSalary(form: NgForm) {
     const value = form.value;
     const data = {
-      driver: value.driver,
-      writer: value.writer,  
-      loadUnload: value.loadUnload,  
+      driverSalary: value.driver,
+      writerSalary: value.writer,  
+      loadUnloadSalary: value.loadUnload,  
     };
 
     let headers = new HttpHeaders({
@@ -47,7 +48,7 @@ export class AddsalaryComponent implements OnInit {
     });
     
     this.addSalarySubscriber = this.http
-      .patch('http://localhost:8000/portal/trip_detail/' + this.tripId + '/', data, { headers: headers })
+      .patch('http://localhost:8000/portal/tripOwner_details/' + this.tripID + '/', data, { headers: headers })
       .subscribe(
         (responseData: any) => {
           this.success= true;

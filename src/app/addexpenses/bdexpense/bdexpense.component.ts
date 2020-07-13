@@ -18,6 +18,7 @@ export class BdexpenseComponent implements OnInit {
     id: 1,
     name: '',
     cost: '',
+    qty: '',
     types: 'BoatDriver',
   }];
 
@@ -38,6 +39,7 @@ export class BdexpenseComponent implements OnInit {
       id: this.costs.length + 1,
       name: '',
       cost: '',
+      qty: '',
       types: 'BoatDriver',
     });
   }
@@ -68,6 +70,9 @@ export class BdexpenseComponent implements OnInit {
       water: value.water,
       LPG: value.lpg,
       ration: value.ration,
+      waterQty: value.waterQty,
+      LPGQty: value.lpgQty,
+      rationQty: value.rationQty,
       totalBd: value.grandTotal,
     };
 
@@ -95,6 +100,7 @@ export class BdexpenseComponent implements OnInit {
         trip: this.tripID,
         name: this.costs[i].name,
         cost: this.costs[i].cost,
+        qty: this.costs[i].qty,
         types: 'BoatDriver',
       };
       this.extraExpensesSubscriber = this.http

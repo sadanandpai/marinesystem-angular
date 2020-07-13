@@ -4,39 +4,31 @@
   
   <form (ngSubmit)="expenses(f)" #f="ngForm">
     <span class="help-block msg" *ngIf="success == true">{{ "Added Successfully!!" | translate }}</span>
+    <span class="help-block errmsg" *ngIf="msg == true">{{ "Failed to add Try again!" | translate }}</span>
 
-  <div class="form-group col-xs-12">
-    <label for="trip">{{ "Select Trip" | translate }}</label>
-    <div class="input-group mb-3">
-      <input 
-      type="text" 
-      class="form-control" 
-      id="trip"
-      placeholder="Select Trip" 
-      name="trip"
-      ngModel 
-      required 
-      #diesel="ngModel"
-      />
-    </div>
-    <span class="help-block errmsg" *ngIf="!diesel.valid && diesel.touched">{{
-      "Please Enter a valid number!" | translate
-    }}</span>
-  </div>
 
   <div class="form-group col-xs-12">
     <label for="diesel">{{ "Diesel" | translate }}</label>
-    <div class="input-group mb-3">
+    <div>
       <input 
-      type="text" 
-      class="form-control" 
+      type="number" 
+      class="form-control Qty" 
       id="diesel" 
-      placeholder="Diesel Cost" 
+      placeholder="Qty" 
       pattern="^[0-9]*$" 
       name="diesel"
       ngModel 
-      required 
       #diesel="ngModel"
+      />
+      <input 
+      type="number" 
+      class="form-control" 
+      id="dieselQty" 
+      placeholder="Cost" 
+      pattern="^[0-9]*$" 
+      name="dieselQty"
+      ngModel 
+      required 
       />
     </div>
     <span class="help-block errmsg" *ngIf="!diesel.valid && diesel.touched">{{
@@ -46,12 +38,21 @@
 
   <div class="form-group col-xs-12">
     <label for="ice">{{ "Ice" | translate }} (in Blocks)</label>
-    <div class="input-group mb-3">
+    <div>
+      <input 
+      type="text" 
+      class="form-control Qty" 
+      id="iceQty" 
+      placeholder="Qty" 
+      pattern="^[0-9]*$" 
+      name="iceQty"
+      ngModel
+      />
       <input 
       type="text" 
       class="form-control" 
       id="ice" 
-      placeholder="Ice Cost" 
+      placeholder="Cost" 
       pattern="^[0-9]*$" 
       name="ice"
       ngModel 
@@ -68,10 +69,10 @@
     <label for="maintainance">{{ "Maintainance" | translate }}</label>
     <div class="input-group mb-3">
       <input 
-      type="text" 
+      type="number" 
       class="form-control" 
       id="maintainance" 
-      placeholder="Maintainance Cost" 
+      placeholder="Cost" 
       pattern="^[0-9]*$" 
       name="maintainance"
       ngModel
@@ -92,10 +93,14 @@
             <label>Name</label>
             <input type="text" class="form-control" name="name_{{cost.id}}" placeholder="Name" [(ngModel)]="cost.name"/>
         </div>
-        <div class="form-group extrainput cost">
-            <label>Cost</label>
-            <input type="number" class="form-control" name="cost_{{cost.id}}" placeholder="Cost" [(ngModel)]="cost.cost" pattern="^[0-9]*$"/>
+        <div class="form-group extrainput quantity">
+            <label>Quantity</label>
+            <input type="number" class="form-control" name="qty_{{cost.id}}" placeholder="Qty" [(ngModel)]="cost.qty" pattern="^[0-9]*$"/>
         </div>
+        <div class="form-group extrainput cost">
+          <label>Cost</label>
+          <input type="number" class="form-control" name="cost_{{cost.id}}" placeholder="Cost" [(ngModel)]="cost.cost" pattern="^[0-9]*$"/>
+      </div>
     </div>
 
   </section>
@@ -103,7 +108,6 @@
   <button type="submit" class="btn btn-sm" [disabled]="!f.valid">
     {{ "Submit" | translate }}
   </button>
-  <span class="help-block errmsg" *ngIf="msg == true">{{ "Failed to add Try again!" | translate }}</span>
   
 </form>
 

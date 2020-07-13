@@ -9,7 +9,7 @@
 }
 
 .body{
-    background-image: url("../../../assets/Images/LoginBg-01.jpg");
+    background-image: url("../../../../assets/Images/LoginBg-01.jpg");
     background-size: 100%;
     background-repeat: repeat-y;
     min-height: 100vh;
@@ -22,7 +22,6 @@
 .backbtn{
     margin: 2%;
     margin-left: 10%;
-    vertical-align: middle;
 }
 .arrow {
   border: solid white;
@@ -44,7 +43,7 @@
 
 .header{
     font-family: 'century Gothic';
-    font-weight: 600;
+    font-weight: 700;
     font-size: 1.5em;
     color: white;
     display: inline-block;
@@ -54,11 +53,6 @@
     text-align: center;
 }
 
-select{
-    width: 40%;
-    margin: 0% 26%;
-}
-
 button {
     background-color: #333399;
     color: white;
@@ -66,24 +60,44 @@ button {
     border-radius: 20px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
+    display: block;
     font-size: 1em;
     font-weight: bold;
-    width: 40%;
+    width: 50%;
+    padding: 2% 1%;
+    float: right;
+  }
+
+
+.list-group-item{
+    padding: 2%;
+    margin: 2px;
+    border-radius: 12px;
 }
 
-.btn-trip{
-    margin-left: 25%;
-    margin-right: 5%;
-    color: white;
+.left{
+    float: left;
 }
 
-.group-btn{
-    margin-top: 20px;
+.right{
+    float: right;
 }
-.btn-lg {
-    margin-left: 5%;
-    width: 40%;
-    margin-right: 5%;
-    margin-top: 5%;
+
+.inline-para p{
+    display: inline-block;
+    margin: 0%;
 }
+
+.row{
+    padding: 3%;
+}
+
+.scroll{
+    width: 100%; 
+    max-height: 500px; 
+    overflow: scroll;
+    overflow-x: hidden; 
+}
+
+
+

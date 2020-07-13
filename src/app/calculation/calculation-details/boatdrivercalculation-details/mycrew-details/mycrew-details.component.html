@@ -1,0 +1,29 @@
+<div class="body">
+    <a (click)="onClick()" class="btn backbtn"><i class="arrow"></i><i class="line"></i></a>
+    <h3 class="header">{{"My Crew" | translate}}</h3>
+
+ <div class="scroll">
+    <div class="row">
+        <div class="col-xs-12 col-md-12 col-lg-12 col-md-offset-3 contents">
+            <p class="errmsg" *ngIf="loadedcrews == null">{{ "No Boat Crews Available" | translate }}</p>
+                <div class="row" *ngFor="let crew of loadedcrews">
+                    <div class="col-xs-12 col-md-12 col-lg-12 col-md-offset-3 inline-para">
+                        <!-- <p class="left">{{ "Boat Driver" | translate }}</p> <p class="right">{{ crew.driver }}</p>
+                        <br> -->
+                        <p class="left">{{ crew.name }} ({{ crew.age }})</p> 
+                        <p class="right">{{ crew.salary }}</p>
+                        <br>
+                        <hr>
+                    </div>
+                    
+                </div>
+                
+    <p class="left">{{ "Total Salary" | translate }}</p> <p class="right">{{ Salary }}</p>
+        </div>
+    </div>
+ </div>
+ 
+
+
+
+</div>

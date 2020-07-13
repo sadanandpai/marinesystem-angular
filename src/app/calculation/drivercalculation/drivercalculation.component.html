@@ -1,0 +1,30 @@
+<div class="body">
+    <a (click)="onClick()" class="btn backbtn"><i class="arrow"></i><i class="line"></i></a>
+    <h3 class="header">{{"Calculation" | translate}}</h3>
+
+ <div class="scroll">
+    <div class="row">
+        <div class="col-xs-12 col-md-12 col-lg-12 col-md-offset-3">
+            <p class="errmsg" *ngIf="loadedtrips == null">{{ "No Trip History Available" | translate }}</p>
+            <ul class="list-group" *ngFor="let trip of loadedtrips">
+                <li class="list-group-item">
+                    <div class="row">
+                        <div class="col-xs-12 col-md-12 col-lg-12 col-md-offset-3 inline-para">
+                            <!-- <span style="float: right;">{{ trip.createdDate }}</span> -->
+                            <p class="left">{{ "Trip ID" | translate }}</p> <p class="right">{{ trip.id }}</p>
+                            <br>
+                            <p class="left">{{ "Boat Driver" | translate }}</p> <p class="right">{{ trip.driver }}</p>
+                            <br>
+                            <p class="left">{{ "Total Expense" | translate }}</p> <p class="right">{{ trip.totalBd }}</p>
+                            <br>
+                            <button (click)="onViewCalculation(trip.id)" class="btn btn-sm">{{ "View Calculation" | translate }}</button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+ </div>
+
+
+</div>
