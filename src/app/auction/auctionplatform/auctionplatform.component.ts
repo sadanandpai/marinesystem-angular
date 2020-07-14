@@ -52,21 +52,30 @@ export class AuctionplatformComponent implements OnInit, OnDestroy {
   sum: number;
   addAuctionAmountSubscriber: any;
   fetchAuctionAmountSubscriber: any;
+  getTripIdFromAuctionSubscriber: any;
+  trip_id: number;
+  driverSalaryPercentage: number;
+  writerSalaryPercentage: number;
+  crewSalaryPercentage: number;
+  totalSalary: number;
 
   constructor(private http: HttpClient,
               private router: Router,
               private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.tripID = localStorage.getItem('tripID');
-    this.fetchAuctionAmount();
+    
+
     this.fishname = json;
     this.fishname = this.fishname.default;
     this.initialSubscriber = this.route.params.subscribe(data=>{
       this.fid = Number(data.id);
     });
-
     this.fetchfish();
+
+    // remember to get tripID, to fetch and update auction total amount, from getHighestBid method
+    this.fetchTripIdFromAuction();
+
     var data = localStorage.getItem('group');
     if(data == 'BoatDriver'){
       this.boatdriver = true;
@@ -78,6 +87,21 @@ export class AuctionplatformComponent implements OnInit, OnDestroy {
         this.getHighestBid();
       }
     );
+
+  }
+  
+  private fetchTripIdFromAuction() {
+    let id = this.fid;
+    this.getTripIdFromAuctionSubscriber = this.http.get('http://localhost:8000/portal/auction_list/' + id + '/')
+        .subscribe(
+          (responseData: any) => {
+            console.log(responseData);
+            this.trip_id = Number(responseData.trips);
+            this.fetchAuctionAmount();
+          },
+          (error) => {
+            console.log(error);
+          });
   }
 
   onClick(){
@@ -106,7 +130,6 @@ export class AuctionplatformComponent implements OnInit, OnDestroy {
           console.log(error);
         }
       );
-      this.addAuctionAmount();
     
   }
 
@@ -201,44 +224,59 @@ export class AuctionplatformComponent implements OnInit, OnDestroy {
             this.winAmount = responseData.highestBid;
             this.winnerName = responseData.users;
             console.log(responseData);
-
+            this.addAuctionAmount();
           },
           (error) => {
             console.log(error);
           });
-    this.router.navigate(['winnerdetails', this.fid]);
+    // this.router.navigate(['winnerdetails', this.fid]);
   }
 
   onTransaction(){
     this.router.navigate(['transaction', this.fid]);
   }
 
-    // add auction amount to trip table
-    addAuctionAmount() {
-      this.sum += this.winAmount;
-      let headers = new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Authorization': 'Token ' + localStorage.getItem('token')
-       });
-       const data = {
-        auctionTotal: this.sum,
-      }
-      this.addAuctionAmountSubscriber = this.http.patch('http://localhost:8000/portal/trip_detail/' + this.tripID + '/', data, { headers: headers })
-        .subscribe(
-          (responseData) => {
-            console.log(responseData);
-            this.router.navigate(['winnerdetails', this.fid]);
-          },
-          (error) => {
-            console.log(error);
-          }
-        );
-      
+  // add auction amount to trip table
+  addAuctionAmount() {
+    this.sum += this.winAmount;
+    this.driverSalaryPercentage = Number((40*this.sum)/100);
+    this.writerSalaryPercentage = Number((5*this.sum)/100);
+    this.crewSalaryPercentage = Number((20*this.sum)/100);
+    this.totalSalary = Number(this.driverSalaryPercentage) + Number(this.writerSalaryPercentage) + Number(this.crewSalaryPercentage);
+    
+    console.log("driver SalaryPercentage " + this.driverSalaryPercentage);
+    console.log("writer SalaryPercentage " + this.writerSalaryPercentage);
+    console.log("crew SalaryPercentage " + this.crewSalaryPercentage);
+    console.log("crew Total Salary " + this.totalSalary);
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Token ' + localStorage.getItem('token')
+      });
+      const data = {
+      auctionTotal: this.sum,
+      driverSalary: Math.round(this.driverSalaryPercentage),
+      writerSalary: Math.round(this.writerSalaryPercentage),
+      loadUnloadSalary: Math.round(this.crewSalaryPercentage),
+      totalSalary: Math.round(this.totalSalary)
     }
+    this.addAuctionAmountSubscriber = this.http.patch('http://localhost:8000/portal/trip_detail/' + this.trip_id + '/', data, { headers: headers })
+      .subscribe(
+        (responseData) => {
+          console.log(responseData);
+          this.router.navigate(['winnerdetails', this.fid]);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+    
+  }
   
     // fetch auction amount from trip table 
     private  fetchAuctionAmount() {
-      this.fetchAuctionAmountSubscriber = this.http.get('http://localhost:8000/portal/trip_detail/' + this.tripID + '/')
+      // to get trip id from auction table
+      // debugger
+      this.fetchAuctionAmountSubscriber = this.http.get('http://localhost:8000/portal/trip_detail/' + this.trip_id + '/')
       .subscribe(
         (responseData: any) => {
           console.log(responseData);
@@ -285,6 +323,9 @@ export class AuctionplatformComponent implements OnInit, OnDestroy {
     }
     if(this.fetchAuctionAmountSubscriber){
       this.fetchAuctionAmountSubscriber.unsubscribe();
+    }
+    if(this.getTripIdFromAuctionSubscriber){
+      this.getTripIdFromAuctionSubscriber.unsubscribe();
     }
   }
 }

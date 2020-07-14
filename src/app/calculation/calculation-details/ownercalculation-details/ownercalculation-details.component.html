@@ -7,7 +7,7 @@
                 
                 <p class="left">{{ "Trip ID" | translate }} </p> <p>{{ trip }}</p>
                 <hr>
-                <p class="left">{{ "Boat Number" | translate }} </p> <p>{{ boat }}</p>
+                <p class="left">{{ "Boat ID" | translate }} </p> <p>{{ boat }}</p>
                 <hr>
                 <p class="left">{{ "Boat Driver" | translate }}</p> <p>{{ driver }}</p>
                 <hr>
@@ -31,8 +31,10 @@
                     <p class="left">{{ extra.qty }}</p> <p>{{ extra.cost }}</p>
                     <hr>
                 </div>
-                <p class="left">{{ "Total" | translate }}</p> <p>{{ totalBd }}</p>
                 <hr>
+                <p class="left">{{ "Total (Boat Driver)" | translate }}</p> <p>{{ totalBd }}</p>
+                <hr>
+                
                 <p class="left">{{ "Diesel" | translate }} </p> <br>
                 <p class="left">{{ "Quantity" | translate }} </p> <p>{{ "Cost" | translate }} </p> <br>
                 <p class="left">{{ dieselQty }}</p> <p>{{ diesel }}</p>
@@ -45,31 +47,38 @@
                     <p class="left">{{ "Maintainance" | translate }}</p> <p>{{ maintainance }}</p>
                     <hr>
                 </div>
-                <div *ngFor="let extra of loadedExtracostOwner">
-                    <p class="left">{{ extra.name }} </p> <br>
+                <div *ngFor="let extras of loadedExtracostOwner">
+                    <p class="left">{{ extras.name }} </p> <br>
                     <p class="left">{{ "Quantity" | translate }} </p> <p>{{ "Cost" | translate }} </p> <br>
-                    <p class="left">{{ extra.qty }}</p> <p>{{ extra.cost }}</p>
+                    <p class="left">{{ extras.qty }}</p> <p>{{ extras.cost }}</p>
                     <hr>
                 </div>
+                <hr>
                 <p class="left">{{ "Total" | translate }}</p> <p>{{ totalOwner }}</p>
                 <hr>
                 <p class="left">{{ "Auction Amount" | translate }}</p> <p>{{ auctionTotal }}</p>
                 <hr>
                 <p class="left">{{ "Boat Driver" | translate }} </p> <br>
-                <p class="left">{{ "in %" | translate }} </p> <p>{{ "Salary" | translate }} </p> <br>
-                <p class="left">{{ iceQty }}</p> <p>{{ ice }}</p>
+                <p class="left">{{ "in %" | translate }} </p> 
+                <!-- <p>{{ "Salary" | translate }} </p> -->
+                 <br>
+                <p class="left"></p> <p>{{ driverSalary }}</p>
                 <hr>
                 <p class="left">{{ "Writer" | translate }} </p> <br>
-                <p class="left">{{ "in %" | translate }} </p> <p>{{ "Salary" | translate }} </p> <br>
-                <p class="left">{{ iceQty }}</p> <p>{{ ice }}</p>
+                <p class="left">{{ "in %" | translate }} </p> 
+                <!-- <p>{{ "Salary" | translate }} </p> -->
+                 <br>
+                <p class="left"></p> <p>{{ writerSalary }}</p>
                 <hr>
                 <p class="left">{{ "Load/Unload Crew" | translate }} </p> <br>
-                <p class="left">{{ "in %" | translate }} </p> <p>{{ "Salary" | translate }} </p> <br>
-                <p class="left">{{ iceQty }}</p> <p>{{ ice }}</p>
+                <p class="left">{{ "in %" | translate }} </p> 
+                <!-- <p>{{ "Salary" | translate }} </p> -->
+                 <br>
+                <p class="left"></p> <p>{{ loadUnloadSalary }}</p>
                 <hr>
                 <p class="left">{{ "Total Salary" | translate }}</p> <p>{{ totalSalary }}</p>
                 <hr>
-                <p class="left">{{ "Profit" | translate }}</p> <p>{{ Profit }}</p>
+                <button (click)="calculateProfit()" class="left">{{ "Profit" | translate }}</button> <p>{{ profit }}</p>
                 <hr>
             </div>
         </div>

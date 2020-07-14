@@ -35,6 +35,12 @@ export class TransactionComponent implements OnInit {
   addAuctionAmountSubscriber: any;
   sum: number;
   fetchAuctionAmountSubscriber: any;
+  trip_id: number;
+  getTripIdFromAuctionSubscriber: any;
+  driverSalaryPercentage: number;
+  writerSalaryPercentage: number;
+  crewSalaryPercentage: number;
+  totalSalary: number;
   
 
   constructor(private http: HttpClient,
@@ -42,11 +48,11 @@ export class TransactionComponent implements OnInit {
     private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    // fetch trip ID from localStorage
+ 
+
+    // fetch trip ID from auctiontable(fetchWinner method) not from localStorage for auction total calculation
     this.tripID = localStorage.getItem('tripID');
-    // fetch auction total from trip table
-    this.fetchAuctionAmount();
-    
+
     // JSON to display fishname
     this.fishname = json;
     this.fishname = this.fishname.default;
@@ -56,6 +62,9 @@ export class TransactionComponent implements OnInit {
       this.fid = Number(data.id);
     });
 
+    // fetch auction total from trip table and initialize
+    this.fetchTripIdFromAuction();
+
     this.fetchfish();
     this.fishServiceSubscriber = interval(1000).subscribe(
       (val) => { 
@@ -64,6 +73,21 @@ export class TransactionComponent implements OnInit {
     );
     this.fetchQuote();
 
+    
+  }
+
+  private fetchTripIdFromAuction() {
+    let id = this.fid;
+    this.getTripIdFromAuctionSubscriber = this.http.get('http://localhost:8000/portal/auction_list/' + id + '/')
+        .subscribe(
+          (responseData: any) => {
+            console.log(responseData);
+            this.trip_id = Number(responseData.trips);
+            this.fetchAuctionAmount();
+          },
+          (error) => {
+            console.log(error);
+          });
   }
 
   onClick(){
@@ -123,16 +147,30 @@ export class TransactionComponent implements OnInit {
   }
 
   // add auction amount to trip table
+  // and also add salary of driver, writer and load/unload crew
   addAuctionAmount() {
-    this.sum += this.quoteAmount;
+    this.sum += this.winAmount;
+    this.driverSalaryPercentage = Number((40*this.sum)/100);
+    this.writerSalaryPercentage = Number((5*this.sum)/100);
+    this.crewSalaryPercentage = Number((20*this.sum)/100);
+    this.totalSalary = Number(this.driverSalaryPercentage) + Number(this.writerSalaryPercentage) + Number(this.crewSalaryPercentage);
+    
+    console.log("driver SalaryPercentage " + this.driverSalaryPercentage);
+    console.log("writer SalaryPercentage " + this.writerSalaryPercentage);
+    console.log("crew SalaryPercentage " + this.crewSalaryPercentage);
+    console.log("crew Total Salary " + this.totalSalary);
     let headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': 'Token ' + localStorage.getItem('token')
-     });
-     const data = {
+      });
+      const data = {
       auctionTotal: this.sum,
+      driverSalary: this.driverSalaryPercentage,
+      writerSalary: this.writerSalaryPercentage,
+      loadUnloadSalary: this.crewSalaryPercentage,
+      totalSalary: this.totalSalary
     }
-    this.addAuctionAmountSubscriber = this.http.patch('http://localhost:8000/portal/trip_detail/' + this.tripID + '/', data, { headers: headers })
+    this.addAuctionAmountSubscriber = this.http.patch('http://localhost:8000/portal/trip_detail/' + this.trip_id + '/', data, { headers: headers })
       .subscribe(
         (responseData) => {
           console.log(responseData);
@@ -147,7 +185,7 @@ export class TransactionComponent implements OnInit {
 
   // fetch auction amount from trip table 
   private  fetchAuctionAmount() {
-    this.fetchAuctionAmountSubscriber = this.http.get('http://localhost:8000/portal/trip_detail/' + this.tripID + '/')
+    this.fetchAuctionAmountSubscriber = this.http.get('http://localhost:8000/portal/trip_detail/' + this.trip_id + '/')
     .subscribe(
       (responseData: any) => {
         console.log(responseData);
@@ -156,7 +194,9 @@ export class TransactionComponent implements OnInit {
         if(this.sum==null){
           // if auction was not updated then sum initialized to zero
           this.sum = 0;
+          console.log(this.sum);
         }
+        console.log(this.sum);
       },
       (error) => {
         console.log(error);
@@ -192,7 +232,7 @@ export class TransactionComponent implements OnInit {
     let id = this.fid;
       this.fetchWinnerSubscriber = this.http.get('http://localhost:8000/portal/auction_list/' + id + '/')
         .subscribe(
-          (responseData: any) => {
+          (responseData: any) => { 
             this.winAmount = responseData.highestBid;
             this.winnerName = responseData.users;
             console.log(responseData);
@@ -232,6 +272,9 @@ export class TransactionComponent implements OnInit {
     }
     if(this.fetchAuctionAmountSubscriber){
       this.fetchAuctionAmountSubscriber.unsubscribe();
+    }
+    if(this.getTripIdFromAuctionSubscriber){
+      this.getTripIdFromAuctionSubscriber.unsubscribe();
     }
   }
 }

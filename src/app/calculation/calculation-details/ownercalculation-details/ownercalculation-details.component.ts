@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -35,11 +35,13 @@ driverSalary: any
 loadUnloadSalary: any
 writerSalary: any
 totalSalary: any
-Profit: any
   loadedExtracostOwner: any;
   fetchExtraCostBDSubscriber: any;
   fetchExtraCostOwnerSubscriber: any;
   loadedExtracostBD: any;
+  sumOfExpenditure: number;
+  profit: any;
+  addProfitSubscriber: any;
 
 
   constructor(private http: HttpClient,
@@ -59,9 +61,26 @@ Profit: any
         this.router.navigate(['/trips', this.boat]);
     }
 
+    calculateProfit(){
+      this.sumOfExpenditure = Number(this.totalSalary) + Number(this.totalOwner);
+      this.profit = Number(this.auctionTotal) - Number(this.sumOfExpenditure);
+
+      let headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Token ' + localStorage.getItem('token')
+      });
+      const data = {
+        Profit: this.profit, 
+      };
+      this.addProfitSubscriber = this.http.patch('http://localhost:8000/portal/trip_detail/' + this.tripID + '/', data, { headers : headers })
+      .subscribe((responseData: any) => {
+          console.log(responseData);
+          this.profit = responseData.Profit;
+      });
+    }
+
     private fetchTrip() {
-      let id = this.tripID
-      this.fetchTripSubscriber = this.http.get('http://localhost:8000/portal/trip_detail/' + id + '/')
+      this.fetchTripSubscriber = this.http.get('http://localhost:8000/portal/trip_detail/' + this.tripID + '/')
       .subscribe((responseData: any) => {
           console.log(responseData);
           this.trip = responseData.id;
@@ -86,8 +105,7 @@ Profit: any
           this.loadUnloadSalary = responseData.loadUnloadSalary;
           this.writerSalary = responseData.writerSalary;
           this.totalSalary = responseData.totalSalary;
-          this.Profit = responseData.Profit;
-          
+          this.profit = responseData.Profit;
       });
     }
 
@@ -120,6 +138,9 @@ Profit: any
       }
       if(this.fetchExtraCostBDSubscriber){
         this.fetchExtraCostBDSubscriber.unsubscribe();
+      }
+      if(this.addProfitSubscriber){
+        this.addProfitSubscriber.unsubscribe();
       }
     }
 
