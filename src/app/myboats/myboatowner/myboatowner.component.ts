@@ -67,9 +67,9 @@ export class MyboatownerComponent implements OnInit {
     this.router.navigate(['/expenses'])
   }
   
-  onAddSalary(){
-    this.router.navigate(['/addsalary'])
-  }
+  // onAddSalary(){
+  //   this.router.navigate(['/addsalary'])
+  // }
 
   onAuction(){
     this.router.navigate(['/auction'])

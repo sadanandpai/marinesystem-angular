@@ -8,7 +8,7 @@ import { Router, ActivatedRoute } from '@angular/router';
   templateUrl: './ownerexpense.component.html',
   styleUrls: ['./ownerexpense.component.css']
 })
-export class OwnerexpenseComponent implements OnInit {
+export class OwnerexpenseComponent implements OnInit{
   @ViewChild('f') expenseForm: NgForm;
   msg: boolean;
   expensesSubscriber: any;
@@ -19,7 +19,7 @@ export class OwnerexpenseComponent implements OnInit {
     name: '',
     cost: '',
     qty: '',
-    type: 'BoatOwner',
+    types: 'BoatOwner',
   }];
   sum: any;
   extraExpensesSubscriber: any;
@@ -39,7 +39,7 @@ export class OwnerexpenseComponent implements OnInit {
       name: '',
       cost: '',
       qty: '',
-      type: 'BoatOwner',
+      types: 'BoatOwner',
     });
   }
 
@@ -92,35 +92,37 @@ export class OwnerexpenseComponent implements OnInit {
           this.msg = true;
         }
       );
-
-    for(let i=0; i<this.costs.length; i++){    
-      const extraData = {
-        trip: this.tripID,
-        name: this.costs[i].name,
-        cost: this.costs[i].cost,
-        qty: this.costs[i].qty,
-        type: 'BoatOwner',
-      };
-      this.extraExpensesSubscriber = this.http
-        .post('http://localhost:8000/portal/extraCost_list/', extraData, { headers: headers })
-        .subscribe(
-          (responseData: any) => {
-            console.log(responseData);
-            if(i==this.costs.length-1){
-              // last loop
-              this.success=true;
-              form.reset();
+    // debugger
+    // var length = Number(this.costs.length);
+    // if(length > 1){
+    //   debugger
+      for(let i=0; i<this.costs.length; i++){    
+        const extraData = {
+          trip: this.tripID,
+          name: this.costs[i].name,
+          cost: this.costs[i].cost,
+          qty: this.costs[i].qty,
+          types: 'BoatOwner',
+        };
+        this.extraExpensesSubscriber = this.http
+          .post('http://localhost:8000/portal/extraCost_list/', extraData, { headers: headers })
+          .subscribe(
+            (responseData: any) => {
+              console.log(responseData);
+              if(i==this.costs.length-1){
+                // last loop
+                this.success=true;
+                form.reset();
+              }
+            },
+            (error) => {
+              console.log(error);
+              this.msg = true;
             }
-          },
-          (error) => {
-            console.log(error);
-            this.msg = true;
-          }
-      );
+        );
+      }
     }
-  }
-
-
+  
   ngOnDestroy() {
     if(this.expensesSubscriber){
       this.expensesSubscriber.unsubscribe();

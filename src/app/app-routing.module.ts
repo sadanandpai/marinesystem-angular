@@ -17,7 +17,7 @@ import { CalculatorComponent } from './calculator/calculator.component';
 import { MapComponent } from './map/map.component';
 import { AddboatComponent } from './addboat/addboat.component';
 import { AddmemberComponent } from './addmember/addmember.component';
-import { AddsalaryComponent } from './addsalary/addsalary.component';
+// import { AddsalaryComponent } from './addsalary/addsalary.component';
 import { AttendenceComponent } from './attendence/attendence.component';
 import { CalculationComponent } from './calculation/calculation.component';
 import { CalculationDetailsComponent } from './calculation/calculation-details/calculation-details.component';
@@ -42,7 +42,7 @@ const routes: Routes = [
   { path: 'map', component: MapComponent },
   { path: 'addboats', component: AddboatComponent },
   { path: 'addmembers', component: AddmemberComponent },
-  { path: 'addsalary', component: AddsalaryComponent },
+  // { path: 'addsalary', component: AddsalaryComponent },
   { path: 'attendence', component: AttendenceComponent },
   { path: 'calculation', component: CalculationComponent },
   { path: 'calculation/:id', component: CalculationDetailsComponent },

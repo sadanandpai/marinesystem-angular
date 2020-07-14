@@ -19,6 +19,14 @@ export class AttendenceComponent implements OnInit {
   updateCrewSubscriber: any;
   tripID: any;
   memberCount: any;
+  public attendence: any[] = [{
+    id: 1,
+    name: '',
+    age: '',
+    number: '',
+    salary: ''
+  }];
+
 
   constructor(private http: HttpClient,
     private router: Router,
@@ -52,15 +60,20 @@ export class AttendenceComponent implements OnInit {
       'Content-Type': 'application/json',
       'Authorization': 'Token ' + localStorage.getItem('token')
     });
+    console.log(form.value);
 
-    for(let i=1;i<this.memberCount;i++){
+    for(let i=1;i<=this.memberCount;i++){
+      debugger
       const data = {
         tripid: this.tripID,
         member: value.member_[i],
-        salary: value.salary_[i],  
+        salary: value.salary_[i],
       };
+      debugger
       console.log(data);
     }
+
+    
     // this.addAttendenceSubscriber = this.http
     //   .post('http://localhost:8000/portal/attendence_list/', data, { headers: headers })
     //   .subscribe(
@@ -108,6 +121,9 @@ export class AttendenceComponent implements OnInit {
   ngOnDestroy() {
     if(this.addAttendenceSubscriber){
       this.addAttendenceSubscriber.unsubscribe();
+    }
+    if(this.fetchMemberSubscriber){
+      this.fetchMemberSubscriber.unsubscribe();
     }
   }
 

@@ -88,6 +88,7 @@ export class BdexpenseComponent implements OnInit {
       .subscribe(
         (responseData: any) => {
           console.log(responseData);
+          this.success = true;
         },
         (error) => {
           console.log(error);
@@ -95,25 +96,28 @@ export class BdexpenseComponent implements OnInit {
         }
       );
 
-    for(let i=0; i<this.costs.length; i++){    
-      const extraData = {
-        trip: this.tripID,
-        name: this.costs[i].name,
-        cost: this.costs[i].cost,
-        qty: this.costs[i].qty,
-        types: 'BoatDriver',
-      };
-      this.extraExpensesSubscriber = this.http
-        .post('http://localhost:8000/portal/extraCost_list/', extraData, { headers: headers })
-        .subscribe(
-          (responseData: any) => {
-            console.log(responseData);
-          },
-          (error) => {
-            console.log(error);
-            this.msg = true;
-          }
-      );
+    if(this.costs.length > 0){
+      for(let i=0; i<this.costs.length; i++){    
+        const extraData = {
+          trip: this.tripID,
+          name: this.costs[i].name,
+          cost: this.costs[i].cost,
+          qty: this.costs[i].qty,
+          types: 'BoatDriver',
+        };
+        this.extraExpensesSubscriber = this.http
+          .post('http://localhost:8000/portal/extraCost_list/', extraData, { headers: headers })
+          .subscribe(
+            (responseData: any) => {
+              console.log(responseData);
+              this.success = true;
+            },
+            (error) => {
+              console.log(error);
+              this.msg = true;
+            }
+        );
+      }
     }
   }
 
