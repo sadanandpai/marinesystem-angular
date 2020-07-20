@@ -14,13 +14,7 @@ export class BdexpenseComponent implements OnInit {
   expensesSubscriber: any;
   success : any;
 
-  public costs: any[] = [{
-    id: 1,
-    name: '',
-    cost: '',
-    qty: '',
-    types: 'BoatDriver',
-  }];
+  public costs: any[] = [];
 
   sum: any;
   extraExpensesSubscriber: any;
@@ -88,6 +82,7 @@ export class BdexpenseComponent implements OnInit {
       .subscribe(
         (responseData: any) => {
           console.log(responseData);
+          form.reset();
           this.success = true;
         },
         (error) => {
@@ -110,6 +105,7 @@ export class BdexpenseComponent implements OnInit {
           .subscribe(
             (responseData: any) => {
               console.log(responseData);
+              form.reset();
               this.success = true;
             },
             (error) => {

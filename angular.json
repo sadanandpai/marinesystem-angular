@@ -127,6 +127,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "marinesystem"
+    }
+  },
+  "defaultProject": "marinesystem",
+  "cli": {
+    "analytics": "8542e77f-23ca-4ed7-b0f9-8bc4eae89960"
+  }
 }

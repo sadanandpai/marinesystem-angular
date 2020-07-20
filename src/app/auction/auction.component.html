@@ -21,8 +21,9 @@
             <ul class="list-group" *ngFor="let fish of loadedfishes">
                 <li class="list-group-item">
                 <div class="row">
-                    <h6 class="fishname">{{ fishname[fish.fish_id] }} </h6>
                     <p class="bdName">{{ fish.owner }}</p>
+                    <h6 class="fishname">{{ fishname[fish.fish_id] }} </h6>
+                    
                     <div class="left">
                         <img src="../../assets/Images/{{ fishname[fish.fish_id] }}.jpg" width="95%" height="95%">
                     </div>

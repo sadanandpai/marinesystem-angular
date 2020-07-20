@@ -79,7 +79,7 @@ button {
 .bdbuttons{
     border: none;
     display: inline-block;
-    width: 100%;
+    width: 96%;
     margin: 0% 2%;
 }
 
@@ -142,6 +142,7 @@ p.bdName{
     margin-top: 0px;
     margin-bottom: 0px;
     width: 20%;
+    float: right;
 }
 p {
     margin-top: 2%;

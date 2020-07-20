@@ -13,19 +13,28 @@ export class MyboatownerComponent implements OnInit {
   msg: boolean;
   tripID: any;
   tripSubscriber: any;
-  loadedTrips: any;
-  disable:boolean;
+  loadedTrip: any;
+  disable: boolean;
+  tripActive: boolean;
 
   constructor(private http: HttpClient,
     private router: Router,
     private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    var id = localStorage.getItem('tripID');
+    if(id==null){
+      this.tripActive  = false;
+    } else {
+      this.tripActive = true;
+      
+    }
+
     this.tripSubscriber = this.http
     .get('http://localhost:8000/portal/trip_list/')
     .subscribe(
       (responseData: any) => {
-        this.loadedTrips = responseData;
+        this.loadedTrip = responseData;
         console.log(responseData);
       },
       (error) => {
@@ -33,10 +42,8 @@ export class MyboatownerComponent implements OnInit {
         this.msg = true;
       }
     );
-    var id = localStorage.getItem('tripID');
-    if(id==null){
-      this.disable=true;
-    }
+    
+
   }
 
   onClick(){
@@ -45,13 +52,15 @@ export class MyboatownerComponent implements OnInit {
 
   onSelectTrip(form: NgForm){
     const value = form.value;
-    this.tripID = value.tripid
-    localStorage.setItem('tripID', this.tripID);
     var id=localStorage.getItem('tripID');
+
     if(id==null){
-      this.disable=true;
+      this.tripID = value.tripid;
+      localStorage.setItem('tripID', this.tripID);
+      this.tripActive = true;
     } else {
-      this.disable=false;
+      localStorage.removeItem('tripID');
+      this.tripActive = false;
     }
   }
 

@@ -3,24 +3,24 @@
     <h3 class="header">{{"My Boat" | translate}}</h3>
 
     <form (ngSubmit)="onSelectTrip(f)" #f="ngForm">
-        <div class="form-group col-xs-12">   
-            <label for="boat" class="btn-trip">{{"Select Trip" | translate}}</label>
+        <div class="form-group col-xs-12" *ngIf="tripActive != true">   
+            <label for="boat" class="btn-trip">{{ "Select Trip" | translate}}</label>
             <select id="boat" class="form-control" name="tripid" ngModel required>
-                <option *ngFor="let trip of loadedTrips" value="{{trip.id}}">{{trip.driver}}</option>
+                <option *ngFor="let trip of loadedTrip" value="{{trip.id}}">{{trip.driver}}</option>
             </select>
         </div>
         <span class="help-block" *ngIf="msg==true">{{ "No Trip to Select" | translate }}</span>
-        <button type="submit" class="btn btn-sm btn-trip">
-            {{ "Select Trip" | translate }}
+        <button type="submit" id="trip" class="btn btn-sm btn-trip">
+            {{ tripActive ? "End trip" : "Select Trip" }}
         </button>
     </form>
 
     <div class="group-btn">
         <button (click)="onMyBoat()" class="btn btn-lg">{{ "My Boats" | translate }}</button>
         <button (click)="onAddBoat()" class="btn btn-lg">{{ "Add Boat" | translate }}</button>
-        <button (click)="onAddExpense()" class="btn btn-lg" [disabled]="disable==true">{{ "Add Expenses" | translate }}</button>
-        <!-- <button (click)="onAddSalary()" class="btn btn-lg" [disabled]="disable==true">{{ "Add Salary" | translate }}</button> -->
-        <button (click)="onAuction()" class="btn btn-lg" [disabled]="disable==true">{{ "Auction Platform" | translate }}</button>
+        <button (click)="onAddExpense()" class="btn btn-lg" [disabled]="tripActive != true">{{ "Add Expenses" | translate }}</button>
+        <!-- <button (click)="onAddSalary()" class="btn btn-lg" [disabled]="tripActive != true">{{ "Add Salary" | translate }}</button> -->
+        <button (click)="onAuction()" class="btn btn-lg" [disabled]="tripActive != true">{{ "Auction Platform" | translate }}</button>
     </div>
 </div>
     

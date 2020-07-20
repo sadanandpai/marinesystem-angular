@@ -12,6 +12,9 @@ export class MycrewDetailsComponent implements OnInit {
   loadedcrews: any;
   Salary: number;
   fetchCrewSubscriber: any;
+  tripID: number;
+  initialSubscriber: any;
+  member: any;
   // boatid: any;
   // fetchBoatNameSubscriber: any;
   // boat: any;
@@ -23,6 +26,9 @@ export class MycrewDetailsComponent implements OnInit {
 
     ngOnInit(): void {
 
+      this.initialSubscriber = this.route.params.subscribe(data=>{
+        this.tripID = Number(data.id);
+      });
       this.fetchCrews();
 
     }
@@ -31,14 +37,24 @@ export class MycrewDetailsComponent implements OnInit {
       //tripid
 
         this.router.navigate(['/calculation']);
-    }
+    }    
+
 
     private fetchCrews() {
-      let id = localStorage.getItem('id')
-      this.fetchCrewSubscriber = this.http.get('http://localhost:8000/portal/crewBD_list/' + id + '/')
+      let id = this.tripID;
+      this.fetchCrewSubscriber = this.http.get('http://localhost:8000/portal/tripAttendence_list/' + id + '/')
       .subscribe((responseData: any) => {
           console.log(responseData);
           this.loadedcrews = responseData;
+          
+          for(let i=0;i<this.loadedcrews.length;i++){
+            this.member = this.loadedcrews[i].member;
+            console.log(this.member);
+          }
+
+
+
+
           this.Salary = 0;
           for(let i=0;i<this.loadedcrews.length;i++){
             this.Salary += this.loadedcrews[i].salary;
@@ -48,10 +64,12 @@ export class MycrewDetailsComponent implements OnInit {
       });
     }
 
-
     ngOnDestroy() {
       if(this.fetchCrewSubscriber){
         this.fetchCrewSubscriber.unsubscribe();
+      }
+      if(this.initialSubscriber){
+        this.initialSubscriber.unsubscribe();
       }
     }
   }

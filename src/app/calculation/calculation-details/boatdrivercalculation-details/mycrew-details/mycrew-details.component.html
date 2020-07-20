@@ -8,8 +8,6 @@
             <p class="errmsg" *ngIf="loadedcrews == null">{{ "No Boat Crews Available" | translate }}</p>
                 <div class="row" *ngFor="let crew of loadedcrews">
                     <div class="col-xs-12 col-md-12 col-lg-12 col-md-offset-3 inline-para">
-                        <!-- <p class="left">{{ "Boat Driver" | translate }}</p> <p class="right">{{ crew.driver }}</p>
-                        <br> -->
                         <p class="left">{{ crew.name }} ({{ crew.age }})</p> 
                         <p class="right">{{ crew.salary }}</p>
                         <br>

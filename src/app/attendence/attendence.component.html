@@ -10,10 +10,13 @@
                     <div class="scroll">
                         <div class="form-group col-xs-12">
                             <ul class="list-group">
-                            <li *ngFor="let attend of loadedMembers">
+                            <li *ngFor="let member of loadedMember;">
                                 <div class="attendee col-xs-12">
-                                    <input type="checkbox" id="{{ attend.id }}" class="present" name="member_{{ attend.id }}" value="{{ attend.id }}" ngModel>
-                                    <p class="left">{{ attend.name }}</p> <input type="text" class="right" name="salary_{{ attend.id }}" value="{{ attend.salary }}" placeholder="{{ attend.salary }}" ngModel>
+                                    <input type="checkbox"  class="present" [(ngModel)]="member.selected" name="selected">
+                                    <input style="display: none;" name="member_{{ member.id }}" [(ngModel)]="member.id">
+                                    <input style="display: none;" name="name_{{ member.id }}" [(ngModel)]="member.name">
+                                    <input style="display: none;" name="age_{{ member.id }}" [(ngModel)]="member.age">
+                                    <p class="left">{{ member.name }}</p> <input type="text" class="right" name="salary_{{ member.id }}" [(ngModel)]="member.salary">
                                 </div>
                                 <hr>
                             </li>
@@ -27,3 +30,4 @@
     </div>
 </div>
     
+

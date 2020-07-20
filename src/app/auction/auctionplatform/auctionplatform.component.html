@@ -29,7 +29,7 @@
         <form (ngSubmit)="Quote(q)" #q="ngForm" *ngIf="boatdriver != true">
             <div class="form-group col-xs-12">
                 <div class="input-group mb-3">
-                    <span class="input-group-text extras-left">Rs.</span>
+                    <!-- <span class="input-group-text extras-left">Rs.</span> -->
                     <input
                         type="text"
                         class="form-control"
@@ -42,7 +42,7 @@
                         required
                         #amount="ngModel"
                     />
-                    <span class="input-group-text extras-right">.00</span>
+                    <!-- <span class="input-group-text extras-right">.00</span> -->
                     </div>
                 <span class="help-block errmsg" *ngIf="!amount.valid && amount.touched">
                 {{ "Please Enter a valid Amount!" | translate }}

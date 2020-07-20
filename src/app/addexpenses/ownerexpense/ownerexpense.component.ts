@@ -14,13 +14,7 @@ export class OwnerexpenseComponent implements OnInit{
   expensesSubscriber: any;
   success : any;
 
-  public costs: any[] = [{
-    id: 1,
-    name: '',
-    cost: '',
-    qty: '',
-    types: 'BoatOwner',
-  }];
+  public costs: any[] = [];
   sum: any;
   extraExpensesSubscriber: any;
   tripID: any;
@@ -52,6 +46,7 @@ export class OwnerexpenseComponent implements OnInit{
   }
 
   expenses(form: NgForm) {
+
     console.log(this.costs);
     this.sum = 0;
     for(let i=0; i<this.costs.length; i++){
@@ -63,13 +58,14 @@ export class OwnerexpenseComponent implements OnInit{
     console.log(this.sum);
 
     const value = form.value;
+  
     value.grandTotal = Number(value.diesel) + Number(value.ice) + Number(value.maintainance) + this.sum;
     const data = {
       diesel: value.diesel,
       ice: value.ice,
       dieselQty: value.dieselQty,
       iceQty: value.iceQty,
-      maintainance: value.maintainance,
+      maintainance: Number(value.maintainance),
       totalOwner: value.grandTotal,
     };
 
@@ -85,17 +81,16 @@ export class OwnerexpenseComponent implements OnInit{
       .subscribe(
         (responseData: any) => {
           console.log(responseData);
-
+          this.success = true;
+          form.reset();
         },
         (error) => {
           console.log(error);
           this.msg = true;
         }
       );
-    // debugger
-    // var length = Number(this.costs.length);
-    // if(length > 1){
-    //   debugger
+
+    if(this.costs.length > 0){
       for(let i=0; i<this.costs.length; i++){    
         const extraData = {
           trip: this.tripID,
@@ -122,6 +117,7 @@ export class OwnerexpenseComponent implements OnInit{
         );
       }
     }
+  }
   
   ngOnDestroy() {
     if(this.expensesSubscriber){
