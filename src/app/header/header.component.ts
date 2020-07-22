@@ -1,5 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { interval } from 'rxjs';
+import { TranslateService } from '@ngx-translate/core';
+
 
 @Component({
   selector: 'app-header',
@@ -7,10 +9,14 @@ import { interval } from 'rxjs';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit, OnDestroy {
+  collapsed: boolean = true;
   loggedIn: boolean = false;
   loggingServiceSubscriber: any;
+  lang: boolean;
 
-  constructor() { }
+  constructor(private translate: TranslateService) { 
+    translate.setDefaultLang('en');
+  }
 
   ngOnInit(): void {
     this.loggingServiceSubscriber = interval(1000)
@@ -25,6 +31,18 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   onClick(){
     window.localStorage.clear();
+  }
+
+  onClickLang(){
+    if(this.lang == true){
+      this.lang = false;
+    } else {
+      this.lang = true;  
+    }
+  }
+
+  useLanguage(language: string){
+    this.translate.use(language);
   }
 
   // onClick(){
@@ -46,6 +64,19 @@ export class HeaderComponent implements OnInit, OnDestroy {
   //   console.log("Login: ");
   //   console.log(window.localStorage);
   // }
+
+
+   openNav() {
+    document.getElementById("mySidebar").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+
+  }
+  
+   closeNav() {
+    document.getElementById("mySidebar").style.width = "0";
+    document.getElementById("main").style.marginLeft= "0";
+  }
+  
 
   ngOnDestroy(){
     if(this.loggingServiceSubscriber){

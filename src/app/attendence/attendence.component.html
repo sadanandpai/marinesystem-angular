@@ -3,20 +3,20 @@
     <h3 class="header">{{"ATTENDENCE" | translate}}</h3>
     <div class="row">
         <button (click)="onAddCrew()" class="btn btn-lg crew-btn">{{ "Add Crew" | translate }}</button>
-
+        <span class="help-block" *ngIf="success==true">{{ "Successfully Added Attendence" | translate}}</span>
         <div class="contents">
-            <div class="col-xs-12 col-md-12 col-lg-12 col-md-offset-3">
+            <div class="col-md-offset-3">
                 <form (ngSubmit)="addAttendence(f)" #f="ngForm">
                     <div class="scroll">
-                        <div class="form-group col-xs-12">
+                        <div class="form-group">
                             <ul class="list-group">
                             <li *ngFor="let member of loadedMember;">
-                                <div class="attendee col-xs-12">
-                                    <input type="checkbox"  class="present" [(ngModel)]="member.selected" name="selected">
+                                <div class="attendee">
+                                    <input type="checkbox" [(ngModel)]="member.selected" id="id_{{ member.id }}" name="selected"><label for="id_{{ member.id }}" class="left">{{ member.name }}</label>
                                     <input style="display: none;" name="member_{{ member.id }}" [(ngModel)]="member.id">
                                     <input style="display: none;" name="name_{{ member.id }}" [(ngModel)]="member.name">
                                     <input style="display: none;" name="age_{{ member.id }}" [(ngModel)]="member.age">
-                                    <p class="left">{{ member.name }}</p> <input type="text" class="right" name="salary_{{ member.id }}" [(ngModel)]="member.salary">
+                                     <input type="text" class="right" name="salary_{{ member.id }}" [(ngModel)]="member.salary">
                                 </div>
                                 <hr>
                             </li>

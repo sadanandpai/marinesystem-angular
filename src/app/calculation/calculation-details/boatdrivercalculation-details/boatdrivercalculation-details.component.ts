@@ -44,9 +44,7 @@ export class BoatdrivercalculationDetailsComponent implements OnInit {
     }
 
     onMyCrew(){
-      // send tripID to filter crew 
-      var id = localStorage.getItem('tripID');
-      this.router.navigate(['/mycrew', id]);
+      this.router.navigate(['/mycrew', this.tripID]);
     }
 
     private fetchTrip() {

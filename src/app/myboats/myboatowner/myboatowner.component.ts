@@ -16,6 +16,7 @@ export class MyboatownerComponent implements OnInit {
   loadedTrip: any;
   disable: boolean;
   tripActive: boolean;
+  TripStatusSubscriber: any;
 
   constructor(private http: HttpClient,
     private router: Router,
@@ -30,8 +31,13 @@ export class MyboatownerComponent implements OnInit {
       
     }
 
+    this.TripListTrue();
+    
+  }
+
+  TripListTrue() {
     this.tripSubscriber = this.http
-    .get('http://localhost:8000/portal/trip_list/')
+    .get('http://localhost:8000/portal/trip_list_true/')
     .subscribe(
       (responseData: any) => {
         this.loadedTrip = responseData;
@@ -42,8 +48,6 @@ export class MyboatownerComponent implements OnInit {
         this.msg = true;
       }
     );
-    
-
   }
 
   onClick(){
@@ -55,11 +59,32 @@ export class MyboatownerComponent implements OnInit {
     var id=localStorage.getItem('tripID');
 
     if(id==null){
+      // Select Trip
       this.tripID = value.tripid;
       localStorage.setItem('tripID', this.tripID);
       this.tripActive = true;
     } else {
-      localStorage.removeItem('tripID');
+      // End Trip
+      const data = {
+        Status: false,
+      }
+      let headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Token ' + localStorage.getItem('token')
+      });
+      let id = localStorage.getItem('tripID');
+      this.TripStatusSubscriber = this.http
+        .patch('http://localhost:8000/portal/trip_list_false/' + id + '/', data, { headers: headers })
+        .subscribe(
+          (responseData: any) => {
+            console.log(responseData);
+            this.TripListTrue();
+            localStorage.removeItem('tripID');
+          },
+          (error) => {
+            console.log(error);
+          }
+        );
       this.tripActive = false;
     }
   }

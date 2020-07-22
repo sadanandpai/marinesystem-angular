@@ -1,11 +1,22 @@
 <div class="body">
-    <p *ngIf="loggedIn == true" class="username">{{ user }}</p>
+    <!-- <p *ngIf="loggedIn == true" class="username">{{ user }}</p> -->
 
     <div class="group-btn">
-        <button *ngIf="loggedIn == false" class="btn btn-lg login" routerLink="login">{{ "Login" | translate }}</button>
-        <button *ngIf="loggedIn == false" class="btn btn-lg register" routerLink="register">{{ "Register" | translate }}</button>
-        <button class="btn btn-lg" routerLink="myboats">{{ "My Boat" | translate }}</button>
-        <button *ngIf="loggedIn == true" class="btn btn-lg start" (click)="onStart()">{{ "Auction" | translate }}</button>
+        <!-- <button *ngIf="loggedIn == false" class="btn btn-lg login" routerLink="login">{{ "Login" | translate }}</button>
+        <button *ngIf="loggedIn == false" class="btn btn-lg register" routerLink="register">{{ "Register" | translate }}</button> -->
+        <button class="btn btn-lg" routerLink="myboats" [disabled]="loggedIn != true"><img src="../../assets/Images/ic_03.png" height="80%" width="100%" /></button>
+        <button class="btn btn-lg right" (click)="onStart()" [disabled]="loggedIn != true"><img src="../../assets/Images/ic_07.png" height="80%" width="71%" /></button>
+        <br> <span class="btn-name">{{ "My Boat" | translate }}</span>
+        <span class="btn-name right">{{ "Auction" | translate }}</span> <br>
+        <button class="btn btn-lg" routerLink="#"><img src="../../assets/Images/ic_16.png" height="80%" width="100%" /></button>
+        <button class="btn btn-lg right" routerLink="#"><img src="../../assets/Images/ic_14.png" height="80%" width="85%" /></button>
+        <br> <span class="btn-name">{{ "Weather" | translate }}</span>
+        <span class="btn-name right">{{ "Compass" | translate }}</span> <br>
+        <button class="btn btn-lg" routerLink="#"><img src="../../assets/Images/ic_24.png" height="80%" width="85%" /></button>
+        <button class="btn btn-lg right" routerLink="calculator"><img src="../../assets/Images/ic_27.png" height="80%" width="100%" /></button>
+        <br> <span class="btn-name">{{ "Blog" | translate }}</span>
+        <span class="btn-name right" style="margin-right: 16%;">{{ "Calculator" | translate }}</span> <br>
+       
     </div>
     <p class="errmsg" *ngIf="msg == true">{{ "Please Login Before Start!" | translate }}</p>
 </div>

@@ -17,9 +17,7 @@
 }
 
 .body{
-    background-image: url("../../assets/Images/AddFishBG-01.jpg");
-    background-size: 100%;
-    background-repeat: no-repeat;
+    background-color: #585858;
     min-height: 100vh;
     font-family: 'century Gothic';
     font-weight: bold;
@@ -29,7 +27,7 @@
 
 .backbtn{
     margin: 2%;
-    margin-left: 10%;
+    vertical-align: middle;
 }
 .arrow {
   border: solid white;
@@ -62,8 +60,8 @@
 }
 
 button {
-    background-color: #333399;
-    color: white;
+    background-color: white;
+    color: grey;
     border: none;
     text-align: center;
     text-decoration: none;
@@ -93,7 +91,7 @@ input, select, option, optgroup{
 }
 /* input#size {
     margin-right: 0%;
-} */
+} 
 .extras-right {
     box-shadow: 0px 0px 5px grey;
     border: none;
@@ -101,18 +99,18 @@ input, select, option, optgroup{
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
 }
-/* input#price {
+ input#price {
     margin-left: 0%;
     margin-right: 0%;
-} */
+} 
 .extras-left {
     box-shadow: 0px 0px 5px grey;
     border: none;
     margin-left: 10%;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
-}
-input#damaged{
+} */
+/* input#damaged{
     background-color: white;
     box-shadow: 0px 0px 5px grey;
     color: black;
@@ -123,13 +121,13 @@ input#damaged{
     border-radius: 20px;
     width: 25px;
     height: 25px;
-}
+} */
 
 select{
     text-overflow: ellipsis;
 }
 label{
-    color: #140c68;
+    color: white;
     border: none;
     text-align: left;
     text-decoration: none;
@@ -140,14 +138,15 @@ label{
     width: 80%;
 }
 
-label.damaged{
-    color: #140c68;
+/* label.damaged{
+    color: white;
     margin: 0px;
     width: 71%;
-    color: black;
     font-size: 16px;
     vertical-align: super;
-}
+} */
+
+
 
 form div:first-child{
     margin-top: 10%;
@@ -155,6 +154,7 @@ form div:first-child{
 form{
     margin-bottom: 4%;
 }
+
 
 
 

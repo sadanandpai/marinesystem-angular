@@ -9,9 +9,7 @@
 }
 
 .body{
-    background-image: url("../../../../assets/Images/LoginBg-01.jpg");
-    background-size: 100%;
-    background-repeat: repeat-y;
+    background-color: #585858;
     min-height: 100vh;
     font-family: 'century Gothic';
     font-weight: bold;
@@ -21,7 +19,7 @@
 
 .backbtn{
     margin: 2%;
-    margin-left: 10%;
+    vertical-align: middle;
 }
 .arrow {
   border: solid white;
@@ -54,8 +52,8 @@
 }
 
 button {
-    background-color: #333399;
-    color: white;
+    background-color: white;
+    color: grey;
     border: none;
     border-radius: 20px;
     text-align: center;
@@ -73,6 +71,9 @@ button {
     padding: 2%;
     margin: 2px;
     border-radius: 12px;
+    background-color: #1C2833;
+color: white;
+border: none;
 }
 
 .left{

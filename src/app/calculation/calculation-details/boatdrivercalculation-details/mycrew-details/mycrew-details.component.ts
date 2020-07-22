@@ -52,9 +52,6 @@ export class MycrewDetailsComponent implements OnInit {
             console.log(this.member);
           }
 
-
-
-
           this.Salary = 0;
           for(let i=0;i<this.loadedcrews.length;i++){
             this.Salary += this.loadedcrews[i].salary;

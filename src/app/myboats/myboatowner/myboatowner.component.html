@@ -6,7 +6,7 @@
         <div class="form-group col-xs-12" *ngIf="tripActive != true">   
             <label for="boat" class="btn-trip">{{ "Select Trip" | translate}}</label>
             <select id="boat" class="form-control" name="tripid" ngModel required>
-                <option *ngFor="let trip of loadedTrip" value="{{trip.id}}">{{trip.driver}}</option>
+                <option *ngFor="let trip of loadedTrip" value="{{trip.id}}">{{ trip.driver }} ({{ trip.id }})</option>
             </select>
         </div>
         <span class="help-block" *ngIf="msg==true">{{ "No Trip to Select" | translate }}</span>

@@ -37,6 +37,7 @@ export class AddmemberComponent implements OnInit {
     const data = {
       name: value.name,
       number: value.number,
+      adharNumber: value.adhar,
       age: value.age,
       salary: value.salary,  
     };

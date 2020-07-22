@@ -1,0 +1,31 @@
+.body{
+    background-color: black;
+    font-family: 'century Gothic';
+    font-weight: bold;
+    height: 70px;
+    position: relative;
+    border-top: 1px solid grey;
+}
+
+a{
+    padding: 0px;
+    margin-top: 2%;
+    margin-left: 12%;
+}
+
+a.right, span.right{
+    float: right;
+    margin-right: 12%;
+}
+
+span.right{
+    margin-right: -28%;
+}
+
+.btn-name{
+    color: white;
+    text-transform: uppercase;
+    font-size: small;
+    margin: 0% 17%;
+}
+

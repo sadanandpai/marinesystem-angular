@@ -6,7 +6,7 @@
         <div class="form-group col-xs-12" *ngIf="tripActive != true">   
             <label for="boat" class="btn-trip">{{"Select Boat" | translate}}</label>
             <select id="boat" class="form-control" name="boatid" ngModel required>
-                <option *ngFor="let boat of loadedBoats" value="{{boat.id}}">{{boat.boatNumber}}</option>
+                <option *ngFor="let boat of loadedBoats" value="{{boat.id}}">{{boat.boatName}} ({{boat.boatNumber}})</option>
             </select>
         </div>
         <button type="submit" class="btn btn-sm btn-trip">
@@ -20,19 +20,19 @@
         <button (click)="onAttendence()" class="btn btn-lg" [disabled]="tripActive != true">{{ "Attendence" | translate }}</button>
         <button (click)="onAuction()" class="btn btn-lg" [disabled]="tripActive != true">{{ "Auction Platform" | translate }}</button>
         <!-- <a (click)="onMyBoat()" class="btn btn-lg">
-            <img src="../../assets/Images/addfish_03.png"/>
+            <img src="../../assets/Images/.png"/>
         </a>
         <a (click)="onAddExpense()" class="btn btn-lg">
-            <img src="../../assets/Images/addfish_03.png"/>
+            <img src="../../assets/Images/.png"/>
         </a>
         <a (click)="onAttendence()" class="btn btn-lg">
-            <img src="../../assets/Images/History_03.png"/>
+            <img src="../../assets/Images/.png"/>
         </a>
         <a (click)="onAuction()" class="btn btn-lg">
-            <img src="../../assets/Images/History_03.png"/>
+            <img src="../../assets/Images/.png"/>
         </a> 
         <a (click)="onAddCrew()" class="btn btn-lg">
-            <img src="../../assets/Images/History_03.png"/>
+            <img src="../../assets/Images/.png"/>
         </a> -->
     </div>
 </div>

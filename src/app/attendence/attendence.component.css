@@ -9,9 +9,7 @@
 }
 
 .body{
-    background-image: url("../../assets/Images/LoginBg-01.jpg");
-    background-size: 100%;
-    background-repeat: repeat-y;
+    background-color: #585858;
     min-height: 100vh;
     font-family: 'century Gothic';
     font-weight: bold;
@@ -21,7 +19,7 @@
 
 .backbtn{
     margin: 2%;
-    margin-left: 10%;
+    vertical-align: middle;
 }
 .arrow {
   border: solid white;
@@ -55,8 +53,8 @@
 
 .contents{
     height: auto;
-    background-color: white;
-    color: black;
+    background-color: #1C2833;
+    color: white;
     border: none;
     border-radius: 12px;
     text-align: right;
@@ -66,7 +64,7 @@
     font-weight: bold;
     width: 80%;
     padding: 3% 5%;
-    margin: 0% 10%;
+    margin: 2% 10%;
 }
 
 p.left{
@@ -84,8 +82,8 @@ p.left{
 }
 
 button {
-    background-color: #333399;
-    color: white;
+    background-color: white;
+    color: grey;
     border: none;
     border-radius: 20px;
     text-align: center;
@@ -95,29 +93,33 @@ button {
     font-weight: bold;
 
 }
-.btn-lg {
+/* .btn-lg {
     margin-left: 5%;
     width: 40%;
     margin-right: 5%;
     margin-top: 5%;
-}
+} */
 
 .btn-done{
     width: 100%;
+    margin-top: 5%;
 }
 
-p{
+label.left {
     display: inline-block;
     margin: 0%;
+    float: left;
 }
+
 input.right{
+    color: grey;
     width: 30%;
     float: right;
 }
-.present{
+/* .present{
     float: right;
     margin: 2%;
-}
+} */
 .attendee{
     min-height: 24px;
 }
@@ -129,5 +131,34 @@ input.right{
 .crew-btn{
     width: 30%;
     float: right;
-    margin: 5%;
+    margin-right: 5%;
 }
+
+input[type="checkbox"] {
+    visibility: hidden;
+}
+
+input[type="checkbox"] + label:before {
+    border: 1px solid rgb(226, 226, 226);
+    content: "\00a0";
+    display: inline-block;
+    font: 16px/1em sans-serif;
+    height: 16px;
+    margin: 0 .25em 0 0;
+    padding: 0;
+    vertical-align: middle;
+    width: 16px;
+  }
+input[type="checkbox"]:checked + label:before {
+    background: #fff;
+    color: #333;
+    content: "\2713";
+    text-align: center;
+}
+input[type="checkbox"]:checked + label:after {
+    font-weight: bold;
+}
+input[type="checkbox"]:focus + label::before {
+    outline: rgb(59, 153, 252) auto 5px;
+}
+

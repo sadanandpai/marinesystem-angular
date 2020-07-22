@@ -9,9 +9,7 @@
 }
 
 .body{
-    background-image: url("../../../assets/Images/LoginBg-01.jpg");
-    background-size: 100%;
-    background-repeat: repeat-y;
+    background-color: #585858;
     min-height: 100vh;
     font-family: 'century Gothic';
     font-weight: bold;
@@ -21,7 +19,7 @@
 
 .backbtn{
     margin: 2%;
-    margin-left: 10%;
+    vertical-align: middle;
 }
 .arrow {
   border: solid white;
@@ -55,8 +53,8 @@
 
 .contents{
     height: auto;
-    background-color: white;
-    color: black;
+    background-color: #1C2833;
+    color: white;
     border: none;
     border-radius: 12px;
     text-align: right;
@@ -66,7 +64,7 @@
     font-weight: bold;
     width: 80%;
     padding: 3% 5%;
-    margin: 0% 10%;
+    margin: 2% 10%;
 }
 
 .left{
@@ -85,7 +83,8 @@ p{
 .fishname{
     text-align: center;
     font-size: 1em;
-    color: darkblue;
+    color: white;
+    font-weight: bold;
     font-weight: bold;
 }
 

@@ -5,12 +5,8 @@
 
 <div class="row" *ngIf="boatdriver == true">
     <div class="bdbuttons">
-        <a (click)="onAddFish()" class="btn btn-sm btn-addfish">
-            <img src="../../assets/Images/addfish_03.png" width="65px;"/>
-        </a>
-        <a (click)="onClickHistory()" class="btn btn-sm btn-history">
-            <img src="../../assets/Images/History_03.png" width="65px;"/>
-        </a>
+        <button (click)="onAddFish()" class="btn btn-sm btn-addfish">{{ "Add Fish" | translate }}</button>
+        <button (click)="onClickHistory()" class="btn btn-sm btn-history">{{ "History" | translate }}</button>
     </div>
 </div>
  </div>

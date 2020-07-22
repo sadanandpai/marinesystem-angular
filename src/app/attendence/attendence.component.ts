@@ -107,6 +107,8 @@ export class AttendenceComponent implements OnInit {
       .subscribe(
         (responseData: any) => {
           console.log(responseData);
+          this.success = true;
+          form.reset();
         },
         (error) => {
           console.log(error);

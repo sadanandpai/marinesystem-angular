@@ -17,9 +17,8 @@
 }
 
 .body{
-    background-image: url("../../../assets/Images/AddFishBG-01.jpg");
-    background-size: 100%;
-    background-repeat: repeat-y;
+    /* background-image: url("../../../assets/Images/AddFishBG-01.jpg"); */
+    background-color: #585858;
     min-height: 100vh;
     font-family: 'century Gothic';
     font-weight: bold;
@@ -29,7 +28,7 @@
 
 .backbtn{
     margin: 2%;
-    margin-left: 10%;
+    vertical-align: middle;
 }
 .arrow {
   border: solid white;
@@ -62,8 +61,8 @@
 }
 
 button {
-    background-color: #333399;
-    color: white;
+    background-color: white;
+    color: grey;
     border: none;
     text-align: center;
     text-decoration: none;
@@ -112,7 +111,7 @@ input{
 }
 
 label{
-    color: #140c68;
+    color: white;
     border: none;
     text-align: left;
     text-decoration: none;

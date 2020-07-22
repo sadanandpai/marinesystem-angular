@@ -1,10 +1,86 @@
 <div class="body">
-<nav class="navbar navbar-expand-lg">
-  <a class="navbar-brand" routerLink="/">
+  <!-- <nav class="navbar navbar-expand-lg"> -->
+ <!--<a class="navbar-brand" routerLink="/">
     <img class="logo" src="../../assets/Images/Logo-01.png" alt="Logo" >
   </a>
   <a (click)="onClick()" routerLink="/"  *ngIf = "loggedIn == true">
     <img class="logout" src="../../assets/Images/logout_butn.png" alt="Logout">
   </a>
-  </nav>
-</div>
+  </nav> -->
+
+
+  <!-- <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+       <button type="button" class="navbar-toggle" data-toggle="collapse" (click)="collapsed = !collapsed">
+         <span class="icon-bar" *ngFor="let iconBar of [1, 2, 3]"></span>
+       </button>
+        <a routerLink="/" class="navbar-brand"><img src="../../assets/Images/Logo-01.png" width="40%" alt=""></a>
+      </div>
+      <div class="navbar-collapse" [class.collapse]="collapsed" (window:resize)="collapsed = true">
+        <ul class="nav navbar-nav">
+          <li><a routerLink="/">Home</a></li>
+          <li><a routerLink="/">Language</a></li>
+          <li><a routerLink="/">Signin</a></li>
+          <li><a routerLink="/">Logout</a></li>
+        </ul>
+      </div>
+    </div> 
+  </nav>-->
+
+
+
+    
+    <!-- <a class="navbar-brand" routerLink="/">
+      <img class="logo" src="../../assets/Images/Logo-01.png" alt="Logo" width="40%">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      <span class="navbar-toggler-icon"></span>
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">{{ "Language" | translate }}</a>
+
+        </li>
+        <li class="nav-item"*ngIf = "loggedIn != true">
+          <a class="nav-link" href="#">{{ "Sign In" | translate }}</a>
+        </li>
+        <li class="nav-item" *ngIf = "loggedIn == true">
+          <a class="nav-link" (click)="onClick()"  routerLink="/">{{ "Logout" | translate }}</a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> 
+        <span class="glyphicon glyphicon-search"></span>
+      </form>
+    </div>
+  </nav> -->
+
+  <div id="mySidebar" class="sidebar">
+    <button class="closebtn" (click)="closeNav()">×</button>
+    <a (click)="onClickLang()">{{ "Language" | translate }}</a>
+    <a class="lan" (click)="useLanguage('ka')" *ngIf = "lang == true">Kannada</a>
+    <a class="lan" (click)="useLanguage('en')" *ngIf = "lang == true">English</a>
+    <a class="lan" (click)="useLanguage('hi')" *ngIf = "lang == true">Hindi</a>
+    <a class="lan" (click)="useLanguage('ta')" *ngIf = "lang == true">Tamil</a>
+    <a class="lan" (click)="useLanguage('ma')" *ngIf = "lang == true">Malayalam</a>
+    <a class="lan" (click)="useLanguage('te')" *ngIf = "lang == true">Telugu</a>
+    <a routerLink="login" *ngIf = "loggedIn != true">{{ "Sign In" | translate }}</a>
+    <a routerLink="register" *ngIf = "loggedIn != true">{{ "Register" | translate }}</a>
+    <a (click)="onClick()" routerLink="login" *ngIf = "loggedIn == true">{{ "LOGOUT" | translate }}</a>
+  </div>
+  
+  <div id="main">
+    <button class="openbtn" (click)="openNav()">☰</button> 
+    <a routerLink="/">
+      <img class="logo" src="../../assets/Images/Logo-01.png" alt="Logo" width="40%">
+    </a>
+  </div>
+  
+
+</div> 

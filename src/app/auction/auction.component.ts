@@ -19,6 +19,7 @@ export class AuctionComponent implements OnInit, OnDestroy {
   fetchFishSubscriber: any;
   fetchBDFishSubscriber: any;
   fishname: any;
+  boatowner: boolean;
   
   constructor(private http: HttpClient,
     private router: Router,
@@ -31,7 +32,10 @@ export class AuctionComponent implements OnInit, OnDestroy {
     if(data == 'BoatDriver'){
       this.boatdriver = true;
       this.fetchOnlyBDFish();
-    } else {
+    } else if(data == 'BoatOwner') {
+      this.boatowner = true;
+      this.fetchFish();
+    }else {
       this.fetchFish();
     }
     console.log(window.localStorage);

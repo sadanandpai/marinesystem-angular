@@ -3,11 +3,8 @@
 }
 
 .body{
-    background-image: url("../../assets/Images/FisheryBackground.jpg");
-    background-size: 100%;
-    background-repeat: no-repeat;
-    min-height: 100vh;
-    padding-bottom: 100px;
+    background-color: black;
+    min-height: calc(100vh - 142px);
     position: relative;
     height: auto;
 }
@@ -16,12 +13,11 @@ p.username{
     float: right;
     padding-right: 2%;
     font-size: 1.5em;
-    color: whitesmoke
+    color: whitesmoke;
 }
 
 button {
-    background-color: #333399;
-    color: white;
+    background-color: #339933;
     border: none;
     border-radius: 20px;
     text-align: center;
@@ -29,16 +25,37 @@ button {
     display: inline-block;
     font-size: 1em;
     font-weight: bold;
-    width: 40%;
+    width: 25%;
+    height: 100px;
+    margin-left: 15%;
+}
+
+button.right{
+    float: right;
+    margin-right: 15%;
+    margin-left: 0%;
+}
+
+span.right{
+    float: right;
+    margin-right: 19%;
+    margin-left: 0%;
+}
+
+.btn-name{
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1em;
+    font-weight: bold;
+    margin: 0% 17%;
+    margin-bottom: 15%;
 }
 
 .group-btn{
-    padding-top: 130%;
+    padding-top: 16%;
 }
-.btn-lg {
-    margin-left: 5%;
-    width: 40%;
-    margin-right: 5%;
-    margin-top: 5%;
-}
+
 

@@ -8,7 +8,7 @@
 
   <div class="form-group col-xs-12">
     <label for="name">{{ "Name" | translate }}</label>
-    <div class="input-group mb-3">
+    <div class="mb-3">
       <input 
       type="text" 
       class="form-control" 
@@ -27,7 +27,7 @@
 
   <div class="form-group col-xs-12">
     <label for="number">{{ "Phone Number" | translate }}</label>
-    <div class="input-group mb-3">
+    <div class="mb-3">
       <input 
       type="number" 
       class="form-control" 
@@ -46,14 +46,34 @@
   </div>
 
   <div class="form-group col-xs-12">
+    <label for="adhar">{{ "Adhar Number" | translate }}</label>
+    <div class="mb-3">
+      <input 
+      type="number" 
+      class="form-control" 
+      id="adhar" 
+      placeholder="Adhar Number" 
+      maxlength="12"
+      name="adhar"
+      ngModel 
+      required 
+      #adhar="ngModel"
+      />
+    </div>
+    <span class="help-block errmsg" *ngIf="!adhar.valid && adhar.touched">{{
+      "Please Enter a valid Adhar number!" | translate
+    }}</span>
+  </div>
+
+  <div class="form-group col-xs-12">
     <label for="age">{{ "Age" | translate }}</label>
-    <div class="input-group mb-3">
+    <div class="mb-3">
       <input 
       type="number" 
       class="form-control" 
       id="age" 
       placeholder="Age" 
-      maxlength=3
+      maxlength="3"
       name="age"
       ngModel
       required
@@ -61,20 +81,19 @@
       />
     </div>
     <span class="help-block errmsg" *ngIf="!age.valid && age.touched">{{
-      "Please Enter a valid number!" | translate
+      "Please Enter a valid Age!" | translate
     }}</span>
   </div>
 
   <div class="form-group col-xs-12">
     <label for="salary">{{ "salary" | translate }}</label>
-    <div class="input-group mb-3">
+    <div class="mb-3">
       <input 
       type="number" 
       class="form-control" 
       id="salary" 
       placeholder="Salary" 
-      pattern="^[0-9]*$" 
-      maxlength="3"
+      pattern="^[0-9]*$"
       name="salary"
       ngModel
       #salary="ngModel"
@@ -85,9 +104,11 @@
     }}</span>
   </div>
 
-  <button type="submit" class="btn btn-sm" [disabled]="!f.valid">
-    {{ "Save" | translate }}
-  </button>
+  <div class="form-group col-xs-12">
+    <button type="submit" class="btn btn-sm" [disabled]="!f.valid">
+      {{ "Save" | translate }}
+    </button>
+  </div>
   
 </form>
 
