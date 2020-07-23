@@ -64,8 +64,6 @@ export class AuctionplatformComponent implements OnInit, OnDestroy {
               private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    
-
     this.fishname = json;
     this.fishname = this.fishname.default;
     this.initialSubscriber = this.route.params.subscribe(data=>{
@@ -73,7 +71,7 @@ export class AuctionplatformComponent implements OnInit, OnDestroy {
     });
     this.fetchfish();
 
-    // remember to get tripID, to fetch and update auction total amount, from getHighestBid method
+    // get tripID, to fetch and update auction total amount, from getHighestBid method
     this.fetchTripIdFromAuction();
 
     var data = localStorage.getItem('group');

@@ -1,9 +1,6 @@
-import { Component, OnInit, ViewChild, Input, EventEmitter, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Fish } from '../fishdetails/fish.model';
-import { User } from '../shared/user.model';
 import * as json from '../../assets/i18n/fishname.json';
 
 
@@ -19,22 +16,24 @@ export class AuctionComponent implements OnInit, OnDestroy {
   fetchFishSubscriber: any;
   fetchBDFishSubscriber: any;
   fishname: any;
-  boatowner: boolean;
+  boatOwner: boolean;
   
   constructor(private http: HttpClient,
     private router: Router,
     private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    // import fishname from JSON
     this.fishname = json;
     this.fishname = this.fishname.default;
+    // group of user
     var data = localStorage.getItem('group');
     if(data == 'BoatDriver'){
       this.boatdriver = true;
-      this.fetchOnlyBDFish();
+      this.fetchOnlyBDFish();           // fetch Only Boat Driver's Fish which are ready for auction (For BoatDriver)
     } else if(data == 'BoatOwner') {
-      this.boatowner = true;
-      this.fetchFish();
+      this.boatOwner = true;
+      this.fetchFish();           // fetch all Fish which are ready for auction (For BoatOwner)
     }else {
       this.fetchFish();
     }
@@ -74,7 +73,7 @@ export class AuctionComponent implements OnInit, OnDestroy {
     
   private fetchOnlyBDFish() {
     let id = localStorage.getItem('id')
-    this.fetchBDFishSubscriber = this.http.get<{ [id:string]: Fish }>('http://localhost:8000/portal/bdfish_list_true/' + id + '/')
+    this.fetchBDFishSubscriber = this.http.get('http://localhost:8000/portal/bdfish_list_true/' + id + '/')
     .subscribe((responseData: any) => {
         console.log(responseData);
         this.loadedfishes = responseData;

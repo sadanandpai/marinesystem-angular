@@ -27,7 +27,7 @@
                         <p>{{"Quantity" | translate}}  -  {{ fish.fish_size }}KG</p>
                         <p>{{"Min Price" | translate}}  -   Rs.{{ fish.fish_price }}</p>
                         <p class="damagedFish" *ngIf="fish.damaged == true">{{ "(Damaged)" | translate }}</p>
-                        <button (click)="onStartBid(fish.id)" class="btn btn-sm clearfix">{{ boatdriver ? "View Bidding" : "Start Bidding" }}</button>
+                        <button (click)="onStartBid(fish.id)" class="btn btn-sm clearfix">{{ boatdriver || boatOwner ? "View Bidding" : "Start Bidding" }}</button>
                     </div>
                 </div>
                 </li>
