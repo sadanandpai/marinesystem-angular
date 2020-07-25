@@ -18,6 +18,7 @@ export class FishdetailsComponent implements OnInit, OnDestroy {
   damaged: boolean;
   success: boolean;
   tripID: any;
+  warning: boolean;
 
   constructor(private http: HttpClient,
               private router: Router,
@@ -25,12 +26,18 @@ export class FishdetailsComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.tripID = localStorage.getItem('tripID');
+    if(this.tripID == null || this.tripID == undefined){
+      this.warning = true;
+    }
   }
 
   onClick(){
     this.router.navigate(['/auction']);
   }
 
+  onClickhere(){
+    this.router.navigate(['/myboats']);
+  }
   // ADD fish and auction
   fishDetails(form: NgForm) {
     const value = form.value;

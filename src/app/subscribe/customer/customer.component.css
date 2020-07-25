@@ -16,15 +16,7 @@
     text-align: center;
     width: 100%;
 }
-a.link{
-    color: blue;
-    /* font-family: 'century Gothic'; */
-    text-decoration: underline;
-    font-size: 1.5em;
-    text-align: center;
-    font-weight: 400;
 
-}
 .msg{
     color: greenyellow;
     font-weight: 500;
@@ -83,13 +75,22 @@ button {
     border: none;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
-    font-size: 18px;
+    /* display: inline-block; */
+    font-size: 1em;
     margin: 2% 10%;
     border-radius: 20px;
     padding: 2px 25px;
-    width: 80%;
+    float: right;
+    width: 40%;
   }
+
+.owner-name{
+    font-size: 1.5em;
+    font-weight: normal;
+    color: white;
+    float: left;
+    margin-left: 10%;
+}
 
 
 input, select, option, optgroup{
@@ -107,43 +108,9 @@ input, select, option, optgroup{
     font-weight: bold;
     width: 80%;
 }
-/* input#size {
-    margin-right: 0%;
-} 
-.extras-right {
-    box-shadow: 0px 0px 5px grey;
-    border: none;
-    margin-right: 10%;
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
-}
- input#price {
-    margin-left: 0%;
-    margin-right: 0%;
-} 
-.extras-left {
-    box-shadow: 0px 0px 5px grey;
-    border: none;
-    margin-left: 10%;
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
-} */
-/* input#damaged{
-    background-color: white;
-    box-shadow: 0px 0px 5px grey;
-    color: black;
-    border: none;
-    display: inline-block;
-    margin-left: 10%;
-    margin-right: 3%;
-    border-radius: 20px;
-    width: 25px;
-    height: 25px;
-} */
 
-select{
-    text-overflow: ellipsis;
-}
+
+
 label{
     color: white;
     border: none;
@@ -171,46 +138,6 @@ form div:first-child{
 }
 form{
     margin-bottom: 4%;
-}
-
-
-input[type="checkbox"] {
-    visibility: hidden;
-}
-
-input[type="checkbox"] + label:before {
-    border: 1px solid rgb(226, 226, 226);
-    content: "\00a0";
-    display: inline-block;
-    font: 16px/1em sans-serif;
-    height: 16px;
-    margin: 0 .25em 0 0;
-    padding: 0;
-    vertical-align: middle;
-    width: 16px;
-  }
-input[type="checkbox"]:checked + label:before {
-    background: #fff;
-    color: #333;
-    content: "\2713";
-    text-align: center;
-}
-input[type="checkbox"]:checked + label:after {
-    font-weight: bold;
-}
-input[type="checkbox"]:focus + label::before {
-    outline: rgb(59, 153, 252) auto 5px;
-}
-
-#damaged{
-    width: 2%;
-    height: 0px;
-    margin: 0px;
-}
-.damaged{
-    margin: 0px;
-    margin-left: 15%;
-    width: 50%;
 }
 
 

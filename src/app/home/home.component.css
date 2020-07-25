@@ -27,18 +27,18 @@ button {
     font-weight: bold;
     width: 25%;
     height: 100px;
-    margin-left: 15%;
+    margin-left: 18%;
 }
 
 button.right{
     float: right;
-    margin-right: 15%;
+    margin-right: 18%;
     margin-left: 0%;
 }
 
 span.right{
     float: right;
-    margin-right: 19%;
+    margin-right: 21%;
     margin-left: 0%;
 }
 
@@ -50,12 +50,12 @@ span.right{
     display: inline-block;
     font-size: 1em;
     font-weight: bold;
-    margin: 0% 17%;
-    margin-bottom: 15%;
+    margin-left: 22%;
+    margin-bottom: 10%;
 }
 
 .group-btn{
-    padding-top: 16%;
+    padding-top: 10%;
 }
 
 

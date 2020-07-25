@@ -13,8 +13,6 @@
                             <!-- <span style="float: right;">{{ boat.createdDate }}</span> -->
                             <p class="left">{{ "Boat Name" | translate }}</p> <p class="right">{{ boat.boatName }}</p>
                             <br>
-                            <p class="left">{{ "Boat Driver" | translate }}</p> <p class="right">{{ boat.driver }}</p>
-                            <br>
                             <p class="left">{{ "Boat Number" | translate }}</p> <p class="right">{{ boat.boatNumber }}</p>
                             <br>
                             <p class="left" *ngIf="boat.description == null">{{ "Description" | translate }}</p> <p class="right" *ngIf="boat.description == null">{{ boat.discription }}</p>

@@ -84,21 +84,21 @@
     }}</span>
   </div>
   
-  <button type="button" class="btn btn-primary btn-sm extraCostBtn" (click)="addCost()">Add Cost</button>
+  <button type="button" class="btn btn-primary btn-sm extraCostBtn" (click)="addCost()">{{ "Add Cost" | translate }}</button>
        
   <section *ngFor="let cost of costs; let i = index;">
   <button type="button" class="btn btn-danger btn-sm extraCostBtn remove" (click)="removeCost(i)">X</button>
     <div class="row">
         <div class="form-group extrainput name">
-            <label>Name</label>
+            <label>{{ "Name" | translate }}</label>
             <input type="text" class="form-control" name="name_{{cost.id}}" placeholder="Name" [(ngModel)]="cost.name"/>
         </div>
         <div class="form-group extrainput quantity">
-            <label>Quantity</label>
+            <label>{{ "Qty" | translate }}</label>
             <input type="number" class="form-control" name="qty_{{cost.id}}" placeholder="Qty" [(ngModel)]="cost.qty" pattern="^[0-9]*$"/>
         </div>
         <div class="form-group extrainput cost">
-          <label>Cost</label>
+          <label>{{ "Cost" | translate }}</label>
           <input type="number" class="form-control" name="cost_{{cost.id}}" placeholder="Cost" [(ngModel)]="cost.cost" pattern="^[0-9]*$"/>
       </div>
     </div>

@@ -37,7 +37,6 @@ export class AddboatComponent implements OnInit {
     const data = {
       boatName: value.name,
       boatNumber: value.number,
-      driver: value.driver,
       description: value.description,  
     };
 

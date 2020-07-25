@@ -1,0 +1,23 @@
+<div class="body">
+    <a (click)="onClick()" class="btn backbtn"><i class="arrow"></i><i class="line"></i></a>
+    <h3 class="header">Owner List</h3>
+
+    
+        <span class="help-block msg" *ngIf="success == true">{{ "Request Sent Successfully!!" | translate }}</span>
+        <span class="help-block errmsg" *ngIf="msg == true">{{ "Failed to send request Try again!" | translate }}</span>
+    
+        <div class="scroll">
+            <div class="form-group">
+                <ul class="list-group">
+                <li *ngFor="let owner of loadedowner">
+                    <p class="owner-name">{{ owner.username }}</p>
+                    <button type="button" (click)="onSubscribe(owner.id)" class="btn btn-sm">
+                        {{ "Subscribe" | translate }}
+                    </button>
+                </li>
+                </ul>
+            </div>
+        </div>
+    
+
+</div>

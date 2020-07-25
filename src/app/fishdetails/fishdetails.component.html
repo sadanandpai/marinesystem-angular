@@ -1,9 +1,13 @@
 <div class="body">
   <a (click)="onClick()" class="btn backbtn"><i class="arrow"></i><i class="line"></i></a>
     <h3 class="header">ADD FISH</h3>
-
-<form (ngSubmit)="fishDetails(f)" #f="ngForm">
+    <span class="help-block warningmsg" *ngIf="warning == true">{{ "First Start the Trip and Try again!" | translate }}</span>
+    <a class="help-block link" (click)="onClickhere()" *ngIf="warning == true">click here</a>
+  
+<form (ngSubmit)="fishDetails(f)" #f="ngForm" *ngIf="warning != true">
   <span class="help-block msg" *ngIf="success == true">{{ "Added Successfully!!" | translate }}</span>
+  <span class="help-block errmsg" *ngIf="msg == true">{{ "Failed to add Try again!" | translate }}</span>
+  
   <div class="form-group col-xs-12">
     <label for="fishid">{{ "FISH NAME" | translate }}</label>
     <select class="form-control" id="fishid" placeholder="FISH NAME" name="fishid"
@@ -217,7 +221,6 @@
   <button type="submit" class="btn btn-sm" [disabled]="!f.valid">
     {{ "Submit" | translate }}
   </button>
-  <span class="help-block errmsg" *ngIf="msg == true">{{ "Failed to add Try again!" | translate }}</span>
   
 </form>
 

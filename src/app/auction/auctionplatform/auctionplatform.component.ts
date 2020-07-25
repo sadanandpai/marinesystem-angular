@@ -2,10 +2,7 @@ import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { HttpClient, HttpHeaders, HttpRequest, HttpResponse, HttpErrorResponse } from '@angular/common/http';
-import { Auction } from '../auction.model';
-import { Fish } from 'src/app/fishdetails/fish.model';
 import { interval } from 'rxjs';
-import { User } from 'src/app/shared/user.model';
 import * as json from '../../../assets/i18n/fishname.json';
 
 @Component({
@@ -39,7 +36,6 @@ export class AuctionplatformComponent implements OnInit, OnDestroy {
   initialSubscriber: any;
   fetchFishSubscriber: any;
   fetchWinnerSubscriber: any;
-  addAuctionDetailsSubscriber: any;
   fishServiceSubscriber: any;
   getHighestBidSubscriber: any;
   fishStatusSubscriber: any;
@@ -47,7 +43,6 @@ export class AuctionplatformComponent implements OnInit, OnDestroy {
 
   fishname: any;
   quoteUser: string;
-  addQuoteDetailsSubscriber: any;
   tripID: any;
   sum: number;
   addAuctionAmountSubscriber: any;
@@ -58,6 +53,7 @@ export class AuctionplatformComponent implements OnInit, OnDestroy {
   writerSalaryPercentage: number;
   crewSalaryPercentage: number;
   totalSalary: number;
+  boatowner: boolean;
 
   constructor(private http: HttpClient,
               private router: Router,
@@ -77,7 +73,9 @@ export class AuctionplatformComponent implements OnInit, OnDestroy {
     var data = localStorage.getItem('group');
     if(data == 'BoatDriver'){
       this.boatdriver = true;
-    }
+    } else if(data == 'BoatOwner'){
+      this.boatowner = true;
+    } 
     console.log(window.localStorage);
 
     this.fishServiceSubscriber = interval(1000).subscribe(
@@ -129,56 +127,6 @@ export class AuctionplatformComponent implements OnInit, OnDestroy {
         }
       );
     
-  }
-
-  Quote(form: NgForm) {
-   const value = form.value;
-   const data = {
-    Amount: value.quoteAmount
-   };
-   let headers = new HttpHeaders({
-    'Content-Type': 'application/json',
-    'Authorization': 'Token ' + localStorage.getItem('token')
-   });
-   this.maxBid = this.bid;
-   this.bidAmount = Number(data.Amount)
-    if (this.bidAmount > this.bid){
-      this.bid = this.bidAmount;
-      const details = {
-        fishid: this.fid,
-        highestBid: this.bid,
-        users: localStorage.getItem('user'),
-      }
-      // debugger
-      this.id = this.fid;
-      console.log("bid: " + this.bid)
-      this.addAuctionDetailsSubscriber = this.http.patch('http://localhost:8000/portal/auction_list/' + this.id + '/', details, 
-        { headers: headers }).subscribe(
-          (responseData) => {
-            console.log(responseData);
-          },
-          (error) => {
-            console.log(error);
-          }
-        );
-
-        const Quotedetails = {
-          fishid: this.fid,
-          quoteAmount: this.bid,
-        }
-        this.addQuoteDetailsSubscriber = this.http.post('http://localhost:8000/portal/quote_list/' + this.id + '/', Quotedetails, 
-        { headers: headers }).subscribe(
-          (responseData) => {
-            console.log(responseData);
-          },
-          (error) => {
-            console.log(error);
-          }
-        );
-    } else {
-      this.bid = this.maxBid;
-    }
-
   }
 
   private fetchfish() {
@@ -234,28 +182,32 @@ export class AuctionplatformComponent implements OnInit, OnDestroy {
     this.router.navigate(['transaction', this.fid]);
   }
 
-  // add auction amount to trip table
+  // add auction total amount to trip table
   addAuctionAmount() {
     this.sum += this.winAmount;
-    this.driverSalaryPercentage = Number((40*this.sum)/100);
-    this.writerSalaryPercentage = Number((5*this.sum)/100);
-    this.crewSalaryPercentage = Number((20*this.sum)/100);
-    this.totalSalary = Number(this.driverSalaryPercentage) + Number(this.writerSalaryPercentage) + Number(this.crewSalaryPercentage);
+    // this.writerSalaryPercentage = Number((5*this.sum)/100);
+    // this.crewSalaryPercentage = Number((1*this.sum)/100);
+    // this.driverSalaryPercentage = Number((25*this.sum)/100);
+    // this.totalSalary = Number(this.driverSalaryPercentage) + Number(this.writerSalaryPercentage) + Number(this.crewSalaryPercentage);
     
-    console.log("driver SalaryPercentage " + this.driverSalaryPercentage);
-    console.log("writer SalaryPercentage " + this.writerSalaryPercentage);
-    console.log("crew SalaryPercentage " + this.crewSalaryPercentage);
-    console.log("crew Total Salary " + this.totalSalary);
-    let headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': 'Token ' + localStorage.getItem('token')
-      });
-      const data = {
+    // console.log("driver SalaryPercentage " + this.driverSalaryPercentage);
+    // console.log("writer SalaryPercentage " + this.writerSalaryPercentage);
+    // console.log("crew SalaryPercentage " + this.crewSalaryPercentage);
+    // console.log("crew Total Salary " + this.totalSalary);
+    
+      /* const data = {
       auctionTotal: this.sum,
       driverSalary: Math.round(this.driverSalaryPercentage),
       writerSalary: Math.round(this.writerSalaryPercentage),
       loadUnloadSalary: Math.round(this.crewSalaryPercentage),
       totalSalary: Math.round(this.totalSalary)
+    } */
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Token ' + localStorage.getItem('token')
+      });
+    const data = {
+      auctionTotal: this.sum
     }
     this.addAuctionAmountSubscriber = this.http.patch('http://localhost:8000/portal/trip_detail/' + this.trip_id + '/', data, { headers: headers })
       .subscribe(
@@ -270,7 +222,7 @@ export class AuctionplatformComponent implements OnInit, OnDestroy {
     
   }
   
-    // fetch auction amount from trip table 
+    // fetch old auction amount from trip table 
     private  fetchAuctionAmount() {
       // to get trip id from auction table
       // debugger
@@ -298,9 +250,9 @@ export class AuctionplatformComponent implements OnInit, OnDestroy {
     if(this.initialSubscriber){
       this.initialSubscriber.unsubscribe();
     }
-    if(this.addAuctionDetailsSubscriber){
-      this.addAuctionDetailsSubscriber.unsubscribe();
-    }
+    // if(this.addAuctionDetailsSubscriber){
+    //   this.addAuctionDetailsSubscriber.unsubscribe();
+    // }
     if(this.fetchFishSubscriber){
       this.fetchFishSubscriber.unsubscribe();
     }
@@ -312,9 +264,6 @@ export class AuctionplatformComponent implements OnInit, OnDestroy {
     }
     if(this.fishStatusSubscriber){
       this.fishStatusSubscriber.unsubscribe();
-    }
-    if(this.addQuoteDetailsSubscriber){
-      this.addQuoteDetailsSubscriber.unsubscribe();
     }
     if(this.addAuctionAmountSubscriber){
       this.addAuctionAmountSubscriber.unsubscribe();

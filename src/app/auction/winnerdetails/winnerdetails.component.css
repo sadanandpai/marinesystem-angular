@@ -13,8 +13,8 @@
     font-family: 'century Gothic';
     position: relative;
     padding-top: 20%;
-    height: auto;
-    padding-bottom: 100%;
+    height: calc(100vh - 160px);
+    /* padding-bottom: 100%; */
 }
 
 .header{
@@ -33,7 +33,7 @@
     background-image: url("../../../assets/Images/WinneramonutBg-01.png");
     background-size: 100%;
     background-repeat: no-repeat;
-    color: white;
+    color: black;
     font-weight: bold;
     border: none;
     border-radius: 15px;
@@ -52,6 +52,7 @@
     float: left;
     color: black;
     font-weight: 500;
+    margin-top: 5%;
 }
 
 p{
@@ -65,6 +66,10 @@ p{
     font-weight: bold;
     min-height: 100px;
     padding-top: 30%;
+}
+
+p.name{
+    font-size: 1.5em;
 }
 
 .details{

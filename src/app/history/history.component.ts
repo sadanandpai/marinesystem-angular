@@ -14,6 +14,8 @@ export class HistoryComponent implements OnInit, OnDestroy {
   loadedfishes: any;
   fetchFishSubscriber: any;
   fishname: any;
+  boatowner: boolean;
+  boatdriver: boolean;
 
   constructor(private http: HttpClient,
     private router: Router,
@@ -22,6 +24,13 @@ export class HistoryComponent implements OnInit, OnDestroy {
     ngOnInit(): void {
       this.fishname = json;
       this.fishname = this.fishname.default;
+      var data = localStorage.getItem('group');
+      if(data == 'BoatOwner'){
+        this.boatowner = true;
+      } else if(data == 'BoatDriver'){
+        this.boatdriver = true;
+      }
+
       this.fetchFish();
     }
 
@@ -34,8 +43,7 @@ export class HistoryComponent implements OnInit, OnDestroy {
     }
   
     private fetchFish() {
-      let id = localStorage.getItem('id')
-      this.fetchFishSubscriber = this.http.get('http://localhost:8000/portal/bdfish_list_false/' + id + '/')
+      this.fetchFishSubscriber = this.http.get('http://localhost:8000/portal/ownerfish_list_false/')
       .subscribe((responseData: any) => {
           console.log(responseData);
           this.loadedfishes = responseData;

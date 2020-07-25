@@ -9,23 +9,26 @@
 
 a{
     padding: 0px;
-    margin-top: 2%;
+    margin-top: 3%;
     margin-left: 12%;
 }
 
-a.right, span.right{
+a.right{
     float: right;
     margin-right: 12%;
 }
 
 span.right{
-    margin-right: -28%;
+    color: white;
+    text-transform: uppercase;
+    font-size: small;
+    margin-left: 40%;
 }
 
 .btn-name{
     color: white;
     text-transform: uppercase;
     font-size: small;
-    margin: 0% 17%;
+    margin-left: 18%;
 }
 

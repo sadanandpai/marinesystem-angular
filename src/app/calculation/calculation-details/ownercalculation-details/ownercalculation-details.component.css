@@ -76,3 +76,17 @@ p{
     margin: 0%;
 }
 
+button {
+    background-color: white;
+    color: grey;
+    border: none;
+    border-radius: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline;
+    font-size: 1em;
+    font-weight: bold;
+    width: 30%;
+    padding: 3% 3%;
+    float: right;
+}

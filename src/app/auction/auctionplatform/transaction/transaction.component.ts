@@ -31,7 +31,6 @@ export class TransactionComponent implements OnInit {
   quoteSubscriber: any;
   updateAuctionDetailsSubscriber: any;
   fishStatusSubscriber: any;
-  tripID: string;
   addAuctionAmountSubscriber: any;
   sum: number;
   fetchAuctionAmountSubscriber: any;
@@ -51,7 +50,7 @@ export class TransactionComponent implements OnInit {
  
 
     // fetch trip ID from auctiontable(fetchWinner method) not from localStorage for auction total calculation
-    this.tripID = localStorage.getItem('tripID');
+    // this.tripID = localStorage.getItem('tripID');
 
     // JSON to display fishname
     this.fishname = json;
@@ -111,7 +110,7 @@ export class TransactionComponent implements OnInit {
           this.quoteUser = responseData.quoteUser;
           // Update auction table with new winner
           const details = {
-            trips: this.tripID,
+            trips: this.trip_id,
             fishid: this.fid,
             highestBid: this.quoteAmount,
             users: this.quoteUser,
@@ -150,25 +149,28 @@ export class TransactionComponent implements OnInit {
   // and also add salary of driver, writer and load/unload crew
   addAuctionAmount() {
     this.sum += this.winAmount;
-    this.driverSalaryPercentage = Number((40*this.sum)/100);
-    this.writerSalaryPercentage = Number((5*this.sum)/100);
-    this.crewSalaryPercentage = Number((20*this.sum)/100);
-    this.totalSalary = Number(this.driverSalaryPercentage) + Number(this.writerSalaryPercentage) + Number(this.crewSalaryPercentage);
+    // this.driverSalaryPercentage = Number((40*this.sum)/100);
+    // this.writerSalaryPercentage = Number((5*this.sum)/100);
+    // this.crewSalaryPercentage = Number((25*this.sum)/100);
+    // this.totalSalary = Number(this.driverSalaryPercentage) + Number(this.writerSalaryPercentage) + Number(this.crewSalaryPercentage);
     
-    console.log("driver SalaryPercentage " + this.driverSalaryPercentage);
-    console.log("writer SalaryPercentage " + this.writerSalaryPercentage);
-    console.log("crew SalaryPercentage " + this.crewSalaryPercentage);
-    console.log("crew Total Salary " + this.totalSalary);
+    // console.log("driver SalaryPercentage " + this.driverSalaryPercentage);
+    // console.log("writer SalaryPercentage " + this.writerSalaryPercentage);
+    // console.log("crew SalaryPercentage " + this.crewSalaryPercentage);
+    // console.log("crew Total Salary " + this.totalSalary);
     let headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': 'Token ' + localStorage.getItem('token')
       });
-      const data = {
+     /*  const data = {
       auctionTotal: this.sum,
       driverSalary: this.driverSalaryPercentage,
       writerSalary: this.writerSalaryPercentage,
       loadUnloadSalary: this.crewSalaryPercentage,
       totalSalary: this.totalSalary
+    } */
+    const data = {
+      auctionTotal: this.sum
     }
     this.addAuctionAmountSubscriber = this.http.patch('http://localhost:8000/portal/trip_detail/' + this.trip_id + '/', data, { headers: headers })
       .subscribe(

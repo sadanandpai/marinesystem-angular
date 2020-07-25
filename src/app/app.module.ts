@@ -41,6 +41,10 @@ import { BoatdrivercalculationDetailsComponent } from './calculation/calculation
 import { TripwiseCalculationComponent } from './calculation/ownercalculation/tripwise-calculation/tripwise-calculation.component';
 import { MycrewDetailsComponent } from './calculation/calculation-details/boatdrivercalculation-details/mycrew-details/mycrew-details.component';
 import { FooterComponent } from './footer/footer.component';
+import { CustomerAuctionplatformComponent } from './auction/customer-auctionplatform/customer-auctionplatform.component';
+import { SubscribeComponent } from './subscribe/subscribe.component';
+import { CustomerComponent } from './subscribe/customer/customer.component';
+import { OwnerComponent } from './subscribe/owner/owner.component';
 
 
 // AoT requires an exported function for factories
@@ -83,6 +87,10 @@ export function HttpLoaderFactory(http: HttpClient) {
     TripwiseCalculationComponent,
     MycrewDetailsComponent,
     FooterComponent,
+    CustomerAuctionplatformComponent,
+    SubscribeComponent,
+    CustomerComponent,
+    OwnerComponent,
   ],
   imports: [
     BrowserModule,

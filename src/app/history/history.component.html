@@ -1,4 +1,4 @@
-<div class="body">
+<div class="body" *ngIf="boatowner == true && boatdriver == true">
     <a (click)="onClick()" class="btn backbtn"><i class="arrow"></i><i class="line"></i></a>
     <h3 class="header">{{"History" | translate}}</h3>
 
@@ -15,7 +15,7 @@
                         </div>
                         <div class="middle"></div>
                         <div class="right">
-                            <p>{{ "Fish Owner" | translate }} - {{ fish.owner }}</p>
+                            <p>{{ "Fish Driver" | translate }} - {{ fish.driver }}</p>
                             <p>{{ "Min Price" | translate }} -  Rs.{{ fish.fish_price }}</p>
                             <p class="damagedFish" *ngIf="fish.damaged == true">{{ "(Damaged)" | translate }}</p>
                             <button (click)="onViewMore(fish.id)" class="btn btn-sm">{{ "View More" | translate }}</button>

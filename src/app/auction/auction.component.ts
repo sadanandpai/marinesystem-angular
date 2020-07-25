@@ -10,7 +10,7 @@ import * as json from '../../assets/i18n/fishname.json';
   styleUrls: ['./auction.component.css']
 })
 export class AuctionComponent implements OnInit, OnDestroy {
-  boatdriver: boolean = false;
+  boatdriver: boolean;
   loadedfishes: any;
   loadedauctions: Object;
   fetchFishSubscriber: any;
@@ -41,7 +41,11 @@ export class AuctionComponent implements OnInit, OnDestroy {
   }
 
   onStartBid(id: any){
-    this.router.navigate(['/auction', id]);
+    if(this.boatdriver == true || this.boatOwner == true){
+      this.router.navigate(['/auction', id]);
+    } else{
+      this.router.navigate(['/customerauctionplatform', id]);
+    }
   }
 
   onClick(){
@@ -50,6 +54,10 @@ export class AuctionComponent implements OnInit, OnDestroy {
 
   onAddFish(){
     this.router.navigate(['/fish']);
+  }
+
+  onSubscriber(){
+    this.router.navigate(['/subscribe'])
   }
 
   onClickHistory(){

@@ -1,6 +1,6 @@
 <div class="body">
     <a (click)="onClick()" class="btn backbtn"><i class="arrow"></i><i class="line"></i></a>
-    <h3 class="header">{{"ATTENDENCE" | translate}}</h3>
+    <h3 class="header">{{ "ATTENDENCE" | translate }}</h3>
     <div class="row">
         <button (click)="onAddCrew()" class="btn btn-lg crew-btn">{{ "Add Crew" | translate }}</button>
         <span class="help-block" *ngIf="success==true">{{ "Successfully Added Attendence" | translate}}</span>

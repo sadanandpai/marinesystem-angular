@@ -23,7 +23,8 @@ import { CalculationComponent } from './calculation/calculation.component';
 import { CalculationDetailsComponent } from './calculation/calculation-details/calculation-details.component';
 import { TripwiseCalculationComponent } from './calculation/ownercalculation/tripwise-calculation/tripwise-calculation.component';
 import { MycrewDetailsComponent } from './calculation/calculation-details/boatdrivercalculation-details/mycrew-details/mycrew-details.component';
-
+import { CustomerAuctionplatformComponent } from './auction/customer-auctionplatform/customer-auctionplatform.component';
+import { SubscribeComponent } from './subscribe/subscribe.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -32,6 +33,7 @@ const routes: Routes = [
   { path: 'fish', component: FishdetailsComponent },
   { path: 'auction', component: AuctionComponent },
   { path: 'auction/:id', component: AuctionplatformComponent },
+  { path: 'customerauctionplatform/:id', component: CustomerAuctionplatformComponent },
   { path: 'history', component: HistoryComponent },
   { path: 'history/:id', component: HistoryDetailsComponent },
   { path: 'winnerdetails/:id', component: WinnerdetailsComponent },
@@ -48,6 +50,7 @@ const routes: Routes = [
   { path: 'calculation/:id', component: CalculationDetailsComponent },
   { path: 'trips/:id', component: TripwiseCalculationComponent },
   { path: 'mycrew/:id', component: MycrewDetailsComponent },
+  { path: 'subscribe', component: SubscribeComponent },
   
 ];
 

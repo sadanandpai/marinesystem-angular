@@ -8,7 +8,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./winnerdetails.component.css']
 })
 export class WinnerdetailsComponent implements OnInit {
-  visible: boolean;
+
   fid: any;
   winAmount: any;
   winnerName: any;
@@ -16,6 +16,7 @@ export class WinnerdetailsComponent implements OnInit {
   initialSubscriber: any;
   auctionDetailsSubscriber: any;
   finishSubscriber: any;
+  boatowner: boolean;
 
   constructor(private http: HttpClient,
     private router: Router,
@@ -30,9 +31,10 @@ export class WinnerdetailsComponent implements OnInit {
     var data = localStorage.getItem('group');
     if(data == 'BoatDriver'){
       this.boatdriver = true;
+    } else if(data == 'BoatOwner'){
+      this.boatowner = true;
     }
 
-    this.visible = true;
     let id = this.fid;
     this.auctionDetailsSubscriber = this.http.get('http://localhost:8000/portal/auction_list/' + id + '/')
         .subscribe(

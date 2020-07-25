@@ -3,29 +3,30 @@
     <a (click)="onClick()" class="btn backbtn"><i class="arrow"></i><i class="line"></i></a>
     <h3 class="header">{{"Auction Platform" | translate}}</h3>
 
-<div class="row" *ngIf="boatdriver == true">
+<div class="row">
     <div class="bdbuttons">
-        <button (click)="onAddFish()" class="btn btn-sm btn-addfish">{{ "Add Fish" | translate }}</button>
-        <button (click)="onClickHistory()" class="btn btn-sm btn-history">{{ "History" | translate }}</button>
+        <button (click)="onAddFish()" class="btn btn-sm btn-addfish" *ngIf="boatdriver == true">{{ "Add Fish" | translate }}</button>
+        <button (click)="onClickHistory()" class="btn btn-sm btn-history" *ngIf="boatOwner == true">{{ "History" | translate }}</button>
+        <button (click)="onSubscriber()" class="btn btn-sm btn-addfish" *ngIf="boatOwner != true && boatdriver != true">{{ "Subscribe" | translate }}</button>
     </div>
 </div>
  </div>
 <div class="scroll">
     <div class="row">
         <div class="col-xs-12 col-md-12 col-lg-12 col-md-offset-3 content">
-            <p class="errmsg" *ngIf="loadedfishes == null">{{"No fish Available" | translate}}</p>
+            <p class="errmsg" *ngIf="loadedfishes == null">{{ "No fish Available" | translate }}</p>
             <ul class="list-group" *ngFor="let fish of loadedfishes">
                 <li class="list-group-item">
                 <div class="row">
-                    <p class="bdName">{{ fish.owner }}</p>
+                    <p class="bdName">{{ fish.driver }}</p>
                     <h6 class="fishname">{{ fishname[fish.fish_id] }} </h6>
                     
                     <div class="left">
                         <img src="../../assets/Images/{{ fishname[fish.fish_id] }}.jpg" width="95%" height="95%">
                     </div>
                     <div class="right">
-                        <p>{{"Quantity" | translate}}  -  {{ fish.fish_size }}KG</p>
-                        <p>{{"Min Price" | translate}}  -   Rs.{{ fish.fish_price }}</p>
+                        <p>{{ "Quantity" | translate }}  -  {{ fish.fish_size }}KG</p>
+                        <p>{{ "Min Price" | translate }}  -   Rs.{{ fish.fish_price }}</p>
                         <p class="damagedFish" *ngIf="fish.damaged == true">{{ "(Damaged)" | translate }}</p>
                         <button (click)="onStartBid(fish.id)" class="btn btn-sm clearfix">{{ boatdriver || boatOwner ? "View Bidding" : "Start Bidding" }}</button>
                     </div>

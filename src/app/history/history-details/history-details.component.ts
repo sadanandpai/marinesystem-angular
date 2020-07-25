@@ -15,7 +15,7 @@ export class HistoryDetailsComponent implements OnInit, OnDestroy {
   size: any;
   winAmount: any;
   winnerName: any;
-  owner: any;
+  driver: any;
   date: any;
   fetchFishSubscriber: any;
   fetchWinnerSubscriber: any;
@@ -51,7 +51,7 @@ export class HistoryDetailsComponent implements OnInit, OnDestroy {
             this.fishid = loadedfishes.fish_id;
             this.minprice = loadedfishes.fish_price;
             this.size = loadedfishes.fish_size;
-            this.owner = loadedfishes.owner;
+            this.driver = loadedfishes.driver;
             this.damaged = loadedfishes.damaged;
         });
   }
