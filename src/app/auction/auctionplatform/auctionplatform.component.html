@@ -15,12 +15,12 @@
 
         <form (ngSubmit)="Done(f)" #f="ngForm">
             <div class="form-group col-xs-12">
-                <h3 class="left" *ngIf="boatowner == true">{{ quoteUser }}</h3>
+                <h3 class="left" *ngIf="boatowner == true && handleAuction == true">{{ quoteUser }}</h3>
                 <h1>{{ bid }}</h1>
-                <button type="submit" class="btn btn-sm btn-done" *ngIf="boatowner == true" [disabled]="minprice==bid">
+                <button type="submit" class="btn btn-sm btn-done" *ngIf="boatowner == true && handleAuction == true" [disabled]="minprice==bid">
                         {{ "Done" | translate }}
                 </button>
-                <button type="button" (click)="onTransaction()" class="btn btn-sm btn-view" *ngIf="boatowner == true" [disabled]="minprice==bid">
+                <button type="button" (click)="onTransaction()" class="btn btn-sm btn-view" *ngIf="boatowner == true && handleAuction == true" [disabled]="minprice==bid">
                     {{ "View More" | translate }}
             </button>
             </div>

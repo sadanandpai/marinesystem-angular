@@ -20,7 +20,7 @@
             </div>
         </form>
 
-        <form (ngSubmit)="Quote(q)" #q="ngForm">
+        <form (ngSubmit)="Quote(q)" #q="ngForm" *ngIf="accepted==true">
             <div class="form-group col-xs-12">
                 <div class="input-group mb-3">
                     <!-- <span class="input-group-text extras-left">Rs.</span> -->

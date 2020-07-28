@@ -33,13 +33,21 @@ export class CustomerAuctionplatformComponent implements OnInit, OnDestroy {
   addQuoteDetailsSubscriber: any;
   fetchFishSubscriber: any;
   getHighestBidSubscriber: any;
+  tripID: any;
+  fetchBoatIDSubscriber: any;
+  boatID: any;
+  fetchBoatIDfromTripIDSubscriber: any;
+  fetchOwnerFromBoatIDSubscriber: any;
+  owner: any;
+  getTripIDSubscriber: any;
+  sendDatatoCheckinDBSubscriber: any;
+  accepted: boolean;
 
   constructor(private http: HttpClient,
               private router: Router,
               private route: ActivatedRoute) { }
 
-  ngOnInit(): void {
-    
+  ngOnInit(): void { 
     this.fishname = json;
     this.fishname = this.fishname.default;
     this.initialSubscriber = this.route.params.subscribe(data=>{
@@ -54,7 +62,70 @@ export class CustomerAuctionplatformComponent implements OnInit, OnDestroy {
         this.getHighestBid();
       }
     );
+    this.fetchTripIDfromAuctiontable();    
+  }
 
+  fetchTripIDfromAuctiontable(){
+    // get TripID from auction table
+    this.getTripIDSubscriber = this.http.get('http://localhost:8000/portal/auction_list/' + this.fid + '/')
+      .subscribe(
+      (responseData: any) => {
+        this.tripID = responseData.trips;
+        console.log('TripID: ' + this.tripID);
+        // get boatID from trip table using tripID
+        this.fetchBoatIDfromTripID();
+      },
+      (error) => {
+        console.log(error);
+      });
+  }
+
+  fetchBoatIDfromTripID() {
+    console.log("trip id :: " + this.tripID);
+    this.fetchBoatIDfromTripIDSubscriber = this.http.get('http://localhost:8000/portal/trip_detail/'+ this.tripID + '/')
+      .subscribe((responseData: any) => {
+        console.log(responseData);
+        this.boatID = responseData.boat;
+        // get owner from boat table using boatID
+        this.fetchOwnerFromBoatID();
+      });
+  }
+  fetchOwnerFromBoatID() {
+    console.log("boat id :: " + this.boatID);
+    let id = this.boatID;
+    this.fetchOwnerFromBoatIDSubscriber = this.http.get('http://localhost:8000/portal/boat_detail/'+ id + '/')
+      .subscribe((responseData: any) => {
+        this.owner = responseData.owner;
+        console.log("OWNER:::: " + this.owner);
+        // send Owner and Customer to Check if user mapped/subscribed to this owner or not
+        this.sendDatatoDjango();
+      });
+  }
+  sendDatatoDjango() {
+    const data = {
+     owner: this.owner,
+     customer: localStorage.getItem('user'),
+    };
+
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Token ' + localStorage.getItem('token')
+    });
+    this.sendDatatoCheckinDBSubscriber = this.http
+      .put('http://localhost:8000/portal/subscribe_check/', data, { headers: headers })
+      .subscribe(
+        (responseData: any) => {
+          console.log(responseData);
+          if(responseData == 'Accepted'){
+            this.accepted = true;
+          } else if(responseData == 'Not Accepted'){
+            this.accepted = false;
+          }
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
   }
 
   onClick(){
@@ -92,7 +163,7 @@ export class CustomerAuctionplatformComponent implements OnInit, OnDestroy {
           }
         );
 
-        // Add all bidders amount
+        // Add all bidders amount and username
         const Quotedetails = {
           fishid: this.fid,
           quoteAmount: this.bid,
@@ -109,20 +180,19 @@ export class CustomerAuctionplatformComponent implements OnInit, OnDestroy {
     } else {
       this.bid = this.maxBid;
     }
-
   }
 
   private fetchfish() {
     let id = this.fid;
     this.fetchFishSubscriber = this.http.get('http://localhost:8000/portal/fish_list/'+ id + '/')
-        .subscribe((responseData: any) => {
-            console.log(responseData);
-            let loadedfishes: any = responseData;
-            this.fishid = loadedfishes.fish_id;
-            this.minprice = loadedfishes.fish_price;
-            this.size = loadedfishes.fish_size;
-            this.damaged = loadedfishes.damaged;
-        });
+      .subscribe((responseData: any) => {
+          console.log(responseData);
+          let loadedfishes: any = responseData;
+          this.fishid = loadedfishes.fish_id;
+          this.minprice = loadedfishes.fish_price;
+          this.size = loadedfishes.fish_size;
+          this.damaged = loadedfishes.damaged;
+      });
   }
 
   private getHighestBid(){
@@ -130,6 +200,8 @@ export class CustomerAuctionplatformComponent implements OnInit, OnDestroy {
     this.getHighestBidSubscriber = this.http.get('http://localhost:8000/portal/auction_list/' + id + '/')
         .subscribe(
           (responseData: any) => {
+            this.tripID = responseData.trips;
+            console.log('TripID: ' + this.tripID);
             if(responseData.highestBid == null){
               this.bid = this.minprice;
               this.quoteUser = "Quote Didn't started yet!";

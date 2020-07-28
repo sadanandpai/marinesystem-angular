@@ -4,7 +4,7 @@
     <div class="group-btn">
         <!-- <button *ngIf="loggedIn == false" class="btn btn-lg login" routerLink="login">{{ "Login" | translate }}</button>
         <button *ngIf="loggedIn == false" class="btn btn-lg register" routerLink="register">{{ "Register" | translate }}</button> -->
-        <button class="btn btn-lg" routerLink="myboats" [disabled]="loggedIn != true "><img src="../../assets/Images/ic_03.png" height="70%" width="70%" /></button>
+        <button class="btn btn-lg" routerLink="myboats" [disabled]="loggedIn != true && boatOwner != true && boatDriver != true "><img src="../../assets/Images/ic_03.png" height="70%" width="70%" /></button>
         <button class="btn btn-lg right" (click)="onStart()" [disabled]="loggedIn != true"><img src="../../assets/Images/ic_07.png" height="70%" width="70%" /></button>
         <br> <span class="btn-name">{{ "My Boat" | translate }}</span>
         <span class="btn-name right">{{ "Auction" | translate }}</span> <br>

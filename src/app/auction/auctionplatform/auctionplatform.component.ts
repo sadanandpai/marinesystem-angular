@@ -54,6 +54,9 @@ export class AuctionplatformComponent implements OnInit, OnDestroy {
   crewSalaryPercentage: number;
   totalSalary: number;
   boatowner: boolean;
+  boatID: any;
+  fetchOwnerSubscriber: any;
+  handleAuction: boolean;
 
   constructor(private http: HttpClient,
               private router: Router,
@@ -230,18 +233,38 @@ export class AuctionplatformComponent implements OnInit, OnDestroy {
       .subscribe(
         (responseData: any) => {
           console.log(responseData);
+          // we need BoatID to check, if this fish is belongs to current logged in owner or not,, if not he can't handle auction of this fish 
+          this.boatID = responseData.boat;
             // if auction already updated then sum initialized to that number
           this.sum = responseData.auctionTotal;
           if(this.sum==null){
             // if auction was not updated then sum initialized to zero
             this.sum = 0;
           }
+          // we got BoatID in this responseData, so fetch for owner of boat using id
+          this.fetchOwnerFromBoatUsingBoatID();
+
         },
         (error) => {
           console.log(error);
         }
       );
     }
+  fetchOwnerFromBoatUsingBoatID() {
+    this.fetchOwnerSubscriber = this.http.get('http://localhost:8000/portal/boat_detail/' + this.boatID + '/')
+      .subscribe(
+        (responseData: any) => {
+          console.log(responseData);
+          if(responseData.owner == localStorage.getItem('user')){
+            console.log(responseData.owner + ' == ' + localStorage.getItem('user'));
+            this.handleAuction = true;
+          }
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+  }
 
   ngOnDestroy(): void{
     if(this.fishServiceSubscriber){
