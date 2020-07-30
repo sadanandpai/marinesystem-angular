@@ -37,7 +37,7 @@ export class MyboatdriverComponent implements OnInit {
     );
     var id = localStorage.getItem('tripID');
     console.log(id);
-    if(id==null){
+    if(id==null || id=="" || id==undefined){
       this.tripActive  = false;
     } else {
       this.tripActive = true;
@@ -52,7 +52,7 @@ export class MyboatdriverComponent implements OnInit {
   onStartTrip(form: NgForm){
     const value = form.value;
     var id = localStorage.getItem('tripID');
-    if(id==null){   
+    if(id==null || id=="" || id==undefined){   
     const data = {
       boat: value.boatid,
     };

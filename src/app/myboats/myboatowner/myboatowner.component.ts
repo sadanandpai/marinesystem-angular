@@ -17,6 +17,8 @@ export class MyboatownerComponent implements OnInit {
   disable: boolean;
   tripActive: boolean;
   TripStatusSubscriber: any;
+  loadedBoat: any;
+  boatSubscriber: any;
 
   constructor(private http: HttpClient,
     private router: Router,
@@ -24,7 +26,7 @@ export class MyboatownerComponent implements OnInit {
 
   ngOnInit(): void {
     var id = localStorage.getItem('tripID');
-    if(id==null){
+    if(id==null || id=="" || id=='undefined'){
       this.tripActive  = false;
     } else {
       this.tripActive = true;
@@ -42,6 +44,24 @@ export class MyboatownerComponent implements OnInit {
       (responseData: any) => {
         this.loadedTrip = responseData;
         console.log(responseData);
+        // checkOwner of trip, show only current owners trip (using Boat ID)
+      },
+      (error) => {
+        console.log(error);
+        this.msg = true;
+      }
+    );
+  }
+
+  // check Boat ID with boat Table ID in this list  
+  checkOwner() {
+    let id = localStorage.getItem('id');
+    this.boatSubscriber = this.http
+    .get('http://localhost:8000/portal/boatOwner_list/' + id + '/')
+    .subscribe(
+      (responseData: any) => {
+        this.loadedBoat = responseData;
+        console.log(responseData);
       },
       (error) => {
         console.log(error);
@@ -58,9 +78,12 @@ export class MyboatownerComponent implements OnInit {
     const value = form.value;
     var id=localStorage.getItem('tripID');
 
-    if(id==null){
+    if(id==null || id=="" || id=='undefined'){
       // Select Trip
       this.tripID = value.tripid;
+      if(value.tripid==null || value.tripid=="" || value.tripid=='undefined'){
+        this.tripActive = false;
+      }
       localStorage.setItem('tripID', this.tripID);
       this.tripActive = true;
     } else {

@@ -39,7 +39,8 @@ export class OwnercalculationComponent implements OnInit {
     //   });
     // }
     private fetchBoats() {
-      this.fetchBoatSubscriber = this.http.get('http://localhost:8000/portal/boat_list/')
+      let id = localStorage.getItem('id');
+      this.fetchBoatSubscriber = this.http.get('http://localhost:8000/portal/boatOwner_list/' + id + '/')
       .subscribe((responseData: any) => {
           console.log(responseData);
           this.loadedboats = responseData;

@@ -9,8 +9,7 @@
 }
 
 .body{
-    
-    background-color: #585858;
+    background-color: black;
     min-height: 100vh;
     font-family: 'century Gothic';
     font-weight: bold;
@@ -53,10 +52,10 @@
 }
 
 button {
-    background-color: white;
-    color: grey;
+    background-color: #666666;
+    color: white;
     border: none;
-    border-radius: 20px;
+    border-radius: 10px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -68,6 +67,10 @@ button {
     float: right;
     margin-right: 5%;
     margin-top: 30%;
+}
+
+img{
+    margin-left: 6%;
 }
 
 .content{
@@ -83,42 +86,47 @@ button {
 .btn-addfish{
     float: left;
     width: 30%;
-    padding: 4% 3%;
-    margin-left: 4%;
+    padding: 3% 2%;
+    border-radius: 10px;
+    background-color: #2baa24;
+    color: white;
+    margin-left: 6%;
     margin-right: 0%;
     margin-top: 0%;
+    margin-bottom: 1%;
 }
 
 .btn-history{
     float: right;
     width: 30%;
-    padding: 4% 3%;
+    padding: 3% 2%;
+    border-radius: 10px;
+    background-color: #2baa24;
+    color: white;
+    margin-right: 6%;
     margin-left: 0%;
-    margin-right: 4%;
     margin-top: 0%;
+    margin-bottom: 1%;
 }
   
 .fishname{
     color: white;
     font-weight: bold;
-    width: 80%;
+    width: 50%;
     text-align: center;
     font-size: 1em;
     font-weight: bold;
 }
 
 .list-group-item{
-    padding: 2%;
-    margin: 2px;
-    border-radius: 12px;
-    background-color: #1C2833;
+    background-color: #1a1a1a;
     color: white;
     border: none;
 }
 
-.row{
+/* .row{
     padding: 1%;
-}
+} */
 
 div .left{
     float: left;
@@ -141,7 +149,7 @@ div .right{
 }
 p.damagedFish{
     float: right;
-    color: #330000;
+    color: white;
     margin-right: 7px;
     margin-bottom: 2px;
 }
@@ -151,10 +159,15 @@ p.bdName{
     font-weight: normal;
     margin-top: 0px;
     margin-bottom: 0px;
-    width: 20%;
+    margin-right: 5%;
+    text-align: right;
+    width: 50%;
     float: right;
 }
+
 p {
     margin-top: 2%;
+    float: right;
+    margin-right: 10%;
     margin-bottom: 0px;
 }

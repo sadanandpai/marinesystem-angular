@@ -9,12 +9,12 @@
 }
 
 .body{
-    background-color: #585858;
-    min-height: 100vh;
-    font-family: 'century Gothic';
-    font-weight: bold;
+    background-color: black;
+    min-height: calc(100vh - 142px);
     position: relative;
     height: auto;
+    font-family: 'century Gothic';
+    font-weight: normal;
 }
 
 .backbtn{
@@ -51,35 +51,71 @@
     text-align: center;
 }
 
-select{
-    width: 40%;
-    margin: 0% 26%;
+
+p.username{
+    top: 0px;
+    float: right;
+    padding-right: 2%;
+    font-size: 1.5em;
+    color: whitesmoke;
 }
 
 button {
-    background-color: white;
-    color: grey;
+    background-color: #339933;
     border: none;
     border-radius: 20px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 1em;
-    font-weight: bold;
-    width: 40%;
+    font-weight: normal;
+    width: 25%;
+    height: 100px;
+    margin-left: 18%;
+}
+
+button.right{
+    float: right;
+    margin-right: 18%;
+    margin-left: 0%;
+}
+
+span.right{
+    float: right;
+    margin-right: 22%;
+    margin-left: 0%;
 }
 
 .btn-trip{
-    margin-left: 25%;
-    margin-right: 5%;
+    height: auto;
+    width: 40%;
+    border-radius: 8px;
+    color: white;
+    background-color: #2baa24;
+    margin: 0% 30%;
+    font-weight: bold;
+    text-transform: uppercase; 
+}
+
+select{
+    margin: 0% 16%;
+    width: 68%;
+}
+
+.btn-name{
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1em;
+    font-weight: bold;
+    margin-left: 18%;
+    margin-bottom: 10%;
 }
 
 .group-btn{
-    margin-top: 20px;
+    padding-top: 10%;
 }
-.btn-lg {
-    margin-left: 5%;
-    width: 40%;
-    margin-right: 5%;
-    margin-top: 5%;
-}
+
+

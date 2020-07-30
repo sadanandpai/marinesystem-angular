@@ -1,8 +1,12 @@
+div.row{
+  background-color: black;
+}
+
 .base {
-  background: darkslategray;
-  margin-top: 5vh;
-  border: 3px solid black;
-  width: 100%;
+  background: whitesmoke;
+    margin: 10% 0%;
+    width: 100%;
+    border: 1px solid whitesmoke;
 }
 
 .maindisplay {

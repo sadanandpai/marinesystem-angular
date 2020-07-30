@@ -4,7 +4,7 @@
     
     <form (ngSubmit)="onStartTrip(f)" #f="ngForm">
         <div class="form-group col-xs-12" *ngIf="tripActive != true">   
-            <label for="boat" class="btn-trip">{{"Select Boat" | translate}}</label>
+            <!-- <label for="boat" class="btn-trip">{{"Select Boat" | translate}}</label> -->
             <select id="boat" class="form-control" name="boatid" ngModel required>
                 <option *ngFor="let boat of loadedBoats" value="{{boat.id}}">{{boat.boatName}} ({{boat.boatNumber}})</option>
             </select>
@@ -13,27 +13,23 @@
             {{ tripActive ? "End trip" : "Start New Trip" }}
         </button>
     </form>
-    <div class="group-btn">
+    <!-- <div class="group-btn">
         <button (click)="onMyBoat()" class="btn btn-lg">{{ "My Boat" | translate }}</button>
         <button (click)="onAddCrew()" class="btn btn-lg">{{ "Add Crew" | translate }}</button>
         <button (click)="onAddExpense()" class="btn btn-lg" [disabled]="tripActive != true">{{ "Add Expenses" | translate }}</button>
         <button (click)="onAttendence()" class="btn btn-lg" [disabled]="tripActive != true">{{ "Attendence" | translate }}</button>
         <button (click)="onAuction()" class="btn btn-lg" [disabled]="tripActive != true">{{ "Auction Platform" | translate }}</button>
-        <!-- <a (click)="onMyBoat()" class="btn btn-lg">
-            <img src="../../assets/Images/.png"/>
-        </a>
-        <a (click)="onAddExpense()" class="btn btn-lg">
-            <img src="../../assets/Images/.png"/>
-        </a>
-        <a (click)="onAttendence()" class="btn btn-lg">
-            <img src="../../assets/Images/.png"/>
-        </a>
-        <a (click)="onAuction()" class="btn btn-lg">
-            <img src="../../assets/Images/.png"/>
-        </a> 
-        <a (click)="onAddCrew()" class="btn btn-lg">
-            <img src="../../assets/Images/.png"/>
-        </a> -->
+    </div> -->
+
+    <div class="group-btn">
+        <button (click)="onMyBoat()" class="btn btn-lg"><img src="../../assets/Images/ic_28.png" height="70%" width="80%" /></button>
+        <button (click)="onAddCrew()" class="btn btn-lg right"><img src="../../assets/Images/ic_29.png" height="70%" width="80%" /></button>
+        <br> <span class="btn-name" style="margin-left: 22%;">{{ "My Boat" | translate }}</span>
+        <span class="btn-name right">{{ "Add Crew" | translate }}</span> <br>
+        <button (click)="onAddExpense()" class="btn btn-lg" [disabled]="tripActive != true"><img src="../../assets/Images/ic_30.png" height="70%" width="80%" /></button>
+        <button (click)="onAttendence()" class="btn btn-lg right" [disabled]="tripActive != true"><img src="../../assets/Images/ic_31.png" height="70%" width="80%" /></button>
+        <br> <span class="btn-name">{{ "Add Expenses" | translate }}</span>
+        <span class="btn-name right">{{ "Attendence" | translate }}</span> <br>
     </div>
 </div>
     
