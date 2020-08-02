@@ -56,10 +56,6 @@ export class AuctionComponent implements OnInit, OnDestroy {
     this.router.navigate(['/fish']);
   }
 
-  onSubscriber(){
-    this.router.navigate(['/subscribe'])
-  }
-
   onClickHistory(){
     this.router.navigate(['/history']);
   }

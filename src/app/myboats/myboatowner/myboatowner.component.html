@@ -23,16 +23,31 @@
     
     </div> -->
     <div class="group-btn">
-        <button (click)="onMyBoat()" class="btn btn-lg"><img src="../../assets/Images/ic_18.png" height="70%" width="80%" /></button>
-        <button (click)="onAddBoat()" class="btn btn-lg right"><img src="../../assets/Images/ic_17.png" height="70%" width="100%" /></button>
-        <br> <span class="btn-name" style="margin-left: 22%;">{{ "My Boat" | translate }}</span>
-        <span class="btn-name right">{{ "Add Boat" | translate }}</span> <br>
+
+        <div class="row">
+            <div class="col">
+                <button (click)="onMyBoat()" class="btn btn-lg"><img src="../../assets/Images/ic_18.png" height="70%" width="80%" /></button>
+                <button (click)="onAddBoat()" class="btn btn-lg right"><img src="../../assets/Images/ic_17.png" height="70%" width="100%" /></button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <span class="btn-name" style="margin-left: 22%;">{{ "My Boat" | translate }}</span>
+                <span class="btn-name right">{{ "Add Boat" | translate }}</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
         <button (click)="onAddExpense()" class="btn btn-lg" [disabled]="tripActive != true"><img src="../../assets/Images/ic_19.png" height="80%" width="60%" /></button>
         <button (click)="onAuction()" class="btn btn-lg right" [disabled]="tripActive != true"><img src="../../assets/Images/ic_07.png" height="70%" width="70%" /></button>
-        <br> <span class="btn-name">{{ "Add Expenses" | translate }}</span>
-        <span class="btn-name right">{{ "Auction" | translate }}</span> <br>
-
-        
+         </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <span class="btn-name">{{ "Add Expenses" | translate }}</span>
+                <span class="btn-name right">{{ "Auction" | translate }}</span>
+            </div>
+        </div>
        
     </div>
 </div>

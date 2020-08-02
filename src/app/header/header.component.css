@@ -15,8 +15,6 @@ a .logo{
     margin-left: 5%;
 }
 
-
-
 .sidebar {
     height: 100%;
     width: 0;
@@ -24,7 +22,7 @@ a .logo{
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: #111;
+    background-color: rgba(0,0,0,0.95);
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
@@ -46,7 +44,7 @@ a .logo{
   }
   
   .sidebar .closebtn {
-    background-color: #111;
+    background-color: #000;
     color: white;
     position: absolute;
     border: none;
@@ -58,7 +56,7 @@ a .logo{
   .openbtn {
     font-size: 20px;
     cursor: pointer;
-    background-color: #111;
+    background-color: #000;
     color: white;
     padding: 10px 15px;
     border: none;
@@ -79,3 +77,8 @@ a .logo{
     .sidebar a {font-size: 18px;}
   }
   
+
+  svg{
+    float: right;
+    margin-top: 2%;
+  }

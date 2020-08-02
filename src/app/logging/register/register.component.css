@@ -20,7 +20,7 @@ select.ng-invalid.ng-touched{
 }
 
 .body{
-    background-color: #585858;
+    background-color: black;
     min-height: 100vh;
     margin-bottom: 10px;
     font-family: 'century Gothic';
@@ -73,7 +73,7 @@ button {
     display: inline-block;
     font-size: 18px;
     margin: 2% 10%;
-    border-radius: 20px;
+    border-radius: 10px;
     padding: 2px 25px;
     width: 80%;
   }
@@ -88,7 +88,7 @@ input{
     display: inline-block;
     font-size: 16px;
     margin: 2% 10%;
-    border-radius: 20px;
+    border-radius: 10px;
     padding: 2px 25px;
     font-weight: 500;
     width: 80%;

@@ -58,7 +58,7 @@ button {
     border-radius: 10px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
+    /* display: inline-block; */
     font-size: 12px;
     font-weight: bold;
     width: 70%;

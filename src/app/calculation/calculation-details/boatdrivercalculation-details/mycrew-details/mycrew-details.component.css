@@ -9,7 +9,7 @@
 }
 
 .body{
-    background-color: #585858;
+    background-color: black;
     min-height: 100vh;
     font-family: 'century Gothic';
     font-weight: bold;
@@ -72,7 +72,7 @@ button {
     background-color: white;
     color: grey;
     border: none;
-    border-radius: 20px;
+    border-radius: 10px;
     text-align: center;
     text-decoration: none;
     display: block;

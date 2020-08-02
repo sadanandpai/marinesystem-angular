@@ -63,6 +63,7 @@
 
   <div id="mySidebar" class="sidebar">
     <button class="closebtn" (click)="closeNav()">×</button>
+    <a routerLink="subscribe" *ngIf = "loggedIn == true && boatDriver != true">{{ "Subscribe" | translate }}</a>
     <a (click)="onClickLang()">{{ "Language" | translate }}</a>
     <a class="lan" (click)="useLanguage('ka')" *ngIf = "lang == true">Kannada</a>
     <a class="lan" (click)="useLanguage('en')" *ngIf = "lang == true">English</a>
@@ -72,7 +73,7 @@
     <a class="lan" (click)="useLanguage('te')" *ngIf = "lang == true">Telugu</a>
     <a routerLink="login" *ngIf = "loggedIn != true">{{ "Sign In" | translate }}</a>
     <a routerLink="register" *ngIf = "loggedIn != true">{{ "Register" | translate }}</a>
-    <a (click)="onClick()" routerLink="login" *ngIf = "loggedIn == true">{{ "LOGOUT" | translate }}</a>
+    <a (click)="onLogout()" routerLink="login" *ngIf = "loggedIn == true">{{ "LOGOUT" | translate }}</a>
   </div>
   
   <div id="main">
@@ -80,6 +81,11 @@
     <a routerLink="/">
       <img class="logo" src="../../assets/Images/Logo-01.png" alt="Logo" width="40%">
     </a>
+    <svg  routerLink="/" width="10%" height="15%" viewBox="0 0 16 16" class="bi bi-person-circle" fill="white" xmlns="http://www.w3.org/2000/svg">
+      <path d="M13.468 12.37C12.758 11.226 11.195 10 8 10s-4.757 1.225-5.468 2.37A6.987 6.987 0 0 0 8 15a6.987 6.987 0 0 0 5.468-2.63z"/>
+      <path fill-rule="evenodd" d="M8 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+      <path fill-rule="evenodd" d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z"/>
+    </svg>
   </div>
   
 

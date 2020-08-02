@@ -13,6 +13,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   loggedIn: boolean = false;
   loggingServiceSubscriber: any;
   lang: boolean;
+  boatDriver: boolean;
 
   constructor(private translate: TranslateService) { 
     translate.setDefaultLang('en');
@@ -27,9 +28,13 @@ export class HeaderComponent implements OnInit, OnDestroy {
         this.loggedIn = true;
       }
     });
+    let group = localStorage.getItem('group');
+    if(group=='BoatDriver') {
+      this.boatDriver=true;
+    }
   }
 
-  onClick(){
+  onLogout(){
     window.localStorage.clear();
   }
 

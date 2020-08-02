@@ -18,7 +18,7 @@
 
 .body{
     /* background-image: url("../../assets/Images/AddFishBG-01.jpg"); */
-    background-color: #585858;
+    background-color: black;
     min-height: 100vh;
     font-family: 'century Gothic';
     font-weight: bold;
@@ -69,7 +69,7 @@ button {
     display: inline-block;
     font-size: 18px;
     margin: 2% 10%;
-    border-radius: 20px;
+    border-radius: 10px;
     padding: 2px 25px;
     width: 80%;
   }
@@ -85,7 +85,7 @@ input{
     display: inline-block;
     font-size: 16px;
     margin: 0% 10%;
-    border-radius: 20px;
+    border-radius: 10px;
     padding: 2px 25px;
     font-weight: bold;
     width: 80%;
