@@ -149,9 +149,9 @@ export class TransactionComponent implements OnInit {
   // and also add salary of driver, writer and load/unload crew
   addAuctionAmount() {
     this.sum += this.winAmount;
-    // this.driverSalaryPercentage = Number((40*this.sum)/100);
+    // this.driverSalaryPercentage = Number((25*this.sum)/100);
     // this.writerSalaryPercentage = Number((5*this.sum)/100);
-    // this.crewSalaryPercentage = Number((25*this.sum)/100);
+    // this.crewSalaryPercentage = Number((1*this.sum)/100);
     // this.totalSalary = Number(this.driverSalaryPercentage) + Number(this.writerSalaryPercentage) + Number(this.crewSalaryPercentage);
     
     // console.log("driver SalaryPercentage " + this.driverSalaryPercentage);

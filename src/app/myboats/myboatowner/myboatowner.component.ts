@@ -32,11 +32,27 @@ export class MyboatownerComponent implements OnInit {
       this.tripActive = true;
       
     }
+    // this.trueTripListofParticularOwner();
 
     this.TripListTrue();
     
   }
 
+  /* trueTripListofParticularOwner() {
+    let id = localStorage.getItem('id');
+    this.tripSubscriber = this.http
+    .get('http://localhost:8000/portal/trueTripListofParticularOwner/' + id + '/')
+    .subscribe(
+      (responseData: any) => {
+        this.loadedTrip = responseData;
+        console.log(responseData);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+ */
   TripListTrue() {
     this.tripSubscriber = this.http
     .get('http://localhost:8000/portal/trip_list_true/')

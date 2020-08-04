@@ -1,7 +1,7 @@
 .errmsg{
-    color: orange;
+    color: #ff0000;
     font-family: 'century Gothic';
-    font-weight: 500;
+    font-weight: bold;
     font-size: 1em;
     display: inline-block;
     text-align: center;
@@ -12,7 +12,7 @@
     background-color: black;
     min-height: 100vh;
     font-family: 'century Gothic';
-    font-weight: bold;
+    /* font-weight: bold; */
     position: relative;
     height: auto;
 }
@@ -52,6 +52,7 @@
 }
 
 .contents{
+    overflow-y: auto;
     height: auto;
     background-color: #1C2833;
     color: white;
@@ -61,7 +62,7 @@
     text-decoration: none;
     display: inline-block;
     font-size: 1em;
-    font-weight: bold;
+    /* font-weight: bold; */
     width: 80%;
     padding: 3% 5%;
     margin: 2% 10%;
@@ -69,9 +70,11 @@
 
 .left{
     float: left;
+    font-weight: bold;
+    font-size: 1em;
 }
 
-p{
+span{
     display: inline-block;
     margin: 0%;
 }
@@ -83,10 +86,40 @@ button {
     border-radius: 10px;
     text-align: center;
     text-decoration: none;
-    display: inline;
+    /* display: inline-block; */
     font-size: 1em;
-    font-weight: bold;
+    /* font-weight: bold; */
     width: 30%;
-    padding: 3% 3%;
-    float: right;
+    padding: 2% 2%;
+    /* float: right; */
+}
+
+.row{
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.scroll{
+    width: 100%; 
+    max-height: 500px; 
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+input[type="number"] {
+    width: 100%;
+    margin: 4% 0%;
+  }
+
+hr {
+    border-top: 1px solid #ffffff26;
+}
+
+div.radio{
+    margin-top: 5%;
+    text-align: left;
+}
+
+.qty{
+    font-weight: normal;
 }

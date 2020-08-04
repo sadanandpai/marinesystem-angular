@@ -1,14 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router, ActivatedRoute } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-ownercalculation-details',
   templateUrl: './ownercalculation-details.component.html',
   styleUrls: ['./ownercalculation-details.component.css']
 })
-export class OwnercalculationDetailsComponent implements OnInit {
-
+export class OwnercalculationDetailsComponent implements OnInit, OnDestroy {
+  @ViewChild('f') boatForm: NgForm;
   fetchTripSubscriber: any;
   tripID: number;
   initialSubscriber: any;
@@ -32,8 +33,6 @@ maintainance: any
 totalOwner: any
 auctionTotal: any
 driverSalary: any
-loadUnloadSalary: any
-writerSalary: any
 totalSalary: any
   loadedExtracostOwner: any;
   fetchExtraCostBDSubscriber: any;
@@ -42,6 +41,13 @@ totalSalary: any
   sumOfExpenditure: number;
   profit: any;
   addProfitSubscriber: any;
+  deskUnloadCrewSalary: any;
+  dockUnloadCrewSalary: any;
+  bonus: any;
+  driverSalaryPercent: any;
+  addSalarySubscriber: any;
+  updateBonusSubscriber: any;
+  errmsg: boolean;
 
 
   constructor(private http: HttpClient,
@@ -62,7 +68,7 @@ totalSalary: any
     }
 
     calculateProfit(){
-      this.sumOfExpenditure = Number(this.totalSalary) + Number(this.totalOwner);
+      this.sumOfExpenditure = Number(this.totalSalary) + Number(this.totalOwner) + Number(this.bonus);
       this.profit = Number(this.auctionTotal) - Number(this.sumOfExpenditure);
 
       let headers = new HttpHeaders({
@@ -102,8 +108,9 @@ totalSalary: any
           this.totalOwner = responseData.totalOwner;
           this.auctionTotal = responseData.auctionTotal;
           this.driverSalary = responseData.driverSalary;
-          this.loadUnloadSalary = responseData.loadUnloadSalary;
-          this.writerSalary = responseData.writerSalary;
+          this.deskUnloadCrewSalary = responseData.deskUnloadCrewSalary;
+          this.dockUnloadCrewSalary = responseData.dockUnloadCrewSalary;
+          this.bonus = responseData.bonus;
           this.totalSalary = responseData.totalSalary;
           this.profit = responseData.Profit;
       });
@@ -126,6 +133,74 @@ totalSalary: any
       });
     }
 
+    salary(form: NgForm){
+      const value = form.value;
+      if(value.driverSalary > 100){
+        this.errmsg = true;
+      } else {
+        this.errmsg = false;
+        this.driverSalary = Number((this.auctionTotal * value.driverSalary)/100);
+      }
+      if(value.optradio == 'percent') {
+        if(value.unloadCrewSalary > 100){
+          this.errmsg = true
+        } else {
+          this.errmsg = false;
+          this.deskUnloadCrewSalary = Number((this.auctionTotal * value.unloadCrewSalary)/100);
+          this.dockUnloadCrewSalary = Number((this.auctionTotal * value.unloadCrewSalary)/100);
+        }
+      } else if(value.optradio == 'lumpsum') {
+        this.deskUnloadCrewSalary = Number(value.unloadCrewSalary);
+        this.dockUnloadCrewSalary = Number(value.unloadCrewSalary);
+      } else {
+        this.deskUnloadCrewSalary = Number(value.unloadCrewSalary);
+        this.dockUnloadCrewSalary = Number(value.unloadCrewSalary);
+      }
+      this.totalSalary = Number(this.driverSalary) + Number(this.deskUnloadCrewSalary * 2);
+      this.bonus = Number(this.driverSalary/this.crewCount);
+
+      let headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Token ' + localStorage.getItem('token')
+      });
+      const data = {
+        driverSalary: this.driverSalary, 
+        deskUnloadCrewSalary: this.deskUnloadCrewSalary, 
+        dockUnloadCrewSalary: this.dockUnloadCrewSalary, 
+        totalSalary: this.totalSalary, 
+        bonus: this.bonus, 
+      };
+      this.addSalarySubscriber = this.http.patch('http://localhost:8000/portal/trip_detail/' + this.tripID + '/', data, { headers : headers })
+      .subscribe((responseData: any) => {
+          console.log(responseData);
+        this.driverSalary = responseData.driverSalary;
+        this.deskUnloadCrewSalary = responseData.deskUnloadCrewSalary;
+        this.dockUnloadCrewSalary = responseData.dockUnloadCrewSalary;
+        this.totalSalary = responseData.totalSalary;
+        this.bonus = responseData.bonus;
+      });
+    }
+
+    calculateBonus(){
+      this.bonus = Number(this.driverSalary/this.crewCount);
+      this.sumOfExpenditure = Number(this.totalSalary) + Number(this.totalOwner) + Number(this.bonus);
+      this.profit = Number(this.auctionTotal) - Number(this.sumOfExpenditure);
+
+      let headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Token ' + localStorage.getItem('token')
+      });
+      const data = {
+        bonus: this.bonus, 
+        profit: this.profit, 
+      };
+      this.updateBonusSubscriber = this.http.patch('http://localhost:8000/portal/trip_detail/' + this.tripID + '/', data, { headers : headers })
+      .subscribe((responseData: any) => {
+        console.log(responseData);
+        this.bonus = responseData.bonus;
+      });
+    }
+
     ngOnDestroy() {
       if(this.fetchTripSubscriber){
         this.fetchTripSubscriber.unsubscribe();
@@ -142,6 +217,13 @@ totalSalary: any
       if(this.addProfitSubscriber){
         this.addProfitSubscriber.unsubscribe();
       }
+      if(this.addSalarySubscriber){
+        this.addSalarySubscriber.unsubscribe();
+      }
+      if(this.updateBonusSubscriber){
+        this.updateBonusSubscriber.unsubscribe();
+      }
+
     }
 
   }
