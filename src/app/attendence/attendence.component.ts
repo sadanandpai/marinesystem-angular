@@ -69,7 +69,7 @@ export class AttendenceComponent implements OnInit {
   }
 
   onAddCrew(){
-    this.router.navigate(['/addmembers'])
+    this.router.navigate(['/addmembers']);
   }
 
   addAttendence(form: NgForm) {
@@ -109,6 +109,7 @@ export class AttendenceComponent implements OnInit {
           console.log(responseData);
           this.success = true;
           form.reset();
+          this.router.navigate(['/myboats'])
         },
         (error) => {
           console.log(error);

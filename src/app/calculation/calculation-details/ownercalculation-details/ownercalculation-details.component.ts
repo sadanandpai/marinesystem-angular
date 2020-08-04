@@ -48,6 +48,7 @@ totalSalary: any
   addSalarySubscriber: any;
   updateBonusSubscriber: any;
   errmsg: boolean;
+  seasonID: any;
 
 
   constructor(private http: HttpClient,
@@ -76,7 +77,7 @@ totalSalary: any
         'Authorization': 'Token ' + localStorage.getItem('token')
       });
       const data = {
-        Profit: this.profit, 
+        Profit: Math.round(this.profit), 
       };
       this.addProfitSubscriber = this.http.patch('http://localhost:8000/portal/trip_detail/' + this.tripID + '/', data, { headers : headers })
       .subscribe((responseData: any) => {
@@ -90,6 +91,7 @@ totalSalary: any
       .subscribe((responseData: any) => {
           console.log(responseData);
           this.trip = responseData.id;
+          this.seasonID = responseData.seasonId;
           this.boat = responseData.boat;
           this.crewCount = responseData.crewCount;
           this.driver = responseData.driver;
@@ -164,11 +166,11 @@ totalSalary: any
         'Authorization': 'Token ' + localStorage.getItem('token')
       });
       const data = {
-        driverSalary: this.driverSalary, 
-        deskUnloadCrewSalary: this.deskUnloadCrewSalary, 
-        dockUnloadCrewSalary: this.dockUnloadCrewSalary, 
-        totalSalary: this.totalSalary, 
-        bonus: this.bonus, 
+        driverSalary: Math.round(this.driverSalary), 
+        deskUnloadCrewSalary: Math.round(this.deskUnloadCrewSalary), 
+        dockUnloadCrewSalary: Math.round(this.dockUnloadCrewSalary), 
+        totalSalary: Math.round(this.totalSalary), 
+        bonus: Math.round(this.bonus), 
       };
       this.addSalarySubscriber = this.http.patch('http://localhost:8000/portal/trip_detail/' + this.tripID + '/', data, { headers : headers })
       .subscribe((responseData: any) => {
@@ -191,8 +193,8 @@ totalSalary: any
         'Authorization': 'Token ' + localStorage.getItem('token')
       });
       const data = {
-        bonus: this.bonus, 
-        profit: this.profit, 
+        bonus: Math.round(this.bonus), 
+        profit: Math.round(this.profit), 
       };
       this.updateBonusSubscriber = this.http.patch('http://localhost:8000/portal/trip_detail/' + this.tripID + '/', data, { headers : headers })
       .subscribe((responseData: any) => {

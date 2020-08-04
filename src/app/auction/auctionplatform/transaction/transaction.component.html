@@ -4,10 +4,14 @@
     <div class="row">
         <div class="contents">
             <div class="col-xs-12 col-md-12 col-lg-12 col-md-offset-3">
-                <h6 class="fishname">{{ fishname[fishid] }}</h6>
-                <span *ngIf="damaged == true">{{ "(Damaged)" | translate }}</span>
+                <div class="row">
+                    <h6 class="fishname">{{ fishname[fishid] }}</h6>
+                    <span *ngIf="damaged == true">{{ "(Damaged)" | translate }}</span>
+                </div>
                 <hr>
-                <h3 class="left">{{ winnerName }}</h3> <h3>{{ winAmount }}</h3>
+                <div class="row">
+                    <h3 class="left">{{ winnerName }}</h3> <h3>{{ winAmount }}</h3>
+                </div>
                 <hr>
                 <form (ngSubmit)="quoteDetails(f)" #f="ngForm">
                     <div class="scroll">

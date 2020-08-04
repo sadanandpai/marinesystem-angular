@@ -17,6 +17,8 @@ export class MyboatdriverComponent implements OnInit {
   loadedBoats: any;
   disable: boolean;
   tripActive: boolean;
+  fetchSeasonIDSubscriber: any;
+  seasonID: any;
 
   constructor(private http: HttpClient,
     private router: Router,
@@ -35,13 +37,13 @@ export class MyboatdriverComponent implements OnInit {
         this.msg = true;
       }
     );
+
     var id = localStorage.getItem('tripID');
     console.log(id);
     if(id==null || id=="" || id==undefined){
       this.tripActive  = false;
     } else {
       this.tripActive = true;
-      
     }
   }
 
@@ -52,38 +54,54 @@ export class MyboatdriverComponent implements OnInit {
   onStartTrip(form: NgForm){
     const value = form.value;
     var id = localStorage.getItem('tripID');
-    if(id==null || id=="" || id==undefined){   
-    const data = {
-      boat: value.boatid,
-    };
-    // debugger
-    console.log(value);
+    let boat = value.boatid;
     let headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': 'Token ' + localStorage.getItem('token')
     });
-    // debugger
-    this.addTripSubscriber = this.http
-      .post('http://localhost:8000/portal/trip_list/', data, { headers: headers })
+    this.fetchSeasonIDSubscriber = this.http
+      .get('http://localhost:8000/portal/boat_season_true/' + boat + '/')
       .subscribe(
         (responseData: any) => {
-          this.tripId = responseData.id;
           console.log(responseData);
-          localStorage.setItem('tripID', this.tripId);
-          console.log(window.localStorage);
-          this.tripActive = true;
-        },
-        (error) => {
-          console.log(error);
-          this.msg = true;
-        }
-      );
-    } else {
-      localStorage.removeItem('tripID');
-      this.tripActive = false;
-    }
+          // got seasonID here
+          this.seasonID = responseData[0].id;
+          console.log(this.seasonID);
+          // check for trip id null or not 
+          if(id==null || id=="" || id==undefined) {  
+            // if null then create trip 
+            const data = {
+              boat: value.boatid,
+              seasonId: this.seasonID,
+            };
+            console.log(value);
 
+            this.addTripSubscriber = this.http
+              .post('http://localhost:8000/portal/trip_list/', data, { headers: headers })
+              .subscribe(
+                (responseData: any) => {
+                  this.tripId = responseData.id;
+                  console.log(responseData);
+                  localStorage.setItem('tripID', this.tripId);
+                  console.log(window.localStorage);
+                  this.tripActive = true;
+                },
+                (error) => {
+                  console.log(error);
+                  this.msg = true;
+              });
+          } else {
+            // if tripID not null then end current active trip
+            localStorage.removeItem('tripID');
+            this.tripActive = false;
+            }
+      },
+      (error) => {
+      console.log(error);
+    });
   }
+
+
   onMyBoat(){
     this.router.navigate(['/calculation']);
   }

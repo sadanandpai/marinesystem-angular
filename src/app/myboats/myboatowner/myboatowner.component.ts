@@ -2,6 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router, ActivatedRoute } from '@angular/router';
 import { NgForm } from '@angular/forms';
+import { NodeWithI18n } from '@angular/compiler';
+import { getLocaleDateTimeFormat } from '@angular/common';
 
 @Component({
   selector: 'app-myboatowner',
@@ -14,11 +16,18 @@ export class MyboatownerComponent implements OnInit {
   tripID: any;
   tripSubscriber: any;
   loadedTrip: any;
-  disable: boolean;
+  // disable: boolean;
   tripActive: boolean;
   TripStatusSubscriber: any;
   loadedBoat: any;
   boatSubscriber: any;
+  seasonActive: boolean;
+  notrips: boolean;
+  tripsCount: number;
+  seasonStatusCheckSubscriber: any;
+  seasonID: any;
+  endSeasonUpdateSubscriber: any;
+  StartSeasonCreateSubscriber: any;
 
   constructor(private http: HttpClient,
     private router: Router,
@@ -35,7 +44,89 @@ export class MyboatownerComponent implements OnInit {
     // this.trueTripListofParticularOwner();
 
     this.TripListTrue();
+
+    // fetch owners Season which is active
+    let owner = Number(localStorage.getItem('id'));
+    this.fetchSeasonTrue(owner);
     
+  }
+
+  fetchSeasonTrue(owner: number) {
+    // fetch owners Season details, which is active
+    // if no active Season then seasonActive==flase else true
+
+    this.seasonStatusCheckSubscriber = this.http
+    .get('http://localhost:8000/portal/season_true/' + owner + '/')
+    .subscribe(
+      (responseData: any) => {
+        console.log(responseData);
+        if(responseData.length==0 || responseData.length==null || responseData.length==undefined){
+          this.seasonActive=false;
+        } else {
+          this.seasonActive=true;
+          this.seasonID=responseData[responseData.length-1].id;
+          localStorage.setItem('seasonID', this.seasonID);
+          console.log('seasonID is:: ' + this.seasonID);
+        }
+        
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+    
+  }
+
+  endSeason(){
+    // Update - seasonStatus=false, endDate=now.dateTime, 
+    const data = {
+      endDate: Date(),
+      owner: localStorage.getItem('id'),
+      seasonStatus: false,
+    }
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Token ' + localStorage.getItem('token')
+    });
+    this.endSeasonUpdateSubscriber = this.http
+    .patch('http://localhost:8000/portal/season/' + this.seasonID +'/', data, )
+    .subscribe(
+      (responseData: any) => {
+        console.log(responseData);
+        this.seasonActive=false;
+        localStorage.removeItem('seasonID');
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  startSeason(){
+    // along with owner add new season start Date & status will take default values
+    const data = {
+      owner: localStorage.getItem('id'),
+      startDate: Date(),
+      seasonStatus: true,
+    }
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Token ' + localStorage.getItem('token')
+    });
+    this.StartSeasonCreateSubscriber = this.http
+    .post('http://localhost:8000/portal/season/', data, )
+    .subscribe(
+      (responseData: any) => {
+        console.log(responseData);
+        this.seasonActive=true;
+        this.seasonID=responseData.id;
+        localStorage.setItem('seasonID', this.seasonID);
+        console.log('seasonID is:: ' + this.seasonID);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 
   /* trueTripListofParticularOwner() {
@@ -46,6 +137,11 @@ export class MyboatownerComponent implements OnInit {
       (responseData: any) => {
         this.loadedTrip = responseData;
         console.log(responseData);
+        // check notrips, responseData.length==0
+        this.tripsCount=responseData.length;
+        if(this.tripsCount==0 || this.tripsCount==null || this.tripsCount==undefined){
+          this.notrips=true;
+        }
       },
       (error) => {
         console.log(error);
@@ -60,6 +156,11 @@ export class MyboatownerComponent implements OnInit {
       (responseData: any) => {
         this.loadedTrip = responseData;
         console.log(responseData);
+        // check notrips, responseData.length==0
+        this.tripsCount=responseData.length;
+        if(this.tripsCount==0 || this.tripsCount==null || this.tripsCount==undefined){
+          this.notrips=true;
+        }
         // checkOwner of trip, show only current owners trip (using Boat ID)
       },
       (error) => {
@@ -149,6 +250,20 @@ export class MyboatownerComponent implements OnInit {
   }
 
   ngOnDestroy() {
-    
+      if(this.TripStatusSubscriber){
+        this.TripStatusSubscriber.unsubscribe();
+      }
+      if(this.boatSubscriber){
+        this.boatSubscriber.unsubscribe();
+      }
+      if(this.seasonStatusCheckSubscriber) {
+        this.seasonStatusCheckSubscriber.unsubscribe();
+      }
+      if(this.endSeasonUpdateSubscriber) {
+        this.endSeasonUpdateSubscriber.unsubscribe();
+      }
+      if(this.StartSeasonCreateSubscriber) {
+        this.StartSeasonCreateSubscriber.unsubscribe();
+      }
   }  
 }
