@@ -37,15 +37,12 @@ export class AdvanceHistoryComponent implements OnInit, OnDestroy {
     }
 
     onClick(){
-        this.router.navigate(['/advance']);
-    }
-
-    onViewMore(id: any){
-      // this.router.navigate(['/history', id]);
+      let id = this.boatID;
+        this.router.navigate(['/advance', id]);
     }
   
     private fetchAdvance() {
-      this.fetchAdvaceSubscriber = this.http.get('http://localhost:8000/portal//')
+      this.fetchAdvaceSubscriber = this.http.get('http://localhost:8000/portal/advance/' + this.boatID + '/')
       .subscribe((responseData: any) => {
           console.log(responseData);
           this.loadedadvance = responseData;

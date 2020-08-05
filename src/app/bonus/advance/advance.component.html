@@ -14,36 +14,35 @@
     <span class="help-block errmsg" *ngIf="msg == true">{{ "Failed to add Try again!" | translate }}</span>
 
   <div class="form-group col-xs-12">
-    <label for="amt">{{ "Advance Amount" | translate }}</label>
+    <label for="advance">{{ "Advance Amount" | translate }}</label>
     <!-- <div class="input-group mb-3"> -->
       <input 
-      type="number" 
-      class="form-control" 
-      id="amt" 
-      placeholder="Amount" 
-      name="amt"
-      ngModel 
-      required 
-      #amt="ngModel"
-      />
+        type="number" 
+        class="form-control" 
+        id="advance" 
+        placeholder="Amount" 
+        name="advance"
+        ngModel 
+        required 
+        #advance="ngModel"
+      >
     <!-- </div> -->
-    <span class="help-block errmsg" *ngIf="!amt.valid && amt.touched">{{
+    <span class="help-block errmsg" *ngIf="!advance.valid && advance.touched">{{
       "Please Enter a valid Amount!" | translate
     }}</span>
   </div>
 
   <div class="form-group col-xs-12">
-    <label for="cmt">{{ "Comment" | translate }}</label>
+    <label for="comment">{{ "Comment" | translate }}</label>
     <!-- <div class="input-group mb-3"> -->
-      <textarea 
-      type="text" 
-      class="form-control" 
-      id="cmt" 
-      placeholder="Type here..." 
-      name="cmt"
-      ngModel 
-      #cmt="ngModel"
-      ></textarea>
+      <input 
+        type="text" 
+        class="form-control" 
+        id="comment" 
+        placeholder="Type here..." 
+        name="comment"
+        ngModel 
+      >
     <!-- </div> -->
   </div>
 

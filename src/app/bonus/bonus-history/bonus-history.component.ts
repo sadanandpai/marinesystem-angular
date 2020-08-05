@@ -37,7 +37,8 @@ export class BonusHistoryComponent implements OnInit {
     }
 
     onClick(){
-        this.router.navigate(['/bonus']);
+      let id = this.boatID;
+      this.router.navigate(['/bonus', id]);
     }
 
     onViewMore(id: any){

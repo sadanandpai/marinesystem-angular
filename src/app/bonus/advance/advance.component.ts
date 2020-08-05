@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -15,6 +15,9 @@ export class AdvanceComponent implements OnInit, OnDestroy {
   boatOwner: boolean;
   initialSubscriber: any;
   boatID: number;
+  seasonID: any;
+  fetchSeasonIDSubscriber: any;
+  addAdvanceSubscriber: any;
   constructor(private http: HttpClient,
     private router: Router,
     private route: ActivatedRoute,) { }
@@ -28,21 +31,61 @@ export class AdvanceComponent implements OnInit, OnDestroy {
     if (data=='BoatOwner'){
       this.boatOwner=true;
     } 
+    this.fetchSeasonID();
   }
 
   onClick(){
-    this.router.navigate(['/bonus']);
+    let id = this.boatID;
+    this.router.navigate(['/bonus', id]);
   }
 
   onHistory(){
-    this.router.navigate(['/advancehistory']);
+    let id = this.boatID;
+    this.router.navigate(['/advancehistory', id]);
+  }
+
+  private fetchSeasonID() {
+    this.fetchSeasonIDSubscriber = this.http.get('http://localhost:8000/portal/boat_season_true/' + this.boatID + '/')
+    .subscribe((responseData: any) => {
+        console.log(responseData);
+        this.seasonID = responseData[0].id;
+    });
   }
 
   addAdvance(form: NgForm){
+    const value = form.value;
+    const data = {
+      boat: this.boatID,
+      season: this.seasonID,
+      advance: value.advance,
+      comment: value.comment,  
+    };
 
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Token ' + localStorage.getItem('token')
+    });
+    this.addAdvanceSubscriber = this.http
+      .post('http://localhost:8000/portal/advance/', data, { headers: headers })
+      .subscribe(
+        (responseData: any) => {
+          this.success= true;
+          this.msg = false;
+          form.reset();
+          console.log(responseData);
+        },
+        (error) => {
+          console.log(error);
+          this.msg = true;
+          this.success= false;
+        }
+      );
   }
 
  ngOnDestroy() {
+   if(this.addAdvanceSubscriber){
+     this.addAdvanceSubscriber.unsubscribe();
+   }
 
   }
 }

@@ -56,9 +56,9 @@ const routes: Routes = [
   { path: 'mycrew/:id', component: MycrewDetailsComponent },
   { path: 'subscribe', component: SubscribeComponent },
   { path: 'bonus/:id', component: BonusComponent },
-  { path: 'advance', component: AdvanceComponent },
-  { path: 'bonushistory', component: BonusHistoryComponent },
-  { path: 'advancehistory', component: AdvanceHistoryComponent },
+  { path: 'advance/:id', component: AdvanceComponent },
+  { path: 'bonushistory/:id', component: BonusHistoryComponent },
+  { path: 'advancehistory/:id', component: AdvanceHistoryComponent },
   
 ];
 

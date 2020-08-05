@@ -52,11 +52,13 @@ export class BonusComponent implements OnInit {
     }
 
     onBonusHistory(){
-      this.router.navigate(['/bonushistory']);
+      let id = this.boatID;
+      this.router.navigate(['/bonushistory', id]);
     }
 
     onAddAdvance(){
-      this.router.navigate(['/advance']);
+      let id = this.boatID;
+      this.router.navigate(['/advance', id]);
     }
   
     private fetchSeasonID() {
@@ -104,6 +106,9 @@ export class BonusComponent implements OnInit {
     }
 
     ngOnDestroy() {
+      if(this.initialSubscriber){
+        this.initialSubscriber.unsubscribe();
+      }
       if(this.fetchAdvaceSubscriber){
         this.fetchAdvaceSubscriber.unsubscribe();
       }

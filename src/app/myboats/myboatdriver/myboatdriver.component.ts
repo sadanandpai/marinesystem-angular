@@ -59,6 +59,9 @@ export class MyboatdriverComponent implements OnInit {
       'Content-Type': 'application/json',
       'Authorization': 'Token ' + localStorage.getItem('token')
     });
+    // check for trip id null or not 
+    if(id==null || id=="" || id==undefined) { 
+      // Start Trip
     this.fetchSeasonIDSubscriber = this.http
       .get('http://localhost:8000/portal/boat_season_true/' + boat + '/')
       .subscribe(
@@ -67,9 +70,8 @@ export class MyboatdriverComponent implements OnInit {
           // got seasonID here
           this.seasonID = responseData[0].id;
           console.log(this.seasonID);
-          // check for trip id null or not 
-          if(id==null || id=="" || id==undefined) {  
-            // if null then create trip 
+           
+            // Got SeasonID now create Trip 
             const data = {
               boat: value.boatid,
               seasonId: this.seasonID,
@@ -90,15 +92,17 @@ export class MyboatdriverComponent implements OnInit {
                   console.log(error);
                   this.msg = true;
               });
+            },
+            (error) => {
+            console.log(error);
+          });
           } else {
+            // End Trip
             // if tripID not null then end current active trip
             localStorage.removeItem('tripID');
             this.tripActive = false;
             }
-      },
-      (error) => {
-      console.log(error);
-    });
+     
   }
 
 
