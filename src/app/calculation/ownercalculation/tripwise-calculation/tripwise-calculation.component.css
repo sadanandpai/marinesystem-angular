@@ -68,9 +68,9 @@ button {
 
 
 .list-group-item{
-    padding: 2%;
+    padding: 2% 10%;
     margin: 2px;
-    border-radius: 12px;
+    /* border-radius: 12px; */
     background-color: #1C2833;
     color: white;
     border: none;
@@ -87,10 +87,6 @@ button {
 .inline-para p{
     display: inline-block;
     margin: 0%;
-}
-
-.row{
-    padding: 3%;
 }
 
 .scroll{

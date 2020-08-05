@@ -1,0 +1,32 @@
+<div class="body" *ngIf="boatowner == true">
+    <a (click)="onClick()" class="btn backbtn"><i class="arrow"></i><i class="line"></i></a>
+    <h3 class="header">{{"Bonus Details" | translate}}</h3>
+
+    <div class="row">
+        <button (click)="onAddAdvance()" class="btn btn-sm btn-addadvance">
+            {{ "Add Advance" | translate }}
+          </button>
+        <button (click)="onBonusHistory()" class="btn btn-sm btn-history">
+            {{ "Bonus History" | translate }}
+          </button>
+    </div>
+
+ <div class="scroll">
+    <div class="row">
+        <div class="col-xs-12 col-md-12 col-lg-12 col-md-offset-3">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <p>{{ "Boat ID" | translate }} <span class="right"> {{ boat }}</span> </p>
+                    <p>{{ "Season ID" | translate }} <span class="right"> {{ season }}</span> </p>
+                    <p>{{ "Bonus" | translate }} <span class="right"> Rs. {{ bonus }}</span> </p>
+                    <p>{{ "Advance" | translate }} <span class="right"> Rs. {{ advance }}</span> </p>
+                    <hr>
+                    <p>{{ "Total" | translate }} <span class="right">  {{ total }}</span> </p>
+                </li>
+            </ul>
+        </div>
+    </div>
+ </div>
+
+
+</div>

@@ -25,6 +25,10 @@ import { TripwiseCalculationComponent } from './calculation/ownercalculation/tri
 import { MycrewDetailsComponent } from './calculation/calculation-details/boatdrivercalculation-details/mycrew-details/mycrew-details.component';
 import { CustomerAuctionplatformComponent } from './auction/customer-auctionplatform/customer-auctionplatform.component';
 import { SubscribeComponent } from './subscribe/subscribe.component';
+import { BonusComponent } from './bonus/bonus.component';
+import { AdvanceComponent } from './bonus/advance/advance.component';
+import { AdvanceHistoryComponent } from './bonus/advance/advance-history/advance-history.component';
+import { BonusHistoryComponent } from './bonus/bonus-history/bonus-history.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -51,6 +55,10 @@ const routes: Routes = [
   { path: 'trips/:id', component: TripwiseCalculationComponent },
   { path: 'mycrew/:id', component: MycrewDetailsComponent },
   { path: 'subscribe', component: SubscribeComponent },
+  { path: 'bonus', component: BonusComponent },
+  { path: 'advance', component: AdvanceComponent },
+  { path: 'bonushistory', component: BonusHistoryComponent },
+  { path: 'advancehistory', component: AdvanceHistoryComponent },
   
 ];
 

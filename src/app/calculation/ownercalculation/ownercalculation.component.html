@@ -10,14 +10,20 @@
                 <li class="list-group-item">
                     <div class="row">
                         <div class="col-xs-12 col-md-12 col-lg-12 col-md-offset-3 inline-para">
-                            <!-- <span style="float: right;">{{ boat.createdDate }}</span> -->
-                            <p class="left">{{ "Boat Name" | translate }}</p> <p class="right">{{ boat.boatName }}</p>
-                            <br>
-                            <p class="left">{{ "Boat Number" | translate }}</p> <p class="right">{{ boat.boatNumber }}</p>
-                            <br>
-                            <!-- <p class="left" *ngIf="boat.description != null">{{ "Description" | translate }}</p> <p class="right" *ngIf="boat.description != null">{{ boat.discription }}</p>
-                            <br> -->
-                            <button (click)="onViewTrips(boat.id)" class="btn btn-sm">{{ "View Trips" | translate }}</button>
+                        
+                            <div class="row">
+                                <!-- <span style="float: right;">{{ boat.createdDate }}</span> -->
+                                <p class="left">{{ "Boat Name" | translate }}</p> <p class="right">{{ boat.boatName }}</p>
+                            </div>
+                            <div class="row">
+                                <p class="left">{{ "Boat Number" | translate }}</p> <p class="right">{{ boat.boatNumber }}</p>
+                            </div>
+                            <div class="row">
+                                <!-- <p class="left" *ngIf="boat.description != null">{{ "Description" | translate }}</p> <p class="right" *ngIf="boat.description != null">{{ boat.discription }}</p>
+                                <br> -->
+                                <button (click)="onViewTrips(boat.id)" class="btn btn-sm">{{ "View Trips" | translate }}</button>
+                                <button (click)="onBonus(boat.id)" class="btn btn-sm left">{{ "Bonus / Advance" | translate }}</button>
+                            </div>
                         </div>
                     </div>
                 </li>

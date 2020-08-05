@@ -59,39 +59,60 @@ button {
     text-align: center;
     text-decoration: none;
     display: block;
-    font-size: 1em;
+    font-size: 12px;
     font-weight: bold;
-    width: 40%;
-    padding: 2% 1%;
+    width: 70%;
+    padding: 5% 10%;
     float: right;
   }
 
+.btn-history{
+    background-color: green;
+    color: white;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1em;
+    border-radius: 10px;
+    padding: 7px 10px;
+    margin: 5%;
+    margin-top: 0%;
+    float: right;
+    width: 30%;
+}
+
+.btn-addadvance{
+    background-color: green;
+    color: white;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1em;
+    border-radius: 10px;
+    padding: 7px 10px;
+    margin: 5%;
+    margin-top: 0%;
+    float: left;
+    width: 30%;
+}
 
 .list-group-item{
-    margin: 0%;
+    /* border-radius: 10px; */
     background-color: #1C2833;
     color: white;
-    padding: 2% 9%;
-    line-height: 2em;
+    padding-left: 5%;
     border: none;
 }
 
-.left{
-    float: left;
-}
-
-.right{
+span.right{
     float: right;
 }
 
-.inline-para p{
-    display: inline-block;
-    margin: 0%;
+hr {
+    border-top: 1px solid #ffffff26;
 }
-
-/* .row{
-    padding: 3%;
-} */
 
 .scroll{
     width: 100%; 
@@ -99,6 +120,3 @@ button {
     overflow: scroll;
     overflow-x: hidden; 
 }
-
-
-

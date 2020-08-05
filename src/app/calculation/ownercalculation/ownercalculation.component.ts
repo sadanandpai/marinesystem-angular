@@ -30,6 +30,10 @@ export class OwnercalculationComponent implements OnInit {
       this.router.navigate(['/trips', id])
     }
 
+    onBonus(id: any){
+      this.router.navigate(['/bonus']);
+    }
+
     // private fetchTrips() {
     //   let id = localStorage.getItem('id')
     //   this.fetchTripSubscriber = this.http.get('http://localhost:8000/portal/tripBD_list/' + id + '/')

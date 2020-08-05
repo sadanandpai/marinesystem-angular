@@ -45,6 +45,10 @@ import { CustomerAuctionplatformComponent } from './auction/customer-auctionplat
 import { SubscribeComponent } from './subscribe/subscribe.component';
 import { CustomerComponent } from './subscribe/customer/customer.component';
 import { OwnerComponent } from './subscribe/owner/owner.component';
+import { BonusComponent } from './bonus/bonus.component';
+import { AdvanceComponent } from './bonus/advance/advance.component';
+import { BonusHistoryComponent } from './bonus/bonus-history/bonus-history.component';
+import { AdvanceHistoryComponent } from './bonus/advance/advance-history/advance-history.component';
 
 
 // AoT requires an exported function for factories
@@ -91,6 +95,10 @@ export function HttpLoaderFactory(http: HttpClient) {
     SubscribeComponent,
     CustomerComponent,
     OwnerComponent,
+    BonusComponent,
+    AdvanceComponent,
+    BonusHistoryComponent,
+    AdvanceHistoryComponent,
   ],
   imports: [
     BrowserModule,

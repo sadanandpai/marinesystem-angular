@@ -59,39 +59,28 @@ button {
     text-align: center;
     text-decoration: none;
     display: block;
-    font-size: 1em;
+    font-size: 12px;
     font-weight: bold;
-    width: 40%;
-    padding: 2% 1%;
+    width: 70%;
+    padding: 5% 10%;
     float: right;
   }
 
-
 .list-group-item{
-    margin: 0%;
+    /* border-radius: 10px; */
     background-color: #1C2833;
     color: white;
-    padding: 2% 9%;
-    line-height: 2em;
+    padding-left: 5%;
     border: none;
 }
 
-.left{
-    float: left;
-}
-
-.right{
+span.right{
     float: right;
 }
 
-.inline-para p{
-    display: inline-block;
-    margin: 0%;
+hr {
+    border-top: 1px solid #ffffff26;
 }
-
-/* .row{
-    padding: 3%;
-} */
 
 .scroll{
     width: 100%; 

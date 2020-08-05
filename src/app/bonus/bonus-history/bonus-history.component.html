@@ -1,0 +1,24 @@
+<div class="body" *ngIf="boatowner == true">
+    <a (click)="onClick()" class="btn backbtn"><i class="arrow"></i><i class="line"></i></a>
+    <h3 class="header">{{"Bonus History" | translate}}</h3>
+
+ <div class="scroll">
+    <div class="row">
+        <div class="col-xs-12 col-md-12 col-lg-12 col-md-offset-3">
+            <p class="errmsg" *ngIf="loadedbonus == null">{{ "No History Available" | translate }}</p>
+            <ul class="list-group" *ngFor="let bonus of loadedbonus">
+                <li class="list-group-item">
+                    <p>{{ "Boat ID" | translate }} <span class="right"> {{ bonus.boat }}</span> </p>
+                    <p>{{ "Season ID" | translate }} <span class="right"> {{ bonus.season }}</span> </p>
+                    <p>{{ "Bonus" | translate }} <span class="right"> Rs. {{ bonus.amount }}</span> </p>
+                    <p>{{ "Advance" | translate }} <span class="right">  {{ bonus.comment }}</span> </p>
+                    <hr>
+                    <p>{{ "Total" | translate }} <span class="right">  {{ total }}</span> </p>
+                </li>
+            </ul>
+        </div>
+    </div>
+ </div>
+
+
+</div>
