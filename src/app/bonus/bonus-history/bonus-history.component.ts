@@ -14,12 +14,18 @@ export class BonusHistoryComponent implements OnInit {
   boatdriver: boolean;
   total: any;
   fetchAdvaceSubscriber: any;
+  initialSubscriber: any;
+  boatID: number;
 
   constructor(private http: HttpClient,
     private router: Router,
     private route: ActivatedRoute) { }
 
     ngOnInit(): void {
+      this.initialSubscriber = this.route.params.subscribe(data=>{
+        this.boatID = Number(data.id);
+      });
+      
       var data = localStorage.getItem('group');
       if(data == 'BoatOwner'){
         this.boatowner = true;

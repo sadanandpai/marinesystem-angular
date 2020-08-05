@@ -31,7 +31,7 @@ export class OwnercalculationComponent implements OnInit {
     }
 
     onBonus(id: any){
-      this.router.navigate(['/bonus']);
+      this.router.navigate(['/bonus', id]);
     }
 
     // private fetchTrips() {

@@ -55,7 +55,7 @@ const routes: Routes = [
   { path: 'trips/:id', component: TripwiseCalculationComponent },
   { path: 'mycrew/:id', component: MycrewDetailsComponent },
   { path: 'subscribe', component: SubscribeComponent },
-  { path: 'bonus', component: BonusComponent },
+  { path: 'bonus/:id', component: BonusComponent },
   { path: 'advance', component: AdvanceComponent },
   { path: 'bonushistory', component: BonusHistoryComponent },
   { path: 'advancehistory', component: AdvanceHistoryComponent },

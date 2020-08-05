@@ -13,11 +13,17 @@ export class AdvanceComponent implements OnInit, OnDestroy {
   msg: boolean;
   success : any;
   boatOwner: boolean;
+  initialSubscriber: any;
+  boatID: number;
   constructor(private http: HttpClient,
     private router: Router,
     private route: ActivatedRoute,) { }
 
   ngOnInit(): void {
+    this.initialSubscriber = this.route.params.subscribe(data=>{
+      this.boatID = Number(data.id);
+    });
+    
     var data = localStorage.getItem('group');
     if (data=='BoatOwner'){
       this.boatOwner=true;
