@@ -41,9 +41,13 @@ export class MyboatdriverComponent implements OnInit {
     var id = localStorage.getItem('tripID');
     console.log(id);
     if(id==null || id=="" || id==undefined){
+      // show Start Trip Button
       this.tripActive  = false;
     } else {
+      // show End trip Button
       this.tripActive = true;
+      var endBtn = document.getElementById('trip-btn');
+      endBtn.style.backgroundColor = 'red';
     }
   }
 
@@ -61,7 +65,7 @@ export class MyboatdriverComponent implements OnInit {
     });
     // check for trip id null or not 
     if(id==null || id=="" || id==undefined) { 
-      // Start Trip
+      // Start Trip Button
     this.fetchSeasonIDSubscriber = this.http
       .get('http://localhost:8000/portal/boat_season_true/' + boat + '/')
       .subscribe(
@@ -87,6 +91,9 @@ export class MyboatdriverComponent implements OnInit {
                   localStorage.setItem('tripID', this.tripId);
                   console.log(window.localStorage);
                   this.tripActive = true;
+                  // css for end trip btn
+                  var endBtn = document.getElementById('trip-btn');
+                  endBtn.style.backgroundColor = 'red';
                 },
                 (error) => {
                   console.log(error);
@@ -97,10 +104,12 @@ export class MyboatdriverComponent implements OnInit {
             console.log(error);
           });
           } else {
-            // End Trip
+            // End Trip Button
             // if tripID not null then end current active trip
-            localStorage.removeItem('tripID');
-            this.tripActive = false;
+            let id = localStorage.getItem('tripID');
+            this.router.navigate(['/tripConfirmation', id]);
+            /* localStorage.removeItem('tripID');
+            this.tripActive = false; */
             }
      
   }

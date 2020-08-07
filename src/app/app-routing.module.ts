@@ -29,6 +29,8 @@ import { BonusComponent } from './bonus/bonus.component';
 import { AdvanceComponent } from './bonus/advance/advance.component';
 import { AdvanceHistoryComponent } from './bonus/advance/advance-history/advance-history.component';
 import { BonusHistoryComponent } from './bonus/bonus-history/bonus-history.component';
+import { SeasonconfirmationComponent } from './confirmation/seasonconfirmation.component';
+import { TripconfirmationComponent } from './confirmation/tripconfirmation/tripconfirmation.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -59,6 +61,8 @@ const routes: Routes = [
   { path: 'advance/:id', component: AdvanceComponent },
   { path: 'bonushistory/:id', component: BonusHistoryComponent },
   { path: 'advancehistory/:id', component: AdvanceHistoryComponent },
+  { path: 'seasonConfirmation/:id', component: SeasonconfirmationComponent },
+  { path: 'tripConfirmation/:id', component: TripconfirmationComponent },
   
 ];
 

@@ -9,14 +9,12 @@
             </select>
         </div> 
         <span class="help-block" *ngIf="msg==true">{{ "No Trip to Select" | translate }}</span>
-        <button type="submit" id="trip" class="btn btn-sm btn-trip">
+        <button type="submit" id="trip-btn" class="btn btn-sm btn-trip" [ngClass]="{'btn-endseason': tripActive}">
             {{ tripActive ? "End trip" : "Select Trip" }}
         </button>
     </form>
 
-    <button (click)="endSeason()" id="trip" class="btn btn-sm btn-trip" *ngIf="seasonActive==true && notrips==true && tripActive != true">
-        {{ "End Season" | translate }}
-    </button>
+   
     <button (click)="startSeason()" id="trip" class="btn btn-sm btn-trip" *ngIf="seasonActive!=true">
         {{ "Start Season" | translate }}
     </button>
@@ -57,5 +55,8 @@
         </div>
        
     </div>
+    <button (click)="endSeason()" id="trip" class="btn btn-sm btn-endseason" *ngIf="seasonActive==true && notrips==true && tripActive != true">
+        {{ "End Season" | translate }}
+    </button>
 </div>
     

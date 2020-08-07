@@ -6,9 +6,9 @@
         <button (click)="onAddAdvance()" class="btn btn-sm btn-addadvance">
             {{ "Add Advance" | translate }}
           </button>
-        <button (click)="onBonusHistory()" class="btn btn-sm btn-history">
+        <!-- <button (click)="onBonusHistory()" class="btn btn-sm btn-history">
             {{ "Bonus History" | translate }}
-          </button>
+          </button> -->
     </div>
 
  <div class="scroll">
@@ -18,8 +18,8 @@
                 <li class="list-group-item">
                     <p>{{ "Boat ID" | translate }} <span class="right"> {{ boatID }}</span> </p>
                     <p>{{ "Season ID" | translate }} <span class="right"> {{ seasonID }}</span> </p>
-                    <p>{{ "Bonus" | translate }} <span class="right"> Rs. {{ bonus }}</span> </p>
-                    <p>{{ "Advance" | translate }} <span class="right"> Rs. {{ advance }}</span> </p>
+                    <p>{{ "Bonus" | translate }} <a (click)="ontripCount()"> ({{ tripCount }} Trips)</a> <span class="right"> Rs. {{ bonus }}</span> </p>
+                    <p>{{ "Advance" | translate }} <a (click)="onadvanceCount()"> ({{ advanceCount }} Advance)</a> <span class="right"> Rs. {{ advance }}</span> </p>
                     <hr>
                     <p>{{ "Total" | translate }} <span class="right">  {{ total }}</span> </p>
                 </li>

@@ -63,21 +63,17 @@ button {
     font-weight: bold;
     width: 70%;
     padding: 5% 10%;
+    margin-top: 5%;
     float: right;
   }
 
 
 .list-group-item{
-    padding: 2%;
-    margin: 2px;
-    border-radius: 12px;
-    background-color: #1C2833;
-color: white;
-border: none;
-}
-
-.row{
-    padding: 3%;
+        /* border-radius: 10px; */
+        background-color: #1C2833;
+        color: white;
+        padding-left: 5%;
+        border: none;
 }
 
 .fishname{
@@ -89,21 +85,23 @@ border: none;
     font-weight: bold;
 }
 
-div .left{
+div.left{
     float: left;
     text-align: center;
     width: 50%;
 }
 
-div .middle{
+div.middle{
     float: left;
     width: 5%;
     border-left: thin solid grey;
 }
 
-div .right{
+div.right{
     float: left;
     width: 45%;
+    text-align: right;
+    padding-right: 5%;
 }
 
 p.damagedFish{

@@ -23,6 +23,8 @@ export class BonusComponent implements OnInit {
   fetchSeasonIDSubscriber: any;
   seasonID: any;
   fetchBonusSubscriber: any;
+  tripCount: any;
+  advanceCount: any;
 
   constructor(private http: HttpClient,
     private router: Router,
@@ -51,10 +53,10 @@ export class BonusComponent implements OnInit {
       this.router.navigate(['/calculation']);
     }
 
-    onBonusHistory(){
+    /* onBonusHistory(){
       let id = this.boatID;
       this.router.navigate(['/bonushistory', id]);
-    }
+    } */
 
     onAddAdvance(){
       let id = this.boatID;
@@ -78,6 +80,7 @@ export class BonusComponent implements OnInit {
       .subscribe((responseData: any) => {
         this.bonus = 0;
         console.log(responseData);
+        this.tripCount = responseData.length;
         for(let i=0;i<responseData.length;i++){
           this.bonus += responseData[i].bonus;
         }
@@ -94,6 +97,7 @@ export class BonusComponent implements OnInit {
        .subscribe((responseData: any) => {
          this.advance = 0;
          console.log(responseData);
+        this.advanceCount = responseData.length;
           for(let i=0;i<responseData.length;i++){
             this.advance += responseData[i].advance;
           }
@@ -103,6 +107,16 @@ export class BonusComponent implements OnInit {
           console.log(this.total);
 
        });
+    }
+
+    ontripCount(){
+      let id = this.boatID;
+      this.router.navigate(['/trips', id]);
+    }
+
+    onadvanceCount(){
+      let id = this.boatID;
+      this.router.navigate(['/advancehistory', id]);
     }
 
     ngOnDestroy() {

@@ -44,11 +44,14 @@ totalSalary: any
   deskUnloadCrewSalary: any;
   dockUnloadCrewSalary: any;
   bonus: any;
-  driverSalaryPercent: any;
   addSalarySubscriber: any;
   updateBonusSubscriber: any;
   errmsg: boolean;
   seasonID: any;
+  status: any;
+  driverSalaryPercent: any;
+  UnloadCrewSalaryPercent: any;
+  isUnloadCrewPercent: boolean;
 
 
   constructor(private http: HttpClient,
@@ -109,12 +112,20 @@ totalSalary: any
           this.maintainance = responseData.maintainance;
           this.totalOwner = responseData.totalOwner;
           this.auctionTotal = responseData.auctionTotal;
+          this.driverSalaryPercent = responseData.driverSalaryPercent;
+          this.UnloadCrewSalaryPercent = responseData.UnloadCrewSalaryPercent;
           this.driverSalary = responseData.driverSalary;
           this.deskUnloadCrewSalary = responseData.deskUnloadCrewSalary;
           this.dockUnloadCrewSalary = responseData.dockUnloadCrewSalary;
           this.bonus = responseData.bonus;
           this.totalSalary = responseData.totalSalary;
           this.profit = responseData.Profit;
+          this.status = responseData.Status;
+          if(responseData.UnloadCrewSalaryPercent == null || responseData.UnloadCrewSalaryPercent == 0){
+            this.isUnloadCrewPercent=false;
+          } else {
+            this.isUnloadCrewPercent=true;
+          }
       });
     }
 
@@ -141,13 +152,16 @@ totalSalary: any
         this.errmsg = true;
       } else {
         this.errmsg = false;
+        this.driverSalaryPercent = value.driverSalary;
         this.driverSalary = Number((this.auctionTotal * value.driverSalary)/100);
       }
       if(value.optradio == 'percent') {
         if(value.unloadCrewSalary > 100){
+          this.UnloadCrewSalaryPercent = 0;
           this.errmsg = true
         } else {
           this.errmsg = false;
+          this.UnloadCrewSalaryPercent = Number(value.unloadCrewSalary);
           this.deskUnloadCrewSalary = Number((this.auctionTotal * value.unloadCrewSalary)/100);
           this.dockUnloadCrewSalary = Number((this.auctionTotal * value.unloadCrewSalary)/100);
         }
@@ -166,6 +180,8 @@ totalSalary: any
         'Authorization': 'Token ' + localStorage.getItem('token')
       });
       const data = {
+        UnloadCrewSalaryPercent: this.UnloadCrewSalaryPercent,
+        driverSalaryPercent: this.driverSalaryPercent,
         driverSalary: Math.round(this.driverSalary), 
         deskUnloadCrewSalary: Math.round(this.deskUnloadCrewSalary), 
         dockUnloadCrewSalary: Math.round(this.dockUnloadCrewSalary), 

@@ -10,14 +10,23 @@
                 <li class="list-group-item">
                     <div class="row">
                         <div class="col-xs-12 col-md-12 col-lg-12 col-md-offset-3 inline-para">
+                       
+                        <div class="row">
                             <!-- <span style="float: right;">{{ trip.createdDate }}</span> -->
+                            <p class="left">{{ "Season ID" | translate }}</p> <p class="right">{{ trip.seasonId }}</p>
+                        </div>
+                        <div class="row">
                             <p class="left">{{ "Trip ID" | translate }}</p> <p class="right">{{ trip.id }}</p>
-                            <br>
+                        </div>
+                        <div class="row">
                             <p class="left">{{ "Boat Driver" | translate }}</p> <p class="right">{{ trip.driver }}</p>
-                            <br>
+                        </div>
+                        <!-- <div class="row">
                             <p class="left">{{ "Total Expense" | translate }}</p> <p class="right">{{ trip.totalBd }}</p>
-                            <br>
+                        </div> -->
+                        <div class="row">
                             <button (click)="onViewCalculation(trip.id)" class="btn btn-sm">{{ "View Calculation" | translate }}</button>
+                        </div>
                         </div>
                     </div>
                 </li>

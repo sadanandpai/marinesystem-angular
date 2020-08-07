@@ -85,12 +85,11 @@ button {
 
 
 .list-group-item{
-    padding: 2%;
-    margin: 2px;
-    border-radius: 12px;
-    background-color: #1C2833;
-color: white;
-border: none;
+        /* border-radius: 10px; */
+        background-color: #1C2833;
+        color: white;
+        padding-left: 5%;
+        border: none;
 }
 
 .left{

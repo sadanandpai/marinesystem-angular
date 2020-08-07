@@ -1,0 +1,20 @@
+<div class="body">
+    <a (click)="onClick()" class="btn backbtn"><i class="arrow"></i><i class="line"></i></a>
+    <h3 class="header">{{"Confirmation" | translate}}</h3>
+
+    <form class="form">
+        <div class="form-group col-xs-12"> 
+            <p class="content">{{ "Do You Really want to End the Season?" | translate }}</p>
+        </div>
+        <button (click)="endSeason()" id="endseason" class="btn btn-sm btn-endseason">
+            {{ "Yes, End Season" | translate }}
+        </button>
+        <button (click)="onCancel()" id="cancel" class="btn btn-sm btn-cancel">
+            {{ "No, Cancel" | translate }}
+        </button>
+    </form>
+
+    
+
+</div>
+    

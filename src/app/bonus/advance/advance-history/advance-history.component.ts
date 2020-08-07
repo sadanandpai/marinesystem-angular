@@ -25,7 +25,7 @@ export class AdvanceHistoryComponent implements OnInit, OnDestroy {
       this.initialSubscriber = this.route.params.subscribe(data=>{
         this.boatID = Number(data.id);
       });
-      
+
       var data = localStorage.getItem('group');
       if(data == 'BoatOwner'){
         this.boatowner = true;
@@ -38,7 +38,7 @@ export class AdvanceHistoryComponent implements OnInit, OnDestroy {
 
     onClick(){
       let id = this.boatID;
-        this.router.navigate(['/advance', id]);
+        this.router.navigate(['/bonus', id]);
     }
   
     private fetchAdvance() {

@@ -10,7 +10,7 @@
 
 .body{
     background-color: black;
-    min-height: calc(100vh - 142px);
+    min-height: calc(100vh - 56px);
     position: relative;
     height: auto;
     font-family: 'century Gothic';
@@ -118,4 +118,14 @@ select{
     padding-top: 10%;
 }
 
+.btn-endseason{
+    height: auto;
+    width: 40%;
+    border-radius: 8px;
+    color: white;
+    background-color: #ff0000;
+    margin: 0% 30%;
+    font-weight: bold;
+    text-transform: uppercase; 
+}
 

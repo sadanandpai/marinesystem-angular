@@ -4,7 +4,7 @@
 
 .body{
     background-color: black;
-    min-height: calc(100vh - 142px);
+    min-height: calc(100vh - 56px);
     position: relative;
     height: auto;
 }

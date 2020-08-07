@@ -14,6 +14,7 @@ export class HomeComponent implements OnInit, OnDestroy{
   boatOwner: boolean;
   boatDriver: boolean;
   tripActive: boolean;
+  customer: boolean;
 
   constructor(private router: Router,
     private route: ActivatedRoute,
@@ -32,6 +33,10 @@ export class HomeComponent implements OnInit, OnDestroy{
       this.boatOwner = true;
     } else if(data == 'BoatDriver'){
       this.boatDriver = true;
+    }
+
+    if(this.loggedIn == true && this.boatOwner != true && this.boatDriver != true){
+      this.customer = true;
     }
   }
 

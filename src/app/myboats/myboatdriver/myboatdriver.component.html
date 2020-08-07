@@ -9,7 +9,7 @@
                 <option *ngFor="let boat of loadedBoats" value="{{boat.id}}">{{boat.boatName}} ({{boat.boatNumber}})</option>
             </select>
         </div>
-        <button type="submit" class="btn btn-sm btn-trip">
+        <button type="submit" id="trip-btn" class="btn btn-sm btn-trip">
             {{ tripActive ? "End trip" : "Start New Trip" }}
         </button>
     </form>

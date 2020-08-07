@@ -4,7 +4,7 @@
     <div class="group-btn">
         <div class="row">
             <div class="col">
-                <button class="btn btn-lg" routerLink="myboats" [disabled]="loggedIn != true && boatOwner != true && boatDriver != true "><img src="../../assets/Images/ic_03.png" height="70%" width="70%" /></button>
+                <button class="btn btn-lg" routerLink="myboats" [disabled]="loggedIn != true || customer == true"><img src="../../assets/Images/ic_03.png" height="70%" width="70%" /></button>
                 <button class="btn btn-lg right" (click)="onStart()" [disabled]="loggedIn != true"><img src="../../assets/Images/ic_07.png" height="70%" width="70%" /></button>
             </div>
         </div>

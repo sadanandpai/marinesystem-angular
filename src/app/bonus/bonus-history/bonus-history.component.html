@@ -8,10 +8,10 @@
             <p class="errmsg" *ngIf="loadedbonus == null">{{ "No History Available" | translate }}</p>
             <ul class="list-group" *ngFor="let bonus of loadedbonus">
                 <li class="list-group-item">
-                    <p>{{ "Boat ID" | translate }} <span class="right"> {{ bonus.boat }}</span> </p>
-                    <p>{{ "Season ID" | translate }} <span class="right"> {{ bonus.season }}</span> </p>
-                    <p>{{ "Bonus" | translate }} <span class="right"> Rs. {{ bonus.amount }}</span> </p>
-                    <p>{{ "Advance" | translate }} <span class="right">  {{ bonus.comment }}</span> </p>
+                    <p>{{ "Boat ID" | translate }} <span class="right"> {{ boatID }}</span> </p>
+                    <p>{{ "Season ID" | translate }} <span class="right"> {{ seasonID }}</span> </p>
+                    <p>{{ "Bonus" | translate }} <span class="right"> Rs. {{ bonus }}</span> </p>
+                    <p>{{ "Advance" | translate }} <span class="right"> Rs. {{ advance }}</span> </p>
                     <hr>
                     <p>{{ "Total" | translate }} <span class="right">  {{ total }}</span> </p>
                 </li>

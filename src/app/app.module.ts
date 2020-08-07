@@ -49,6 +49,8 @@ import { BonusComponent } from './bonus/bonus.component';
 import { AdvanceComponent } from './bonus/advance/advance.component';
 import { BonusHistoryComponent } from './bonus/bonus-history/bonus-history.component';
 import { AdvanceHistoryComponent } from './bonus/advance/advance-history/advance-history.component';
+import { SeasonconfirmationComponent } from './confirmation/seasonconfirmation.component';
+import { TripconfirmationComponent } from './confirmation/tripconfirmation/tripconfirmation.component';
 
 
 // AoT requires an exported function for factories
@@ -99,6 +101,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     AdvanceComponent,
     BonusHistoryComponent,
     AdvanceHistoryComponent,
+    SeasonconfirmationComponent,
+    TripconfirmationComponent,
   ],
   imports: [
     BrowserModule,

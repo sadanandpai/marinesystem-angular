@@ -40,6 +40,7 @@ export class TransactionComponent implements OnInit {
   writerSalaryPercentage: number;
   crewSalaryPercentage: number;
   totalSalary: number;
+  errmsg: boolean;
   
 
   constructor(private http: HttpClient,
@@ -101,6 +102,11 @@ export class TransactionComponent implements OnInit {
       'Authorization': 'Token ' + localStorage.getItem('token')
      });
     // fetch selected Radio button's details
+    if(value.winner == '' || value.winner == null || value.winner == undefined){
+      // if owner didn't select any customer/radio button
+      this.errmsg = true;
+    } else {
+      // fetch selected user, update winner, and make fish status false
       let id = value.winner;
       this.quoteSubscriber = this.http.get('http://localhost:8000/portal/quote_list/'+ id + '/')
         .subscribe((responseData: any) => {
@@ -130,19 +136,20 @@ export class TransactionComponent implements OnInit {
         }
       );
     
-    // fish status false
-    const data = {
-      status: false,
+      // fish status false
+      const data = {
+        status: false,
+      }
+      this.fishStatusSubscriber = this.http.patch('http://localhost:8000/portal/fish_list/' + this.fid + '/', data, { headers: headers })
+        .subscribe(
+          (responseData) => {
+            console.log(responseData);
+          },
+          (error) => {
+            console.log(error);
+          }
+        ); 
     }
-    this.fishStatusSubscriber = this.http.patch('http://localhost:8000/portal/fish_list/' + this.fid + '/', data, { headers: headers })
-      .subscribe(
-        (responseData) => {
-          console.log(responseData);
-        },
-        (error) => {
-          console.log(error);
-        }
-      ); 
   }
 
   // add auction amount to trip table

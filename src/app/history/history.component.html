@@ -15,10 +15,21 @@
                         </div>
                         <div class="middle"></div>
                         <div class="right">
-                            <p>{{ "Fish Driver" | translate }} - {{ fish.driver }}</p>
-                            <p>{{ "Min Price" | translate }} -  Rs.{{ fish.fish_price }}</p>
-                            <p class="damagedFish" *ngIf="fish.damaged == true">{{ "(Damaged)" | translate }}</p>
-                            <button (click)="onViewMore(fish.id)" class="btn btn-sm">{{ "View More" | translate }}</button>
+                            <div class="row">
+                                <p>{{ "Driver" | translate }}   -   {{ fish.driver }}</p>
+                            </div>
+                            <div class="row">
+                                <p>{{ "Quantity" | translate }}   -   {{ fish.fish_size }}</p>
+                            </div>
+                            <div class="row">
+                                <p>{{ "Min Price" | translate }}   -   Rs. {{ fish.fish_price }}</p>
+                            </div>
+                            <div class="row">
+                                <p class="damagedFish" *ngIf="fish.damaged == true">{{ "(Damaged)" | translate }}</p>
+                            </div>
+                            <div class="row">
+                                <button (click)="onViewMore(fish.id)" class="btn btn-sm">{{ "View More" | translate }}</button>
+                            </div>
                         </div>
                    </div>
                 </li>

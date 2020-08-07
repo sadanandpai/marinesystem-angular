@@ -8,14 +8,22 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./bonus-history.component.css']
 })
 export class BonusHistoryComponent implements OnInit {
-  loadedadvance: any;
   loadedbonus: any;
   boatowner: boolean;
   boatdriver: boolean;
-  total: any;
   fetchAdvaceSubscriber: any;
+  // boatID: any;
+  ownerID: any;
+
+  boatID: any;
+  season: any;
+  bonus: any;
+  advance: any;
+  total: any;
   initialSubscriber: any;
-  boatID: number;
+  fetchSeasonIDSubscriber: any;
+  seasonID: any;
+  fetchBonusSubscriber: any;
 
   constructor(private http: HttpClient,
     private router: Router,
@@ -32,30 +40,85 @@ export class BonusHistoryComponent implements OnInit {
       } else if(data == 'BoatDriver'){
         this.boatdriver = true;
       }
-
-      this.fetchAdvance();
+      // fetch seasonID using boatID 
+      this.fetchSeasonID();
+      // fetch all bonuses of this seasonID
+      // this.fetchBonus();
+      // fetch all advances of this seasonID
+      // this.fetchAdvance();
     }
 
     onClick(){
-      let id = this.boatID;
-      this.router.navigate(['/bonus', id]);
+      this.router.navigate(['/calculation']);
     }
 
-    onViewMore(id: any){
-      // this.router.navigate(['/history', id]);
+    onBonusHistory(){
+      let id = this.boatID;
+      this.router.navigate(['/bonushistory', id]);
+    }
+
+    onAddAdvance(){
+      let id = this.boatID;
+      this.router.navigate(['/advance', id]);
     }
   
-    private fetchAdvance() {
-      this.fetchAdvaceSubscriber = this.http.get('http://localhost:8000/portal//')
+    private fetchSeasonID() {
+      // fetch Season
+      this.fetchSeasonIDSubscriber = this.http.get('http://localhost:8000/portal/boat_season_true/' + this.boatID + '/')
       .subscribe((responseData: any) => {
           console.log(responseData);
-          this.loadedadvance = responseData;
+          this.seasonID = responseData[0].id;
+          
+          this.fetchBonus();
+          this.fetchAdvance();
+
       });
+    }
+    private fetchBonus() {
+      //  fetch Bonus of this season we got seasonID from fetchSeasonID() this method and we have boatID
+      this.fetchBonusSubscriber = this.http.get('http://localhost:8000/portal/trip_list/' + this.seasonID + '-' + this.boatID + '/')
+      .subscribe((responseData: any) => {
+        this.bonus = 0;
+        console.log(responseData);
+        for(let i=0;i<responseData.length;i++){
+          this.bonus += responseData[i].bonus;
+        }
+        console.log(this.bonus);
+        // total calculation
+        this.total = this.bonus - this.advance;
+        console.log(this.total);
+      });
+    }
+   
+    private fetchAdvance() {
+       //  fetch Bonus of this season we got seasonID from fetchSeasonID() this method and we have boatID
+       this.fetchAdvaceSubscriber = this.http.get('http://localhost:8000/portal/advance_list/' + this.seasonID + '-' + this.boatID + '/')
+       .subscribe((responseData: any) => {
+         this.advance = 0;
+         console.log(responseData);
+          for(let i=0;i<responseData.length;i++){
+            this.advance += responseData[i].advance;
+          }
+          console.log(this.advance);
+          // total calculation
+          this.total = this.bonus - this.advance;
+          console.log(this.total);
+
+       });
     }
 
     ngOnDestroy() {
+      if(this.initialSubscriber){
+        this.initialSubscriber.unsubscribe();
+      }
       if(this.fetchAdvaceSubscriber){
         this.fetchAdvaceSubscriber.unsubscribe();
+      }
+      if(this.fetchSeasonIDSubscriber){
+        this.fetchSeasonIDSubscriber.unsubscribe();
+      }
+      if(this.fetchBonusSubscriber){
+        this.fetchBonusSubscriber.unsubscribe();
       }
     }
 

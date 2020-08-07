@@ -4,6 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { NodeWithI18n } from '@angular/compiler';
 import { getLocaleDateTimeFormat } from '@angular/common';
+import { interval } from 'rxjs/internal/observable/interval';
 
 @Component({
   selector: 'app-myboatowner',
@@ -28,6 +29,7 @@ export class MyboatownerComponent implements OnInit {
   seasonID: any;
   endSeasonUpdateSubscriber: any;
   StartSeasonCreateSubscriber: any;
+  seasonServiceSubscriber: any;
 
   constructor(private http: HttpClient,
     private router: Router,
@@ -36,24 +38,33 @@ export class MyboatownerComponent implements OnInit {
   ngOnInit(): void {
     var id = localStorage.getItem('tripID');
     if(id==null || id=="" || id=='undefined'){
+      // show Select Trip Button
       this.tripActive  = false;
     } else {
+      // Show End Trip Button
       this.tripActive = true;
-      
     }
     // this.trueTripListofParticularOwner();
 
-    this.TripListTrue();
-
-    // fetch owners Season which is active
-    let owner = Number(localStorage.getItem('id'));
-    this.fetchSeasonTrue(owner);
+    // this.seasonServiceSubscriber = interval(1000).subscribe(
+    //   (val) => { 
+        this.TripListTrue();
+        // fetch owners Season which is active
+        let owner = Number(localStorage.getItem('id'));
+        this.fetchSeasonTrue(owner);
+    //   }
+    // );
     
+  }
+
+  
+  onClick(){
+    this.router.navigate(['/']);
   }
 
   fetchSeasonTrue(owner: number) {
     // fetch owners Season details, which is active
-    // if no active Season then seasonActive==flase else true
+    // if no active Season then End Season i.e. seasonActive==false else true
 
     this.seasonStatusCheckSubscriber = this.http
     .get('http://localhost:8000/portal/season_true/' + owner + '/')
@@ -78,7 +89,10 @@ export class MyboatownerComponent implements OnInit {
   }
 
   endSeason(){
-    // Update - seasonStatus=false, endDate=now.dateTime, 
+    let id= this.seasonID;
+    this.router.navigate(['/seasonConfirmation', id]);
+
+  /*   // Update - seasonStatus=false, endDate=now.dateTime, 
     const data = {
       endDate: Date(),
       owner: localStorage.getItem('id'),
@@ -99,14 +113,13 @@ export class MyboatownerComponent implements OnInit {
       (error) => {
         console.log(error);
       }
-    );
+    ); */
   }
 
   startSeason(){
     // along with owner add new season start Date & status will take default values
     const data = {
       owner: localStorage.getItem('id'),
-      startDate: Date(),
       seasonStatus: true,
     }
     let headers = new HttpHeaders({
@@ -187,16 +200,12 @@ export class MyboatownerComponent implements OnInit {
     );
   }
 
-  onClick(){
-    this.router.navigate(['/']);
-  }
-
   onSelectTrip(form: NgForm){
     const value = form.value;
     var id=localStorage.getItem('tripID');
 
     if(id==null || id=="" || id=='undefined'){
-      // Select Trip
+      // Select Trip Button
       this.tripID = value.tripid;
       if(value.tripid==null || value.tripid=="" || value.tripid=='undefined'){
         this.tripActive = false;
@@ -204,8 +213,10 @@ export class MyboatownerComponent implements OnInit {
       localStorage.setItem('tripID', this.tripID);
       this.tripActive = true;
     } else {
-      // End Trip
-      const data = {
+      // End Trip button
+      let id = localStorage.getItem('tripID');
+      this.router.navigate(['/tripConfirmation', id]);
+      /* const data = {
         Status: false,
       }
       let headers = new HttpHeaders({
@@ -224,8 +235,9 @@ export class MyboatownerComponent implements OnInit {
           (error) => {
             console.log(error);
           }
-        );
+        ); 
       this.tripActive = false;
+      */
     }
   }
 
@@ -264,6 +276,9 @@ export class MyboatownerComponent implements OnInit {
       }
       if(this.StartSeasonCreateSubscriber) {
         this.StartSeasonCreateSubscriber.unsubscribe();
+      }
+      if(this.seasonServiceSubscriber) {
+        this.seasonServiceSubscriber.unsubscribe();
       }
   }  
 }

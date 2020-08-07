@@ -1,0 +1,101 @@
+.errmsg{
+    color: orange;
+    font-family: 'century Gothic';
+    font-weight: 500;
+    font-size: 1em;
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+}
+
+.body{
+    background-color: black;
+    min-height: calc(100vh - 56px);
+    position: relative;
+    height: auto;
+    font-family: 'century Gothic';
+    font-weight: normal;
+}
+
+.backbtn{
+    margin: 2%;
+    vertical-align: middle;
+}
+.arrow {
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+.line {
+  border: solid white;
+  border-width: 0 0px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  padding-left: 15px;
+  margin-bottom: 3px;
+  margin-left: -10px;
+}
+
+.header{
+    font-family: 'century Gothic';
+    font-weight: 600;
+    font-size: 1.5em;
+    color: white;
+    display: inline-block;
+    width: 66%;
+    padding: 3%;
+    margin: 2%;
+    text-align: center;
+}
+
+button {
+    background-color: #339933;
+    border: none;
+    border-radius: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1em;
+    font-weight: normal;
+    width: 25%;
+    height: 100px;
+    margin-left: 18%;
+}
+
+.content{
+    text-align: center;
+    color: white;
+    font-size: 2em;
+}
+
+.btn-endseason{
+    height: auto;
+    width: 40%;
+    border-radius: 8px;
+    color: white;
+    background-color: #2baa24;
+    margin: 0% 5%;
+    font-weight: bold;
+    text-transform: uppercase; 
+}
+
+.btn-cancel{
+    height: auto;
+    width: 40%;
+    border-radius: 8px;
+    color: white;
+    background-color: #ff0000;
+    margin: 0% 5%;
+    font-weight: bold;
+    text-transform: uppercase; 
+}
+
+form{
+    background-color: grey;
+    padding-bottom: 5%;
+}
+
+

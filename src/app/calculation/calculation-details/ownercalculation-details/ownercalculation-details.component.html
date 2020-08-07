@@ -58,7 +58,8 @@
                     </div><hr>
                     <div class="row"><span class="left">{{ "Auction Amount" | translate }}</span> <span>{{ auctionTotal }}</span>
                     </div><hr>
-                    <form (ngSubmit)="salary(f)" #f="ngForm">
+                    <div class="row"><span class="left">{{ "Salary" | translate }} </span></div>
+                    <form (ngSubmit)="salary(f)" #f="ngForm" *ngIf="status == true">
                         <div class="row">
                             <span class="left">{{ "Driver Salary" | translate }} (in percent) </span>
                         </div>
@@ -93,29 +94,57 @@
                             <span class="errmsg" *ngIf="errmsg==true">{{ "Wrong Percent Value!! Please Check" | translate }}</span>
                             <button type="submit" style="width: 50%; margin: 2% 25%;">Check</button>
                         </div>
+                        <hr>
+                        <div class="row">
+                            <span class="left qty">{{ "Driver" | translate }} ({{driversal.value}} %)</span>
+                            <span>{{ driverSalary }}</span>
+                        </div>
+                        <div class="row">
+                            <span class="left qty">{{ "Dock Crew" | translate }} ({{unloadCrewSal.value}} {{type.value}})</span>
+                            <span>{{ dockUnloadCrewSalary }}</span>
+                        </div>
+                        
+                        <div class="row">
+                            <span class="left qty">{{ "Desk Crew" | translate }} ({{unloadCrewSal.value}} {{type.value}})</span>
+                            <span>{{ deskUnloadCrewSalary }}</span>
+                        </div>
                     </form>
-                    <hr>
-                    <div class="row">
-                        <span class="left">{{ "Driver" | translate }} ({{driversal.value}}%)</span>
-                        <span>{{ driverSalary }}</span>
-                    </div>
-                    <div class="row">
-                        <span class="left">{{ "Dock Crew" | translate }} ({{unloadCrewSal.value}} {{type.value}})</span>
-                        <span>{{ dockUnloadCrewSalary }}</span>
-                    </div>
                     
-                    <div class="row">
-                        <span class="left">{{ "Desk Crew" | translate }} ({{unloadCrewSal.value}} {{type.value}})</span>
-                        <span>{{ deskUnloadCrewSalary }}</span>
+                    <div class="row" *ngIf="status != true">
+                        <div class="row">
+                            <span class="left qty">{{ "Driver" | translate }} ( {{driverSalaryPercent}}% )</span>
+                            <span>{{ driverSalary }}</span>
+                        </div>
+                        <div class="row">
+                            <span class="left qty">{{ "Dock Crew " | translate }}</span>
+                            <span class="left qty" *ngIf="isUnloadCrewPercent==true">( {{UnloadCrewSalaryPercent}}% )</span>
+                            <span>{{ dockUnloadCrewSalary }}</span>
+                        </div>
+                        
+                        <div class="row">
+                            <span class="left qty">{{ "Desk Crew " | translate }}</span>
+                            <span class="left qty" *ngIf="isUnloadCrewPercent==true">( {{UnloadCrewSalaryPercent}}% )</span>
+                            <span>{{ deskUnloadCrewSalary }}</span>
+                        </div>
                     </div>
                     <hr>
                     <div class="row"><span class="left">{{ "Total Salary" | translate }}</span> <span>{{ totalSalary }}</span>
                     </div><hr>
-                    <div class="row">
-                        <button (click)="calculateBonus()" class="left">{{ "Bonus" | translate }}</button> <span>{{ bonus }}</span>
-                    </div><hr>
-                    <div class="row">
-                        <button (click)="calculateProfit()" class="left">{{ "Profit" | translate }}</button> <span>{{ profit }}</span>
+                    <div class="row" *ngIf="status==true">
+                        <div class="row">
+                            <button (click)="calculateBonus()" class="left">{{ "Bonus" | translate }}</button> <span>{{ bonus }}</span>
+                        </div><hr>
+                        <div class="row">
+                            <button (click)="calculateProfit()" class="left">{{ "Profit" | translate }}</button> <span>{{ profit }}</span>
+                        </div>
+                    </div>
+                    <div class="row" *ngIf="status!=true">
+                        <div class="row">
+                            <span class="left">{{ "Bonus" | translate }}</span> <span>{{ bonus }}</span>
+                        </div><hr>
+                        <div class="row">
+                            <span class="left">{{ "Profit" | translate }}</span> <span>{{ profit }}</span>
+                        </div>
                     </div>
                 </div>
             </div>

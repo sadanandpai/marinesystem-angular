@@ -119,8 +119,10 @@ img{
 }
 
 .list-group-item{
-    background-color: #1a1a1a;
+    /* border-radius: 10px; */
+    background-color: #1C2833;
     color: white;
+    padding-left: 5%;
     border: none;
 }
 
