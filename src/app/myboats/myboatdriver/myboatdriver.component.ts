@@ -19,6 +19,7 @@ export class MyboatdriverComponent implements OnInit {
   tripActive: boolean;
   fetchSeasonIDSubscriber: any;
   seasonID: any;
+  seasonErr: boolean;
 
   constructor(private http: HttpClient,
     private router: Router,
@@ -49,6 +50,7 @@ export class MyboatdriverComponent implements OnInit {
       var endBtn = document.getElementById('trip-btn');
       endBtn.style.backgroundColor = 'red';
     }
+
   }
 
   onClick(){
@@ -71,10 +73,13 @@ export class MyboatdriverComponent implements OnInit {
       .subscribe(
         (responseData: any) => {
           console.log(responseData);
+          if(responseData.length==undefined || responseData.length==0){
+            this.seasonErr = true;
+          }
           // got seasonID here
           this.seasonID = responseData[0].id;
           console.log(this.seasonID);
-           
+          
             // Got SeasonID now create Trip 
             const data = {
               boat: value.boatid,
@@ -97,7 +102,6 @@ export class MyboatdriverComponent implements OnInit {
                 },
                 (error) => {
                   console.log(error);
-                  this.msg = true;
               });
             },
             (error) => {

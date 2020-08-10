@@ -31,6 +31,10 @@ import { AdvanceHistoryComponent } from './bonus/advance/advance-history/advance
 import { BonusHistoryComponent } from './bonus/bonus-history/bonus-history.component';
 import { SeasonconfirmationComponent } from './confirmation/seasonconfirmation.component';
 import { TripconfirmationComponent } from './confirmation/tripconfirmation/tripconfirmation.component';
+import { AddmonthlyexpenseComponent } from './addmonthlyexpense/addmonthlyexpense.component';
+import { ExpenseHistoryComponent } from './addmonthlyexpense/expense-history/expense-history.component';
+import { ReportComponent } from './report/report.component';
+import { MonthlyreportComponent } from './report/monthlyreport/monthlyreport.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -63,6 +67,10 @@ const routes: Routes = [
   { path: 'advancehistory/:id', component: AdvanceHistoryComponent },
   { path: 'seasonConfirmation/:id', component: SeasonconfirmationComponent },
   { path: 'tripConfirmation/:id', component: TripconfirmationComponent },
+  { path: 'report', component: ReportComponent },
+  { path: 'addmonthlyexpense/:id', component: AddmonthlyexpenseComponent },
+  { path: 'monthlyexpensehistory/:id', component: ExpenseHistoryComponent },
+  { path: 'monthlyreport/:id', component: MonthlyreportComponent },
   
 ];
 

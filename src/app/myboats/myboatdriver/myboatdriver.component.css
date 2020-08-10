@@ -1,5 +1,5 @@
-.errmsg{
-    color: orange;
+.seasonErr{
+    color: red;
     font-family: 'century Gothic';
     font-weight: 500;
     font-size: 1em;
@@ -7,6 +7,7 @@
     text-align: center;
     width: 100%;
 }
+
 
 .body{
     background-color: black;

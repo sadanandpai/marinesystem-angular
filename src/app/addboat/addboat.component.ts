@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { NgForm } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
+import { AnimationFrameScheduler } from 'rxjs/internal/scheduler/AnimationFrameScheduler';
 
 @Component({
   selector: 'app-addboat',
@@ -49,6 +50,7 @@ export class AddboatComponent implements OnInit {
       .subscribe(
         (responseData: any) => {
           this.success= true;
+          this.msg = false;
           form.reset();
           console.log(responseData);
         },

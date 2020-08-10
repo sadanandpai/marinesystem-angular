@@ -59,60 +59,43 @@ button {
     text-align: center;
     text-decoration: none;
     display: block;
-    font-size: 12px;
+    font-size: 1em;
     font-weight: bold;
-    width: 70%;
-    padding: 5% 10%;
+    width: 45%;
+    padding: 2% 1%;
     float: right;
   }
 
-.btn-history{
-    background-color: green;
-    color: white;
-    border: none;
-    text-align: center;
-    text-decoration: none;
-    /* display: inline-block; */
-    font-size: 1em;
-    border-radius: 10px;
-    padding: 7px 10px;
-    margin: 5%;
-    margin-top: 0%;
-    float: right;
-    width: 30%;
+.report-btn{
+    width: 35%;
 }
 
-.btn-addadvance{
-    background-color: green;
-    color: white;
-    border: none;
-    text-align: center;
-    text-decoration: none;
-    /* display: inline-block; */
-    font-size: 1em;
-    border-radius: 10px;
-    padding: 7px 10px;
-    margin: 5%;
-    margin-top: 0%;
-    float: left;
-    width: 30%;
-}
 
 .list-group-item{
-    /* border-radius: 10px; */
+    margin: 0%;
     background-color: #1C2833;
     color: white;
-    padding-left: 5%;
+    padding: 2% 9%;
+    line-height: 2em;
     border: none;
 }
 
-span.right{
+.left{
+    float: left;
+}
+
+.right{
     float: right;
 }
 
-hr {
-    border-top: 1px solid #ffffff26;
+.inline-para p{
+    display: inline-block;
+    margin: 0%;
 }
+
+/* .row{
+    padding: 3%;
+} */
 
 .scroll{
     width: 100%; 
@@ -120,3 +103,6 @@ hr {
     overflow: scroll;
     overflow-x: hidden; 
 }
+
+
+

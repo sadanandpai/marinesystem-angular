@@ -91,7 +91,7 @@ export class BonusHistoryComponent implements OnInit {
     }
    
     private fetchAdvance() {
-       //  fetch Bonus of this season we got seasonID from fetchSeasonID() this method and we have boatID
+       //  fetch Bonus of this current season, we got seasonID from fetchSeasonID() method and we have boatID by params
        this.fetchAdvaceSubscriber = this.http.get('http://localhost:8000/portal/advance_list/' + this.seasonID + '-' + this.boatID + '/')
        .subscribe((responseData: any) => {
          this.advance = 0;

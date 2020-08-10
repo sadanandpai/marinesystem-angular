@@ -44,17 +44,16 @@ export class MyboatownerComponent implements OnInit {
       // Show End Trip Button
       this.tripActive = true;
     }
-    // this.trueTripListofParticularOwner();
+    this.trueTripListofParticularOwner();
 
     // this.seasonServiceSubscriber = interval(1000).subscribe(
     //   (val) => { 
-        this.TripListTrue();
+        /* this.TripListTrue(); */
         // fetch owners Season which is active
         let owner = Number(localStorage.getItem('id'));
         this.fetchSeasonTrue(owner);
     //   }
     // );
-    
   }
 
   
@@ -92,7 +91,7 @@ export class MyboatownerComponent implements OnInit {
     let id= this.seasonID;
     this.router.navigate(['/seasonConfirmation', id]);
 
-  /*   // Update - seasonStatus=false, endDate=now.dateTime, 
+  /*   // Update :- seasonStatus=false, endDate=now.dateTime, 
     const data = {
       endDate: Date(),
       owner: localStorage.getItem('id'),
@@ -142,7 +141,7 @@ export class MyboatownerComponent implements OnInit {
     );
   }
 
-  /* trueTripListofParticularOwner() {
+  trueTripListofParticularOwner() {
     let id = localStorage.getItem('id');
     this.tripSubscriber = this.http
     .get('http://localhost:8000/portal/trueTripListofParticularOwner/' + id + '/')
@@ -161,7 +160,7 @@ export class MyboatownerComponent implements OnInit {
       }
     );
   }
- */
+
   TripListTrue() {
     this.tripSubscriber = this.http
     .get('http://localhost:8000/portal/trip_list_true/')
@@ -246,19 +245,23 @@ export class MyboatownerComponent implements OnInit {
   }
 
   onAddBoat(){
-    this.router.navigate(['/addboats'])
+    this.router.navigate(['/addboats']);
   }
 
   onAddExpense(){
-    this.router.navigate(['/expenses'])
+    this.router.navigate(['/expenses']);
   }
   
   // onAddSalary(){
-  //   this.router.navigate(['/addsalary'])
+  //   this.router.navigate(['/addsalary']);
   // }
 
   onAuction(){
-    this.router.navigate(['/auction'])
+    this.router.navigate(['/auction']);
+  }
+
+  onReport(){
+    this.router.navigate(['/report']);
   }
 
   ngOnDestroy() {

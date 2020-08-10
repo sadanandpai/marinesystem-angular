@@ -9,6 +9,9 @@
                 <option *ngFor="let boat of loadedBoats" value="{{boat.id}}">{{boat.boatName}} ({{boat.boatNumber}})</option>
             </select>
         </div>
+        
+        <span class="help-block seasonErr" *ngIf="seasonErr == true">{{ "Season Ended OR Season Didn't Started Yet!" | translate }}</span>
+        
         <button type="submit" id="trip-btn" class="btn btn-sm btn-trip">
             {{ tripActive ? "End trip" : "Start New Trip" }}
         </button>

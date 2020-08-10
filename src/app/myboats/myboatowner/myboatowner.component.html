@@ -53,7 +53,17 @@
                 <span class="btn-name right">{{ "Auction" | translate }}</span>
             </div>
         </div>
-       
+        <div class="row">
+            <div class="col">
+        <button (click)="onReport()" class="btn btn-lg"><img src="../../assets/Images/ic_31.png" height="60%" width="60%" /></button>
+        </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <span class="btn-name" style="margin-left: 25%;">{{ "Reports" | translate }}</span>
+            </div>
+        </div>
+
     </div>
     <button (click)="endSeason()" id="trip" class="btn btn-sm btn-endseason" *ngIf="seasonActive==true && notrips==true && tripActive != true">
         {{ "End Season" | translate }}
