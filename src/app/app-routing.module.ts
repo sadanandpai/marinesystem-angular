@@ -35,6 +35,8 @@ import { AddmonthlyexpenseComponent } from './addmonthlyexpense/addmonthlyexpens
 import { ExpenseHistoryComponent } from './addmonthlyexpense/expense-history/expense-history.component';
 import { ReportComponent } from './report/report.component';
 import { MonthlyreportComponent } from './report/monthlyreport/monthlyreport.component';
+import { SeasonreportComponent } from './report/seasonreport/seasonreport.component';
+import { MonthlyboatexpenseComponent } from './monthlyboatexpense/monthlyboatexpense.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -61,16 +63,22 @@ const routes: Routes = [
   { path: 'trips/:id', component: TripwiseCalculationComponent },
   { path: 'mycrew/:id', component: MycrewDetailsComponent },
   { path: 'subscribe', component: SubscribeComponent },
+
   { path: 'bonus/:id', component: BonusComponent },
   { path: 'advance/:id', component: AdvanceComponent },
   { path: 'bonushistory/:id', component: BonusHistoryComponent },
   { path: 'advancehistory/:id', component: AdvanceHistoryComponent },
+
   { path: 'seasonConfirmation/:id', component: SeasonconfirmationComponent },
   { path: 'tripConfirmation/:id', component: TripconfirmationComponent },
+
   { path: 'report', component: ReportComponent },
+  { path: 'monthlyreport/:id', component: MonthlyreportComponent },
+  { path: 'seasonreport', component: SeasonreportComponent },
+
+  { path: 'monthlyboatexpense', component: MonthlyboatexpenseComponent },
   { path: 'addmonthlyexpense/:id', component: AddmonthlyexpenseComponent },
   { path: 'monthlyexpensehistory/:id', component: ExpenseHistoryComponent },
-  { path: 'monthlyreport/:id', component: MonthlyreportComponent },
   
 ];
 

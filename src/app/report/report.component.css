@@ -61,15 +61,16 @@ button {
     display: block;
     font-size: 1em;
     font-weight: bold;
-    width: 45%;
+    width: 35%;
     padding: 2% 1%;
     float: right;
   }
 
-.report-btn{
-    width: 35%;
+.season-btn{
+    color: white;
+    background-color: green;
+    margin: 2% 8%;
 }
-
 
 .list-group-item{
     margin: 0%;
@@ -92,10 +93,6 @@ button {
     display: inline-block;
     margin: 0%;
 }
-
-/* .row{
-    padding: 3%;
-} */
 
 .scroll{
     width: 100%; 

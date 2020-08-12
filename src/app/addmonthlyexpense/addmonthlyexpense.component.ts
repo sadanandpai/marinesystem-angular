@@ -36,7 +36,7 @@ export class AddmonthlyexpenseComponent implements OnInit, OnDestroy {
   }
 
   onClick(){
-    this.router.navigate(['//report']);
+    this.router.navigate(['/monthlyboatexpense']);
   }
 
   onHistory(){

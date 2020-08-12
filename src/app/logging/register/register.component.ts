@@ -33,7 +33,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
 
   onSignup(form: NgForm) {
     const value = form.value;
-    const newUser = new User(value.email, value.username, value.password);
+    const newUser = new User(value.email, value.username, value.password, 'visitor');
     let headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });

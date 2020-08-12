@@ -55,6 +55,8 @@ import { AddmonthlyexpenseComponent } from './addmonthlyexpense/addmonthlyexpens
 import { ExpenseHistoryComponent } from './addmonthlyexpense/expense-history/expense-history.component';
 import { ReportComponent } from './report/report.component';
 import { MonthlyreportComponent } from './report/monthlyreport/monthlyreport.component';
+import { SeasonreportComponent } from './report/seasonreport/seasonreport.component';
+import { MonthlyboatexpenseComponent } from './monthlyboatexpense/monthlyboatexpense.component';
 
 
 // AoT requires an exported function for factories
@@ -111,6 +113,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     ExpenseHistoryComponent,
     ReportComponent,
     MonthlyreportComponent,
+    SeasonreportComponent,
+    MonthlyboatexpenseComponent,
   ],
   imports: [
     BrowserModule,

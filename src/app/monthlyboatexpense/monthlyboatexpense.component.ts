@@ -1,13 +1,13 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-report',
-  templateUrl: './report.component.html',
-  styleUrls: ['./report.component.css']
+  selector: 'app-monthlyboatexpense',
+  templateUrl: './monthlyboatexpense.component.html',
+  styleUrls: ['./monthlyboatexpense.component.css']
 })
-export class ReportComponent implements OnInit, OnDestroy {
+export class MonthlyboatexpenseComponent implements OnInit {
 
   // loadedtrips: any;
   // fetchTripSubscriber: any;
@@ -26,16 +26,8 @@ export class ReportComponent implements OnInit, OnDestroy {
         this.router.navigate(['/myboats']);
     }
 
-    onSeasonReport(){
-      this.router.navigate(['/seasonreport'])
-    }
-
-    onMonthlyReport(id: any){
-      this.router.navigate(['/monthlyreport', id])
-    }
-
-    onReport(id: any){
-      this.router.navigate(['/monthlyreport', id]);
+    onAddMonthlyExpense(id: any){
+      this.router.navigate(['/addmonthlyexpense', id])
     }
 
     // private fetchTrips() {

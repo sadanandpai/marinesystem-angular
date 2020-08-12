@@ -52,8 +52,8 @@
 }
 
 button {
-    background-color: white;
-    color: grey;
+    background-color: green;
+    color: white;
     border: none;
     border-radius: 10px;
     text-align: center;
@@ -61,31 +61,33 @@ button {
     display: block;
     font-size: 1em;
     font-weight: bold;
-    width: 45%;
-    padding: 2% 1%;
-    float: right;
+    width: 30%;
+    margin: 3% 35%;
+    padding: 3%;
+    align-items: center;
   }
 
+select{
+    margin: 0% 5%;
+    height: 35px;
+    width: 40%;
+}
+
 .list-group-item{
-    margin: 0%;
+    /* border-radius: 10px; */
     background-color: #1C2833;
     color: white;
-    padding: 2% 9%;
-    line-height: 2em;
+    padding-left: 5%;
     border: none;
+    margin-bottom: 3%;
 }
 
-.left{
-    float: left;
-}
-
-.right{
+span.right{
     float: right;
 }
 
-.inline-para p{
-    display: inline-block;
-    margin: 0%;
+hr {
+    border-top: 1px solid #ffffff26;
 }
 
 .scroll{
@@ -95,5 +97,8 @@ button {
     overflow-x: hidden; 
 }
 
+.monthlyreport{
+    background-color: black;
+    color: white;
 
-
+}

@@ -61,55 +61,41 @@ button {
     display: block;
     font-size: 1em;
     font-weight: bold;
-    width: 70%;
-    padding: 5% 10%;
-    margin-top: 5%;
+    width: 50%;
+    padding: 2% 1%;
     float: right;
   }
 
+.report-btn{
+    width: 35%;
+}
+
 
 .list-group-item{
-        /* border-radius: 10px; */
-        background-color: #1C2833;
-        color: white;
-        padding-left: 5%;
-        border: none;
-}
-
-.fishname{
+    margin: 0%;
+    background-color: #1C2833;
     color: white;
-    font-weight: bold;
-    width: 80%;
-    margin: 1% 10%;
-    text-align: center;
-    font-weight: bold;
+    padding: 2% 9%;
+    line-height: 2em;
+    border: none;
 }
 
-div.left{
+.left{
     float: left;
-    text-align: center;
-    width: 50%;
 }
 
-div.middle{
-    float: left;
-    width: 5%;
-    border-left: thin solid grey;
-}
-
-div.right{
-    float: left;
-    width: 45%;
-    text-align: right;
-    padding-right: 5%;
-}
-
-p.damagedFish{
+.right{
     float: right;
-    color: #330000;
-    margin-right: 7px;
-    margin-bottom: 2px;
 }
+
+.inline-para p{
+    display: inline-block;
+    margin: 0%;
+}
+
+/* .row{
+    padding: 3%;
+} */
 
 .scroll{
     width: 100%; 

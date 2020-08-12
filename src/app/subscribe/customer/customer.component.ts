@@ -44,7 +44,7 @@ export class CustomerComponent implements OnInit, OnDestroy {
   }
 
   onClick(){
-    this.router.navigate(['/auction']);
+    this.router.navigate(['/']);
   }
 
   private fetchAllBoatOwner() {

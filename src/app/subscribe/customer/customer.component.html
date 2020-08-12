@@ -3,27 +3,25 @@
     <h3 class="header">Owner List</h3>
 
     
-        <span class="help-block msg" *ngIf="success == true">{{ "Request Sent Successfully!!" | translate }}</span>
-        <span class="help-block errmsg" *ngIf="msg == true">{{ "Failed to send request Try again!" | translate }}</span>
-    
-        <div class="scroll">
-            <div class="form-group">
-                <ul class="list-group">
-                <li *ngFor="let owner of loadedowner; let i=index;">
-                    <p class="owner-name">{{ owner.username }}</p>
-                    <button type="button" (click)="onSubscribe(owner.id)" class="btn btn-sm" *ngIf="acceptence[i]=='subscribe'">
-                        {{ "Subscribe" | translate }}
-                    </button>
-                    <button type="button" class="btn btn-sm" *ngIf="acceptence[i]=='pending'">
-                        {{ "Pending..." | translate }}
-                    </button>
-                    <button type="button" class="btn btn-sm btn-success" *ngIf="acceptence[i]=='accepted'">
-                        {{ "Accepted" | translate }}
-                    </button>
-                </li>
-                </ul>
-            </div>
-        </div>
-    
+    <span class="help-block msg" *ngIf="success == true">{{ "Request Sent Successfully!!" | translate }}</span>
+    <span class="help-block errmsg" *ngIf="msg == true">{{ "Failed to send request Try again!" | translate }}</span>
 
+    <div class="scroll">
+        <div class="form-group">
+            <ul class="list-group">
+            <li *ngFor="let owner of loadedowner; let i=index;">
+                <p class="owner-name">{{ owner.username }}</p>
+                <button type="button" (click)="onSubscribe(owner.id)" class="btn btn-sm btn-danger" *ngIf="acceptence[i]=='subscribe'">
+                    {{ "Subscribe" | translate }}
+                </button>
+                <button type="button" class="btn btn-sm btn-warning" disabled=true *ngIf="acceptence[i]=='pending'">
+                    {{ "Pending..." | translate }}
+                </button>
+                <button type="button" class="btn btn-sm btn-success" *ngIf="acceptence[i]=='accepted'">
+                    {{ "Accepted" | translate }}
+                </button>
+            </li>
+            </ul>
+        </div>
+    </div>
 </div>

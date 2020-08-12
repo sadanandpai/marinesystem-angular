@@ -12,10 +12,10 @@
                 <li *ngFor="let customer of loadedcustomer">
                     <div class="row">
                         <p class="customer-name">{{ customer.customer }}</p>
-                        <button class="btn btn-success" type="button" (click)="onAccept(customer.id)" class="btn btn-sm">
+                        <button class="btn btn-sm btn-success" type="button" (click)="onAccept(customer.id)">
                             {{ "Accept" | translate }}
                         </button>
-                        <button class="btn btn-danger" type="button" (click)="onDelete(customer.id)" class="btn btn-sm">
+                        <button class="btn btn-sm btn-danger" type="button" (click)="onDelete(customer.id)">
                             {{ "Delete" | translate }}
                         </button>
                     </div>

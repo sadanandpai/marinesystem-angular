@@ -1,0 +1,51 @@
+<div class="body" *ngIf="boatowner == true">
+    <a (click)="onClick()" class="btn backbtn"><i class="arrow"></i><i class="line"></i></a>
+    <h3 class="header">{{"Report" | translate}}</h3>
+
+<div class="row">
+    <form (ngSubmit)="onSearch(f)" #f="ngForm">
+        <div class="form-group"> 
+            <select id="boat" class="form-control" name="seasonid" size="1" ngModel required>
+                <option *ngFor="let season of loadedSeason" value="{{season.id}}">{{ season.id }} ({{ season.startDate | date : 'y' }} - {{ season.endDate | date : 'y' }})</option>
+            </select>
+            <button type="submit">{{"Search" | translate}}</button>
+        </div> 
+    </form>
+</div>
+
+ <div class="scroll">
+    <div class="row">
+        <div class="col-xs-12 col-md-12 col-lg-12 col-md-offset-3">
+            <!-- <p class="errmsg">{{ "No report Available" | translate }}</p> -->
+            
+            <ul class="list-group" *ngIf="onClickSearch == true">
+                <li class="list-group-item monthlyreport">
+                    <!-- <p>{{ "Boat ID" | translate }} <span class="right"> {{ boatID }}</span> </p> -->
+                    <p>{{ "Season ID" | translate }} <span class="right"> {{ seasonID }}</span> </p>
+                    <p>{{ "No. of Trips" | translate }} <span class="right"> {{ tripCount }}</span> </p>
+                    <!-- <p>{{ "No. of Boats" | translate }} <span class="right"> {{ BoatCount }}</span> </p> -->
+                    <p>{{ "Season Expenditure" | translate }}<span class="right"> Rs. {{ expenditure }}</span> </p>
+                    <p>{{ "Profit" | translate }}<span class="right"> Rs. {{ profit }}</span> </p>
+                    <p>{{ "Season Monthly Expenditure" | translate }} <span class="right"> Rs. {{ seasonlyExpense }}</span> </p>
+                    <hr>
+                    <p>{{ "Total Profit" | translate }} <span class="right">  {{ profit - seasonlyExpense }}</span> </p>
+                    <hr>
+                </li>
+                <li class="list-group-item">
+                    <h4>Tripwise Report</h4>
+                </li>
+                <li class="list-group-item" *ngFor="let trips of loadedtrips">
+                    <p>{{ "Boat ID" | translate }} <span class="right"> {{ trips.boat }}</span> </p>
+                    <p>{{ "Season ID" | translate }} <span class="right"> {{ trips.seasonId }}</span> </p>
+                    <p>{{ "Trip Expenditure" | translate }} <span class="right"> Rs. {{ trips.totalOwner + trips.totalSalary }}</span> </p>
+                    <p>{{ "Trip Profit" | translate }} <span class="right"> Rs. {{ trips.Profit }}</span> </p>
+                    <!-- <hr> -->
+                    <!-- <p>{{ "Total" | translate }} <span class="right">  {{ trips.Profit - (trips.totalOwner + trips.totalSalary) }}</span> </p> -->
+                </li>
+            </ul>
+        </div>
+    </div>
+ </div>
+
+
+</div>

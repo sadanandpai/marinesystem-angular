@@ -43,24 +43,26 @@
         </div>
         <div class="row">
             <div class="col">
-        <button (click)="onAddExpense()" class="btn btn-lg" [disabled]="tripActive != true"><img src="../../assets/Images/ic_19.png" height="80%" width="60%" /></button>
-        <button (click)="onAuction()" class="btn btn-lg right" [disabled]="tripActive != true"><img src="../../assets/Images/ic_07.png" height="70%" width="70%" /></button>
+                <button (click)="onAddExpense()" class="btn btn-lg" [disabled]="tripActive != true"><img src="../../assets/Images/ic_19.png" height="80%" width="60%" /></button>
+                <button (click)="onAuction()" class="btn btn-lg right" [disabled]="tripActive != true"><img src="../../assets/Images/ic_07.png" height="70%" width="70%" /></button>
          </div>
         </div>
         <div class="row">
             <div class="col">
-                <span class="btn-name">{{ "Add Expenses" | translate }}</span>
+                <span class="btn-name">{{ "Trip Expenses" | translate }}</span>
                 <span class="btn-name right">{{ "Auction" | translate }}</span>
             </div>
         </div>
         <div class="row">
             <div class="col">
-        <button (click)="onReport()" class="btn btn-lg"><img src="../../assets/Images/ic_31.png" height="60%" width="60%" /></button>
+                <button (click)="onAddMonthlyExpense()" class="btn btn-lg"><img src="../../assets/Images/ic_19.png" height="80%" width="60%" /></button>
+                <button (click)="onReport()" class="btn btn-lg"><img src="../../assets/Images/ic_31.png" height="60%" width="60%" /></button>
         </div>
         </div>
         <div class="row">
             <div class="col">
-                <span class="btn-name" style="margin-left: 25%;">{{ "Reports" | translate }}</span>
+                <span class="btn-name">{{ "Monthly Expenses" | translate }}</span>
+                <span class="btn-name right">{{ "Reports" | translate }}</span>
             </div>
         </div>
 
