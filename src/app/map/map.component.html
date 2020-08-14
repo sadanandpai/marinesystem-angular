@@ -1,0 +1,72 @@
+
+<div class="body">
+    <div id="fixed">
+        <a (click)="onClick()" class="btn backbtn"><i class="arrow"></i><i class="line"></i></a>
+        <h3 class="header">{{"Weather Report" | translate}}</h3>
+        <!-- <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+        <div class="elfsight-app-bd48ad1b-f712-463a-8644-db13c8e87cd1"></div> -->
+
+        <div class="container">
+            <div class="row">
+                <div class="col col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <p id = "status"></p>
+                    <a id = "map-link" target="_blank"></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- <a id = "map-link" target="map"></a>
+        <iframe id="map" name="map" height="auto" width="100%">
+
+        </iframe> -->
+
+    <div class="weather">
+        <div class="row">
+            <div class="col col-xs-12 col-sm-12 col-md-12 col-lg-12">
+             <h4 id="location"></h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="details col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                    <p>Temperature : </p>
+                    <h2 id="temperature"></h2>
+                </div>
+                
+                <div class="details col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                    <p>Description : </p>
+                    <h2 id="description"></h2>
+                </div>
+                
+                <div class="details col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                    <p>Cloudiness : </p>
+                    <h2 id="cloudiness"></h2>
+                </div>
+            </div>
+            
+            <div class="col">
+                <div class="details col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                    <p>Wind : </p>
+                    <span style="color: greenyellow">Deg:</span>
+                    <h2 id="wind"></h2>
+                    <span style="color: greenyellow">Speed:</span>
+                    <h2 id="windSpeed"></h2>
+                </div>
+                
+                <div class="details col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                    <p>Humidity : </p>
+                    <h2 id="humidity"></h2>
+                </div>
+                
+                <div class="details col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                    <p>Pressure : </p>
+                    <h2 id="pressure"></h2>
+                </div>
+            </div>
+        </div>
+        
+       
+    </div>
+    </div>
+    
+</div>

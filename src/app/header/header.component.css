@@ -2,7 +2,7 @@
     background-color: black;
     font-family: 'century Gothic';
     font-weight: bold;
-    height: 80px;
+    min-height: 80px;
     position: relative;
     border-bottom: 1px solid grey;
 }
@@ -76,7 +76,6 @@ a .logo{
     .sidebar {padding-top: 15px;}
     .sidebar a {font-size: 18px;}
   }
-  
 
   svg{
     float: right;
