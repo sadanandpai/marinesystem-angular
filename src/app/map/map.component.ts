@@ -22,8 +22,8 @@ export class MapComponent implements OnInit {
 
     // function geoFindMe() {
 
-  const status = <HTMLElement> document.querySelector('#status');
-  const mapLink = <HTMLElement> document.querySelector('#map-link');
+  const status = <HTMLParagraphElement> document.querySelector('#status');
+  const mapLink = <HTMLAnchorElement> document.querySelector('#map-link');
 
   mapLink.href= '';
   mapLink.textContent = '';
@@ -50,67 +50,96 @@ export class MapComponent implements OnInit {
     navigator.geolocation.getCurrentPosition(success, error);
   }
 
-// }
+  // }
 
-// document.querySelector('#find-me').addEventListener('click', geoFindMe);
+  // document.querySelector('#find-me').addEventListener('click', geoFindMe);
 
-// Weather Forecast of Current Location
+  // Weather Forecast of Current Location
 
-function getWeather() {
-  let temperature = document.getElementById("temperature");
-  let description = document.getElementById("description");
-  let cloud = document.getElementById("cloudiness");
-  let wind = document.getElementById("wind");
-  let location = document.getElementById("location");
-  let windSpeed = document.getElementById("windSpeed");
-  let humidity = document.getElementById("humidity");
-  let pressure = document.getElementById("pressure");
+  function getWeather() {
+    let temperature = document.getElementById("temperature");
+    let description = document.getElementById("description");
+    let cloud = document.getElementById("cloudiness");
+    let wind = document.getElementById("wind");
+    let location = document.getElementById("location");
+    let windSpeed = document.getElementById("windSpeed");
+    let humidity = document.getElementById("humidity");
+    let pressure = document.getElementById("pressure");
 
-  let api = "https://api.openweathermap.org/data/2.5/weather";
-  let apiKey = "ca6ab8e3479cbac859280d8590a85fef";
+    let api = "https://api.openweathermap.org/data/2.5/weather";
+    let apiKey = "ca6ab8e3479cbac859280d8590a85fef";
 
-  location.innerHTML = "Locating...";
+    location.innerHTML = "Locating...";
 
-  navigator.geolocation.getCurrentPosition(success, error);
+    navigator.geolocation.getCurrentPosition(success, error);
 
-  function success(position) {
-    const latitude = position.coords.latitude;
-    const longitude = position.coords.longitude;
+    function success(position) {
+      const latitude = position.coords.latitude;
+      const longitude = position.coords.longitude;
 
-    let url =
-      api +
-      "?lat=" +
-      latitude +
-      "&lon=" +
-      longitude +
-      "&appid=" +
-      apiKey +
-      "&units=imperial";
+      let url =
+        api +
+        "?lat=" +
+        latitude +
+        "&lon=" +
+        longitude +
+        "&appid=" +
+        apiKey +
+        "&units=imperial";
 
-    fetch(url)
-      .then(response => response.json())
-      .then(data => {
-        console.log(data);
-        let temp = data.main.temp;
-        temperature.innerHTML = temp + "° F";
-        location.innerHTML = data.name + " (" + latitude + "°, " + longitude + "°)";
-        description.innerHTML = data.weather[data.weather.length - 1].main;
-        cloud.innerHTML = data.clouds.all + "%";
-        wind.innerHTML = data.wind.deg + "° ";
-        windSpeed.innerHTML = data.wind.speed + " m/s";
-        humidity.innerHTML = data.main.humidity + "%"
-        pressure.innerHTML =  data.main.pressure + " hPa";
-      });
-  }
+      fetch(url)
+        .then(response => response.json())
+        .then(data => {
+          console.log(data);
+          let temp = data.main.temp;
+          temperature.innerHTML = temp + "° F";
+          location.innerHTML = data.name + " (" + latitude + "°, " + longitude + "°)";
+          description.innerHTML = data.weather[data.weather.length - 1].main;
+          cloud.innerHTML = data.clouds.all + "%";
+          wind.innerHTML = data.wind.deg + "° ";
+          windSpeed.innerHTML = data.wind.speed + " m/s";
+          humidity.innerHTML = data.main.humidity + "%"
+          pressure.innerHTML =  data.main.pressure + " hPa";
+        });
+    }
 
-  function error() {
-    location.innerHTML = "Unable to retrieve your location";
-  }
-}
+    function error() {
+      // location.innerHTML = "Unable to retrieve your location";
+      const latitude = 12.8700;
+      const longitude = 74.8800;
 
-getWeather();
+      let url =
+        api +
+        "?lat=" +
+        latitude +
+        "&lon=" +
+        longitude +
+        "&appid=" +
+        apiKey +
+        "&units=imperial";
+
+      fetch(url)
+        .then(response => response.json())
+        .then(data => {
+          console.log(data);
+          let temp = data.main.temp;
+          temperature.innerHTML = temp + "° F";
+          location.innerHTML = data.name + " (" + latitude + "°, " + longitude + "°)";
+          description.innerHTML = data.weather[data.weather.length - 1].main;
+          cloud.innerHTML = data.clouds.all + "%";
+          wind.innerHTML = data.wind.deg + "° ";
+          windSpeed.innerHTML = data.wind.speed + " m/s";
+          humidity.innerHTML = data.main.humidity + "%"
+          pressure.innerHTML =  data.main.pressure + " hPa";
+        });
+    }
+  }   
+
+  getWeather();
     
-   }
+}                 //ngOnInit closing
+
+
 
    onClick(){
     this.router.navigate(['/']);

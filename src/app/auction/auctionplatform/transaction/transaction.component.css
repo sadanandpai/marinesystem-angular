@@ -68,9 +68,9 @@
     margin: 2% 10%;
 }
 
-.left{
+/* .left{
     float: left;
-}
+} */
 
 .scroll{
     width: 100%; 
@@ -90,25 +90,6 @@ button.btn-done {
     font-size: 1em;
     font-weight: bold;
     width: 100%;
-}
-
-p{
-    display: inline-block;
-    margin: 0%;
-}
-p.right{
-    float: right;
-}
-.winner{
-    float: right;
-    margin: 2%;
-}
-.quotes{
-    min-height: 24px;
-}
-
-.image{
-    margin-bottom: 10%;
 }
 
 .fishname{

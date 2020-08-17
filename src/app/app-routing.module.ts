@@ -37,6 +37,7 @@ import { ReportComponent } from './report/report.component';
 import { MonthlyreportComponent } from './report/monthlyreport/monthlyreport.component';
 import { SeasonreportComponent } from './report/seasonreport/seasonreport.component';
 import { MonthlyboatexpenseComponent } from './monthlyboatexpense/monthlyboatexpense.component';
+import { CompassComponent } from './compass/compass.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -54,6 +55,7 @@ const routes: Routes = [
   { path: 'expenses', component: AddexpensesComponent },
   { path: 'calculator', component: CalculatorComponent },
   { path: 'map', component: MapComponent },
+  { path: 'compass', component: CompassComponent },
   { path: 'addboats', component: AddboatComponent },
   { path: 'addmembers', component: AddmemberComponent },
   // { path: 'addsalary', component: AddsalaryComponent },

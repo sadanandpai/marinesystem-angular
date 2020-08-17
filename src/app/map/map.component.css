@@ -79,7 +79,7 @@ p {
     margin-bottom: 0px;
 }
 
-a#map-link{
+.maplink{
     font-size: 2em;
 }
 div.details p{
@@ -87,7 +87,7 @@ div.details p{
     text-decoration: underline;
 }
 
-#location{
+.loc{
     color: #ff0000;
     font-weight: bold;
 }
