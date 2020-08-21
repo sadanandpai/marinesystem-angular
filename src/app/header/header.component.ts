@@ -14,6 +14,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   loggingServiceSubscriber: any;
   lang: boolean;
   boatDriver: boolean;
+  username: string;
 
   constructor(private translate: TranslateService) { 
     translate.setDefaultLang('en');
@@ -32,6 +33,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     if(group=='BoatDriver') {
       this.boatDriver=true;
     }
+    this.username=localStorage.getItem('user');
   }
 
   onLogout(){
@@ -82,6 +84,15 @@ export class HeaderComponent implements OnInit, OnDestroy {
     document.getElementById("main").style.marginLeft= "0";
   }
   
+  
+  openProfile(){
+    document.getElementById("myProfile").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+  }
+  closeProfile() {
+    document.getElementById("myProfile").style.width = "0";
+    document.getElementById("main").style.marginLeft = "0";
+  }
 
   ngOnDestroy(){
     if(this.loggingServiceSubscriber){

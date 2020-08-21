@@ -1,15 +1,14 @@
 <div class="body" *ngIf="boatOwner == true">
-    <a (click)="onClick()" class="btn backbtn"><i class="arrow"></i><i class="line"></i></a>
-      <h3 class="header">{{ "ADD BOAT" | translate}}</h3>
+   <div> <a (click)="onClick()" class="btn backbtn"><i class="arrow"></i><i class="line"></i></a>
+      <h3 class="header">{{ "ADD BOAT" | translate}}</h3></div>
   
   <form (ngSubmit)="addBoat(f)" #f="ngForm">
     <span class="help-block msg" *ngIf="success == true">{{ "Added Successfully!!" | translate }}</span>
     <span class="help-block errmsg" *ngIf="msg == true">{{ "Failed to add Try again!" | translate }}</span>
 
-  <div class="form-group col-xs-12">
+  <div class="form-group">
     <label for="name">{{ "Boat Name" | translate }}</label>
-    <div class="input-group mb-3">
-      <input 
+    <input 
       type="text" 
       class="form-control" 
       id="name" 
@@ -19,16 +18,14 @@
       required 
       #name="ngModel"
       />
-    </div>
     <span class="help-block errmsg" *ngIf="!name.valid && name.touched">{{
       "Please Enter a valid Name!" | translate
     }}</span>
   </div>
 
-  <div class="form-group col-xs-12">
+  <div class="form-group">
     <label for="number">{{ "Boat Number" | translate }}</label>
-    <div class="input-group mb-3">
-      <input 
+    <input 
       type="number" 
       class="form-control" 
       id="number" 
@@ -38,16 +35,14 @@
       required 
       #number="ngModel"
       />
-    </div>
     <span class="help-block errmsg" *ngIf="!number.valid && number.touched">{{
       "Please Enter a valid number!" | translate
     }}</span>
   </div>
 
-  <!-- <div class="form-group col-xs-12">
+  <!-- <div class="form-group">
     <label for="driver">{{ "Boat Driver" | translate }}</label>
-    <div class="input-group mb-3">
-      <input 
+    <input 
       type="text" 
       class="form-control" 
       id="driver" 
@@ -56,16 +51,14 @@
       ngModel
       #driver="ngModel"
       />
-    </div>
     <span class="help-block errmsg" *ngIf="!driver.valid">{{
       "Please Enter a valid Data!" | translate
     }}</span>
   </div> -->
 
-  <div class="form-group col-xs-12">
+  <div class="form-group">
     <label for="description">{{ "Description" | translate }}</label>
-    <div class="input-group mb-3">
-      <input 
+    <input 
       type="text" 
       class="form-control" 
       id="description" 
@@ -74,7 +67,6 @@
       ngModel
       #description="ngModel"
       />
-    </div>
     <span class="help-block errmsg" *ngIf="!description.valid">{{
       "Please Enter a valid Data!" | translate
     }}</span>

@@ -27,6 +27,7 @@ monthlyExpense: number;
   loadedmonthlyexpense: any;
   onClickSearch: boolean;
   monthlyExpenseCount: any;
+  redColor: boolean;
 
 constructor(private http: HttpClient,
   private router: Router,
@@ -74,17 +75,23 @@ constructor(private http: HttpClient,
           this.expenditure += (responseData[i].totalOwner + responseData[i].totalSalary);
           this.profit += responseData[i].Profit;
         }
+          if(this.profit < 0){
+            console.log(this.redColor);
+            this.redColor = true;
+            console.log(this.redColor);
+          } else {
+            this.redColor = false;
+          }
         
-    });
-    this.fetchMonthlyExpenseSubscriber = this.http.get('http://localhost:8000/portal/monthlyexpenselist/' + this.boatID + '/' + this.month + '-' + this.year + '/')
-    .subscribe((responseData: any) => {
+      });
+      this.fetchMonthlyExpenseSubscriber = this.http.get('http://localhost:8000/portal/monthlyexpenselist/' + this.boatID + '/' + this.month + '-' + this.year + '/')
+      .subscribe((responseData: any) => {
         console.log(responseData);
         this.loadedmonthlyexpense = responseData;
         this.monthlyExpenseCount = responseData.length;
         for(let i=0; i<responseData.length; i++){
           this.monthlyExpense += responseData[i].amount;
         }
-        
     });
   }
 

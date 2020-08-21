@@ -1,18 +1,18 @@
 <div class="body" *ngIf="boatowner == true">
-    <a (click)="onClick()" class="btn backbtn"><i class="arrow"></i><i class="line"></i></a>
-    <h3 class="header">{{"Advance History" | translate}}</h3>
+   <div> <a (click)="onClick()" class="btn backbtn"><i class="arrow"></i><i class="line"></i></a>
+    <h3 class="header">{{"Advance History" | translate}}</h3></div>
 
  <div class="scroll">
     <div class="row">
-        <div class="col-xs-12 col-md-12 col-lg-12 col-md-offset-3">
+        <div class="col-xs-12 col-md-12 col-lg-12">
             <p class="errmsg" *ngIf="loadedadvance == null">{{ "No History Available" | translate }}</p>
-            <ul class="list-group" *ngFor="let advance of loadedadvance">
-                <li class="list-group-item">
+            <ul class="list-group">
+                <li class="list-group-item" *ngFor="let advance of loadedadvance">
                     <p>{{ "Boat ID" | translate }} <span class="right"> {{ advance.boat }}</span> </p>
                     <p>{{ "Season ID" | translate }} <span class="right"> {{ advance.season }}</span> </p>
                     <p>{{ "Amount" | translate }} <span class="right"> Rs. {{ advance.advance }}</span> </p>
-                    <hr>
                     <p>{{ "Comment" | translate }} <span class="right">  {{ advance.comment }}</span> </p>
+                    <hr>
                 </li>
             </ul>
         </div>

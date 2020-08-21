@@ -1,0 +1,6 @@
+.scroll{
+    width: 100%; 
+    max-height: calc(100vh - 54px);
+    overflow: scroll;
+    overflow-x: hidden;
+}

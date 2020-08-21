@@ -1,7 +1,6 @@
 .errmsg{
     color: orange;
-    font-family: 'century Gothic';
-    font-weight: 500;
+    /* font-family: 'century Gothic'; */
     font-size: 1em;
     display: inline-block;
     text-align: center;
@@ -9,10 +8,14 @@
 }
 
 .body{
+    font-weight: 100;
+    letter-spacing: 1.2px;
+    font-family: sans-serif;
+    font-size: 1em;
     background-color: black;
     min-height: 100vh;
-    font-family: 'century Gothic';
-    font-weight: bold;
+    /* font-family: 'century Gothic'; */
+    font-weight: 100;
     position: relative;
     height: auto;
 }
@@ -40,7 +43,7 @@
 }
 
 .header{
-    font-family: 'century Gothic';
+    /* font-family: 'century Gothic'; */
     font-weight: 600;
     font-size: 1.5em;
     color: white;
@@ -52,95 +55,87 @@
 }
 
 button {
-    background-color: #666666;
+    background-color: #1cdb1c;
     color: white;
     border: none;
     border-radius: 10px;
     text-align: center;
     text-decoration: none;
-    /* display: inline-block; */
     font-size: 1em;
-    font-weight: bold;
-    width: 70%;
-    padding: 5% 10%;
-    /* margin-left: 25%; */
-    float: right;
-    margin-right: 5%;
-    margin-top: 30%;
-}
-
-img{
-    margin-left: 6%;
+    font-weight: 100;
 }
 
 .content{
     overflow-y: auto;
 }
 
-.bdbuttons{
-    border: none;
-    display: block;
-    width: 100%;
-}
-
 .btn-addfish{
-    float: left;
+    float: right;
+    border-radius: 10px;
+    background-color: #1cdb1c;
+    color: white;
+    margin: 10% 5%;
+    /* float: right;
     width: 30%;
     padding: 3% 2%;
     border-radius: 10px;
-    background-color: #2baa24;
+    background-color: #1cdb1c;
     color: white;
     margin-left: 6%;
     margin-right: 0%;
     margin-top: 0%;
-    margin-bottom: 1%;
+    margin-bottom: 1%; */
 }
 
 .btn-history{
     float: right;
+    border-radius: 10px;
+    background-color: #1cdb1c;
+    color: white;
+    margin: 10% 5%;
+    /* float: right;
     width: 30%;
     padding: 3% 2%;
     border-radius: 10px;
-    background-color: #2baa24;
+    background-color: #1cdb1c;
     color: white;
     margin-right: 6%;
     margin-left: 0%;
     margin-top: 0%;
-    margin-bottom: 1%;
+    margin-bottom: 1%; */
 }
   
 .fishname{
-    color: white;
-    font-weight: bold;
-    width: 50%;
+    color: #bdbdbd;
+    /* width: 50%; */
     text-align: center;
     font-size: 1em;
-    font-weight: bold;
 }
 
 .list-group-item{
     /* border-radius: 10px; */
-    background-color: #1C2833;
-    color: white;
+    /* background-color: #1C2833; */
+    background-color: black;
+    color: #bdbdbd;
     padding-left: 5%;
     border: none;
+    font-weight: 100;
+}
+
+.list-group {
+    padding-left: 3%;
 }
 
 /* .row{
     padding: 1%;
 } */
 
-div .left{
+div.left{
     float: left;
-    text-align: center;
-    width: 55%;
 }
 
-div .right{
-    float: left;
-    width: 45%;
-    font-size: 1em;
-    font-weight: bold;
+.right{
+   text-align: right;
 }
 
 .scroll{
@@ -152,24 +147,25 @@ div .right{
 p.damagedFish{
     float: right;
     color: white;
-    margin-right: 7px;
-    margin-bottom: 2px;
+    /* margin-right: 7px;
+    margin-bottom: 2px; */
 }
 
 p.bdName{
     font-size: 13px;
-    font-weight: normal;
-    margin-top: 0px;
+    font-weight: 100;
+    /* margin-top: 0px;
     margin-bottom: 0px;
     margin-right: 5%;
-    text-align: right;
-    width: 50%;
+    text-align: right; */
+    /* width: 50%; */
     float: right;
 }
 
-p {
-    margin-top: 2%;
-    float: right;
-    margin-right: 10%;
-    margin-bottom: 0px;
+p, h6 {
+    margin: 0;
+}
+
+hr{
+    border-top: 1px solid #636363;
 }

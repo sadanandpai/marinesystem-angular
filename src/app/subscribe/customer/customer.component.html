@@ -1,6 +1,6 @@
 <div class="body">
-    <a (click)="onClick()" class="btn backbtn"><i class="arrow"></i><i class="line"></i></a>
-    <h3 class="header">Owner List</h3>
+   <div> <a (click)="onClick()" class="btn backbtn"><i class="arrow"></i><i class="line"></i></a>
+    <h3 class="header">Owner List</h3></div>
 
     
     <span class="help-block msg" *ngIf="success == true">{{ "Request Sent Successfully!!" | translate }}</span>
@@ -10,16 +10,22 @@
         <div class="form-group">
             <ul class="list-group">
             <li *ngFor="let owner of loadedowner; let i=index;">
-                <p class="owner-name">{{ owner.username }}</p>
-                <button type="button" (click)="onSubscribe(owner.id)" class="btn btn-sm btn-danger" *ngIf="acceptence[i]=='subscribe'">
-                    {{ "Subscribe" | translate }}
-                </button>
-                <button type="button" class="btn btn-sm btn-warning" disabled=true *ngIf="acceptence[i]=='pending'">
-                    {{ "Pending..." | translate }}
-                </button>
-                <button type="button" class="btn btn-sm btn-success" *ngIf="acceptence[i]=='accepted'">
-                    {{ "Accepted" | translate }}
-                </button>
+                <div class="row">
+                    <div class="col-xs-6">
+                        <p class="owner-name">{{ owner.username }}</p>
+                    </div>
+                    <div class="col-xs-6">
+                        <button type="button" (click)="onSubscribe(owner.id)" class="btn btn-sm btn-subscribe" *ngIf="acceptence[i]=='subscribe'">
+                            {{ "Subscribe" | translate }}
+                        </button>
+                        <button type="button" class="btn btn-sm btn-pending" *ngIf="acceptence[i]=='pending'">
+                            {{ "Pending..." | translate }}
+                        </button>
+                        <button type="button" class="btn btn-sm btn-accept" *ngIf="acceptence[i]=='accepted'">
+                            {{ "Accepted" | translate }}
+                        </button>
+                    </div>
+                </div>
             </li>
             </ul>
         </div>

@@ -1,6 +1,6 @@
 .errmsg{
     color: #ff0000;
-    font-family: 'century Gothic';
+    /* font-family: 'century Gothic'; */
     font-weight: bold;
     font-size: 1em;
     display: inline-block;
@@ -9,9 +9,13 @@
 }
 
 .body{
+    font-weight: 100;
+    letter-spacing: 1.2px;
+    font-family: sans-serif;
+    font-size: 1em;
     background-color: black;
     min-height: 100vh;
-    font-family: 'century Gothic';
+    /* font-family: 'century Gothic'; */
     /* font-weight: bold; */
     position: relative;
     height: auto;
@@ -40,7 +44,7 @@
 }
 
 .header{
-    font-family: 'century Gothic';
+    /* font-family: 'century Gothic'; */
     font-weight: 600;
     font-size: 1.5em;
     color: white;
@@ -54,7 +58,7 @@
 .contents{
     overflow-y: auto;
     height: auto;
-    background-color: #1C2833;
+    background-color: black;
     color: white;
     border: none;
     border-radius: 12px;
@@ -62,7 +66,7 @@
     text-decoration: none;
     display: inline-block;
     font-size: 1em;
-    /* font-weight: bold; */
+    font-weight: 100;
     width: 80%;
     padding: 3% 5%;
     margin: 2% 10%;
@@ -70,8 +74,14 @@
 
 .left{
     float: left;
-    font-weight: bold;
+    color: #bdbdbd;
+    /* font-weight: bold; */
+    padding-left: 2%;
     font-size: 1em;
+}
+
+.name{
+    text-decoration: underline;
 }
 
 span{
@@ -80,23 +90,25 @@ span{
 }
 
 button {
-    background-color: white;
-    color: grey;
+    background-color: #1cda1c;
+    color: white;
     border: none;
     border-radius: 10px;
     text-align: center;
     text-decoration: none;
-    /* display: inline-block; */
     font-size: 1em;
+    /* display: inline-block; */
     /* font-weight: bold; */
-    width: 30%;
-    padding: 2% 2%;
+    /* width: 30%; */
+    /* padding: 2% 2%; */
     /* float: right; */
 }
 
-.row{
-    margin-left: 0px;
-    margin-right: 0px;
+.btn-left{
+    float: left;
+    color: white;
+    font-weight: 100;
+    font-size: 1em;
 }
 
 .scroll{
@@ -111,15 +123,38 @@ input[type="number"] {
     margin: 4% 0%;
   }
 
-hr {
-    border-top: 1px solid #ffffff26;
-}
 
 div.radio{
-    margin-top: 5%;
+    font-weight: 100;
     text-align: left;
 }
 
 .qty{
     font-weight: normal;
+}
+
+.row.green{
+    color: #00ff00;
+    font-weight: bold;
+    border-left: 3px solid #00ff00;
+}
+
+.row.red{
+    color: red;
+    font-weight: bold;
+    border-left: 3px solid red;
+}
+
+.row {
+    border-left: 3px solid white;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.noborder{
+    border: none;
+}
+
+hr {
+    border-top: 1px solid #636363;
 }

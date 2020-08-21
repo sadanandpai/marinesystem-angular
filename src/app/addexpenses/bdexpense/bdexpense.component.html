@@ -1,117 +1,134 @@
 <div class="body">
-  <a (click)="onClick()" class="btn backbtn"><i class="arrow"></i><i class="line"></i></a>
-    <h3 class="header">{{ "ADD EXPENSES" | translate}}</h3>
+ <div> <a (click)="onClick()" class="btn backbtn"><i class="arrow"></i><i class="line"></i></a>
+    <h3 class="header">{{ "ADD EXPENSES" | translate}}</h3></div>
 
 <form (ngSubmit)="expenses(f)" #f="ngForm">
   <span class="help-block msg" *ngIf="success == true">{{ "Added Successfully!!" | translate }}</span>
   <span class="help-block errmsg" *ngIf="msg == true">{{ "Failed to add Try again!" | translate }}</span>
 
-<div class="form-group col-xs-12">
-  <label for="water">{{ "Water" | translate }} (in Ltr)</label>
-  <div>
-    <input 
-    type="number" 
-    class="form-control Qty" 
-    id="waterQty" 
-    placeholder="Qty" 
-    name="waterQty"
-    ngModel 
-    />
-    <input 
-    type="number" 
-    class="form-control" 
-    id="water" 
-    placeholder="Cost" 
-    pattern="^[0-9]*$" 
-    name="water"
-    ngModel 
-    required 
-    #water="ngModel"
-    />
-
+<div class="form-group">
+  <div class="row">
+    <label for="water">{{ "Water" | translate }} (in Ltr)</label>
+  </div>
+  <div class="row">
+    <div class="col">
+      <input 
+        type="number" 
+        class="form-control Qty" 
+        id="waterQty" 
+        placeholder="Qty" 
+        name="waterQty"
+        ngModel 
+        />
+        <input 
+        type="number" 
+        class="form-control" 
+        id="water" 
+        placeholder="Cost" 
+        pattern="^[0-9]*$" 
+        name="water"
+        ngModel 
+        required 
+        #water="ngModel"
+        />
+    </div>
   </div>
   <span class="help-block errmsg" *ngIf="!water.valid && water.touched">{{
     "Please Enter a valid number!" | translate
   }}</span>
 </div>
 
-<div class="form-group col-xs-12">
-  <label for="lpg">{{ "LPG" | translate }} (in Cylinder)</label>
-  <div>
-    <input 
-    type="number" 
-    class="form-control Qty" 
-    id="lpgQty" 
-    placeholder="Qty" 
-    name="lpgQty"
-    ngModel 
-    />
-    <input 
-    type="number" 
-    class="form-control" 
-    id="lpg" 
-    placeholder="Cost" 
-    pattern="^[0-9]*$" 
-    name="lpg"
-    required 
-    ngModel 
-    #lpg="ngModel"
-    />
+<div class="form-group">
+  <div class="row">
+    <label for="lpg">{{ "LPG" | translate }} (in Cylinder)</label>
   </div>
+  <div class="row">
+    <div class="col">
+      <input 
+        type="number" 
+        class="form-control Qty" 
+        id="lpgQty" 
+        placeholder="Qty" 
+        name="lpgQty"
+        ngModel 
+        />
+        <input 
+        type="number" 
+        class="form-control" 
+        id="lpg" 
+        placeholder="Cost" 
+        pattern="^[0-9]*$" 
+        name="lpg"
+        required 
+        ngModel 
+        #lpg="ngModel"
+        />
+      </div>
+    </div>
   <span class="help-block errmsg" *ngIf="!lpg.valid && lpg.touched">{{
     "Please Enter a valid number!" | translate
   }}</span>
 </div>
 
-<div class="form-group col-xs-12">
-  <label for="ration">{{ "Ration" | translate }}(in Days)</label>
-  <div>
-    <input 
-    type="number" 
-    class="form-control Qty" 
-    id="rationQty" 
-    placeholder="Qty" 
-    name="rationQty"
-    ngModel
-    />
-    <input 
-    type="number" 
-    class="form-control" 
-    id="ration" 
-    placeholder="Cost" 
-    pattern="^[0-9]*$" 
-    name="ration"
-    ngModel
-    #ration="ngModel"
-    />
+<div class="form-group">
+  <div class="row">
+    <label for="ration">{{ "Ration" | translate }}(in Days)</label>
+  </div>
+  <div class="row">
+    <div class="col">
+      <input 
+        type="number" 
+        class="form-control Qty" 
+        id="rationQty" 
+        placeholder="Qty" 
+        name="rationQty"
+        ngModel
+        />
+        <input 
+        type="number" 
+        class="form-control" 
+        id="ration" 
+        placeholder="Cost" 
+        pattern="^[0-9]*$" 
+        name="ration"
+        ngModel
+        #ration="ngModel"
+      />
+    </div>
   </div>
   <span class="help-block errmsg" *ngIf="!ration.valid && ration.touched">{{
     "Please Enter a valid number!" | translate
   }}</span>
 </div>
 
-<button type="button" class="btn btn-primary btn-sm extraCostBtn add" (click)="addCost()">{{ "Add Cost" | translate }}</button>
+<button type="button" class="btn btn-primary btn-sm extraCostBtn add" (click)="addCost()">{{ "ADD COST" | translate }}</button>
      
 <section *ngFor="let cost of costs; let i = index;">
-<button type="button" class="btn btn-danger btn-sm extraCostBtn remove" (click)="removeCost(i)">X</button>
   <div class="row">
-      <div class="form-group extrainput">
-        <label class="name">{{ "Name" | translate }}</label>
-        <input type="text" class="form-control name" name="name_{{cost.id}}" placeholder="Name" [(ngModel)]="cost.name"/>
-      </div>
-      <div class="form-group extrainput">
-        <label class="quantity">{{ "Qty" | translate }}</label>
-        <input type="number" class="form-control quantity" name="qty_{{cost.id}}" placeholder="Qty" [(ngModel)]="cost.qty"/>
-      </div>
-      <div class="form-group extrainput">
-        <label class="quantity">{{ "Cost" | translate }}</label>
-        <input type="number" class="form-control quantity" name="cost_{{cost.id}}" placeholder="Cost" [(ngModel)]="cost.cost"/>
-      </div>
+    <button type="button" class="btn btn-danger btn-sm extraCostBtn remove" (click)="removeCost(i)">X</button>
+  </div>
+  <div class="row">
+    <div class="form-group extrainput">
+      <label class="name">{{ "Name" | translate }}</label>
+      <input type="text" class="form-control name" name="name_{{cost.id}}" placeholder="Name" [(ngModel)]="cost.name"/>
     </div>
+  </div>
+  <div class="row">
+    <div class="form-group extrainput">
+      <label class="quantity">{{ "Qty" | translate }}</label>
+      <input type="number" class="form-control quantity" name="qty_{{cost.id}}" placeholder="Qty" [(ngModel)]="cost.qty"/>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group extrainput">
+      <label class="quantity">{{ "Cost" | translate }}</label>
+      <input type="number" class="form-control quantity" name="cost_{{cost.id}}" placeholder="Cost" [(ngModel)]="cost.cost"/>
+    </div>
+  </div>
     <hr>
 </section>
 
-<button type="submit" class="btn btn-sm" [disabled]="!f.valid">
+<button type="submit" class="btn btn-sm submit" [disabled]="!f.valid">
   {{ "Submit" | translate }}
 </button>
 

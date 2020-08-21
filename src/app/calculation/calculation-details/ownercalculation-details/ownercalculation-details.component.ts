@@ -52,6 +52,7 @@ totalSalary: any
   driverSalaryPercent: any;
   UnloadCrewSalaryPercent: any;
   isUnloadCrewPercent: boolean;
+  redColor: boolean;
 
 
   constructor(private http: HttpClient,
@@ -65,6 +66,7 @@ totalSalary: any
       this.fetchTrip();
       this.fetchExtraCostOwner();
       this.fetchExtraCostBD();
+      
     }
 
     onClick(){
@@ -90,6 +92,7 @@ totalSalary: any
     }
 
     private fetchTrip() {
+      // debugger
       this.fetchTripSubscriber = this.http.get('http://localhost:8000/portal/trip_detail/' + this.tripID + '/')
       .subscribe((responseData: any) => {
           console.log(responseData);
@@ -125,6 +128,15 @@ totalSalary: any
             this.isUnloadCrewPercent=false;
           } else {
             this.isUnloadCrewPercent=true;
+          }
+          // debugger
+          if(responseData.Profit < 0){
+            // debugger
+            console.log(this.redColor);
+            this.redColor = true;
+            console.log(this.redColor);
+          } else {
+            this.redColor = false;
           }
       });
     }

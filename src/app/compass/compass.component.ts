@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./compass.component.css']
 })
 export class CompassComponent implements OnInit {
-
+long: any;
+lat: any;
   constructor() { }
 
   ngOnInit(): void {
@@ -83,19 +84,19 @@ export class CompassComponent implements OnInit {
         console.log("Rotating!");
 
         (window as any).addEventListener('deviceorientation', function(event) {
-          debugger
+          // debugger
               var alpha;
               var webkitAlpha;
               //Check for iOS property
               if(event.webkitCompassHeading) {
-                debugger
+                // debugger
                 alpha = event.webkitCompassHeading;
                 //Rotation is reversed for iOS
                 compass.style.webkitTransform = 'rotate(-' + alpha + 'deg)';
               }
               //non iOS
               else {
-                debugger
+                // debugger
                 alpha = event.alpha;
                 webkitAlpha = alpha;
                 if(!(window as any).chrome) {
@@ -103,7 +104,7 @@ export class CompassComponent implements OnInit {
                   webkitAlpha = alpha-270;
                 }
               }
-              debugger
+              // debugger
               compass.style.transform = 'rotate(' + alpha + 'deg)';
               compass.style.webkitTransform = 'rotate('+ webkitAlpha + 'deg)';
               //Rotation is reversed for FF

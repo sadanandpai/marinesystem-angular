@@ -1,14 +1,13 @@
 <div class="body" *ngIf="boatDriver == true">
-    <a (click)="onClick()" class="btn backbtn"><i class="arrow"></i><i class="line"></i></a>
-      <h3 class="header">{{ "ADD BOAT CREW" | translate}}</h3>
+   <div> <a (click)="onClick()" class="btn backbtn"><i class="arrow"></i><i class="line"></i></a>
+      <h3 class="header">{{ "ADD BOAT CREW" | translate}}</h3></div>
   
   <form (ngSubmit)="addCrew(f)" #f="ngForm">
     <span class="help-block msg" *ngIf="success == true">{{ "Added Successfully!!" | translate }}</span>
     <span class="help-block errmsg" *ngIf="msg == true">{{ "Failed to add Try again!" | translate }}</span>
 
-  <div class="form-group col-xs-12">
+  <div class="form-group">
     <label for="name">{{ "Name" | translate }}</label>
-    <div class="mb-3">
       <input 
       type="text" 
       class="form-control" 
@@ -19,15 +18,13 @@
       required 
       #name="ngModel"
       />
-    </div>
     <span class="help-block errmsg" *ngIf="!name.valid && name.touched">{{
       "Please Enter a valid Name!" | translate
     }}</span>
   </div>
 
-  <div class="form-group col-xs-12">
+  <div class="form-group">
     <label for="number">{{ "Phone Number" | translate }}</label>
-    <div class="mb-3">
       <input 
       type="number" 
       class="form-control" 
@@ -39,15 +36,13 @@
       required 
       #number="ngModel"
       />
-    </div>
     <span class="help-block errmsg" *ngIf="!number.valid && number.touched">{{
       "Please Enter a valid Mobile number!" | translate
     }}</span>
   </div>
 
-  <div class="form-group col-xs-12">
+  <div class="form-group">
     <label for="adhar">{{ "Adhar Number" | translate }}</label>
-    <div class="mb-3">
       <input 
       type="number" 
       class="form-control" 
@@ -59,15 +54,13 @@
       required 
       #adhar="ngModel"
       />
-    </div>
     <span class="help-block errmsg" *ngIf="!adhar.valid && adhar.touched">{{
       "Please Enter a valid Adhar number!" | translate
     }}</span>
   </div>
 
-  <div class="form-group col-xs-12">
+  <div class="form-group">
     <label for="age">{{ "Age" | translate }}</label>
-    <div class="mb-3">
       <input 
       type="number" 
       class="form-control" 
@@ -79,15 +72,13 @@
       required
       #age="ngModel"
       />
-    </div>
     <span class="help-block errmsg" *ngIf="!age.valid && age.touched">{{
       "Please Enter a valid Age!" | translate
     }}</span>
   </div>
 
-  <div class="form-group col-xs-12">
+  <div class="form-group">
     <label for="salary">{{ "Salary" | translate }}</label>
-    <div class="mb-3">
       <input 
       type="number" 
       class="form-control" 
@@ -98,17 +89,14 @@
       ngModel
       #salary="ngModel"
       />
-    </div>
     <span class="help-block errmsg" *ngIf="!salary.valid">{{
       "Please Enter a valid number!" | translate
     }}</span>
   </div>
 
-  <div class="form-group col-xs-12">
-    <button type="submit" class="btn btn-sm" [disabled]="!f.valid">
+    <button type="submit" class="btn btn-sm submit" [disabled]="!f.valid">
       {{ "Save" | translate }}
     </button>
-  </div>
   
 </form>
 

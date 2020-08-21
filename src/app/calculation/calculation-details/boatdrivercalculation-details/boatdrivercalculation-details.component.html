@@ -1,44 +1,70 @@
 <div class="body">
-    <a (click)="onClick()" class="btn backbtn"><i class="arrow"></i><i class="line"></i></a>
-    <h3 class="header">{{"Calculation Details" | translate}}</h3>
-    <div class="row">
-        <button class="btn btn-md"(click)="onMyCrew()">My Crew</button>  
+   <div> <a (click)="onClick()" class="btn backbtn"><i class="arrow"></i><i class="line"></i></a>
+    <h3 class="header">{{ "Calculation Details" | translate }}</h3></div>
+    <div class="row noborder">
+        <button class="btn btn-md" (click)="onMyCrew()">{{ "My Crew" | translate }}</button>  
     </div>
-    <div class="row">
-        <div class="contents">
-            <div class="col-xs-12 col-md-12 col-lg-12 col-md-offset-3">
-                
-                <p class="left">{{ "Trip ID" | translate }} </p> <p>{{ id }}</p>
-                <hr>
-                <p class="left">{{ "Boat Number" | translate }} </p> <p>{{ boat }}</p>
-                <hr>
-                <p class="left">{{ "Boat Driver" | translate }}</p> <p>{{ driver }}</p>
-                <hr>
-                <p class="left">{{ "No. of crew" | translate }}</p> <p>{{ crewCount }}</p>
-                <hr>
-                <p class="left">{{ "Water" | translate }} </p> <br>
-                <p class="left">{{ "Quantity" | translate }} </p> <p>{{ "Cost" | translate }} </p> <br>
-                <p class="left">{{ waterQty }}</p> <p>{{ water }}</p>
-                <hr>
-                <p class="left">{{ "LPG" | translate }} </p> <br>
-                <p class="left">{{ "Quantity" | translate }} </p> <p>{{ "Cost" | translate }} </p> <br>
-                <p class="left">{{ LPGQty }}</p> <p>{{ LPG }}</p>
-                <hr>
-                <p class="left">{{ "Ration" | translate }} </p> <br>
-                <p class="left">{{ "Quantity" | translate }} </p> <p>{{ "Cost" | translate }} </p> <br>
-                <p class="left">{{ rationQty }}</p> <p>{{ ration }}</p>
-                <hr>
-                <div *ngFor="let extra of loadedExtracostBD">
-                    <p class="left">{{ extra.name }} </p> <br>
-                    <p class="left">{{ "Quantity" | translate }} </p> <p>{{ "Cost" | translate }} </p> <br>
-                    <p class="left">{{ extra.qty }}</p> <p>{{ extra.cost }}</p>
-                    <hr>
+<div class="row noborder">
+    <div class="contents">
+        <div class="scroll">
+            <div class="col-xs-12 col-md-12 col-lg-12">
+                <div class="row">
+                    <span class="left">{{ "Trip ID" | translate }} </span> <span>{{ id }}</span>
+                </div><hr>
+                <div class="row">
+                    <span class="left">{{ "Boat Number" | translate }} </span> <span>{{ boat }}</span>
+                </div><hr>
+                <div class="row">
+                    <span class="left">{{ "Boat Driver" | translate }}</span> <span>{{ driver }}</span>
+                </div><hr>
+                <div class="row">
+                    <span class="left">{{ "No. of crew" | translate }}</span> <span>{{ crewCount }}</span>
+                </div><hr>
+                <div class="row noborder">
+                        <span class="left name">{{ "Water" | translate }} </span>
                 </div>
-                <p class="left">{{ "Total" | translate }}</p> <p>{{ totalBd }}</p><br>
-    
+                <div class="row red">
+                        <span class="left">{{ "Quantity" | translate }} </span> <span>{{ waterQty }} </span>
+                </div>
+                <div class="row red">
+                    <span class="left">{{ "Cost" | translate }}</span> <span>{{ water }}</span>
+                </div><hr>
+                <div class="row noborder">
+                    <span class="left name">{{ "LPG" | translate }} </span>
+                </div>
+                <div class="row red">
+                    <span class="left">{{ "Quantity" | translate }} </span> <span>{{ LPGQty }} </span>
+                </div>
+                <div class="row red">
+                    <span class="left">{{ "Cost" | translate }}</span> <span>{{ LPG }}</span>
+                </div><hr>
+                <div class="row noborder">
+                    <span class="left name">{{ "Ration" | translate }} </span>
+                </div>
+                <div class="row red">
+                    <span class="left">{{ "Quantity" | translate }} </span> <span>{{ rationQty }} </span>
+                </div>
+                <div class="row red">
+                    <span class="left">{{ "Cost" | translate }}</span> <span>{{ ration }}</span>
+                </div><hr>
+                <div *ngFor="let extra of loadedExtracostBD">
+                    <div class="row noborder">
+                        <span class="left name">{{ extra.name }} </span>
+                    </div>
+                    <div class="row red">
+                        <span class="left">{{ "Quantity" | translate }} </span> <span>{{ extra.qty }} </span>
+                    </div>
+                    <div class="row red">
+                        <span class="left">{{ "Cost" | translate }}</span> <span>{{ extra.cost }}</span>
+                    </div><hr>
+                </div>
+                <div class="row red total">
+                    <span class="left">{{ "Total" | translate }}</span> <span>{{ totalBd }}</span><br>
+                </div>
             </div>
         </div>
     </div>
+</div>
     
         
     </div>

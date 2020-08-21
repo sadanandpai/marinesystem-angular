@@ -1,7 +1,7 @@
 .errmsg{
     color: orange;
-    font-family: 'century Gothic';
-    font-weight: 500;
+    /* font-family: 'century Gothic'; */
+    font-weight: bold;
     font-size: 1em;
     display: inline-block;
     text-align: center;
@@ -9,9 +9,13 @@
 }
 
 .body{
+    font-weight: 100;
+    letter-spacing: 1.2px;
+    font-family: sans-serif;
+    font-size: 1em;
     background-color: black;
     min-height: 100vh;
-    font-family: 'century Gothic';
+    /* font-family: 'century Gothic'; */
     font-weight: bold;
     position: relative;
     height: auto;
@@ -40,7 +44,7 @@
 }
 
 .header{
-    font-family: 'century Gothic';
+    /* font-family: 'century Gothic'; */
     font-weight: 600;
     font-size: 1.5em;
     color: white;
@@ -52,8 +56,8 @@
 }
 
 button {
-    background-color: white;
-    color: grey;
+    background-color: #1cda1c;
+    color: white;
     border: none;
     border-radius: 10px;
     text-align: center;
@@ -70,7 +74,8 @@ button {
 
 .contents{
     height: auto;
-    background-color: #1C2833;
+    /* background-color: #1C2833; */
+    background-color: black;
     color: white;
     border: none;
     border-radius: 12px;
@@ -78,14 +83,25 @@ button {
     text-decoration: none;
     display: inline-block;
     font-size: 1em;
-    font-weight: bold;
+    font-weight: 100;
     width: 80%;
     padding: 3% 5%;
     margin: 2% 10%;
 }
 
 .left{
+    color: #bdbdbd;
+    padding-left: 2%;
     float: left;
+    font-weight: 100;
+}
+
+.name{
+    text-decoration: underline;
+}
+
+.total{
+    font-size: large;
 }
 
 p{
@@ -93,3 +109,26 @@ p{
     margin: 0%;
 }
 
+.noborder{
+    border: none;
+}
+
+.row.red{
+    color: red;
+    font-weight: bold;
+    border-left: 3px solid red;
+}
+
+.row {
+    border-left: 3px solid white;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.noborder{
+    border: none;
+}
+
+hr {
+    border-top: 1px solid #636363;
+}

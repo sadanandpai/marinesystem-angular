@@ -1,8 +1,8 @@
 
 <div class="body">
     <div id="fixed">
-        <a (click)="onClick()" class="btn backbtn"><i class="arrow"></i><i class="line"></i></a>
-        <h3 class="header">{{"Weather Report" | translate}}</h3>
+       <div> <a (click)="onClick()" class="btn backbtn"><i class="arrow"></i><i class="line"></i></a>
+        <h3 class="header">{{ "Weather Report" | translate }}</h3></div>
         <!-- <script src="https://apps.elfsight.com/p/platform.js" defer></script>
         <div class="elfsight-app-bd48ad1b-f712-463a-8644-db13c8e87cd1"></div> -->
 
@@ -46,22 +46,25 @@
             
             <div class="col">
                 <div class="details col-xs-6 col-sm-6 col-md-4 col-lg-4">
-                    <p>Wind : </p>
-                    <span style="color: greenyellow">Deg:</span>
-                    <h2 id="wind"></h2>
-                    <span style="color: greenyellow">Speed:</span>
-                    <h2 id="windSpeed"></h2>
-                </div>
-                
-                <div class="details col-xs-6 col-sm-6 col-md-4 col-lg-4">
                     <p>Humidity : </p>
                     <h2 id="humidity"></h2>
                 </div>
-                
+
                 <div class="details col-xs-6 col-sm-6 col-md-4 col-lg-4">
                     <p>Pressure : </p>
                     <h2 id="pressure"></h2>
                 </div>
+
+                <div class="details col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                    <p>Wind : </p>
+                    <span style="color: greenyellow">Deg:</span>
+                    <h2 id="wind"></h2>
+                    <hr>
+                    <span style="color: greenyellow">Speed:</span>
+                    <h2 id="windSpeed"></h2>
+                </div>
+                
+                
             </div>
         </div>
         

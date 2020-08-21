@@ -1,6 +1,6 @@
 <div class="body">
-    <a (click)="onClick()" class="btn backbtn"><i class="arrow"></i><i class="line"></i></a>
-      <h3 class="header">{{ "ADD SALARY" | translate}}</h3>
+   <div> <a (click)="onClick()" class="btn backbtn"><i class="arrow"></i><i class="line"></i></a>
+      <h3 class="header">{{ "ADD SALARY" | translate}}</h3></div>
   
   <form (ngSubmit)="addSalary(f)" #f="ngForm">
     <span class="help-block msg" *ngIf="success == true">{{ "Added Successfully!!" | translate }}</span>

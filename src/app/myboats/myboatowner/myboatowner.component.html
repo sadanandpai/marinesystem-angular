@@ -1,6 +1,6 @@
 <div class="body">
-    <a (click)="onClick()" class="btn backbtn"><i class="arrow"></i><i class="line"></i></a>
-    <h3 class="header">{{"My Boat" | translate}}</h3>
+   <div> <a (click)="onClick()" class="btn backbtn"><i class="arrow"></i><i class="line"></i></a>
+    <h3 class="header">{{"My Boat" | translate}}</h3></div>
 
     <form (ngSubmit)="onSelectTrip(f)" #f="ngForm" *ngIf="seasonActive==true && notrips!=true">
         <div class="form-group col-xs-12" *ngIf="tripActive != true"> 
@@ -29,39 +29,39 @@
     </div> -->
     <div class="group-btn">
 
-        <div class="row">
-            <div class="col">
-                <button (click)="onMyBoat()" class="btn btn-lg"><img src="../../assets/Images/ic_18.png" height="70%" width="80%" /></button>
-                <button (click)="onAddBoat()" class="btn btn-lg right"><img src="../../assets/Images/ic_17.png" height="70%" width="100%" /></button>
+        <div class="row align-items-center">
+            <div class="center col col-xs-6 col-sm-4 col-md-4 col-lg-4">
+                <button (click)="onMyBoat()" class="btn btn-lg"><img src="../../assets/Images/ic_18.png" height="55px" width="55px" /></button>
+                <span class="btn-name">{{ "My Boat" | translate }}</span>
             </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <span class="btn-name" style="margin-left: 22%;">{{ "My Boat" | translate }}</span>
+        <!-- </div>
+        <div class="row"> -->
+            <div class="center col col-xs-6 col-sm-4 col-md-4 col-lg-4">
+                <button (click)="onAddBoat()" class="btn btn-lg right"><img src="../../assets/Images/ic_17.png" height="55px" width="55px" /></button>
                 <span class="btn-name right">{{ "Add Boat" | translate }}</span>
             </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <button (click)="onAddExpense()" class="btn btn-lg" [disabled]="tripActive != true"><img src="../../assets/Images/ic_19.png" height="80%" width="60%" /></button>
-                <button (click)="onAuction()" class="btn btn-lg right" [disabled]="tripActive != true"><img src="../../assets/Images/ic_07.png" height="70%" width="70%" /></button>
-         </div>
-        </div>
-        <div class="row">
-            <div class="col">
+        <!-- </div>
+        <div class="row"> -->
+            <div class="center col col-xs-6 col-sm-4 col-md-4 col-lg-4">
+                <button (click)="onAddExpense()" class="btn btn-lg" [disabled]="tripActive != true"><img src="../../assets/Images/ic_19.png" height="55px" width="55px" /></button>
                 <span class="btn-name">{{ "Trip Expenses" | translate }}</span>
+         </div>
+        <!-- </div>
+        <div class="row"> -->
+            <div class="center col col-xs-6 col-sm-4 col-md-4 col-lg-4">
+                <button (click)="onAuction()" class="btn btn-lg right" [disabled]="tripActive != true"><img src="../../assets/Images/ic_07.png" height="55px" width="55px" /></button>
                 <span class="btn-name right">{{ "Auction" | translate }}</span>
             </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <button (click)="onAddMonthlyExpense()" class="btn btn-lg"><img src="../../assets/Images/ic_19.png" height="80%" width="60%" /></button>
-                <button (click)="onReport()" class="btn btn-lg"><img src="../../assets/Images/ic_31.png" height="60%" width="60%" /></button>
-        </div>
-        </div>
-        <div class="row">
-            <div class="col">
+        <!-- </div>
+        <div class="row"> -->
+            <div class="center col col-xs-6 col-sm-4 col-md-4 col-lg-4">
+                <button (click)="onAddMonthlyExpense()" class="btn btn-lg"><img src="../../assets/Images/ic_19.png" height="55px" width="55px" /></button>
                 <span class="btn-name">{{ "Monthly Expenses" | translate }}</span>
+        </div>
+        <!-- </div>
+        <div class="row"> -->
+            <div class="center col col-xs-6 col-sm-4 col-md-4 col-lg-4">
+                <button (click)="onReport()" class="btn btn-lg"><img src="../../assets/Images/ic_31.png" height="55px" width="55px" /></button>
                 <span class="btn-name right">{{ "Reports" | translate }}</span>
             </div>
         </div>

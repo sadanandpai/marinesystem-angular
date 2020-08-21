@@ -1,14 +1,14 @@
 <div class="body">
-  <a (click)="onClick()" class="btn backbtn"><i class="arrow"></i><i class="line"></i></a>
-    <h3 class="header">ADD FISH</h3>
+ <div> <a (click)="onClick()" class="btn backbtn"><i class="arrow"></i><i class="line"></i></a>
+    <h3 class="header">{{ "ADD FISH" | translate }}</h3></div>
     <span class="help-block warningmsg" *ngIf="warning == true">{{ "First Start the Trip and Try again!" | translate }}</span>
-    <a class="help-block link" (click)="onClickhere()" *ngIf="warning == true">click here</a>
+    <a class="help-block link" (click)="onClickhere()" *ngIf="warning == true">{{ "click here" | translate }}</a>
   
 <form (ngSubmit)="fishDetails(f)" #f="ngForm" *ngIf="warning != true">
   <span class="help-block msg" *ngIf="success == true">{{ "Added Successfully!!" | translate }}</span>
   <span class="help-block errmsg" *ngIf="msg == true">{{ "Failed to add Try again!" | translate }}</span>
   
-  <div class="form-group col-xs-12">
+  <div class="form-group">
     <label for="fishid">{{ "FISH NAME" | translate }}</label>
     <select class="form-control" id="fishid" placeholder="FISH NAME" name="fishid"
       ngModel
@@ -171,12 +171,12 @@
       "Please Select Fish name!" | translate
     }}</span>
     </div>
+    
     <input type="checkbox" class="form-control" id="damaged" name="damaged" value="true" ngModel>
     <label for="damaged" class="damaged">{{ "Damaged" | translate }}</label>
-    
-  <div class="form-group col-xs-12">
+
+  <div class="form-group">
     <label for="size">{{ "FISH SIZE" | translate }}</label>
-    <div class="mb-3">
       <input 
       type="text" 
       class="form-control" 
@@ -189,17 +189,13 @@
       required 
       #size="ngModel"
       />
-        <!-- <span class="input-group-text extras-right">KG</span> -->
-    </div>
     
     <span class="help-block errmsg" *ngIf="!size.valid && size.touched">{{
       "Please Enter a valid Weight of Fish!" | translate
     }}</span>
   </div>
-  <div class="form-group col-xs-12">
+  <div class="form-group">
     <label for="price">{{ "FISH MIN PRICE" | translate }}</label>
-    <div class="mb-3">
-    <!-- <span class="input-group-text extras-left">Rs.</span> -->
       <input
       type="number"
       class="form-control"
@@ -211,8 +207,6 @@
       required
       #price="ngModel"
     />
-    <!-- <span class="input-group-text extras-right">.00</span> -->
-    </div>
 
     <span class="help-block errmsg" *ngIf="!price.valid && price.touched">{{
       "Please Enter a valid Price of Fish!" | translate

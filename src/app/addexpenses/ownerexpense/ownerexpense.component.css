@@ -1,7 +1,7 @@
 .errmsg{
     color: red;
-    font-family: 'century Gothic';
-    font-weight: 500;
+    /* font-family: 'century Gothic'; */
+    font-weight: bold;
     font-size: 1em;
     display: inline-block;
     text-align: center;
@@ -9,7 +9,7 @@
 }
 .msg{
     color: greenyellow;
-    font-weight: 500;
+    font-weight: bold;
     font-size: 1em;
     display: inline-block;
     text-align: center;
@@ -17,11 +17,13 @@
 }
 
 .body{
-    /* background-image: url("../../../assets/Images/AddFishBG-01.jpg"); */
+    font-weight: 100;
+    letter-spacing: 1.2px;
+    font-family: sans-serif;
+    font-size: 1em;
     background-color: black;
     min-height: 100vh;
-    font-family: 'century Gothic';
-    font-weight: bold;
+    /* font-family: 'century Gothic'; */
     position: relative;
     height: auto;
 }
@@ -49,8 +51,8 @@
 }
 
 .header{
-    font-family: 'century Gothic';
-    font-weight: 700;
+    /* font-family: 'century Gothic'; */
+    font-weight: 600;
     font-size: 1.5em;
     color: white;
     display: inline-block;
@@ -60,9 +62,9 @@
     text-align: center;
 }
 
-button {
-    background-color: white;
-    color: grey;
+button.submit {
+    background-color: #1cda1c;
+    color: white;
     border: none;
     text-align: center;
     text-decoration: none;
@@ -70,7 +72,7 @@ button {
     font-size: 18px;
     margin: 2% 10%;
     border-radius: 10px;
-    padding: 2px 25px;
+    /* padding: 2px 25px; */
     width: 80%;
   }
 
@@ -86,31 +88,41 @@ input{
     font-size: 16px;
     margin: 0% 5%;
     border-radius: 10px;
-    padding: 2px 25px;
-    font-weight: bold;
-    width: 40%;
+    /* padding: 2px 25px; */
+    font-weight: 100;
+    width: 50%;
+}
+input#maintainance{
+    width: 90%;
 }
 
+.Qty{
+    width: 30%;
+}
 
 label{
-    color: white;
+    color: #bdbdbd;
     border: none;
     text-align: left;
     text-decoration: none;
     display: inline-block;
     font-size: 14px;
     margin: 2% 5%;
-    font-weight: bold;
-    width: 40%;
+    font-weight: 100;
+}
+.row .extrainput label{
+    width: 30%;
 }
 
-.extraCostBtn{
+/* .extraCostBtn{
     width: 40%;
     margin-left: 10%;
     margin-right: 0%;
-}
+} */
+
 .extraCostBtn.remove{
-    margin-right: 10%;
+    margin-right: 5%;
+    margin-bottom: 2%;
     float: right;
     padding: 0%;
     width: 30px;
@@ -121,15 +133,13 @@ label{
 .extrainput.name{
     margin-top: 0%; 
 }
-.extrainput .cost{
-    margin-right: 10%;
-    float: right;
+.extrainput.cost{
+    /* margin-right: 10%; */
+    /* float: right; */
     padding: 0%;
 }
 
-
-
 form{
-    margin-bottom: 4%;
+    margin: 0% 10%;
 }
 

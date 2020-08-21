@@ -1,6 +1,6 @@
 <div class="body">
-    <a (click)="onClick()" class="btn backbtn"><i class="arrow"></i><i class="line"></i></a>
-    <h3 class="header">{{"My Boat" | translate}}</h3>
+   <div> <a (click)="onClick()" class="btn backbtn"><i class="arrow"></i><i class="line"></i></a>
+    <h3 class="header">{{"My Boat" | translate}}</h3></div>
     
     <form (ngSubmit)="onStartTrip(f)" #f="ngForm">
         <div class="form-group col-xs-12" *ngIf="tripActive != true">   
@@ -26,29 +26,29 @@
 
     <div class="group-btn">
  
-    <div class="row">
-        <div class="col">
-            <button (click)="onMyBoat()" class="btn btn-lg"><img src="../../assets/Images/ic_28.png" height="70%" width="80%" /></button>
-            <button (click)="onAddCrew()" class="btn btn-lg right"><img src="../../assets/Images/ic_29.png" height="70%" width="80%" /></button>
-         </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <span class="btn-name" style="margin-left: 22%;">{{ "My Boat" | translate }}</span>
+        <div class="row align-items-center">
+            <div class="center col col-xs-6 col-sm-4 col-md-4 col-lg-4">
+                <button (click)="onMyBoat()" class="btn btn-lg"><img src="../../assets/Images/ic_28.png" height="55px" width="55px" /></button>
+                <span class="btn-name">{{ "My Boat" | translate }}</span>
+            </div>
+        <!-- </div>
+        <div class="row"> -->
+            <div class="center col col-xs-6 col-sm-4 col-md-4 col-lg-4">
+                <button (click)="onAddCrew()" class="btn btn-lg right"><img src="../../assets/Images/ic_29.png" height="55px" width="55px" /></button>
                 <span class="btn-name right">{{ "Add Crew" | translate }}</span>
-             </div>
-        </div>
-        <div class="row">
-            <div class="col">
-        <button (click)="onAddExpense()" class="btn btn-lg" [disabled]="tripActive != true"><img src="../../assets/Images/ic_30.png" height="70%" width="80%" /></button>
-        <button (click)="onAttendence()" class="btn btn-lg right" [disabled]="tripActive != true"><img src="../../assets/Images/ic_31.png" height="70%" width="80%" /></button>
-         </div>
-        </div>
-        <div class="row">
-            <div class="col">
+            </div>
+        <!-- </div>
+        <div class="row"> -->
+            <div class="center col col-xs-6 col-sm-4 col-md-4 col-lg-4">
+                <button (click)="onAddExpense()" class="btn btn-lg" [disabled]="tripActive != true"><img src="../../assets/Images/ic_30.png" height="55px" width="55px" /></button>
                 <span class="btn-name">{{ "Add Expenses" | translate }}</span>
+        </div>
+        <!-- </div>
+        <div class="row"> -->
+            <div class="center col col-xs-6 col-sm-4 col-md-4 col-lg-4">
+                <button (click)="onAttendence()" class="btn btn-lg right" [disabled]="tripActive != true"><img src="../../assets/Images/ic_31.png" height="55px" width="55px" /></button>
                 <span class="btn-name right">{{ "Attendence" | translate }}</span>
-             </div>
+            </div>
         </div>
     </div>
 </div>

@@ -1,7 +1,7 @@
 .errmsg{
     color: orange;
-    font-family: 'century Gothic';
-    font-weight: 500;
+    /* font-family: 'century Gothic'; */
+    font-weight: bold;
     font-size: 1em;
     display: inline-block;
     text-align: center;
@@ -9,10 +9,13 @@
 }
 
 .body{
+    font-weight: 100;
+    letter-spacing: 1.2px;
+    font-family: sans-serif;
+    font-size: 1em;
     background-color: black;
     min-height: 100vh;
-    font-family: 'century Gothic';
-    font-weight: bold;
+    /* font-family: 'century Gothic'; */
     position: relative;
     height: auto;
 }
@@ -40,8 +43,8 @@
 }
 
 .header{
-    font-family: 'century Gothic';
-    font-weight: 700;
+    /* font-family: 'century Gothic'; */
+    font-weight: 600;
     font-size: 1.5em;
     color: white;
     display: inline-block;
@@ -52,37 +55,48 @@
 }
 
 button {
-    background-color: green;
+    background-color: #1cda1c;
     color: white;
     border: none;
     border-radius: 10px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
+    /* display: block; */
     font-size: 1em;
-    font-weight: bold;
-    width: 30%;
-    margin: 3%;
-    margin-right: 5%;
-    padding: 2%;
+    font-weight: 100;
+    /* margin: 3% 35%; */
     align-items: center;
   }
 
+.center{
+    margin: 0 20%;
+}
+
 select{
-    display: inline-block;
-    margin: 2%;
-    margin-left: 5%;
+    margin: 0% 5%;
     height: 35px;
-    width: 40%;
+    /* width: 40%; */
 }
 
 .list-group-item{
     /* border-radius: 10px; */
-    background-color: #1C2833;
+    /* background-color: #1C2833; */
+    /* background-color: black;
     color: white;
     padding-left: 5%;
     border: none;
-    margin-bottom: 3%;
+    margin-bottom: 3%; */
+    background-color: black;
+    color: #bdbdbd;
+    border: none;
+    margin: 0 5%;
+    font-weight: 100;
+    border-bottom: 1px solid #636363;
+}
+
+.heading{
+    background-color: grey;
+    color: white;
 }
 
 span.right{
@@ -90,7 +104,7 @@ span.right{
 }
 
 hr {
-    border-top: 1px solid #ffffff26;
+    border-top: 1px solid #636363;
 }
 
 .scroll{
@@ -103,5 +117,31 @@ hr {
 .monthlyreport{
     background-color: black;
     color: white;
+    margin-top: 5%;
+}
 
+p{
+    margin: 0 0 5px;
+    padding-left: 2%;
+    border-left: 3px solid #bdbdbd;
+}
+
+.red{
+    border-left: 3px solid #ff0000;
+}
+
+.green{
+    border-left: 3px solid #00ff00;
+}
+
+.red span{
+    color: #ff0000;
+}
+
+.green span{
+    color: #00ff00;
+}
+
+.total{
+    font-size: large;
 }

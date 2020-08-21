@@ -1,7 +1,7 @@
 .errmsg{
     color: red;
     /* font-family: 'century Gothic'; */
-    font-weight: 500;
+    font-weight: bold;
     font-size: 1em;
     display: inline-block;
     text-align: center;
@@ -10,7 +10,7 @@
 .warningmsg{
     color: orange;
     /* font-family: 'century Gothic'; */
-    font-weight: 400;
+    font-weight: bold;
     font-size: 1.5em;
     display: inline-block;
     text-align: center;
@@ -19,7 +19,7 @@
 
 .msg{
     color: greenyellow;
-    font-weight: 500;
+    font-weight: bold;
     font-size: 1em;
     display: inline-block;
     text-align: center;
@@ -27,10 +27,13 @@
 }
 
 .body{
+    font-weight: 100;
+    letter-spacing: 1.2px;
+    font-family: sans-serif;
+    font-size: 1em;
     background-color: black;
     min-height: 100vh;
-    font-family: 'century Gothic';
-    font-weight: bold;
+    /* font-family: 'century Gothic'; */
     position: relative;
     height: auto;
 }
@@ -58,8 +61,8 @@
 }
 
 .header{
-    font-family: 'century Gothic';
-    font-weight: 700;
+    /* font-family: 'century Gothic'; */
+    font-weight: 600;
     font-size: 1.5em;
     color: white;
     display: inline-block;
@@ -79,15 +82,15 @@ button {
     font-size: 1em;
     margin: 2% 10%;
     border-radius: 10px;
-    padding: 2px 25px;
+    /* padding: 2px 25px; */
     float: right;
-    width: 40%;
+    /* width: 40%; */
   }
 
 .owner-name{
     font-size: 1.5em;
     font-weight: normal;
-    color: white;
+    color: #bdbdbd;
     float: left;
     margin-left: 10%;
 }
@@ -105,21 +108,19 @@ input, select, option, optgroup{
     margin: 0% 10%;
     border-radius: 10px;
     padding: 2px 25px;
-    font-weight: bold;
+    font-weight: 100;
     width: 80%;
 }
 
-
-
 label{
-    color: white;
+    color: #bdbdbd;
     border: none;
     text-align: left;
     text-decoration: none;
     display: inline-block;
     font-size: 14px;
     margin: 2% 10%;
-    font-weight: bold;
+    font-weight: 100;
     width: 80%;
 }
 
@@ -131,8 +132,6 @@ label{
     vertical-align: super;
 } */
 
-
-
 form div:first-child{
     margin-top: 10%;
 }
@@ -140,4 +139,15 @@ form{
     margin-bottom: 4%;
 }
 
-
+.btn-subscribe{
+    background-color: #ff0000;
+    color: white;
+}
+.btn-pending{
+    background-color: grey;
+    color: white;
+}
+.btn-accept{
+    background-color: #00ff00;
+    color: white;
+}

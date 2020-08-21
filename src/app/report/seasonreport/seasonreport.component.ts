@@ -28,6 +28,7 @@ export class SeasonreportComponent implements OnInit {
   fetchSeasonSubscriber: any;
   seasonID: any;
   seasonlyExpense: any;
+  redColor: any;
   
   constructor(private http: HttpClient,
     private router: Router,
@@ -85,6 +86,13 @@ export class SeasonreportComponent implements OnInit {
           for(let i=0; i<responseData.length; i++){
             this.expenditure += (responseData[i].totalOwner + responseData[i].totalSalary);
             this.profit += responseData[i].Profit;
+          }
+          if(this.profit < 0){
+            console.log(this.redColor);
+            this.redColor = true;
+            console.log(this.redColor);
+          } else {
+            this.redColor = false;
           }
           
       });

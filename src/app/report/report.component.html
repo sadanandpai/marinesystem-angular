@@ -1,18 +1,18 @@
 <div class="body">
-    <a (click)="onClick()" class="btn backbtn"><i class="arrow"></i><i class="line"></i></a>
-    <h3 class="header">{{"Boats" | translate}}</h3>
+   <div> <a (click)="onClick()" class="btn backbtn"><i class="arrow"></i><i class="line"></i></a>
+    <h3 class="header">{{ "Boats" | translate }}</h3></div>
 
  <div class="row">
     <button (click)="onSeasonReport()" class="btn btn-sm season-btn">{{ "Season Report" | translate }}</button>
  </div>
  <div class="scroll">
     <div class="row">
-        <div class="col-xs-12 col-md-12 col-lg-12 col-md-offset-3">
+        <div class="col-xs-12 col-md-12 col-lg-12">
             <p class="errmsg" *ngIf="loadedboats == null">{{ "No Boats Available" | translate }}</p>
             <ul class="list-group" *ngFor="let boat of loadedboats">
                 <li class="list-group-item">
                     <div class="row">
-                        <div class="col-xs-12 col-md-12 col-lg-12 col-md-offset-3 inline-para">
+                        <div class="col-xs-12 col-md-12 col-lg-12 inline-para">
                         
                             <div class="row">
                                 <!-- <span style="float: right;">{{ boat.createdDate }}</span> -->

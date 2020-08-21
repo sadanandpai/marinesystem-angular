@@ -2,40 +2,35 @@
     <!-- <p *ngIf="loggedIn == true" class="username">{{ user }}</p> -->
 
     <div class="group-btn">
-        <div class="row">
-            <div class="col">
-                <button class="btn btn-lg" routerLink="myboats" [disabled]="loggedIn != true || customer == true"><img src="../../assets/Images/ic_03.png" height="70%" width="70%" /></button>
-                <button class="btn btn-lg right" (click)="onStart()" [disabled]="loggedIn != true"><img src="../../assets/Images/ic_07.png" height="70%" width="70%" /></button>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
+        <div class="row align-items-center">
+            <div class="center col col-xs-6 col-sm-4 col-md-4 col-lg-4">
+                <button class="btn btn-lg" routerLink="myboats" [disabled]="loggedIn != true || customer == true"><img src="../../assets/Images/ic_03.png" height="55px" width="55px" /></button>
                 <span class="btn-name">{{ "My Boat" | translate }}</span>
+            </div>
+
+            <div class="center col col-xs-6 col-sm-4 col-md-4 col-lg-4">
+                <button class="btn btn-lg right" (click)="onStart()" [disabled]="loggedIn != true"><img src="../../assets/Images/ic_07.png" height="55px" width="55px" /></button>
                 <span class="btn-name right">{{ "Auction" | translate }}</span>
             </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <button class="btn btn-lg" routerLink="map"><img src="../../assets/Images/ic_16.png" height="70%" width="70%" /></button>
-                <button class="btn btn-lg right" routerLink="compass"><img src="../../assets/Images/ic_14.png" height="70%" width="70%" /></button>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
+
+            <div class="center col col-xs-6 col-sm-4 col-md-4 col-lg-4">
+                <button class="btn btn-lg" routerLink="map"><img src="../../assets/Images/ic_16.png" height="55px" width="55px" /></button>
                 <span class="btn-name">{{ "Weather" | translate }}</span>
+            </div>
+
+            <div class="center col col-xs-6 col-sm-4 col-md-4 col-lg-4">
+                <button class="btn btn-lg right" routerLink="compass"><img src="../../assets/Images/ic_14.png" height="55px" width="55px" /></button>
                 <span class="btn-name right">{{ "Compass" | translate }}</span>
             </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <button class="btn btn-lg" routerLink="#"><img src="../../assets/Images/ic_24.png" height="70%" width="70%" /></button>
-                <button class="btn btn-lg right" routerLink="calculator"><img src="../../assets/Images/ic_27.png" height="70%" width="70%" /></button>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
+
+            <div class="center col col-xs-6 col-sm-4 col-md-4 col-lg-4">
+                <button class="btn btn-lg" routerLink="#"><img src="../../assets/Images/ic_24.png" height="55px" width="55px" /></button>
                 <span class="btn-name">{{ "Blog" | translate }}</span>
-                <span class="btn-name right" style="margin-right: 18%;">{{ "Calculator" | translate }}</span>
+            </div>
+
+            <div class="center col col-xs-6 col-sm-4 col-md-4 col-lg-4">
+                <button class="btn btn-lg right" routerLink="calculator"><img src="../../assets/Images/ic_27.png" height="55px" width="55px" /></button>
+                <span class="btn-name right">{{ "Calculator" | translate }}</span>
             </div>
         </div>
         </div>

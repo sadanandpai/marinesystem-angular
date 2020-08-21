@@ -1,7 +1,7 @@
 .seasonErr{
     color: red;
-    font-family: 'century Gothic';
-    font-weight: 500;
+    /* font-family: 'century Gothic'; */
+    font-weight: bold;
     font-size: 1em;
     display: inline-block;
     text-align: center;
@@ -10,12 +10,18 @@
 
 
 .body{
+    font-weight: 100;
+    letter-spacing: 1.2px;
+    font-family: sans-serif;
+    font-size: 1em;
     background-color: black;
-    min-height: calc(100vh - 56px);
+    min-height: calc(100vh - 51px);
     position: relative;
     height: auto;
-    font-family: 'century Gothic';
-    font-weight: normal;
+    font-weight: 100;
+    letter-spacing: 1.2px;
+    font-family: sans-serif;
+    font-size: 1em;
 }
 
 .backbtn{
@@ -41,7 +47,7 @@
 }
 
 .header{
-    font-family: 'century Gothic';
+    /* font-family: 'century Gothic'; */
     font-weight: 600;
     font-size: 1.5em;
     color: white;
@@ -62,7 +68,7 @@ p.username{
 }
 
 button {
-    background-color: #339933;
+    background-color: #1cda1c;
     border: none;
     border-radius: 20px;
     text-align: center;
@@ -70,11 +76,11 @@ button {
     display: inline-block;
     font-size: 1em;
     font-weight: normal;
-    width: 25%;
-    height: 100px;
-    margin-left: 18%;
+    width: 50%;
+    height: 82.5px;
+    /* margin-left: 18%; */
 }
-
+/* 
 button.right{
     float: right;
     margin-right: 18%;
@@ -85,14 +91,14 @@ span.right{
     float: right;
     margin-right: 20%;
     margin-left: 0%;
-}
+} */
 
 .btn-trip{
     height: auto;
     width: 40%;
     border-radius: 8px;
     color: white;
-    background-color: #2baa24;
+    background-color: #1cdb1c;
     margin: 0% 30%;
     font-weight: bold;
     text-transform: uppercase; 
@@ -104,19 +110,24 @@ select{
 }
 
 .btn-name{
-    color: white;
-    text-align: center;
+    color: #dbdbdb;
+    /* text-align: center; */
     text-transform: uppercase;
     text-decoration: none;
-    display: inline-block;
+    display: block;
+    font-weight: 100;
+    letter-spacing: 1.2px;
+    font-family: sans-serif;
     font-size: 1em;
-    font-weight: bold;
-    margin-left: 18%;
-    margin-bottom: 10%;
+    /* margin-left: 18%; */
+    /* margin-bottom: 10%; */
 }
 
 .group-btn{
-    padding-top: 10%;
+    padding: 10% 0%;
 }
 
-
+.center{
+    text-align: center;
+    padding-bottom: 10%;
+}

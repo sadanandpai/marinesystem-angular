@@ -1,7 +1,7 @@
 .errmsg{
     color: orange;
-    font-family: 'century Gothic';
-    font-weight: 500;
+    /* font-family: 'century Gothic'; */
+    font-weight: bold;
     font-size: 1em;
     display: inline-block;
     text-align: center;
@@ -9,9 +9,13 @@
 }
 
 .body{
+    font-weight: 100;
+    letter-spacing: 1.2px;
+    font-family: sans-serif;
+    font-size: 1em;
     background-color: black;
     min-height: 100vh;
-    font-family: 'century Gothic';
+    /* font-family: 'century Gothic'; */
     font-weight: bold;
     position: relative;
     height: auto;
@@ -40,8 +44,8 @@
 }
 
 .header{
-    font-family: 'century Gothic';
-    font-weight: 700;
+    /* font-family: 'century Gothic'; */
+    font-weight: 600;
     font-size: 1.5em;
     color: white;
     display: inline-block;
@@ -52,28 +56,35 @@
 }
 
 button {
-    background-color: white;
-    color: grey;
+    background-color: #1cda1c;
+    color: white;
     border: none;
     border-radius: 10px;
     text-align: center;
     text-decoration: none;
     display: block;
     font-size: 1em;
-    font-weight: bold;
-    width: 50%;
-    padding: 2% 1%;
+    font-weight: 100;
+    /* width: 50%; */
+    /* padding: 2% 1%; */
     float: right;
   }
 
 
 .list-group-item{
-    margin: 0%;
-    background-color: #1C2833;
+    /* margin: 0%; */
+    /* background-color: #1C2833; */
+    /* background-color: black;
     color: white;
     padding: 2% 9%;
     line-height: 2em;
+    border: none; */ 
+    background-color: black;
+    color: #bdbdbd;
     border: none;
+    margin: 0 10%;
+    font-weight: 100;
+    border-bottom: 1px solid #636363;
 }
 
 .left{

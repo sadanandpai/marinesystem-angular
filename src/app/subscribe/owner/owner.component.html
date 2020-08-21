@@ -1,6 +1,6 @@
 <div class="body">
-    <a (click)="onClick()" class="btn backbtn"><i class="arrow"></i><i class="line"></i></a>
-    <h3 class="header">Customer List</h3>
+   <div> <a (click)="onClick()" class="btn backbtn"><i class="arrow"></i><i class="line"></i></a>
+    <h3 class="header">Customer List</h3></div>
 
     
         <span class="help-block msg" *ngIf="success == true">{{ "Request Sent Successfully!!" | translate }}</span>
@@ -12,12 +12,18 @@
                 <li *ngFor="let customer of loadedcustomer">
                     <div class="row">
                         <p class="customer-name">{{ customer.customer }}</p>
-                        <button class="btn btn-sm btn-success" type="button" (click)="onAccept(customer.id)">
-                            {{ "Accept" | translate }}
-                        </button>
-                        <button class="btn btn-sm btn-danger" type="button" (click)="onDelete(customer.id)">
-                            {{ "Delete" | translate }}
-                        </button>
+                    </div>
+                    <div class="row">
+                        <div class="center col-xs-6">
+                            <button class="btn btn-lg btn-accept" type="button" (click)="onAccept(customer.id)">
+                                {{ "Accept" | translate }}
+                            </button>
+                        </div>
+                        <div class="center col-xs-6">
+                            <button class="btn btn-lg btn-delete" type="button" (click)="onDelete(customer.id)">
+                                {{ "Delete" | translate }}
+                            </button>
+                        </div>
                     </div>
                 </li>
                 </ul>

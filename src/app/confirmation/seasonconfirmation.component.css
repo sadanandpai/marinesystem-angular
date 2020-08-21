@@ -1,7 +1,7 @@
 .errmsg{
     color: orange;
-    font-family: 'century Gothic';
-    font-weight: 500;
+    /* font-family: 'century Gothic'; */
+    font-weight: bold;
     font-size: 1em;
     display: inline-block;
     text-align: center;
@@ -9,11 +9,15 @@
 }
 
 .body{
+    font-weight: 100;
+    letter-spacing: 1.2px;
+    font-family: sans-serif;
+    font-size: 1em;
     background-color: black;
-    min-height: calc(100vh - 56px);
+    min-height: calc(100vh - 51px);
     position: relative;
     height: auto;
-    font-family: 'century Gothic';
+    /* font-family: 'century Gothic'; */
     font-weight: normal;
 }
 
@@ -40,7 +44,7 @@
 }
 
 .header{
-    font-family: 'century Gothic';
+    /* font-family: 'century Gothic'; */
     font-weight: 600;
     font-size: 1.5em;
     color: white;
@@ -51,23 +55,24 @@
     text-align: center;
 }
 
-button {
-    background-color: #339933;
+/* button {
+    background-color: #1cda1c;
+    color: white;
     border: none;
     border-radius: 20px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 1em;
-    font-weight: normal;
+    font-weight: 100;
     width: 25%;
     height: 100px;
     margin-left: 18%;
-}
+} */
 
 .content{
     text-align: center;
-    color: white;
+    color: #bdbdbd;
     font-size: 2em;
 }
 
@@ -76,9 +81,9 @@ button {
     width: 40%;
     border-radius: 8px;
     color: white;
-    background-color: #2baa24;
+    background-color: #1cdb1c;
     margin: 0% 5%;
-    font-weight: bold;
+    font-weight: 100;
     text-transform: uppercase; 
 }
 
@@ -89,13 +94,13 @@ button {
     color: white;
     background-color: #ff0000;
     margin: 0% 5%;
-    font-weight: bold;
+    font-weight: 100;
     text-transform: uppercase; 
 }
 
 form{
-    background-color: grey;
-    padding-bottom: 5%;
+    /* background-color: grey; */
+    padding: 5% 0%;
 }
 
 

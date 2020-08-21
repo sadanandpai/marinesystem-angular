@@ -1,14 +1,33 @@
 <div class="body">
-    <div class="row">
-        <div class="contents">
-            <div class="col-xs-12 col-md-12 col-lg-12">
+    <div class="contents">
+        <div class="row">
+            <!-- <div class="row">
                 <a (click)="onClose()" tooltip="close" class="btn btn-sm btn-close"></a>
-                <p class="header">{{ "Winner Details" | translate}}</p>
-                <p class="winamount" *ngIf="boatowner == true">Rs. {{ winAmount }}</p>
-                <div class="details">
-                    <p class="left">{{ "Winner Username" | translate}}: </p><p class="name" *ngIf="boatowner == true">{{ winnerName }}</p>
-                    <hr>
-                    <button (click)="onFinish()">{{ "Finish" | translate }}</button>
+            </div> -->
+            <div class="row">
+                <div class="center col-xs-12">
+                    <p class="header">{{ "Winner Details" | translate}}</p>
+                </div>
+            </div>
+            <div class="details">
+                <div class="row">
+                    <div class="center col-xs-12">
+                        <p class="winamount" *ngIf="boatowner == true">Rs. {{ winAmount }}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="center col-xs-6">
+                        <p>{{ "Username" | translate}}</p>
+                    </div>
+                    <div class="center col-xs-6">
+                        <p class="name" *ngIf="boatowner == true">{{ winnerName }}</p>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="center col-xs-12">
+                        <button class="btn btn-lg" (click)="onFinish()">{{ "Finish" | translate }}</button>
+                    </div>
                 </div>
             </div>
         </div>

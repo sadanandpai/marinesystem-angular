@@ -1,7 +1,7 @@
 .errmsg{
     color: red;
     /* font-family: 'century Gothic'; */
-    font-weight: 500;
+    font-weight: bold;
     font-size: 1em;
     display: inline-block;
     text-align: center;
@@ -19,7 +19,7 @@
 
 .msg{
     color: greenyellow;
-    font-weight: 500;
+    font-weight: bold;
     font-size: 1em;
     display: inline-block;
     text-align: center;
@@ -27,10 +27,13 @@
 }
 
 .body{
+    font-weight: 100;
+    letter-spacing: 1.2px;
+    font-family: sans-serif;
+    font-size: 1em;
     background-color: black;
     min-height: 100vh;
-    font-family: 'century Gothic';
-    font-weight: bold;
+    /* font-family: 'century Gothic'; */
     position: relative;
     height: auto;
 }
@@ -58,9 +61,9 @@
 }
 
 .header{
-    font-family: 'century Gothic';
+    /* font-family: 'century Gothic'; */
     text-transform: capitalize;
-    font-weight: 700;
+    font-weight: 600;
     font-size: 1.5em;
     color: white;
     display: inline-block;
@@ -71,21 +74,21 @@
 }
 
 button {
-    background-color: white;
-    color: grey;
+    background-color: #1cda1c;
+    color: white;
     border: none;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 1.5em;
-    margin: 2% 12%;
+    margin: 2% 10%;
     border-radius: 10px;
     padding: 2px 25px;
-    width: 76%;
+    width: 80%;
   }
 
 .btn-history{
-    background-color: green;
+   background-color: #1cda1c;
     color: white;
     border: none;
     text-align: center;
@@ -95,7 +98,7 @@ button {
     border-radius: 10px;
     padding: 7px 20px;
     float: right;
-    width: 40%;
+    width: auto;
 }
 
 input, textarea{
@@ -110,19 +113,19 @@ input, textarea{
     margin: 0% 10%;
     border-radius: 10px;
     padding: 2px 25px;
-    font-weight: bold;
+    font-weight: 100;
     width: 80%;
 }
 
 label{
-    color: white;
+    color: #bbddbb;
     border: none;
     text-align: left;
     text-decoration: none;
     display: inline-block;
     font-size: 1em;
     margin: 2% 10%;
-    font-weight: bold;
+    font-weight: 100;
     width: 80%;
 }
 

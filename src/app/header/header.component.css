@@ -1,10 +1,20 @@
 .body{
+    font-weight: 100;
+    letter-spacing: 1.2px;
+    font-family: sans-serif;
+    font-size: 1em;
     background-color: black;
-    font-family: 'century Gothic';
+    /* font-family: 'century Gothic'; */
     font-weight: bold;
-    min-height: 80px;
+    min-height: 66px;
     position: relative;
     border-bottom: 1px solid grey;
+}
+
+p.username{
+  color: white;
+  font-size: 25px;
+  text-align: center;
 }
 
 .sidebar a.lan {
@@ -12,7 +22,7 @@
 }
 
 a .logo{
-    margin-left: 5%;
+    margin-top: 4%;
 }
 
 .sidebar {
@@ -68,7 +78,7 @@ a .logo{
   
   #main {
     transition: margin-left .5s;
-    padding: 16px;
+    padding: 8px;
   }
   
   /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
@@ -79,5 +89,5 @@ a .logo{
 
   svg{
     float: right;
-    margin-top: 2%;
+    margin: 20%;
   }

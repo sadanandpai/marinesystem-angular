@@ -1,7 +1,7 @@
 .errmsg{
     color: orange;
-    font-family: 'century Gothic';
-    font-weight: 500;
+    /* font-family: 'century Gothic'; */
+    font-weight: bold;
     font-size: 1em;
     display: inline-block;
     text-align: center;
@@ -9,10 +9,14 @@
 }
 
 .body{
+    font-weight: 100;
+    letter-spacing: 1.2px;
+    font-family: sans-serif;
+    font-size: 1em;
     background-color: black;
     color: white;
     min-height: 100vh;
-    font-family: 'century Gothic';
+    /* font-family: 'century Gothic'; */
     font-weight: bold;
     position: relative;
     height: auto;
@@ -41,7 +45,7 @@
 }
 
 .header{
-    font-family: 'century Gothic';
+    /* font-family: 'century Gothic'; */
     font-weight: 600;
     font-size: 1.5em;
     color: white;
@@ -71,11 +75,11 @@ button {
 }
 
 p {
-    margin-top: 2%;
+    /* margin-top: 2%; */
     /* float: right; */
-    /* font-size: 1em; */
+    font-size: 1em;
     color: white;
-    margin-right: 10%;
+    /* margin-right: 10%; */
     margin-bottom: 0px;
 }
 
@@ -94,4 +98,12 @@ div.details p{
 
 .weather{
     padding: 2% 3%;
+}
+
+.details{
+    border: 1px solid #1c1c1c;
+}
+
+.details hr{
+    border-top: 1px solid #1c1c1c;
 }
