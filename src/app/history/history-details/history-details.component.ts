@@ -20,9 +20,16 @@ export class HistoryDetailsComponent implements OnInit, OnDestroy {
   fetchFishSubscriber: any;
   fetchWinnerSubscriber: any;
   initialSubscriber: any;
+  handledowner: boolean;
+  boatowner: boolean;
+  boatdriver: boolean;
 
   fishname: any;
   damaged: any;
+  trip_id: any;
+  fetchBoatIdSubscriber: any;
+  boatID: any;
+  fetchOwnerSubscriber: any;
 
   constructor(private http: HttpClient,
     private router: Router,
@@ -34,6 +41,12 @@ export class HistoryDetailsComponent implements OnInit, OnDestroy {
     this.initialSubscriber = this.route.params.subscribe(data=>{
       this.fid = Number(data.id);
     });
+    var data = localStorage.getItem('group');
+      if(data == 'BoatOwner'){
+        this.boatowner = true;
+      } else if(data == 'BoatDriver'){
+        this.boatdriver = true;
+      }
     this.fetchfish();
     this.fetchWinner();
   }
@@ -61,14 +74,52 @@ export class HistoryDetailsComponent implements OnInit, OnDestroy {
       this.fetchWinnerSubscriber = this.http.get('http://localhost:8000/portal/auction_list/' + id + '/')
         .subscribe(
           (responseData: any) => {
+            console.log(responseData);
             this.winAmount = responseData.highestBid;
             this.winnerName = responseData.users;
-            console.log(responseData);
+            this.trip_id = responseData.trips;
+            if(this.boatowner==true){
+              this.fetchBoatId();
+            }
           },
           (error) => {
             console.log(error);
           });
   }
+
+   // fetch boat id from trip table 
+   private  fetchBoatId() {
+    this.fetchBoatIdSubscriber = this.http.get('http://localhost:8000/portal/trip_detail/' + this.trip_id + '/')
+    .subscribe(
+      (responseData: any) => {
+        console.log(responseData);
+        // we need BoatID to check, if this fish is belongs to current logged in owner or not,,
+        this.boatID = responseData.boat;
+        // we got BoatID in this responseData, so fetch for owner of boat using id
+        this.fetchOwnerFromBoatUsingBoatID();
+
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+fetchOwnerFromBoatUsingBoatID() {
+  this.fetchOwnerSubscriber = this.http.get('http://localhost:8000/portal/boat_detail/' + this.boatID + '/')
+    .subscribe(
+      (responseData: any) => {
+        console.log(responseData);
+        if(responseData.owner == localStorage.getItem('user')){
+          console.log(responseData.owner + ' == ' + localStorage.getItem('user'));
+          this.handledowner = true;
+        }
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+}
+
 
   ngOnDestroy() {
     if(this.fetchFishSubscriber){
@@ -79,6 +130,12 @@ export class HistoryDetailsComponent implements OnInit, OnDestroy {
     }
     if(this.initialSubscriber){
       this.initialSubscriber.unsubscribe();
+    }
+    if(this.fetchBoatIdSubscriber){
+      this.fetchBoatIdSubscriber.unsubscribe();
+    }
+    if(this.fetchOwnerSubscriber){
+      this.fetchOwnerSubscriber.unsubscribe();
     }
   }
 }

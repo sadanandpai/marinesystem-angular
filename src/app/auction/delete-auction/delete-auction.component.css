@@ -1,5 +1,5 @@
 .errmsg{
-    color: orange;
+    color: #ff0000;
     /* font-family: 'century Gothic'; */
     font-weight: bold;
     font-size: 1em;
@@ -103,20 +103,18 @@ button {
     display: block;
     font-size: 1em;
     font-weight: 100;
-    width: 40%;
-    padding: 3% 3%;
-    float: right;
+}
+.center{
+    /* text-align: center; */
+    text-align: -webkit-center;
 }
 .btn-delete{
     background-color: #ff0000;
     color: white;
 }
-.btn-done{
-    float: left;
-}
-.btn-view{
-    float:right;
-    width:40%;
+.btn-cancel{
+    background-color: #1cda1c;
+    color: white;
 }
 
 input{
@@ -134,11 +132,11 @@ input{
     width: 100%;
 }
 
-input#price {
+/* input#price {
     margin-left: 0%;
     margin-right: 0%;
-}
-.extras-left {
+} */
+/* .extras-left {
     box-shadow: 0px 0px 5px grey;
     border: none;
     margin-left: 10%;
@@ -151,7 +149,7 @@ input#price {
     margin-right: 10%;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
-}
+} */
 
 
 

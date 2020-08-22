@@ -38,6 +38,7 @@ import { MonthlyreportComponent } from './report/monthlyreport/monthlyreport.com
 import { SeasonreportComponent } from './report/seasonreport/seasonreport.component';
 import { MonthlyboatexpenseComponent } from './monthlyboatexpense/monthlyboatexpense.component';
 import { CompassComponent } from './compass/compass.component';
+import { DeleteAuctionComponent } from './auction/delete-auction/delete-auction.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -81,6 +82,8 @@ const routes: Routes = [
   { path: 'monthlyboatexpense', component: MonthlyboatexpenseComponent },
   { path: 'addmonthlyexpense/:id', component: AddmonthlyexpenseComponent },
   { path: 'monthlyexpensehistory/:id', component: ExpenseHistoryComponent },
+  { path: 'deleteAuction/:id', component: DeleteAuctionComponent },
+  
   
 ];
 

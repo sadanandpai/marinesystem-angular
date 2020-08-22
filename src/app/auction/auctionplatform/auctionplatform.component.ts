@@ -57,6 +57,7 @@ export class AuctionplatformComponent implements OnInit, OnDestroy {
   boatID: any;
   fetchOwnerSubscriber: any;
   handleAuction: boolean;
+  handleDelete: boolean;
 
   constructor(private http: HttpClient,
               private router: Router,
@@ -107,6 +108,13 @@ export class AuctionplatformComponent implements OnInit, OnDestroy {
     this.router.navigate(['/auction']);
   }
   
+  onDelete(){
+    if(this.boatdriver == true || this.boatowner == true){
+      let id = this.fid;
+      this.router.navigate(['/deleteAuction', id]);
+    }
+  }
+
   Done(form: NgForm) {
     // Show winner details
     console.log("Winner Details");
@@ -138,10 +146,18 @@ export class AuctionplatformComponent implements OnInit, OnDestroy {
         .subscribe((responseData: any) => {
             console.log(responseData);
             let loadedfishes: any = responseData;
+            this.id = loadedfishes.id;
             this.fishid = loadedfishes.fish_id;
             this.minprice = loadedfishes.fish_price;
             this.size = loadedfishes.fish_size;
             this.damaged = loadedfishes.damaged;
+            let activeDriver = localStorage.getItem('user')
+            if(this.boatdriver == true && activeDriver == loadedfishes.driver){
+                // debugger
+                this.handleDelete = true;
+            } else if(this.boatowner == true) {
+              this.fetchTripIdFromAuction();
+            }
         });
   }
 
@@ -225,7 +241,7 @@ export class AuctionplatformComponent implements OnInit, OnDestroy {
     
   }
   
-    // fetch old auction amount from trip table 
+    // fetch old auction amount and boat id from trip table 
     private  fetchAuctionAmount() {
       // to get trip id from auction table
       // debugger
@@ -258,6 +274,7 @@ export class AuctionplatformComponent implements OnInit, OnDestroy {
           if(responseData.owner == localStorage.getItem('user')){
             console.log(responseData.owner + ' == ' + localStorage.getItem('user'));
             this.handleAuction = true;
+            this.handleDelete = true;
           }
         },
         (error) => {

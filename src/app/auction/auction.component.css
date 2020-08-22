@@ -63,7 +63,9 @@ button {
     text-decoration: none;
     font-size: 1em;
     font-weight: 100;
+    margin-top: 2%;
 }
+
 
 .content{
     overflow-y: auto;
@@ -130,7 +132,7 @@ button {
     padding: 1%;
 } */
 
-div.left{
+.left{
     float: left;
 }
 

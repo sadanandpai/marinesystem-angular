@@ -4,10 +4,11 @@
     <h3 class="header">{{"Auction Platform" | translate}}</h3></div>
 
 <div class="row">
-    <div class="col-xs-6"></div>
+    <div class="col-xs-6">
+        <button (click)="onAddFish()" class="btn btn-sm btn-addfish left" *ngIf="boatdriver == true">{{ "Add Fish" | translate }}</button>
+    </div>
     <div class="right col-xs-6">
-        <button (click)="onAddFish()" class="btn btn-sm btn-addfish" *ngIf="boatdriver == true">{{ "Add Fish" | translate }}</button>
-        <button (click)="onClickHistory()" class="btn btn-sm btn-history" *ngIf="boatOwner == true">{{ "History" | translate }}</button>
+        <button (click)="onClickHistory()" class="btn btn-sm btn-history">{{ "History" | translate }}</button>
     </div>
 </div>
  </div>
@@ -35,7 +36,7 @@
                         <p>{{ "Driver" | translate }} - {{ fish.driver }}</p>
                         <p class="damagedFish" *ngIf="fish.damaged == true">{{ "(Damaged)" | translate }}</p>
                         <button (click)="onStartBid(fish.id)" class="btn btn-sm clearfix">{{ boatdriver || boatOwner ? "View Bidding" : "Start Bidding" }}</button>
-                    </div>
+                        </div>
                 </div>
                 </li>
                 <hr>

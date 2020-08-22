@@ -58,6 +58,7 @@ import { MonthlyreportComponent } from './report/monthlyreport/monthlyreport.com
 import { SeasonreportComponent } from './report/seasonreport/seasonreport.component';
 import { MonthlyboatexpenseComponent } from './monthlyboatexpense/monthlyboatexpense.component';
 import { CompassComponent } from './compass/compass.component';
+import { DeleteAuctionComponent } from './auction/delete-auction/delete-auction.component';
 
 
 // AoT requires an exported function for factories
@@ -117,6 +118,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     SeasonreportComponent,
     MonthlyboatexpenseComponent,
     CompassComponent,
+    DeleteAuctionComponent,
   ],
   imports: [
     BrowserModule,

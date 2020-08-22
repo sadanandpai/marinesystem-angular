@@ -1,0 +1,34 @@
+<div class="body">
+    <div> <a (click)="onClick()" class="btn backbtn"><i class="arrow"></i><i class="line"></i></a>
+     <h3 class="header">{{ "Delete Fish" | translate }}</h3></div>
+     <div class="row">
+        <div class="contents">
+            <div class="col-xs-12 col-md-12 col-lg-12">
+                <h6 class="fishname">{{ fishname[fishid] }}</h6>
+                <img src="../../../assets/Images/{{ fishname[fishid] }}.jpg" width="100%" height="100%">
+                <span *ngIf="damaged == true">{{ "(Damaged)" | translate }}</span>
+                <hr>
+                <p class="left">{{ "Fish Quantity" | translate }} (in KG)</p><p> {{ size }}</p>
+                <hr>
+                <p class="left">{{ "Min Price" | translate }} (in Rs.)</p><p> {{ minprice }}</p> 
+                <hr>
+
+                <div class="row">
+                    <div class="center col-xs-6">
+                        <button (click)="onDelete()" class="btn btn-sm btn-delete" [disabled]="handleDelete != true" *ngIf="boatowner == true || boatdriver == true">
+                                {{ "DELETE" | translate }}
+                        </button>
+                    </div>
+                    <div class="center col-xs-6">
+                        <button (click)="onCancel()" class="btn btn-sm btn-cancel" [disabled]="handleDelete != true" *ngIf="boatowner == true || boatdriver == true">
+                                {{ "CANCEL" | translate }}
+                        </button>
+                    </div>
+                 </div>
+                 <p class="errmsg" *ngIf="handleDelete != true">{{ "You Can't Delete this Fish" | translate }}</p>
+            </div>
+        </div>
+     </div>
+     
+ </div>
+ 
